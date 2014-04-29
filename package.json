@@ -1,0 +1,24 @@
+{
+  "name": "startmeup",
+  "version": "0.0.1",
+  "description": "Start my project",
+  "private": true,
+  "homepage":"https://github.com/fernandopasik/startmeup",
+  "author": {
+    "name": "Fernando Pasik",
+    "email": "fernando@pasik.com.ar"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fernandopasik/startmeup.git"
+  },
+  "keywords": [],
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">=0.8.0",
+    "npm": ">=1.2.10"
+  },
+  "license": "MIT"
+}
