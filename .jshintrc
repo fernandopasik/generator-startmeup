@@ -11,14 +11,13 @@
   "newcap"        : false,
   "noarg"         : true,
   "noempty"       : true,
+  "nonbsp"        : true,
   "nonew"         : true,
   "plusplus"      : false,
   "quotmark"      : "single",
-  "regexp"        : true,
   "undef"         : true,
   "unused"        : true,
   "strict"        : true,
-  "trailing"      : true,
 
   "maxlen"        : 120,
 
@@ -34,16 +33,19 @@
   "iterator"      : false,
   "lastsemic"     : false,
   "laxbreak"      : false,
+  "laxcomma"      : false,
   "loopfunc"      : false,
+  "maxerr"        : 50,
   "moz"           : false,
   "multistr"      : false,
+  "notypeof"      : false,
   "proto"         : false,
   "scripturl"     : false,
-  "smarttabs"     : false,
   "shadow"        : false,
   "sub"           : false,
   "supernew"      : false,
   "validthis"     : false,
+  "noyield"       : false,
 
   "browser"       : true,
   "couch"         : false,
@@ -69,10 +71,5 @@
     "afterEach",
     "define",
     "require"
-  ],
-
-  "nomen"         : false,
-  "onevar"        : true,
-  "passfail"      : false,
-  "white"         : true
+  ]
 }
