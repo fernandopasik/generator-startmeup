@@ -1,16 +1,16 @@
 {
-  "name": "startmeup",
-  "version": "0.0.1",
-  "description": "Start my project",
+  "name": "generator-startmeup",
+  "version": "0.1.0",
+  "description": "StartMeUp Yeoman Generator",
   "private": true,
-  "homepage": "https://github.com/fernandopasik/startmeup",
+  "homepage": "https://github.com/fernandopasik/generator-startmeup",
   "author": {
     "name": "Fernando Pasik",
     "email": "fernando@pasik.com.ar"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/fernandopasik/startmeup.git"
+    "url": "git://github.com/fernandopasik/generator-startmeup.git"
   },
   "main": "generators/app/index.js",
   "scripts": {
