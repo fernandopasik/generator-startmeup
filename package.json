@@ -8,20 +8,37 @@
     "name": "Fernando Pasik",
     "email": "fernando@pasik.com.ar"
   },
-  "scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install"
-  },
   "repository": {
     "type": "git",
     "url": "git://github.com/fernandopasik/startmeup.git"
   },
+  "main": "generators/app/index.js",
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install",
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "files": [
+    "generators"
+  ],
   "keywords": [],
   "dependencies": {
-    "bower": "^1.3.8"
+    "bower": "^1.3.8",
+    "chalk": "^0.5.1",
+    "yeoman-generator": "^0.17.1",
+    "yosay": "^0.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jscs": "^0.6.2",
+    "grunt-mocha-test": "^0.11.0",
+    "jshint-stylish": "^0.4.0",
+    "load-grunt-tasks": "^0.6.0",
+    "mocha": "^1.21.3"
+  },
   "engines": {
-    "node": ">=0.8.0",
+    "node": ">=0.10.0",
     "npm": ">=1.2.10"
   },
   "license": "MIT"
