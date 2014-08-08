@@ -14,7 +14,7 @@
   },
   "main": "generators/app/index.js",
   "scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install",
+    "postinstall": "./node_modules/bower/bin/bower install --config.interactive=false",
     "test": "./node_modules/mocha/bin/mocha"
   },
   "files": [
