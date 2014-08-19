@@ -22,7 +22,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: app.files.js,
-        tasks: ['jshint', 'jscs', 'mochaTest']
+        tasks: ['jshint', 'jscs', 'mochacov']
       }
     },
 
@@ -50,12 +50,20 @@ module.exports = function (grunt) {
       }
     },
 
-    mochaTest: {
+    mochacov: {
       test: {
         options: {
           reporter: 'spec'
-        },
-        src: ['test/index.js']
+        }
+      },
+      coverage: {
+        options: {
+          reporter: 'html-cov',
+          output: 'test/coverage.html'
+        }
+      },
+      options: {
+        files: 'test/index.js'
       }
     }
   });
@@ -63,5 +71,5 @@ module.exports = function (grunt) {
   // Load all grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
-  grunt.registerTask('default', ['jshint', 'jscs', 'mochaTest']);
+  grunt.registerTask('default', ['jshint', 'jscs', 'mochacov']);
 };

@@ -21,3 +21,6 @@ npm-debug.log
 # build and temp folders
 dist
 .tmp
+
+# project files
+test/coverage.html
