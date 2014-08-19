@@ -62,6 +62,13 @@ module.exports = function (grunt) {
           output: 'test/coverage.html'
         }
       },
+      coveralls: {
+        options: {
+          coveralls: {
+            serviceName: 'travis-ci'
+          }
+        }
+      },
       options: {
         files: 'test/index.js'
       }
@@ -71,5 +78,7 @@ module.exports = function (grunt) {
   // Load all grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
-  grunt.registerTask('default', ['jshint', 'jscs', 'mochacov']);
+  grunt.registerTask('test', ['jshint', 'jscs', 'mochacov:test', 'mochacov:coverage']);
+  grunt.registerTask('travis', ['jshint', 'jscs', 'mochacov:test', 'mochacov:coveralls']);
+  grunt.registerTask('default', ['test']);
 };
