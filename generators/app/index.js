@@ -4,7 +4,6 @@
 var
   path = require('path'),
   yeoman = require('yeoman-generator'),
-  yosay = require('yosay'),
   rootDir = path.join(__dirname, '../../'),
   StartMeUpGenerator;
 
@@ -23,10 +22,7 @@ StartMeUpGenerator = yeoman.generators.Base.extend({
     });
   },
 
-  welcome: function () {
-    // Have Yeoman greet the user.
-    this.log(yosay('Welcome to the marvelous StartMeUp generator!'));
-  },
+  welcome: require('./inc/welcome'),
 
   app: function () {
     this.mkdir('app');
