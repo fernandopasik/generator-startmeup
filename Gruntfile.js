@@ -72,13 +72,18 @@ module.exports = function (grunt) {
       options: {
         files: 'test/index.js'
       }
+    },
+
+    clean: {
+      temp: ['.tmp'],
+      coverage: ['test/coverage.html']
     }
   });
 
   // Load all grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
-  grunt.registerTask('test', ['jshint', 'jscs', 'mochacov:test', 'mochacov:coverage']);
+  grunt.registerTask('test', ['clean', 'jshint', 'jscs', 'mochacov:test', 'mochacov:coverage']);
   grunt.registerTask('travis', ['jshint', 'jscs', 'mochacov:test', 'mochacov:coveralls']);
   grunt.registerTask('default', ['test']);
 };
