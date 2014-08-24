@@ -20,7 +20,7 @@
   },
   "config": {
     "blanket": {
-      "pattern": "generators/app/index.js"
+      "pattern": "generators/"
     }
   },
   "files": [
