@@ -2,7 +2,7 @@
 
 var helpers = require('yeoman-generator').test;
 
-describe('File Creation', function () {
+describe('dotfiles Creation', function () {
 
   it('creates expected files', function (done) {
     var expected = [
@@ -16,8 +16,11 @@ describe('File Creation', function () {
       '.jshintrc'
     ];
 
-    helpers.assertFile(expected);
-    done();
+    this.app.run({}, function () {
+      helpers.assertFile(expected);
+      done();
+    });
+
   });
 
 });

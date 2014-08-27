@@ -2,23 +2,21 @@
 
 var
   path = require('path'),
+  genDir = path.join(__dirname, '../generators/app'),
+  tmpDir = path.join(__dirname, '../.tmp'),
   helpers = require('yeoman-generator').test;
 
-before(function (done) {
-
-  var tmpDir = path.join(__dirname, '../.tmp');
-
+beforeEach(function (done) {
   helpers.testDirectory(tmpDir, function (err) {
     if (err) {
       return done(err);
     }
-
-    this.app = helpers.createGenerator('startmeup:app', ['../generators/app']);
-    this.app.run({}, function () {
-      done();
-    });
+    this.app = helpers.createGenerator('startmeup:app', [genDir]);
+    this.app.options['skip-install'] = true;
+    done();
   }.bind(this));
 });
 
-require('./specs/test-loading');
-require('./specs/test-file-creation');
+require('./specs/init.spec');
+require('./specs/welcome.spec');
+require('./specs/dotfiles.spec');

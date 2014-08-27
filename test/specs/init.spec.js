@@ -1,12 +1,12 @@
 'use strict';
 
-var assert = require('assert');
+var expect = require('chai').expect;
 
-describe('Loading', function () {
+describe('Import', function () {
 
   it('can be imported without blowing up', function () {
     var app = require('../../generators/app');
-    assert(app !== undefined);
+    expect(app).to.exist;
   });
 
 });
