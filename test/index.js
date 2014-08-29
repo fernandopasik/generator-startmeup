@@ -13,11 +13,15 @@ beforeEach(function (done) {
     }
     this.app = helpers.createGenerator('startmeup:app', [genDir]);
     this.app.options['skip-install'] = true;
+    helpers.mockPrompt(this.app, {
+      appName: ''
+    });
     done();
   }.bind(this));
 });
 
 require('./specs/init.spec');
 require('./specs/welcome.spec');
+require('./specs/askfor.spec.js');
 require('./specs/project.spec');
 require('./specs/dotfiles.spec');
