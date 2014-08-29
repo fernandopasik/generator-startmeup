@@ -19,4 +19,5 @@ beforeEach(function (done) {
 
 require('./specs/init.spec');
 require('./specs/welcome.spec');
+require('./specs/project.spec');
 require('./specs/dotfiles.spec');
