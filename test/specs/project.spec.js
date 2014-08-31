@@ -19,6 +19,8 @@ describe('Project Creation', function () {
     var expected = [
       'package.json',
       'bower.json',
+      'README.md',
+      'LICENSE',
       'app'
     ];
 
