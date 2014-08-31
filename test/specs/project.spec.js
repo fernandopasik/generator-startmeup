@@ -6,7 +6,14 @@ var
 
 describe('Project Creation', function () {
 
-  var name = /\"name\": \"testapp\"/;
+  var
+    name = /\"name\": \"testapp\"/,
+    git = {};
+
+  before(function () {
+    git.user = new RegExp('"name": "' + this.app.user.git.name() + '"');
+    git.email = new RegExp('"email": "' + this.app.user.git.email() + '"');
+  });
 
   it('creates expected files', function (done) {
     var expected = [
@@ -29,6 +36,8 @@ describe('Project Creation', function () {
 
     this.app.run({}, function () {
       assert.fileContent('package.json', name);
+      assert.fileContent('package.json', git.user);
+      assert.fileContent('package.json', git.email);
       done();
     });
   });
@@ -40,6 +49,8 @@ describe('Project Creation', function () {
 
     this.app.run({}, function () {
       assert.fileContent('bower.json', name);
+      assert.fileContent('bower.json', git.user);
+      assert.fileContent('bower.json', git.email);
       done();
     });
   });
