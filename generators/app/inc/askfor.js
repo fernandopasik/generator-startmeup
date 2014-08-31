@@ -1,4 +1,7 @@
+// jshint es3:false
 'use strict';
+
+var path = require('path');
 
 module.exports = function () {
 
@@ -7,7 +10,8 @@ module.exports = function () {
   this.prompt([
     {
       name: 'appName',
-      message: 'What is your app\'s name ?'
+      message: 'What is your app\'s name ?',
+      default: path.basename(process.cwd())
     }
   ], function (props) {
     this.appname = props.appName;
