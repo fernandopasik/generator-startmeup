@@ -11,5 +11,7 @@
     "type": "git",
     "url": ""
   },
-  "dependencies": {}
+  "keywords": [],
+  "dependencies": {},
+  "devDependencies": {}
 }
