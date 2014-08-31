@@ -1,0 +1,15 @@
+{
+  "name": "<%= appname %>",
+  "version": "0.0.0",
+  "description": "",
+  "private": true,
+  "author": {
+    "name": "<%= user.git.name() %>",
+    "email": "<%= user.git.email() %>"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "dependencies": {}
+}
