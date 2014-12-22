@@ -8,6 +8,7 @@ describe('Project Creation', function () {
 
   var
     name = /\"name\": \"testapp\"/,
+    description = /\"description\": \"This is a test\"/,
     git = {};
 
   before(function () {
@@ -33,11 +34,13 @@ describe('Project Creation', function () {
 
   it('package.json filled template', function (done) {
     helpers.mockPrompt(this.app, {
-      appName: 'testapp'
+      appName: 'testapp',
+      description: 'This is a test'
     });
 
     this.app.run({}, function () {
       assert.fileContent('package.json', name);
+      assert.fileContent('package.json', description);
       assert.fileContent('package.json', git.user);
       assert.fileContent('package.json', git.email);
       done();
@@ -46,11 +49,13 @@ describe('Project Creation', function () {
 
   it('bower.json filled template', function (done) {
     helpers.mockPrompt(this.app, {
-      appName: 'testapp'
+      appName: 'testapp',
+      description: 'This is a test'
     });
 
     this.app.run({}, function () {
       assert.fileContent('bower.json', name);
+      assert.fileContent('bower.json', description);
       assert.fileContent('bower.json', git.user);
       assert.fileContent('bower.json', git.email);
       done();

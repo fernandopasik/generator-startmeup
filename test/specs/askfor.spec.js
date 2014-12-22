@@ -28,4 +28,15 @@ describe('Ask For', function () {
     }.bind(this));
   });
 
+  it('App description', function (done) {
+    helpers.mockPrompt(this.app, {
+      description: 'This is a test App.'
+    });
+
+    this.app.run({}, function () {
+      expect(this.app.description).to.equal('This is a test App.');
+      done();
+    }.bind(this));
+  });
+
 });

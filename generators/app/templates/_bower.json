@@ -1,7 +1,7 @@
 {
   "name": "<%= appname %>",
   "version": "0.0.0",
-  "description": "",
+  "description": "<%= description %>",
   "private": true,
   "author": {
     "name": "<%= user.git.name() %>",
