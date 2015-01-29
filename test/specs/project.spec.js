@@ -25,7 +25,7 @@ describe('Project Creation', function () {
       'app'
     ];
 
-    this.app.run({}, function () {
+    this.app.run(function () {
       assert.file(expected);
       done();
     });
@@ -38,7 +38,7 @@ describe('Project Creation', function () {
       description: 'This is a test'
     });
 
-    this.app.run({}, function () {
+    this.app.run(function () {
       assert.fileContent('package.json', name);
       assert.fileContent('package.json', description);
       assert.fileContent('package.json', git.user);
@@ -53,7 +53,7 @@ describe('Project Creation', function () {
       description: 'This is a test'
     });
 
-    this.app.run({}, function () {
+    this.app.run(function () {
       assert.fileContent('bower.json', name);
       assert.fileContent('bower.json', description);
       assert.fileContent('bower.json', git.user);

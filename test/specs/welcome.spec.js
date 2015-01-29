@@ -11,7 +11,7 @@ describe('Welcome message', function () {
   });
 
   it('Enabled by default', function (done) {
-    this.app.run({}, function () {
+    this.app.run(function () {
       expect(this.app.log.calledWithMatch('Welcome to')).to.be.true;
       done();
     }.bind(this));
@@ -19,7 +19,7 @@ describe('Welcome message', function () {
 
   it('Can be disabled', function (done) {
     this.app.options['skip-welcome'] = true;
-    this.app.run({}, function () {
+    this.app.run(function () {
       expect(this.app.log.calledWithMatch('Welcome to')).to.be.false;
       done();
     }.bind(this));

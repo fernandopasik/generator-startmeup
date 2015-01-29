@@ -12,7 +12,7 @@ describe('Ask For', function () {
       appName: 'testapp'
     });
 
-    this.app.run({}, function () {
+    this.app.run(function () {
       expect(this.app.appname).to.equal('testapp');
       done();
     }.bind(this));
@@ -21,7 +21,7 @@ describe('Ask For', function () {
   it('App name by default is current directory', function (done) {
     helpers.mockPrompt(this.app, {});
 
-    this.app.run({}, function () {
+    this.app.run(function () {
       expect(this.app.appname)
         .to.equal(path.basename(process.cwd()).replace(/^\./, ''));
       done();
@@ -33,7 +33,7 @@ describe('Ask For', function () {
       description: 'This is a test App.'
     });
 
-    this.app.run({}, function () {
+    this.app.run(function () {
       expect(this.app.description).to.equal('This is a test App.');
       done();
     }.bind(this));

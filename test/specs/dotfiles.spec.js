@@ -16,7 +16,7 @@ describe('dotfiles Creation', function () {
       '.jshintrc'
     ];
 
-    this.app.run({}, function () {
+    this.app.run(function () {
       helpers.assertFile(expected);
       done();
     });
