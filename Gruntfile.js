@@ -55,8 +55,7 @@ module.exports = function (grunt) {
     mochaTest: {
       test: {
         options: {
-          reporter: 'spec',
-          require: 'blanket'
+          reporter: 'spec'
         },
         src: 'test/index.js'
       }
@@ -102,7 +101,11 @@ module.exports = function (grunt) {
   // Load all grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
-  grunt.registerTask('test', ['clean', 'jshint', 'jscs', 'mochacov:test', 'mochacov:coverage']);
-  grunt.registerTask('travis', ['jshint', 'jscs', 'mochacov:test', 'mochacov:coveralls']);
+  grunt.registerTask('mocha', ['mochaTest:test']);
+  grunt.registerTask('coverage', ['mocha_istanbul:coverage']);
+  grunt.registerTask('coveralls', ['mocha_istanbul:coveralls']);
+
+  grunt.registerTask('test', ['clean', 'jshint', 'jscs', 'coverage', 'mocha']);
+  grunt.registerTask('travis', ['jshint', 'jscs', 'coveralls', 'mocha']);
   grunt.registerTask('default', ['test']);
 };
