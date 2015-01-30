@@ -106,6 +106,6 @@ module.exports = function (grunt) {
   grunt.registerTask('coveralls', ['mocha_istanbul:coveralls']);
 
   grunt.registerTask('test', ['clean', 'jshint', 'jscs', 'coverage', 'mocha']);
-  grunt.registerTask('travis', ['jshint', 'jscs', 'coveralls', 'mocha']);
+  grunt.registerTask('travis', ['jshint', 'jscs', 'coverage', 'coveralls', 'mocha']);
   grunt.registerTask('default', ['test']);
 };
