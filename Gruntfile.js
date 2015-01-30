@@ -1,3 +1,5 @@
+/*jshint camelcase: false */
+
 'use strict';
 
 module.exports = function (grunt) {
@@ -50,27 +52,35 @@ module.exports = function (grunt) {
       }
     },
 
-    mochacov: {
+    mochaTest: {
       test: {
         options: {
-          reporter: 'spec'
-        }
-      },
+          reporter: 'spec',
+          require: 'blanket'
+        },
+        src: 'test/index.js'
+      }
+    },
+
+    mocha_istanbul: {
       coverage: {
+        src: 'test/index.js',
         options: {
-          reporter: 'html-cov',
-          output: 'test/coverage.html'
+          quiet: true
         }
       },
       coveralls: {
+        src: 'test/index.js',
         options: {
-          coveralls: {
-            serviceName: 'travis-ci'
-          }
+          quiet: true,
+          coverage:true,
+          check: {
+            lines: 75,
+            statements: 75
+          },
+          root: 'app',
+          reportFormats: ['cobertura','lcovonly']
         }
-      },
-      options: {
-        files: 'test/index.js'
       }
     },
 
@@ -78,6 +88,15 @@ module.exports = function (grunt) {
       temp: ['.tmp'],
       coverage: ['test/coverage.html']
     }
+  });
+
+  grunt.event.on('coverage', function (lcov, done) {
+    require('coveralls').handleInput(lcov, function (err) {
+      if (err) {
+        return done(err);
+      }
+      done();
+    });
   });
 
   // Load all grunt tasks automatically
