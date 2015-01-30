@@ -21,7 +21,6 @@ beforeEach(function (done) {
 });
 
 require('./specs/init.spec');
-require('./specs/welcome.spec');
 require('./specs/askfor.spec.js');
 require('./specs/project.spec');
 require('./specs/dotfiles.spec');
