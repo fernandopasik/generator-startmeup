@@ -24,7 +24,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: app.files.js,
-        tasks: ['jshint', 'jscs', 'mochacov']
+        tasks: ['jshint', 'jscs', 'mocha']
       }
     },
 
