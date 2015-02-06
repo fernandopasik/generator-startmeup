@@ -85,7 +85,7 @@ module.exports = function (grunt) {
 
     clean: {
       temp: ['.tmp'],
-      coverage: ['test/coverage.html']
+      coverage: ['coverage']
     }
   });
 
