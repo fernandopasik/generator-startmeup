@@ -42,16 +42,6 @@ module.exports = function (grunt) {
       all: app.files.js
     },
 
-    shell: {
-      options: {
-        stdout: true,
-        stderr: false
-      },
-      test: {
-        command: 'npm test'
-      }
-    },
-
     mocha_istanbul: {
       coverage: {
         src: 'test/{,**/}*.js'
