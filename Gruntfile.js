@@ -57,19 +57,19 @@ module.exports = function (grunt) {
         options: {
           reporter: 'spec'
         },
-        src: 'test/index.js'
+        src: 'test/{,**/}*.js'
       }
     },
 
     mocha_istanbul: {
       coverage: {
-        src: 'test/index.js',
+        src: 'test/{,**/}*.js',
         options: {
           quiet: true
         }
       },
       coveralls: {
-        src: 'test/index.js',
+        src: 'test/{,**/}*.js',
         options: {
           quiet: true,
           coverage:true,
