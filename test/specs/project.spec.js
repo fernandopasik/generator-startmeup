@@ -20,6 +20,7 @@ describe('Project Creation', function () {
     var expected = [
       'package.json',
       'bower.json',
+      'Gruntfile.js',
       'README.md',
       'LICENSE',
       'app'
@@ -58,6 +59,18 @@ describe('Project Creation', function () {
       assert.fileContent('bower.json', description);
       assert.fileContent('bower.json', git.user);
       assert.fileContent('bower.json', git.email);
+      done();
+    });
+  });
+
+  it('Gruntfile.js filled template', function (done) {
+    helpers.mockPrompt(this.app, {
+      appName: 'testapp',
+      description: 'This is a test'
+    });
+
+    this.app.run(function () {
+      assert.fileContent('Gruntfile.js', /load-grunt-tasks/);
       done();
     });
   });
