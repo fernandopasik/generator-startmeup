@@ -52,21 +52,9 @@ module.exports = function (grunt) {
       }
     },
 
-    mochaTest: {
-      test: {
-        options: {
-          reporter: 'spec'
-        },
-        src: 'test/{,**/}*.js'
-      }
-    },
-
     mocha_istanbul: {
       coverage: {
-        src: 'test/{,**/}*.js',
-        options: {
-          quiet: true
-        }
+        src: 'test/{,**/}*.js'
       },
       coveralls: {
         src: 'test/{,**/}*.js',
@@ -101,11 +89,10 @@ module.exports = function (grunt) {
   // Load all grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
-  grunt.registerTask('mocha', ['mochaTest:test']);
-  grunt.registerTask('coverage', ['mocha_istanbul:coverage']);
+  grunt.registerTask('mocha', ['mocha_istanbul:coverage']);
   grunt.registerTask('coveralls', ['mocha_istanbul:coveralls']);
 
-  grunt.registerTask('test', ['clean', 'jshint', 'jscs', 'coverage', 'mocha']);
-  grunt.registerTask('travis', ['jshint', 'jscs', 'coverage', 'coveralls', 'mocha']);
+  grunt.registerTask('test', ['clean', 'jshint', 'jscs', 'mocha']);
+  grunt.registerTask('travis', ['jshint', 'jscs', 'mocha', 'coveralls']);
   grunt.registerTask('default', ['test']);
 };
