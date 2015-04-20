@@ -20,7 +20,7 @@ describe('Project Creation', function () {
       .run(genDir)
       .inDir(tmpDir)
       .withOptions({ 'skip-install': true })
-      .withPrompt({
+      .withPrompts({
         appName: 'testapp',
         description: 'This is a test'
       });
@@ -33,8 +33,7 @@ describe('Project Creation', function () {
       'bower.json',
       'Gruntfile.js',
       'README.md',
-      'LICENSE',
-      'app'
+      'LICENSE'
     ];
 
     gen.on('end', function () {

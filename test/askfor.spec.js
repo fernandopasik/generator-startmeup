@@ -23,7 +23,7 @@ describe('Ask For', function () {
 
   it('App name', function (done) {
     gen
-      .withPrompt({ appName: 'testapp' })
+      .withPrompts({ appName: 'testapp' })
       .on('end', function () {
         expect(tempGen.appname).to.equal('testapp');
         done();
@@ -41,7 +41,7 @@ describe('Ask For', function () {
 
   it('App description', function (done) {
     gen
-      .withPrompt({ description: 'This is a test App.' })
+      .withPrompts({ description: 'This is a test App.' })
       .on('end', function () {
         expect(tempGen.description).to.equal('This is a test App.');
         done();

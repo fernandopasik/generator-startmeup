@@ -1,7 +1,9 @@
 // jshint es3:false
 'use strict';
 
-var path = require('path');
+var
+  path = require('path'),
+  _s = require('underscore.string');
 
 module.exports = function () {
 
@@ -20,7 +22,7 @@ module.exports = function () {
     }
   ], function (props) {
     this.appname = props.appName;
-    this.appname = this._.camelize(this._.slugify(this._.humanize(this.appname)));
+    this.appname = _s.camelize(_s.slugify(_s.humanize(this.appname)));
     this.description = props.description;
     done();
   }.bind(this));
