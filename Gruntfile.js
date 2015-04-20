@@ -44,7 +44,10 @@ module.exports = function (grunt) {
 
     mocha_istanbul: {
       coverage: {
-        src: 'test/{,**/}*.js'
+        src: 'test/{,**/}*.js',
+        options: {
+          require: 'mocha-clean/brief'
+        }
       },
       coveralls: {
         src: 'test/{,**/}*.js',
