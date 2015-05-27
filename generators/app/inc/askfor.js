@@ -1,3 +1,4 @@
+// jscs:disable disallowDanglingUnderscores
 // jshint es3:false
 'use strict';
 

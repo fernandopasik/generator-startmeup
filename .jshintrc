@@ -56,7 +56,7 @@
   "jquery"        : false,
   "mocha"         : false,
   "mootools"      : false,
-  "node"          : true,
+  "node"          : false,
   "nonstandard"   : false,
   "phantom"       : false,
   "prototypejs"   : false,

@@ -1,4 +1,4 @@
-/*jshint camelcase: false */
+// jshint node: true, camelcase: false
 
 'use strict';
 
