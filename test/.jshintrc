@@ -1,5 +1,6 @@
 {
   "extends": "../.jshintrc",
   "es3"    : false,
-  "expr"   : true
+  "expr"   : true,
+  "mocha"  : true
 }
