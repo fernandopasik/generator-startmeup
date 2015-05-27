@@ -15,7 +15,7 @@ describe('Project Creation', function () {
     description = /\"description\": \"This is a test\"/,
     git = {};
 
-  beforeEach(function () {
+  beforeEach( function () {
     gen = helpers
       .run(genDir)
       .inDir(tmpDir)

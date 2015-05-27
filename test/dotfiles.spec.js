@@ -11,7 +11,7 @@ describe('dotfiles Creation', function () {
 
   var gen;
 
-  beforeEach(function () {
+  beforeEach( function () {
     gen = helpers
       .run(genDir)
       .inDir(tmpDir)
@@ -20,8 +20,8 @@ describe('dotfiles Creation', function () {
 
   it('creates expected files', function (done) {
 
+    // Add files you expect to exist here.
     var expected = [
-      // add files you expect to exist here.
       '.bowerrc',
       '.editorconfig',
       '.gitattributes',

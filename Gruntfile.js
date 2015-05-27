@@ -42,7 +42,9 @@ module.exports = function (grunt) {
       all: app.files.js
     },
 
+    // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
     mocha_istanbul: {
+      // jscs:enable requireCamelCaseOrUpperCaseIdentifiers
       coverage: {
         src: 'test/{,**/}*.js',
         options: {
@@ -53,13 +55,13 @@ module.exports = function (grunt) {
         src: 'test/{,**/}*.js',
         options: {
           quiet: true,
-          coverage:true,
+          coverage: true,
           check: {
             lines: 75,
             statements: 75
           },
           root: 'app',
-          reportFormats: ['cobertura','lcovonly']
+          reportFormats: ['cobertura', 'lcovonly']
         }
       }
     },
@@ -75,6 +77,7 @@ module.exports = function (grunt) {
       if (err) {
         return done(err);
       }
+
       done();
     });
   });

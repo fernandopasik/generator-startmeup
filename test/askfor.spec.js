@@ -11,7 +11,7 @@ describe('Ask For', function () {
 
   var gen, tempGen;
 
-  beforeEach(function () {
+  beforeEach( function () {
     gen = helpers
       .run(genDir)
       .inDir(tmpDir)

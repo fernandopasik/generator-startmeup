@@ -16,7 +16,7 @@ module.exports = function () {
     '.jshintrc'
   ];
 
-  dotfiles.forEach(function (dotfile) {
+  dotfiles.forEach( function (dotfile) {
     this.copy(rootDir + dotfile, dotfile);
   }.bind(this));
 
