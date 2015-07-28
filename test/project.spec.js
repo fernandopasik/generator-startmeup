@@ -31,7 +31,6 @@ describe('Project Creation', function () {
     var expected = [
       'package.json',
       'bower.json',
-      'Gruntfile.js',
       'README.md',
       'LICENSE'
     ];
@@ -70,13 +69,6 @@ describe('Project Creation', function () {
         assert.fileContent('bower.json', git.email);
         done();
       });
-  });
-
-  it('Gruntfile.js filled template', function (done) {
-    gen.on('end', function () {
-      assert.fileContent('Gruntfile.js', /load-grunt-tasks/);
-      done();
-    });
   });
 
 });

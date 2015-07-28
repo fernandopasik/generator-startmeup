@@ -24,8 +24,8 @@
     "precov": "npm run clean",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "precoveralls": "npm run -s cov",
-    "dev": "npm run -s lint && npm run cov",
-    "travis": "npm run -s lint && npm run coveralls",
+    "dev": "npm run -s lint && npm run -s cov",
+    "travis": "npm run -s lint && npm run -s coveralls",
     "watch": "watch 'npm run -s dev' generators/ test/"
   },
   "config": {
@@ -46,20 +46,11 @@
   "devDependencies": {
     "chai": "^3.2.0",
     "coveralls": "^2.11.3",
-    "grunt": "^0.4.5",
-    "grunt-cli": "^0.1.13",
-    "grunt-contrib-clean": "^0.6.0",
-    "grunt-contrib-jshint": "^0.11.2",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-jscs": "^2.0.0",
-    "grunt-mocha-istanbul": "^2.4.0",
     "istanbul": "^0.3.17",
     "jscs": "^2.0.0",
     "jshint": "^2.8.0",
     "jshint-stylish": "^2.0.1",
-    "load-grunt-tasks": "^3.2.0",
     "mocha": "^2.2.5",
-    "mocha-clean": "^0.4.0",
     "sinon": "^1.15.4",
     "watch": "^0.16.0"
   },
