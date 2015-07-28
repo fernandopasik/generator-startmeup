@@ -14,8 +14,19 @@
   },
   "main": "generators/app/index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha",
-    "cov": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec"
+    "clean": "rm -rf .tmp coverage",
+    "jshint": "jshint . --reporter=node_modules/jshint-stylish",
+    "jscs": "jscs .",
+    "lint": "npm run -s jshint & npm run -s jscs",
+    "test": "mocha",
+    "pretest": "npm run clean",
+    "cov": "istanbul cover _mocha --report lcovonly -- -R spec",
+    "precov": "npm run clean",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "precoveralls": "npm run -s cov",
+    "dev": "npm run -s lint && npm run cov",
+    "travis": "npm run -s lint && npm run coveralls",
+    "watch": "watch 'npm run -s dev' generators/ test/"
   },
   "config": {
     "blanket": {
@@ -43,11 +54,14 @@
     "grunt-jscs": "^2.0.0",
     "grunt-mocha-istanbul": "^2.4.0",
     "istanbul": "^0.3.17",
+    "jscs": "^2.0.0",
+    "jshint": "^2.8.0",
     "jshint-stylish": "^2.0.1",
     "load-grunt-tasks": "^3.2.0",
     "mocha": "^2.2.5",
     "mocha-clean": "^0.4.0",
-    "sinon": "^1.15.4"
+    "sinon": "^1.15.4",
+    "watch": "^0.16.0"
   },
   "engines": {
     "node": ">=0.10.0",
