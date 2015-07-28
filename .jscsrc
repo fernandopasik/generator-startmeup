@@ -1,6 +1,7 @@
 {
-  "disallowDanglingUnderscores"                   : true,
+  "disallowDanglingUnderscores"                   : { "allExcept": ["_s", "_id"] },
   "disallowEmptyBlocks"                           : true,
+  "disallowFunctionDeclarations"                  : true,
   "disallowIdentifierNames"                       : [],
   "disallowImplicitTypeConversion"                : ["numeric", "boolean", "binary", "string"],
   "disallowKeywords"                              : ["with"],
