@@ -38,20 +38,20 @@
   ],
   "keywords": [],
   "dependencies": {
-    "chalk": "^1.1.0",
-    "underscore.string": "^3.1.1",
-    "yeoman-generator": "^0.20.2",
+    "chalk": "^1.1.1",
+    "underscore.string": "^3.2.2",
+    "yeoman-generator": "^0.21.1",
     "yosay": "^1.0.5"
   },
   "devDependencies": {
-    "chai": "^3.2.0",
-    "coveralls": "^2.11.3",
-    "istanbul": "^0.3.17",
-    "jscs": "^2.0.0",
-    "jshint": "^2.8.0",
+    "chai": "^3.4.1",
+    "coveralls": "^2.11.4",
+    "istanbul": "^0.4.0",
+    "jscs": "^2.5.1",
+    "jshint": "^2.9.0",
     "jshint-stylish": "^2.0.1",
-    "mocha": "^2.2.5",
-    "sinon": "^1.15.4",
+    "mocha": "^2.3.3",
+    "sinon": "^1.17.2",
     "watch": "^0.16.0"
   },
   "engines": {
