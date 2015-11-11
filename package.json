@@ -48,7 +48,7 @@
     "coveralls": "^2.11.4",
     "istanbul": "^0.4.0",
     "jscs": "^2.5.1",
-    "jshint": "^2.9.0",
+    "jshint": "^2.8.0",
     "jshint-stylish": "^2.0.1",
     "mocha": "^2.3.3",
     "sinon": "^1.17.2",
