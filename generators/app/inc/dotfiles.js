@@ -4,6 +4,9 @@ var
   path = require('path'),
   rootDir = path.join(__dirname, '../../../');
 
+/**
+ * Copy all the dotfiles for the project.
+ */
 module.exports = function () {
 
   var dotfiles = [

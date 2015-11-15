@@ -5,6 +5,9 @@ var
   path = require('path'),
   _s = require('underscore.string');
 
+/**
+ * AskFor will get initial options from the User.
+ */
 module.exports = function () {
 
   var done = this.async();
