@@ -20,7 +20,7 @@
     "lint": "npm run -s jshint & npm run -s jscs",
     "test": "mocha",
     "pretest": "npm run clean",
-    "cov": "istanbul cover _mocha --report lcovonly -- -R spec",
+    "cov": "istanbul cover _mocha --report lcovonly --report html -- -R spec",
     "precov": "npm run clean",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "precoveralls": "npm run -s cov",
