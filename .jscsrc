@@ -38,6 +38,7 @@
   "requireCurlyBraces"                            : true,
   "requireDollarBeforejQueryAssignment"           : true,
   "requireDotNotation"                            : { "allExcept": ["keywords", "snake_case"] },
+  "requireEarlyReturn"                            : true,
   "requireLineBreakAfterVariableAssignment"       : true,
   "requireLineFeedAtFileEnd"                      : true,
   "requireMultipleVarDecl"                        : "onevar",

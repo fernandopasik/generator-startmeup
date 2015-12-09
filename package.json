@@ -15,9 +15,7 @@
   "main": "generators/app/index.js",
   "scripts": {
     "clean": "rm -rf .tmp coverage",
-    "jshint": "jshint . --reporter=node_modules/jshint-stylish",
-    "jscs": "jscs .",
-    "lint": "npm run -s jshint & npm run -s jscs",
+    "lint": "jshint . --reporter=node_modules/jshint-stylish; jscs . --reporter=node_modules/jscs-stylish",
     "test": "mocha",
     "pretest": "npm run clean",
     "cov": "istanbul cover _mocha --report lcovonly --report html -- -R spec",
@@ -39,6 +37,7 @@
   "keywords": [],
   "dependencies": {
     "chalk": "^1.1.1",
+    "jscs": "^2.7.0",
     "underscore.string": "^3.2.2",
     "yeoman-generator": "^0.21.1",
     "yosay": "^1.1.0"
@@ -46,11 +45,12 @@
   "devDependencies": {
     "chai": "^3.4.1",
     "coveralls": "^2.11.4",
-    "istanbul": "^0.4.0",
-    "jscs": "^2.5.1",
+    "istanbul": "^0.4.1",
+    "jscs": "^2.7.0",
+    "jscs-stylish": "^0.3.1",
     "jshint": "^2.9.1-rc1",
     "jshint-stylish": "^2.1.0",
-    "mocha": "^2.3.3",
+    "mocha": "^2.3.4",
     "sinon": "^1.17.2",
     "watch": "^0.16.0"
   },
