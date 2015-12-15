@@ -4,8 +4,8 @@ var
   path = require('path'),
   genDir = path.join(__dirname, '../generators/app'),
   tmpDir = path.join(__dirname, '../.tmp'),
-  helpers = require('yeoman-generator').test,
-  assert = require('yeoman-generator').assert;
+  helpers = require('yeoman-test'),
+  assert = require('yeoman-assert');
 
 describe('dotfiles Creation', function () {
 
@@ -25,10 +25,7 @@ describe('dotfiles Creation', function () {
       '.bowerrc',
       '.editorconfig',
       '.gitattributes',
-      '.gitignore',
-      '.jscsrc',
-      '.jshintignore',
-      '.jshintrc'
+      '.gitignore'
     ];
 
     gen.on('end', function () {

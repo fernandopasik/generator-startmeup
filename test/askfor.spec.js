@@ -4,7 +4,7 @@ var
   path = require('path'),
   genDir = path.join(__dirname, '../generators/app'),
   tmpDir = path.join(__dirname, '../.tmp'),
-  helpers = require('yeoman-generator').test,
+  helpers = require('yeoman-test'),
   expect = require('chai').expect;
 
 describe('Ask For', function () {

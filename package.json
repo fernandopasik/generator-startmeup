@@ -14,6 +14,7 @@
   },
   "main": "generators/app/index.js",
   "scripts": {
+    "start": "npm run -s lint; npm run -s cov",
     "clean": "rm -rf .tmp coverage",
     "lint": "jshint . --reporter=node_modules/jshint-stylish; jscs . --reporter=node_modules/jscs-stylish",
     "test": "mocha",
@@ -22,9 +23,8 @@
     "precov": "npm run clean",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "precoveralls": "npm run -s cov",
-    "dev": "npm run -s lint && npm run -s cov",
     "travis": "npm run -s lint && npm run -s coveralls",
-    "watch": "watch 'npm run -s dev' generators/ test/"
+    "watch": "watch 'npm start' generators/ test/"
   },
   "config": {
     "blanket": {
@@ -39,12 +39,13 @@
     "chalk": "^1.1.1",
     "jscs": "^2.7.0",
     "underscore.string": "^3.2.2",
-    "yeoman-generator": "^0.21.1",
+    "yeoman-generator": "^0.22.0",
     "yosay": "^1.1.0"
   },
   "devDependencies": {
     "chai": "^3.4.1",
-    "coveralls": "^2.11.4",
+    "coveralls": "^2.11.6",
+    "escape-string-regexp": "^1.0.3",
     "istanbul": "^0.4.1",
     "jscs": "^2.7.0",
     "jscs-stylish": "^0.3.1",
@@ -52,7 +53,9 @@
     "jshint-stylish": "^2.1.0",
     "mocha": "^2.3.4",
     "sinon": "^1.17.2",
-    "watch": "^0.16.0"
+    "watch": "^0.16.0",
+    "yeoman-assert": "^2.1.1",
+    "yeoman-test": "^1.0.0"
   },
   "engines": {
     "node": ">=0.10.0",

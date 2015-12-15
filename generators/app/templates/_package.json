@@ -13,5 +13,8 @@
   },
   "keywords": [],
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "jshint": "<%= pkg.devDependencies.jshint %>",
+    "jscs": "<%= pkg.devDependencies.jscs %>"
+  }
 }
