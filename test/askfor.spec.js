@@ -11,13 +11,14 @@ describe('Ask For', function () {
 
   var gen, tempGen;
 
-  beforeEach( function () {
+  beforeEach( function (done) {
     gen = helpers
       .run(genDir)
       .inDir(tmpDir)
       .withOptions({ 'skip-install': true })
       .on('ready', function (generator) {
         tempGen = generator;
+        done();
       });
   });
 
