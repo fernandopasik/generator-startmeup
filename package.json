@@ -14,7 +14,7 @@
   },
   "main": "generators/app/index.js",
   "scripts": {
-    "start": "npm run -s lint; npm run -s cov",
+    "start": "npm run watch",
     "clean": "rm -rf .tmp coverage",
     "lint": "jshint . --reporter=node_modules/jshint-stylish; jscs . --reporter=node_modules/jscs-stylish",
     "test": "mocha",
@@ -24,7 +24,7 @@
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "precoveralls": "npm run -s cov",
     "travis": "npm run -s lint && npm run -s coveralls",
-    "watch": "watch 'npm start' generators/ test/"
+    "watch": "watch 'npm run -s lint; npm run -s cov' generators/ test/"
   },
   "config": {
     "blanket": {

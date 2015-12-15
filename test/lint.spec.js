@@ -17,7 +17,7 @@ describe('Linting install', function () {
     gen = helpers
       .run(genDir)
       .inDir(tmpDir)
-      .withOptions({ 'skip-install': false });
+      .withOptions({ 'skip-install': true });
   });
 
   it('creates dotfiles', function (done) {
