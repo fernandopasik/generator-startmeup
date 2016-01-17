@@ -1,6 +1,6 @@
 {
   "name": "generator-startmeup",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "StartMeUp Yeoman Generator for starting a project with dotfiles and some common tools",
   "homepage": "https://github.com/fernandopasik/generator-startmeup",
   "author": {
@@ -12,11 +12,7 @@
     "url": "git://github.com/fernandopasik/generator-startmeup.git"
   },
   "main": "generators/app/index.js",
-  "keywords": [
-    "yeoman-generator",
-    "front-end",
-    "app"
-  ],
+  "keywords": [],
   "scripts": {
     "start": "npm run watch",
     "clean": "rm -rf .tmp coverage",
@@ -38,7 +34,6 @@
   "files": [
     "generators"
   ],
-  "keywords": [],
   "dependencies": {
     "chalk": "^1.1.1",
     "underscore.string": "^3.2.3",
