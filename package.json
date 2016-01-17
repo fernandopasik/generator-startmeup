@@ -1,6 +1,6 @@
 {
   "name": "generator-startmeup",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "StartMeUp Yeoman Generator",
   "private": true,
   "homepage": "https://github.com/fernandopasik/generator-startmeup",
