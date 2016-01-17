@@ -9,11 +9,15 @@ var
  */
 module.exports = function () {
 
-  var dotfiles = [
-    '.jscsrc',
-    '.jshintignore',
-    '.jshintrc'
-  ];
+  var dotfiles = [];
+
+  if (this.modules.indexOf('jshint') !== -1) {
+    dotfiles.push('.jshintignore', '.jshintrc');
+  }
+
+  if (this.modules.indexOf('jscs') !== -1) {
+    dotfiles.push('.jscsrc');
+  }
 
   dotfiles.forEach( function (dotfile) {
     this.copy(rootDir + dotfile, dotfile);

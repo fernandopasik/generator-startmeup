@@ -7,7 +7,7 @@ var
   helpers = require('yeoman-test'),
   expect = require('chai').expect;
 
-describe('Ask For', function () {
+describe('Ask For Modules', function () {
 
   var gen, tempGen;
 

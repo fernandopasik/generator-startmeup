@@ -1,4 +1,3 @@
-// jshint es3:false
 'use strict';
 
 var
@@ -6,7 +5,7 @@ var
   _s = require('underscore.string');
 
 /**
- * AskFor will get initial options from the User.
+ * Ask for project data from the User.
  */
 module.exports = function () {
 

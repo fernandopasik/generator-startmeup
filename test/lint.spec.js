@@ -11,7 +11,15 @@ var
 
 describe('Linting install', function () {
 
-  var gen;
+  var
+    gen,
+    expected = [
+      '.jscsrc',
+      '.jshintignore',
+      '.jshintrc'
+    ],
+    jshint = new RegExp('jshint.*' + escapeStringRegexp(pkg.devDependencies.jshint)),
+    jscs = new RegExp('jscs.*' + escapeStringRegexp(pkg.devDependencies.jscs));
 
   beforeEach( function () {
     gen = helpers
@@ -22,31 +30,30 @@ describe('Linting install', function () {
 
   it('creates dotfiles', function (done) {
 
-    var expected = [
-      '.jscsrc',
-      '.jshintignore',
-      '.jshintrc'
-    ];
-
     gen.on('end', function () {
       assert.file(expected);
-      assert.fileContent('package.json', new RegExp('jshint.*' + escapeStringRegexp(pkg.devDependencies.jshint)));
-      assert.fileContent('package.json', new RegExp('jscs.*' + escapeStringRegexp(pkg.devDependencies.jscs)));
       done();
     });
   });
 
   it('checks for dependencies', function (done) {
 
-    var
-      jshint = new RegExp('jshint.*' + escapeStringRegexp(pkg.devDependencies.jshint)),
-      jscs = new RegExp('jshint.*' + escapeStringRegexp(pkg.devDependencies.jshint));
-
     gen.on('end', function () {
       assert.fileContent('package.json', jshint);
       assert.fileContent('package.json', jscs);
       done();
     });
+  });
+
+  it('can be disabled', function (done) {
+    gen
+      .withPrompts({ modules: [] })
+      .on('end', function () {
+        assert.noFile(expected);
+        assert.noFileContent('package.json', jshint);
+        assert.noFileContent('package.json', jscs);
+        done();
+      });
   });
 
 });
