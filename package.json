@@ -12,6 +12,11 @@
     "url": "git://github.com/fernandopasik/generator-startmeup.git"
   },
   "main": "generators/app/index.js",
+  "keywords": [
+    "yeoman-generator",
+    "front-end",
+    "app"
+  ],
   "scripts": {
     "start": "npm run watch",
     "clean": "rm -rf .tmp coverage",
