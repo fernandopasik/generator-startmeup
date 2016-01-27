@@ -33,6 +33,7 @@
   "requireBlocksOnNewline"                        : 1,
   "requireCamelCaseOrUpperCaseIdentifiers"        : true,
   "requireCapitalizedConstructors"                : true,
+  "requireCapitalizedConstructorsNew"             : true,
   "requireCapitalizedComments"                    : true,
   "requireCommaBeforeLineBreak"                   : true,
   "requireCurlyBraces"                            : true,
