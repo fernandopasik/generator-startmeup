@@ -11,7 +11,7 @@ module.exports = function () {
       type: 'checkbox',
       name: 'modules',
       message: 'Which modules would you like to include?',
-      default: ['jshint', 'jscs'],
+      default: [ 'jshint', 'jscs' ],
       choices: [
         {
           value: 'jshint',
