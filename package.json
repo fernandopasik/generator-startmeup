@@ -36,16 +36,16 @@
   ],
   "dependencies": {
     "chalk": "^1.1.1",
-    "underscore.string": "^3.2.3",
+    "underscore.string": "^3.3.4",
     "yeoman-generator": "^0.22.5",
     "yosay": "^1.1.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "coveralls": "^2.11.6",
-    "escape-string-regexp": "^1.0.4",
+    "coveralls": "^2.11.8",
+    "escape-string-regexp": "^1.0.5",
     "istanbul": "^0.4.2",
-    "jscs": "^2.9.0",
+    "jscs": "^2.10.1",
     "jscs-stylish": "^0.3.1",
     "jshint": "^2.9.1",
     "jshint-stylish": "^2.1.0",
@@ -54,7 +54,7 @@
     "sinon": "^1.17.3",
     "watch": "^0.17.1",
     "yeoman-assert": "^2.1.1",
-    "yeoman-test": "^1.0.0"
+    "yeoman-test": "^1.1.0"
   },
   "engines": {
     "node": ">=0.10.0",
