@@ -1,21 +1,26 @@
 'use strict';
 
-var
+const
   path = require('path'),
   genDir = path.join(__dirname, '../generators/app'),
   tmpDir = path.join(__dirname, '../.tmp'),
   helpers = require('yeoman-test'),
-  assert = require('yeoman-assert');
+  assert = require('yeoman-assert'),
+  name = /\"name\": \"testapp\"/,
+  description = /\"description\": \"This is a test\"/,
+  git = {},
+  expectedFiles = [
+    'package.json',
+    'bower.json',
+    'README.md',
+    'LICENSE'
+  ];
 
-describe('Project Creation', function () {
+describe('Project Creation', () => {
 
-  var
-    gen,
-    name = /\"name\": \"testapp\"/,
-    description = /\"description\": \"This is a test\"/,
-    git = {};
+  let gen;
 
-  beforeEach( function () {
+  beforeEach(() => {
     gen = helpers
       .run(genDir)
       .inDir(tmpDir)
@@ -26,28 +31,21 @@ describe('Project Creation', function () {
       });
   });
 
-  it('creates expected files', function (done) {
+  it('creates expected files', done => {
 
-    var expected = [
-      'package.json',
-      'bower.json',
-      'README.md',
-      'LICENSE'
-    ];
-
-    gen.on('end', function () {
-      assert.file(expected);
+    gen.on('end', () => {
+      assert.file(expectedFiles);
       done();
     });
   });
 
-  it('package.json filled template', function (done) {
+  it('package.json filled template', done => {
     gen
-      .on('ready', function (generator) {
-        git.user = new RegExp('"name": "' + generator.user.git.name() + '"');
-        git.email = new RegExp('"email": "' + generator.user.git.email() + '"');
+      .on('ready', generator => {
+        git.user = new RegExp(`"name": "${generator.user.git.name()}"`);
+        git.email = new RegExp(`"email": "${generator.user.git.email()}"`);
       })
-      .on('end', function () {
+      .on('end', () => {
         assert.fileContent('package.json', name);
         assert.fileContent('package.json', description);
         assert.fileContent('package.json', git.user);
@@ -56,13 +54,13 @@ describe('Project Creation', function () {
       });
   });
 
-  it('bower.json filled template', function (done) {
+  it('bower.json filled template', done => {
     gen
-      .on('ready', function (generator) {
-        git.user = new RegExp('"name": "' + generator.user.git.name() + '"');
-        git.email = new RegExp('"email": "' + generator.user.git.email() + '"');
+      .on('ready', generator => {
+        git.user = new RegExp(`"name": "${generator.user.git.name()}"`);
+        git.email = new RegExp(`"email": "${generator.user.git.email()}"`);
       })
-      .on('end', function () {
+      .on('end', () => {
         assert.fileContent('bower.json', name);
         assert.fileContent('bower.json', description);
         assert.fileContent('bower.json', git.user);

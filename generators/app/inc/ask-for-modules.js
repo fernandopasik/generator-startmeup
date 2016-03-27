@@ -5,7 +5,7 @@
  */
 module.exports = function () {
 
-  var
+  const
     done = this.async(),
     prompts = {
       type: 'checkbox',
@@ -26,9 +26,9 @@ module.exports = function () {
       ]
     };
 
-  this.prompt(prompts, function (props) {
+  this.prompt(prompts, props => {
     this.modules = props.modules;
     done();
-  }.bind(this));
+  });
 
 };

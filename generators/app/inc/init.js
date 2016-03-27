@@ -1,19 +1,24 @@
 'use strict';
 
-var yosay = require('yosay');
+const yosay = require('yosay');
 
 /**
  * Initial salute and dependencies installing.
  */
 module.exports = function () {
+
+  const that = this;
+
   // Have Yeoman greet the user.
   this.log(yosay('Welcome to the marvelous StartMeUp generator!'));
 
-  // Launch npm install and bower install
-  // at the end of the generator exec
-  this.on('end', function () {
-    this.installDependencies({
-      skipInstall: this.options['skip-install']
+  /**
+   * Launch npm install and bower install
+   * at the end of the generator exec.
+   */
+  this.on('end', () => {
+    that.installDependencies({
+      skipInstall: that.options['skip-install']
     });
   });
 };

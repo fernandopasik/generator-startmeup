@@ -1,12 +1,12 @@
 'use strict';
 
-var expect = require('chai').expect;
+const
+  expect = require('chai').expect,
+  app = require('../generators/app');
 
-describe('Init', function () {
+describe('Init', () => {
 
-  it('can be imported without blowing up', function () {
-    var app = require('../generators/app');
-
+  it('can be imported without blowing up', () => {
     expect(app).to.exist;
   });
 

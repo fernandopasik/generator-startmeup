@@ -1,6 +1,6 @@
 'use strict';
 
-var generator = require('yeoman-generator');
+const generator = require('yeoman-generator');
 
 module.exports = generator.Base.extend({
   init: require('./inc/init'),

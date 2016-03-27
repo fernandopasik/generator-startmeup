@@ -1,6 +1,6 @@
 'use strict';
 
-var
+const
   path = require('path'),
   _s = require('underscore.string');
 
@@ -9,7 +9,7 @@ var
  */
 module.exports = function () {
 
-  var done = this.async();
+  const done = this.async();
 
   this.prompt([
     {
@@ -22,11 +22,11 @@ module.exports = function () {
       message: 'What is your app\'s description ?',
       default: ''
     }
-  ], function (props) {
+  ], props => {
     this.appname = props.appName;
     this.appname = _s.camelize(_s.slugify(_s.humanize(this.appname)));
     this.description = props.description;
     done();
-  }.bind(this));
+  });
 
 };

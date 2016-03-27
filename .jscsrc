@@ -91,7 +91,7 @@
     "requireReturnTypes":                 true,
     "checkTypes":                         "strictNativeCase",
     "checkRedundantAccess":               true,
-    "enforceExistence":                   true,
+    "enforceExistence":                   false,
     "leadingUnderscoreAccess":            true,
     "requireHyphenBeforeDescription":     true,
     "requireNewlineAfterDescription":     true,

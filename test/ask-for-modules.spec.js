@@ -1,40 +1,40 @@
 'use strict';
 
-var
+const
   path = require('path'),
   genDir = path.join(__dirname, '../generators/app'),
   tmpDir = path.join(__dirname, '../.tmp'),
   helpers = require('yeoman-test'),
   expect = require('chai').expect;
 
-describe('Ask For Modules', function () {
+describe('Ask For Modules', () => {
 
-  var gen, tempGen;
+  let gen, tempGen;
 
-  beforeEach( function (done) {
+  beforeEach(done => {
     gen = helpers
       .run(genDir)
       .inDir(tmpDir)
       .withOptions({ 'skip-install': true })
-      .on('ready', function (generator) {
+      .on('ready', generator => {
         tempGen = generator;
         done();
       });
   });
 
-  it('By default jshint and jscs are enabled', function (done) {
+  it('By default jshint and jscs are enabled', done => {
     gen
-      .on('end', function () {
+      .on('end', () => {
         expect(tempGen.modules).to.include('jshint');
         expect(tempGen.modules).to.include('jscs');
         done();
       });
   });
 
-  it('All modules can be disabled', function (done) {
+  it('All modules can be disabled', done => {
     gen
       .withPrompts({ modules: [] })
-      .on('end', function () {
+      .on('end', () => {
         expect(tempGen.modules).to.be.empty;
         done();
       });

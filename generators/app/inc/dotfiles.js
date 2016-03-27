@@ -1,6 +1,6 @@
 'use strict';
 
-var
+const
   path = require('path'),
   rootDir = path.join(__dirname, '../../../');
 
@@ -9,15 +9,15 @@ var
  */
 module.exports = function () {
 
-  var dotfiles = [
+  const dotfiles = [
     '.bowerrc',
     '.editorconfig',
     '.gitattributes',
     '.gitignore'
   ];
 
-  dotfiles.forEach( function (dotfile) {
+  dotfiles.forEach(dotfile => {
     this.copy(rootDir + dotfile, dotfile);
-  }.bind(this));
+  });
 
 };

@@ -1,6 +1,6 @@
 'use strict';
 
-var
+const
   path = require('path'),
   rootDir = path.join(__dirname, '../../../');
 
@@ -9,17 +9,17 @@ var
  */
 module.exports = function () {
 
-  var dotfiles = [];
+  const dotfiles = [];
 
-  if (this.modules.indexOf('jshint') !== -1) {
+  if (-1 !== this.modules.indexOf('jshint')) {
     dotfiles.push('.jshintignore', '.jshintrc');
   }
 
-  if (this.modules.indexOf('jscs') !== -1) {
+  if (-1 !== this.modules.indexOf('jscs')) {
     dotfiles.push('.jscsrc');
   }
 
-  dotfiles.forEach( function (dotfile) {
+  dotfiles.forEach(dotfile => {
     this.copy(rootDir + dotfile, dotfile);
-  }.bind(this));
+  });
 };
