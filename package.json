@@ -16,7 +16,7 @@
   "scripts": {
     "start": "npm run watch",
     "clean": "rm -rf .tmp coverage",
-    "lint": "jshint . --reporter=node_modules/jshint-stylish; jscs . --reporter=node_modules/jscs-stylish",
+    "lint": "jshint . --reporter=node_modules/jshint-stylish; jscs . --reporter=node_modules/jscs-stylish; eslint .",
     "test": "mocha --require mocha-clean",
     "pretest": "npm run clean",
     "cov": "istanbul cover _mocha --report lcovonly --report html -- -R spec --require mocha-clean",
@@ -44,6 +44,7 @@
     "chai": "^3.5.0",
     "coveralls": "^2.11.9",
     "escape-string-regexp": "^1.0.5",
+    "eslint": "^2.7.0",
     "istanbul": "^0.4.3",
     "jscs": "^2.11.0",
     "jscs-stylish": "^0.3.1",
