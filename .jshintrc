@@ -12,7 +12,7 @@
   "maxcomplexity" : 6,
   "maxdepth"      : 4,
   "maxerr"        : 50,
-  "maxparams"     : 4,
+  "maxparams"     : 5,
   "maxstatements" : 15,
 
   "esversion"     : 6,
