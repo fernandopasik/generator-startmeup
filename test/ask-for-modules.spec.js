@@ -22,11 +22,21 @@ describe('Ask For Modules', () => {
       });
   });
 
-  it('By default jshint and jscs are enabled', done => {
+  it('Available modules are jshint, jscs and eslint', done => {
     gen
+      .withPrompts({ modules: [ 'jshint', 'jscs', 'eslint' ] })
       .on('end', () => {
         expect(tempGen.modules).to.include('jshint');
         expect(tempGen.modules).to.include('jscs');
+        expect(tempGen.modules).to.include('eslint');
+        done();
+      });
+  });
+
+  it('By default eslint is enabled', done => {
+    gen
+      .on('end', () => {
+        expect(tempGen.modules).to.include('eslint');
         done();
       });
   });

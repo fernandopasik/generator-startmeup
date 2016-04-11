@@ -20,6 +20,10 @@ module.exports = function () {
     dotfiles.push('.jscsrc');
   }
 
+  if (-1 !== this.modules.indexOf('eslint')) {
+    dotfiles.push('.eslintrc');
+  }
+
   dotfiles.forEach(dotfile => {
     this.copy(rootDir + dotfile, dotfile);
   });

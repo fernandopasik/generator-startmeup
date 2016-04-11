@@ -11,10 +11,16 @@ const
   expectedFiles = [
     '.jscsrc',
     '.jshintignore',
-    '.jshintrc'
+    '.jshintrc',
+    '.eslintrc'
   ],
   jshint = new RegExp(`jshint.*${escapeStringRegexp(pkg.devDependencies.jshint)}`),
-  jscs = new RegExp(`jscs.*${escapeStringRegexp(pkg.devDependencies.jscs)}`);
+  jscs = new RegExp(`jscs.*${escapeStringRegexp(pkg.devDependencies.jscs)}`),
+  eslint = new RegExp(`eslint.*${escapeStringRegexp(pkg.devDependencies.eslint)}`),
+
+  // jscs:disable maximumLineLength
+  // eslint-disable-next-line max-len
+  eslintConfig = new RegExp(`eslint-config-fernandopasik.*${escapeStringRegexp(pkg.devDependencies['eslint-config-fernandopasik'])}`);
 
 describe('Linting install', () => {
 
@@ -29,19 +35,25 @@ describe('Linting install', () => {
 
   it('creates dotfiles', done => {
 
-    gen.on('end', () => {
-      assert.file(expectedFiles);
-      done();
-    });
+    gen
+      .withPrompts({ modules: [ 'jshint', 'jscs', 'eslint' ] })
+      .on('end', () => {
+        assert.file(expectedFiles);
+        done();
+      });
   });
 
   it('checks for dependencies', done => {
 
-    gen.on('end', () => {
-      assert.fileContent('package.json', jshint);
-      assert.fileContent('package.json', jscs);
-      done();
-    });
+    gen
+      .withPrompts({ modules: [ 'jshint', 'jscs', 'eslint' ] })
+      .on('end', () => {
+        assert.fileContent('package.json', jshint);
+        assert.fileContent('package.json', jscs);
+        assert.fileContent('package.json', eslint);
+        assert.fileContent('package.json', eslintConfig);
+        done();
+      });
   });
 
   it('can be disabled', done => {
@@ -51,6 +63,7 @@ describe('Linting install', () => {
         assert.noFile(expectedFiles);
         assert.noFileContent('package.json', jshint);
         assert.noFileContent('package.json', jscs);
+        assert.noFileContent('package.json', eslint);
         done();
       });
   });

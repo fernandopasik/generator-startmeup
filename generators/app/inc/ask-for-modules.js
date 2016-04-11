@@ -11,16 +11,21 @@ module.exports = function () {
       type: 'checkbox',
       name: 'modules',
       message: 'Which modules would you like to include?',
-      default: [ 'jshint', 'jscs' ],
+      default: [ 'eslint' ],
       choices: [
         {
           value: 'jshint',
           name: 'jshint',
-          checked: true
+          checked: false
         },
         {
           value: 'jscs',
           name: 'jscs',
+          checked: false
+        },
+        {
+          value: 'eslint',
+          name: 'eslint',
           checked: true
         }
       ]
@@ -28,6 +33,11 @@ module.exports = function () {
 
   this.prompt(prompts, props => {
     this.modules = props.modules;
+
+    if (-1 !== this.modules.indexOf('eslint')) {
+      this.modules.push('eslint-config-fernandopasik');
+    }
+
     done();
   });
 
