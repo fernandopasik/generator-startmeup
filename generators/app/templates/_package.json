@@ -3,12 +3,22 @@
   "version": "0.0.0",
   "description": "<%= description %>",
   "private": true,
+  "keywords": [],
+  "homepage": "https://github.com/ /<%= appname %>",
+  "bugs": "https://github.com/ /<%= appname %>/issues",
+  "license": "MIT",
   "author": "<%= user.git.name() %> <<%= user.git.email() %>>",
+  "contributors": [],
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/ /<%= appname %>.git"
   },
-  "keywords": [],
+  "main": "",
+  "scripts": {},
   "dependencies": {},
-  "devDependencies": {<%- devDependencies %>}
+  "devDependencies": {<%- devDependencies %>},
+  "engines": {
+    "node": ">=4.0.0",
+    "npm": ">=2.14.2"
+  }
 }
