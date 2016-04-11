@@ -10,14 +10,18 @@ const
  */
 module.exports = function () {
 
-  this.devDependencies = [];
+  const devDependencies = [];
+  this.devDependencies = '';
 
   this.modules.forEach(module => {
-    this.devDependencies.push({
-      name: module,
-      version: pkg.devDependencies[module]
-    });
+    devDependencies.push(`\t\t"${module}": "${pkg.devDependencies[module]}"`);
   });
+
+  this.devDependencies = devDependencies.sort().join(',\n');
+
+  if (this.devDependencies) {
+    this.devDependencies = `\n${this.devDependencies}\n\t`;
+  }
 
   this.pkg = pkg;
   this.template('_package.json', 'package.json');

@@ -13,7 +13,5 @@
   },
   "keywords": [],
   "dependencies": {},
-  "devDependencies": {<% for (var i = 0; i < devDependencies.length; i++) {%>
-    "<%= devDependencies[i].name %>": "<%= devDependencies[i].version %>"<%if (i < (devDependencies.length - 1)) { %>,<% } %>
-  <% } %>}
+  "devDependencies": {<%- devDependencies %>}
 }
