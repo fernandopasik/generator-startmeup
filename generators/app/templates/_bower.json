@@ -3,10 +3,7 @@
   "version": "0.0.0",
   "description": "<%= description %>",
   "private": true,
-  "author": {
-    "name": "<%= user.git.name() %>",
-    "email": "<%= user.git.email() %>"
-  },
+  "author": "<%= user.git.name() %> <<%= user.git.email() %>>",
   "repository": {
     "type": "git",
     "url": ""
