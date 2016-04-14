@@ -5,8 +5,7 @@ const generator = require('yeoman-generator');
 module.exports = generator.Base.extend({
   init: require('./inc/init'),
   askForName: require('./inc/ask-for-name'),
-  askForModules: require('./inc/ask-for-modules'),
+  lint: require('./inc/lint'),
   project: require('./inc/project'),
-  dotfiles: require('./inc/dotfiles'),
-  lint: require('./inc/lint')
+  dotfiles: require('./inc/dotfiles')
 });

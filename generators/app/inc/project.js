@@ -13,6 +13,9 @@ module.exports = function () {
   const devDependencies = [];
   this.devDependencies = '';
 
+  // Init modules array if none
+  this.modules = this.modules || [];
+
   this.modules.forEach(module => {
     devDependencies.push(`\t\t"${module}": "${pkg.devDependencies[module]}"`);
   });

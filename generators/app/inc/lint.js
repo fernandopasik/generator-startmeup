@@ -10,21 +10,54 @@ const
  */
 module.exports = function () {
 
-  const dotfiles = [];
+  const
+    done = this.async(),
+    lintMethods = {
+      jshint: {
+        dotfiles: [ '.jshintrc', '.jshintignore' ]
+      },
+      jscs: {
+        dotfiles: [ '.jscsrc' ]
+      },
+      eslint: {
+        dependencies: [ 'eslint-config-fernandopasik' ],
+        dotfiles: [ '.eslintrc' ]
+      }
+    },
+    defaultLintMethods = [ 'eslint' ],
+    prompts = {
+      type: 'checkbox',
+      name: 'lintMethods',
+      message: 'Which linting methods would you like to include?',
+      default: defaultLintMethods,
+      choices: Object.keys(lintMethods).map(lintMethod => ({
+        name: lintMethod,
+        checked: -1 !== defaultLintMethods.indexOf(lintMethod)
+      }))
+    };
 
-  if (-1 !== this.modules.indexOf('jshint')) {
-    dotfiles.push('.jshintignore', '.jshintrc');
-  }
+  this.prompt(prompts, props => {
 
-  if (-1 !== this.modules.indexOf('jscs')) {
-    dotfiles.push('.jscsrc');
-  }
+    // Init modules for later installing dependencies
+    this.modules = this.modules || [];
 
-  if (-1 !== this.modules.indexOf('eslint')) {
-    dotfiles.push('.eslintrc');
-  }
+    // Iterate through the selected linting methods
+    props.lintMethods.forEach(lintMethod => {
 
-  dotfiles.forEach(dotfile => {
-    this.copy(rootDir + dotfile, dotfile);
+      // Add the linting dependency
+      this.modules.push(lintMethod);
+
+      // Add its dependencies if available
+      if (lintMethods[lintMethod].dependencies) {
+        this.modules = this.modules.concat(lintMethods[lintMethod].dependencies);
+      }
+
+      // Copy the dotfiles corresponding to the linting modules
+      lintMethods[lintMethod].dotfiles.forEach(dotfile => {
+        this.copy(rootDir + dotfile, dotfile);
+      });
+    });
+
+    done();
   });
 };
