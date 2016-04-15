@@ -3,7 +3,7 @@
 const yosay = require('yosay');
 
 /**
- * Initial salute and dependencies installing.
+ * Initial salute.
  */
 module.exports = function () {
 
