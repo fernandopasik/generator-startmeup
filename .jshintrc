@@ -44,5 +44,7 @@
   "scripturl"     : false,
   "supernew"      : false,
   "validthis"     : false,
-  "withstmt"      : false
+  "withstmt"      : false,
+
+  "node"   : true
 }
