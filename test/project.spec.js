@@ -23,7 +23,7 @@ describe('Project Creation', () => {
     gen = helpers
       .run(genDir)
       .inDir(tmpDir)
-      .withOptions({ 'skip-install': true })
+      .withOptions({ skipInstall: true })
       .withPrompts({
         appName: 'testapp',
         description: 'This is a test'

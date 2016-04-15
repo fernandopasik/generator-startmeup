@@ -15,7 +15,7 @@ describe('Ask For Modules', () => {
     gen = helpers
       .run(genDir)
       .inDir(tmpDir)
-      .withOptions({ 'skip-install': true })
+      .withOptions({ skipInstall: true })
       .on('ready', generator => {
         tempGen = generator;
         done();

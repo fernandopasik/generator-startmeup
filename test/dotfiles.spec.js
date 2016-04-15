@@ -23,7 +23,7 @@ describe('dotfiles Creation', () => {
     gen = helpers
       .run(genDir)
       .inDir(tmpDir)
-      .withOptions({ 'skip-install': true });
+      .withOptions({ skipInstall: true });
   });
 
   it('creates expected files', done => {
