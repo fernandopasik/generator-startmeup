@@ -5,6 +5,7 @@
  */
 module.exports = function () {
 
+  /* istanbul ignore if */
   if (!this.options.skipInstall) {
     this.installDependencies();
   }

@@ -13,11 +13,12 @@ module.exports = function () {
   const devDependencies = [];
   this.devDependencies = '';
 
-  if (this.modules && Array.isArray(this.modules)) {
-    this.modules.forEach(module => {
-      devDependencies.push(`\t\t"${module}": "${pkg.devDependencies[module]}"`);
-    });
-  }
+  /* istanbul ignore next */
+  this.modules = this.modules || [];
+
+  this.modules.forEach(module => {
+    devDependencies.push(`\t\t"${module}": "${pkg.devDependencies[module]}"`);
+  });
 
   this.devDependencies = devDependencies.sort().join(',\n');
 
