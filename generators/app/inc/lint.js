@@ -21,7 +21,7 @@ module.exports = function () {
       },
       eslint: {
         dependencies: [ 'eslint-config-fernandopasik' ],
-        dotfiles: [ '.eslintrc' ]
+        dotfiles: [ '.eslintrc', '.eslintignore' ]
       }
     },
     defaultLintMethods = [ 'eslint' ],

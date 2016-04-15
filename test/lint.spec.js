@@ -13,7 +13,8 @@ const
     '.jscsrc',
     '.jshintignore',
     '.jshintrc',
-    '.eslintrc'
+    '.eslintrc',
+    '.eslintignore'
   ],
   jshint = new RegExp(`jshint.*${escapeStringRegexp(pkg.devDependencies.jshint)}`),
   jscs = new RegExp(`jscs.*${escapeStringRegexp(pkg.devDependencies.jscs)}`),
