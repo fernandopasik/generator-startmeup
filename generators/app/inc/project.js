@@ -26,7 +26,7 @@ module.exports = function () {
     this.devDependencies = `\n${this.devDependencies}\n\t`;
   }
 
-  this.pkg = pkg;
+  this.pkg.devDependencies = pkg.devDependencies;
   this.template('_package.json', 'package.json');
   this.template('_bower.json', 'bower.json');
   this.copy('README.md');

@@ -4,14 +4,14 @@
   "description": "<%= description %>",
   "private": true,
   "keywords": [],
-  "homepage": "https://github.com/ /<%= appname %>",
-  "bugs": "https://github.com/ /<%= appname %>/issues",
+  "homepage": "<%= pkg.homepage %>",
+  "bugs": "<%= pkg.bugs %>",
   "license": "MIT",
   "author": "<%= user.git.name() %> <<%= user.git.email() %>>",
   "contributors": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ /<%= appname %>.git"
+    "url": "<%= pkg.repository %>"
   },
   "main": "",
   "scripts": {},

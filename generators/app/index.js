@@ -22,6 +22,7 @@ module.exports = generator.Base.extend({
    */
   prompting: {
     askForAppMeta: require('./inc/ask-for-app-meta'),
+    askForGithub: require('./inc/ask-for-github'),
     lint: require('./inc/lint')
   },
 
