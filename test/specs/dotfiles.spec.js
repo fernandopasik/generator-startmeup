@@ -1,10 +1,8 @@
 'use strict';
 
 const
-  path = require('path'),
-  genDir = path.join(__dirname, '../generators/app'),
-  tmpDir = path.join(__dirname, '../.tmp'),
-  helpers = require('yeoman-test'),
+  dirs = require('../helpers').dirs,
+  yeomanTest = require('yeoman-test'),
   assert = require('yeoman-assert'),
 
   // Add files you expect to exist here.
@@ -20,9 +18,9 @@ describe('dotfiles Creation', () => {
   let gen;
 
   beforeEach(() => {
-    gen = helpers
-      .run(genDir)
-      .inDir(tmpDir)
+    gen = yeomanTest
+      .run(dirs.generator)
+      .inDir(dirs.tmp)
       .withOptions({ skipInstall: true });
   });
 

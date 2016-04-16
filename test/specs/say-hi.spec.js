@@ -1,8 +1,6 @@
 'use strict';
 
-const
-  expect = require('chai').expect,
-  app = require('../generators/app');
+const app = require('../../generators/app');
 
 describe('Init', () => {
 

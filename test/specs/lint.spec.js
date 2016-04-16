@@ -1,14 +1,11 @@
 'use strict';
 
 const
-  path = require('path'),
   escapeStringRegexp = require('escape-string-regexp'),
-  genDir = path.join(__dirname, '../generators/app'),
-  tmpDir = path.join(__dirname, '../.tmp'),
-  pkg = require(path.join(__dirname, '../package.json')),
-  helpers = require('yeoman-test'),
+  dirs = require('../helpers').dirs,
+  pkg = require('../../package.json'),
+  yeomanTest = require('yeoman-test'),
   assert = require('yeoman-assert'),
-  expect = require('chai').expect,
   expectedFiles = [
     '.jscsrc',
     '.jshintignore',
@@ -29,9 +26,9 @@ describe('Linting', () => {
   let gen, tempGen;
 
   beforeEach(done => {
-    gen = helpers
-      .run(genDir)
-      .inDir(tmpDir)
+    gen = yeomanTest
+      .run(dirs.generator)
+      .inDir(dirs.tmp)
       .withOptions({ skipInstall: true })
       .on('ready', generator => {
         tempGen = generator;

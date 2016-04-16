@@ -21,7 +21,7 @@ module.exports = generator.Base.extend({
    * (where you'd call this.prompt())
    */
   prompting: {
-    askForName: require('./inc/ask-for-name'),
+    askForAppMeta: require('./inc/ask-for-app-meta'),
     lint: require('./inc/lint')
   },
 

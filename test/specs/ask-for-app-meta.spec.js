@@ -2,19 +2,17 @@
 
 const
   path = require('path'),
-  genDir = path.join(__dirname, '../generators/app'),
-  tmpDir = path.join(__dirname, '../.tmp'),
-  helpers = require('yeoman-test'),
-  expect = require('chai').expect;
+  dirs = require('../helpers').dirs,
+  yeomanTest = require('yeoman-test');
 
-describe('Ask For Modules', () => {
+describe('Ask for app metadata', () => {
 
   let gen, tempGen;
 
   beforeEach(done => {
-    gen = helpers
-      .run(genDir)
-      .inDir(tmpDir)
+    gen = yeomanTest
+      .run(dirs.generator)
+      .inDir(dirs.tmp)
       .withOptions({ skipInstall: true })
       .on('ready', generator => {
         tempGen = generator;

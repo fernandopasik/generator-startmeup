@@ -1,5 +1,8 @@
 {
   "extends": "../.jshintrc",
   "expr"   : true,
-  "mocha"  : true
+  "mocha"  : true,
+  "globals": {
+    "expect": true
+  }
 }

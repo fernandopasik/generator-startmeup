@@ -5,7 +5,7 @@ const
   slug = require('slug');
 
 /**
- * Ask for project data from the User.
+ * Ask for project metadata from the User.
  */
 module.exports = function () {
 
