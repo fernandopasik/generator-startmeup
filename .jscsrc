@@ -1,5 +1,5 @@
 {
-  "disallowDanglingUnderscores"                   : { "allExcept": [ "_s", "_id" ]},
+  "disallowDanglingUnderscores"                   : { "allExcept": [ "_id" ]},
   "disallowEmptyBlocks"                           : true,
   "disallowIdentifierNames"                       : [],
   "disallowImplicitTypeConversion"                : [ "numeric", "boolean", "binary", "string" ],

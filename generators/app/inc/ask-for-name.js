@@ -2,7 +2,7 @@
 
 const
   path = require('path'),
-  _s = require('underscore.string');
+  slug = require('slug');
 
 /**
  * Ask for project data from the User.
@@ -24,7 +24,7 @@ module.exports = function () {
     }
   ], props => {
     this.appname = props.appName;
-    this.appname = _s.camelize(_s.slugify(_s.humanize(this.appname)));
+    this.appname = slug(this.appname);
     this.description = props.description;
     done();
   });
