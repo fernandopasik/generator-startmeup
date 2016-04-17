@@ -34,18 +34,15 @@ module.exports = function () {
 
   this.prompt(prompts, props => {
 
-    // Init modules for later installing dependencies
-    this.modules = this.modules || [];
-
     // Iterate through the selected linting methods
     props.lintMethods.forEach(lintMethod => {
 
       // Add the linting dependency
-      this.modules.push(lintMethod);
+      this.devDependencies.push(lintMethod);
 
       // Add its dependencies if available
       if (lintMethods[lintMethod].dependencies) {
-        this.modules = this.modules.concat(lintMethods[lintMethod].dependencies);
+        this.devDependencies = this.devDependencies.concat(lintMethods[lintMethod].dependencies);
       }
 
       // Copy the dotfiles corresponding to the linting modules

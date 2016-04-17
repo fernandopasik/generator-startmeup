@@ -7,26 +7,17 @@ const path = require('path');
  */
 module.exports = function () {
 
-  const
-    devDependencies = [],
-    pkg = require(path.join(this.rootDir, 'package.json'));
+  const pkg = require(path.join(this.rootDir, 'package.json'));
 
-  this.devDependencies = '';
-
-  /* istanbul ignore next */
-  this.modules = this.modules || [];
-
-  this.modules.forEach(module => {
-    devDependencies.push(`\t\t"${module}": "${pkg.devDependencies[module]}"`);
-  });
-
-  this.devDependencies = devDependencies.sort().join(',\n');
+  this.devDependencies = this.devDependencies
+    .map(dependency => `    "${dependency}": "${pkg.devDependencies[dependency]}"`)
+    .sort()
+    .join(',\n');
 
   if (this.devDependencies) {
-    this.devDependencies = `\n${this.devDependencies}\n\t`;
+    this.devDependencies = `\n${this.devDependencies}\n  `;
   }
 
-  this.pkg.devDependencies = pkg.devDependencies;
   this.template('_package.json', 'package.json');
   this.template('_bower.json', 'bower.json');
   this.copy('README.md');

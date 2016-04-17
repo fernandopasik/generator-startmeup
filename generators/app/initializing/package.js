@@ -7,5 +7,6 @@ const path = require('path');
  */
 module.exports = function () {
   this.pkg = this.pkg || {};
+  this.devDependencies = [];
   this.rootDir = path.join(__dirname, '../../../');
 };
