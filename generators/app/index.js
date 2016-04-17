@@ -25,7 +25,8 @@ module.exports = generator.Base.extend({
     appMeta: require('./prompting/app-meta'),
     author: require('./prompting/author'),
     github: require('./prompting/github'),
-    lint: require('./prompting/lint')
+    lint: require('./prompting/lint'),
+    bower: require('./prompting/bower')
   },
 
   /**
