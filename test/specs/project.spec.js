@@ -55,7 +55,7 @@ describe('Project Creation', () => {
     gen
       .on('ready', generator => {
         author = new RegExp(
-          `"author": "${generator.user.git.name()} <${generator.user.git.email()}>"`
+          `"authors": "${generator.user.git.name()} <${generator.user.git.email()}>"`
         );
       })
       .on('end', () => {

@@ -13,7 +13,8 @@ module.exports = generator.Base.extend({
    * (checking current project state, getting configs, etc)
    */
   initializing: {
-    sayHi: require('./inc/say-hi')
+    sayHi: require('./inc/say-hi'),
+    initPkg: require('./inc/init-pkg')
   },
 
   /**

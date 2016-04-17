@@ -7,8 +7,6 @@ module.exports = function () {
 
   const done = this.async();
 
-  this.pkg = this.pkg || {};
-
   this.prompt([
     {
       name: 'authorName',

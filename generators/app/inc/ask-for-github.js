@@ -8,8 +8,6 @@ module.exports = function () {
   const done = this.async();
   let githubUsername;
 
-  this.pkg = this.pkg || {};
-
   if (this.authorName && 'string' === typeof this.authorName) {
     githubUsername = this.authorName.toLowerCase().replace(/\s/g, '');
   }

@@ -1,13 +1,19 @@
 {
   "name": "<%= appname %>",
-  "version": "0.0.0",
   "description": "<%= description %>",
   "private": true,
-  "author": "<%= user.git.name() %> <<%= user.git.email() %>>",
+  "keywords": [],
+  "homepage": "<%= pkg.homepage %>",
+  "license": "MIT",
+  "authors": "<%- pkg.author %>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "<%= pkg.repository %>"
   },
+  "main": "",
+  "moduleType": "es6",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {},
+  "resolutions": {},
+  "ignore": []
 }
