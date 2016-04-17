@@ -3,28 +3,25 @@
 const
   path = require('path'),
   dirs = require('../helpers').dirs,
+  assert = require('yeoman-assert'),
   yeomanTest = require('yeoman-test');
 
 describe('Ask for app metadata', () => {
 
-  let gen, tempGen;
+  let gen;
 
-  beforeEach(done => {
+  beforeEach(() => {
     gen = yeomanTest
       .run(dirs.generator)
       .inDir(dirs.tmp)
-      .withOptions({ skipInstall: true })
-      .on('ready', generator => {
-        tempGen = generator;
-        done();
-      });
+      .withOptions({ skipInstall: true });
   });
 
   it('App name', done => {
     gen
       .withPrompts({ appName: 'testapp' })
       .on('end', () => {
-        expect(tempGen.appname).to.equal('testapp');
+        assert.jsonFileContent('package.json', { name: 'testapp' });
         done();
       });
   });
@@ -32,8 +29,9 @@ describe('Ask for app metadata', () => {
   it('App name by default is current directory', done => {
     gen
       .on('end', () => {
-        expect(tempGen.appname)
-          .to.equal(path.basename(process.cwd()).replace(/^\./, ''));
+        assert.jsonFileContent('package.json', {
+          name: path.basename(process.cwd()).replace(/^\./, '')
+        });
         done();
       });
   });
@@ -42,7 +40,7 @@ describe('Ask for app metadata', () => {
     gen
       .withPrompts({ description: 'This is a test App.' })
       .on('end', () => {
-        expect(tempGen.description).to.equal('This is a test App.');
+        assert.jsonFileContent('package.json', { description: 'This is a test App.' });
         done();
       });
   });

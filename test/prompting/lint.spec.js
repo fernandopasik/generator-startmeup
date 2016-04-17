@@ -15,26 +15,23 @@ const
 
 describe('Linting', () => {
 
-  let gen, tempGen;
+  let gen;
 
-  beforeEach(done => {
+  beforeEach(() => {
     gen = yeomanTest
       .run(dirs.generator)
       .inDir(dirs.tmp)
-      .withOptions({ skipInstall: true })
-      .on('ready', generator => {
-        tempGen = generator;
-        done();
-      });
+      .withOptions({ skipInstall: true });
   });
 
   it('Available methods are jshint, jscs and eslint', done => {
     gen
       .withPrompts({ lintMethods: [ 'jshint', 'jscs', 'eslint' ] })
       .on('end', () => {
-        expect(tempGen.devDependencies).to.include('jshint');
-        expect(tempGen.devDependencies).to.include('jscs');
-        expect(tempGen.devDependencies).to.include('eslint');
+        assert.fileContent('package.json', /jshint": "\^/);
+        assert.fileContent('package.json', /jscs": "\^/);
+        assert.fileContent('package.json', /eslint": "\^/);
+        assert.fileContent('package.json', /eslint-config-fernandopasik": "\^/);
         done();
       });
   });
@@ -42,7 +39,8 @@ describe('Linting', () => {
   it('Has eslint enabled by default', done => {
     gen
       .on('end', () => {
-        expect(tempGen.devDependencies).to.include('eslint');
+        assert.fileContent('package.json', /eslint": "\^/);
+        assert.fileContent('package.json', /eslint-config-fernandopasik": "\^/);
         done();
       });
   });
@@ -52,6 +50,14 @@ describe('Linting', () => {
       .withPrompts({ lintMethods: [] })
       .on('end', () => {
         assert.noFile(expectedFiles);
+        assert.noJsonFileContent('package.json', {
+          devDependencies: {
+            jshint: pkg.devDependencies.jshint,
+            jscs: pkg.devDependencies.jscs,
+            eslint: pkg.devDependencies.eslint,
+            'eslint-config-fernandopasik': pkg.devDependencies['eslint-config-fernandopasik']
+          }
+        });
         assert.noFileContent('package.json',
           /(jshint|jscs|eslint|eslint-config-fernandopasik)/);
         done();
