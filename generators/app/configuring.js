@@ -1,9 +1,5 @@
 'use strict';
 
-const
-  path = require('path'),
-  rootDir = path.join(__dirname, '../../');
-
 /**
  * Copy all the dotfiles for the project.
  */
@@ -17,7 +13,7 @@ module.exports = function () {
   ];
 
   dotfiles.forEach(dotfile => {
-    this.copy(rootDir + dotfile, dotfile);
+    this.copy(this.rootDir + dotfile, dotfile);
   });
 
 };

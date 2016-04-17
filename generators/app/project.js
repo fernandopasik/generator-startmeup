@@ -1,16 +1,16 @@
 'use strict';
 
-const
-  path = require('path'),
-  rootDir = path.join(__dirname, '../../'),
-  pkg = require(path.join(rootDir, 'package.json'));
+const path = require('path');
 
 /**
  * Copy project initial files.
  */
 module.exports = function () {
 
-  const devDependencies = [];
+  const
+    devDependencies = [],
+    pkg = require(path.join(this.rootDir, 'package.json'));
+
   this.devDependencies = '';
 
   /* istanbul ignore next */

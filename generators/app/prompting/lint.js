@@ -1,10 +1,6 @@
 /* eslint no-magic-numbers: 0 */
 'use strict';
 
-const
-  path = require('path'),
-  rootDir = path.join(__dirname, '../../../');
-
 /**
  * Copy all the dotfiles for the project.
  */
@@ -54,7 +50,7 @@ module.exports = function () {
 
       // Copy the dotfiles corresponding to the linting modules
       lintMethods[lintMethod].dotfiles.forEach(dotfile => {
-        this.copy(rootDir + dotfile, dotfile);
+        this.copy(this.rootDir + dotfile, dotfile);
       });
     });
 
