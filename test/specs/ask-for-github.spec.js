@@ -4,26 +4,25 @@ const
   dirs = require('../helpers').dirs,
   yeomanTest = require('yeoman-test'),
   assert = require('yeoman-assert'),
-  githubUsername = 'fernandopasik';
+  authorName = 'Fernando Pasik',
+  githubUsername = 'fernandopasik',
+  appName = 'testapp',
+  githubUrl = `https://github.com/${githubUsername}/${appName}`;
 
 describe('Ask for Github info', () => {
 
-  let gen, tempGen, githubUrl;
+  let gen;
 
-  beforeEach(done => {
+  beforeEach(() => {
     gen = yeomanTest
       .run(dirs.generator)
       .inDir(dirs.tmp)
-      .withOptions({ skipInstall: true })
-      .on('ready', generator => {
-        tempGen = generator;
-        done();
-      });
+      .withOptions({ skipInstall: true });
   });
 
   it('No?', done => {
     gen
-      .withPrompts({ githubConfirm: false })
+      .withPrompts({ appName, githubConfirm: false })
       .on('end', () => {
         assert.jsonFileContent('package.json', {
           homepage: '',
@@ -36,10 +35,22 @@ describe('Ask for Github info', () => {
 
   it('Username', done => {
     gen
-      .withPrompts({ githubConfirm: true, githubUsername })
+      .withPrompts({ appName, githubUsername })
       .on('end', () => {
 
-        githubUrl = `https://github.com/${tempGen.pkg.githubUsername}/${tempGen.appname}`;
+        assert.jsonFileContent('package.json', {
+          homepage: githubUrl,
+          bugs: `${githubUrl}/issues`,
+          repository: { type: 'git', url: `${githubUrl}.git` }
+        });
+        done();
+      });
+  });
+
+  it('Default username from author name', done => {
+    gen
+      .withPrompts({ appName, authorName })
+      .on('end', () => {
 
         assert.jsonFileContent('package.json', {
           homepage: githubUrl,

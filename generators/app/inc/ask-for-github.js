@@ -6,8 +6,13 @@
 module.exports = function () {
 
   const done = this.async();
+  let githubUsername;
 
-  this.pkg = {};
+  this.pkg = this.pkg || {};
+
+  if (this.authorName && 'string' === typeof this.authorName) {
+    githubUsername = this.authorName.toLowerCase().replace(/\s/g, '');
+  }
 
   this.prompt([
     {
@@ -19,6 +24,7 @@ module.exports = function () {
     {
       name: 'githubUsername',
       message: 'What is your github username?',
+      default: githubUsername,
       when: props => props.githubConfirm
     }
   ], props => {

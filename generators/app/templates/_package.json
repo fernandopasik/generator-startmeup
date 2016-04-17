@@ -7,7 +7,7 @@
   "homepage": "<%= pkg.homepage %>",
   "bugs": "<%= pkg.bugs %>",
   "license": "MIT",
-  "author": "<%= user.git.name() %> <<%= user.git.email() %>>",
+  "author": "<%- pkg.author %>",
   "contributors": [],
   "repository": {
     "type": "git",
