@@ -1,16 +1,12 @@
 'use strict';
 
-const path = require('path');
-
 /**
  * Copy project initial files.
  */
 module.exports = function () {
 
-  const pkg = require(path.join(this.rootDir, 'package.json'));
-
   this.devDependencies = this.devDependencies
-    .map(dependency => `    "${dependency}": "${pkg.devDependencies[dependency]}"`)
+    .map(dependency => `    "${dependency.name}": "${dependency.version}"`)
     .sort()
     .join(',\n');
 

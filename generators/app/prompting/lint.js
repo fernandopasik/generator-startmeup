@@ -8,6 +8,8 @@ module.exports = function () {
 
   const
     done = this.async(),
+    path = require('path'),
+    pkg = require(path.join(this.rootDir, 'package.json')),
     lintMethods = {
       jshint: {
         dotfiles: [ '.jshintrc', '.jshintignore' ]
@@ -38,11 +40,19 @@ module.exports = function () {
     props.lintMethods.forEach(lintMethod => {
 
       // Add the linting dependency
-      this.devDependencies.push(lintMethod);
+      this.devDependencies.push({
+        name: lintMethod,
+        version: pkg.devDependencies[lintMethod]
+      });
 
       // Add its dependencies if available
       if (lintMethods[lintMethod].dependencies) {
-        this.devDependencies = this.devDependencies.concat(lintMethods[lintMethod].dependencies);
+        lintMethods[lintMethod].dependencies.forEach(dependency => {
+          this.devDependencies.push({
+            name: dependency,
+            version: pkg.devDependencies[dependency]
+          });
+        });
       }
 
       // Copy the dotfiles corresponding to the linting modules
