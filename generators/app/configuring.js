@@ -2,7 +2,7 @@
 
 const
   path = require('path'),
-  rootDir = path.join(__dirname, '../../../');
+  rootDir = path.join(__dirname, '../../');
 
 /**
  * Copy all the dotfiles for the project.

@@ -2,7 +2,7 @@
 
 const
   path = require('path'),
-  rootDir = path.join(__dirname, '../../../'),
+  rootDir = path.join(__dirname, '../../'),
   pkg = require(path.join(rootDir, 'package.json'));
 
 /**

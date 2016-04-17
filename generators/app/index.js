@@ -13,8 +13,8 @@ module.exports = generator.Base.extend({
    * (checking current project state, getting configs, etc)
    */
   initializing: {
-    sayHi: require('./inc/say-hi'),
-    initPkg: require('./inc/init-pkg')
+    sayHi: require('./initializing/say-hi'),
+    package: require('./initializing/package')
   },
 
   /**
@@ -22,30 +22,28 @@ module.exports = generator.Base.extend({
    * (where you'd call this.prompt())
    */
   prompting: {
-    askForAppMeta: require('./inc/ask-for-app-meta'),
-    askForAuthor: require('./inc/ask-for-author'),
-    askForGithub: require('./inc/ask-for-github'),
-    lint: require('./inc/lint')
+    appMeta: require('./prompting/app-meta'),
+    author: require('./prompting/author'),
+    github: require('./prompting/github'),
+    lint: require('./prompting/lint')
   },
 
   /**
    * Saving configurations and configure the project
    * (creating .editorconfig files and other metadata files)
    */
-  configuring: {
-    dotfiles: require('./inc/dotfiles')
-  },
+  configuring: require('./configuring'),
 
   /**
    * If the method name doesn't match a priority,
    * it will be pushed to this group.
    */
   default: {
-    project: require('./inc/project')
+    project: require('./project')
   },
 
   /**
    * Where installation are run (npm, bower)
    */
-  install: require('./inc/install')
+  install: require('./install')
 });
