@@ -3,7 +3,6 @@
 const
   path = require('path'),
   dirs = require('../helpers').dirs,
-  assert = require('yeoman-assert'),
   yeomanTest = require('yeoman-test');
 
 describe('Ask for app metadata', () => {

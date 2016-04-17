@@ -3,7 +3,7 @@
     "mocha": true
   },
   "globals": {
-    "expect": true
+    "assert": true
   },
   "rules": {
     "no-unused-expressions": 0

@@ -2,8 +2,7 @@
 
 const
   dirs = require('../helpers').dirs,
-  yeomanTest = require('yeoman-test'),
-  assert = require('yeoman-assert');
+  yeomanTest = require('yeoman-test');
 
 describe('Ask for Bower use', () => {
 

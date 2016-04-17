@@ -4,7 +4,6 @@ const
   sinon = require('sinon'),
   dirs = require('../helpers').dirs,
   yeomanTest = require('yeoman-test'),
-  assert = require('yeoman-assert'),
   authorName = 'Leonardo da Vinci',
   authorEmail = 'leonardo@davinci.com',
   authorUrl = 'http://davinci.com';

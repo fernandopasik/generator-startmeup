@@ -3,7 +3,6 @@
 const
   dirs = require('../helpers').dirs,
   yeomanTest = require('yeoman-test'),
-  assert = require('yeoman-assert'),
 
   // Add files you expect to exist here.
   expectedFiles = [

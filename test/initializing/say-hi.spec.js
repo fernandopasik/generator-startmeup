@@ -1,8 +1,6 @@
 'use strict';
 
-const
-  assert = require('yeoman-assert'),
-  app = require('../../generators/app');
+const app = require('../../generators/app');
 
 describe('Init', () => {
 

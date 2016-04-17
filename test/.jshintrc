@@ -3,6 +3,6 @@
   "expr"   : true,
   "mocha"  : true,
   "globals": {
-    "expect": true
+    "assert": true
   }
 }

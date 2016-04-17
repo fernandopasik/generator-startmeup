@@ -3,7 +3,6 @@
 const
   dirs = require('../helpers').dirs,
   yeomanTest = require('yeoman-test'),
-  assert = require('yeoman-assert'),
   expectedFiles = [
     'package.json',
     'bower.json',

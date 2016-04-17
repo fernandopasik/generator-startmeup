@@ -4,7 +4,6 @@ const
   dirs = require('../helpers').dirs,
   pkg = require('../../package.json'),
   yeomanTest = require('yeoman-test'),
-  assert = require('yeoman-assert'),
   expectedFiles = [
     '.jscsrc',
     '.jshintignore',
