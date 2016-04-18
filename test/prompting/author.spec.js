@@ -2,8 +2,7 @@
 
 const
   sinon = require('sinon'),
-  dirs = require('../helpers').dirs,
-  yeomanTest = require('yeoman-test'),
+  generator = require('../generator'),
   authorName = 'Leonardo da Vinci',
   authorEmail = 'leonardo@davinci.com',
   authorUrl = 'http://davinci.com';
@@ -13,10 +12,7 @@ describe('Ask for Author info', () => {
   let gen, stub;
 
   beforeEach(done => {
-    gen = yeomanTest
-      .run(dirs.generator)
-      .inDir(dirs.tmp)
-      .withOptions({ skipInstall: true })
+    gen = generator()
       .on('ready', generator => {
 
         // Emulate when no git repository is present

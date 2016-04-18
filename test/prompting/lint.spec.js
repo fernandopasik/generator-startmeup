@@ -1,9 +1,8 @@
 'use strict';
 
 const
-  dirs = require('../helpers').dirs,
+  generator = require('../generator'),
   pkg = require('../../package.json'),
-  yeomanTest = require('yeoman-test'),
   expectedFiles = [
     '.jscsrc',
     '.jshintignore',
@@ -17,10 +16,7 @@ describe('Linting', () => {
   let gen;
 
   beforeEach(() => {
-    gen = yeomanTest
-      .run(dirs.generator)
-      .inDir(dirs.tmp)
-      .withOptions({ skipInstall: true });
+    gen = generator();
   });
 
   it('Available methods are jshint, jscs and eslint', done => {

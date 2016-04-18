@@ -1,8 +1,7 @@
 'use strict';
 
 const
-  dirs = require('../helpers').dirs,
-  yeomanTest = require('yeoman-test'),
+  generator = require('../generator'),
   authorName = 'Fernando Pasik',
   githubUsername = 'fernandopasik',
   appName = 'testapp',
@@ -13,10 +12,7 @@ describe('Ask for Github info', () => {
   let gen;
 
   beforeEach(() => {
-    gen = yeomanTest
-      .run(dirs.generator)
-      .inDir(dirs.tmp)
-      .withOptions({ skipInstall: true });
+    gen = generator();
   });
 
   it('No?', done => {

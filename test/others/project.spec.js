@@ -1,8 +1,7 @@
 'use strict';
 
 const
-  dirs = require('../helpers').dirs,
-  yeomanTest = require('yeoman-test'),
+  generator = require('../generator'),
   expectedFiles = [
     'package.json',
     'bower.json',
@@ -15,22 +14,20 @@ describe('Project Creation', () => {
   let gen;
 
   beforeEach(() => {
-    gen = yeomanTest
-      .run(dirs.generator)
-      .inDir(dirs.tmp)
-      .withOptions({ skipInstall: true })
-      .withPrompts({
-        appName: 'testapp',
-        description: 'This is a test'
-      });
+    gen = generator();
   });
 
   it('creates expected files', done => {
 
-    gen.on('end', () => {
-      assert.file(expectedFiles);
-      done();
-    });
+    gen
+      .withPrompts({
+        appName: 'testapp',
+        description: 'This is a test'
+      })
+      .on('end', () => {
+        assert.file(expectedFiles);
+        done();
+      });
   });
 
 });

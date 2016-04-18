@@ -1,18 +1,13 @@
 'use strict';
 
-const
-  dirs = require('../helpers').dirs,
-  yeomanTest = require('yeoman-test');
+const generator = require('../generator');
 
 describe('Ask for Bower use', () => {
 
   let gen;
 
   beforeEach(() => {
-    gen = yeomanTest
-      .run(dirs.generator)
-      .inDir(dirs.tmp)
-      .withOptions({ skipInstall: true });
+    gen = generator();
   });
 
   it('Default No', done => {

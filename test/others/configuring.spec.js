@@ -1,8 +1,6 @@
 'use strict';
 
-const
-  dirs = require('../helpers').dirs,
-  yeomanTest = require('yeoman-test'),
+const generator = require('../generator'),
 
   // Add files you expect to exist here.
   expectedFiles = [
@@ -17,10 +15,7 @@ describe('dotfiles Creation', () => {
   let gen;
 
   beforeEach(() => {
-    gen = yeomanTest
-      .run(dirs.generator)
-      .inDir(dirs.tmp)
-      .withOptions({ skipInstall: true });
+    gen = generator();
   });
 
   it('creates expected files', done => {

@@ -2,18 +2,14 @@
 
 const
   path = require('path'),
-  dirs = require('../helpers').dirs,
-  yeomanTest = require('yeoman-test');
+  generator = require('../generator');
 
 describe('Ask for app metadata', () => {
 
   let gen;
 
   beforeEach(() => {
-    gen = yeomanTest
-      .run(dirs.generator)
-      .inDir(dirs.tmp)
-      .withOptions({ skipInstall: true });
+    gen = generator();
   });
 
   it('App name', done => {
