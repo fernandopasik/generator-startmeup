@@ -29,7 +29,7 @@ describe('Ask for Bower use', () => {
       .withPrompts({ bowerConfirm: true })
       .on('end', () => {
         assert.fileContent('package.json',
-          /bower": "\^/);
+          /bower": "/);
         done();
       });
   });

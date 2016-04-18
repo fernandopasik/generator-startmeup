@@ -5,9 +5,7 @@
  */
 module.exports = function () {
 
-  const
-    latestVersion = require('latest-version'),
-    done = this.async();
+  const done = this.async();
 
   this.prompt([
     {
@@ -20,12 +18,9 @@ module.exports = function () {
 
     if (props.bowerConfirm) {
       this.bower = {};
-      latestVersion('bower').then(version => {
-        this.devDependencies.push({ name: 'bower', version: `^${version}` });
-        done();
-      });
-    } else {
-      done();
+      this.devDependencies.push({ name: 'bower', version: 'latest' });
     }
+
+    done();
   });
 };
