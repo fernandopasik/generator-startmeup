@@ -16,6 +16,6 @@ module.exports = function () {
 
   this.template('_package.json', 'package.json');
   this.template('_bower.json', 'bower.json');
-  this.copy('README.md');
+  this.template('README.md');
   this.copy('LICENSE');
 };

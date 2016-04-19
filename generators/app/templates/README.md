@@ -1,3 +1,3 @@
-# StartMeUp Yeoman Generator
+# <%= appname %>
 
-Generator for starting a project with dotfiles and some common tools.
+<%= description %>
