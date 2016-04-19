@@ -19,6 +19,7 @@ module.exports = function () {
     if (props.bowerConfirm) {
       this.bower = {};
       this.devDependencies.push({ name: 'bower', version: 'latest' });
+      this.copy(`${this.rootDir}.bowerrc`, '.bowerrc');
     }
 
     done();

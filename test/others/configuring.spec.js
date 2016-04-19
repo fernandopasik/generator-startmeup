@@ -4,7 +4,6 @@ const generator = require('../generator'),
 
   // Add files you expect to exist here.
   expectedFiles = [
-    '.bowerrc',
     '.editorconfig',
     '.gitattributes',
     '.gitignore'

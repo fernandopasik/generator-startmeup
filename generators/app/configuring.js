@@ -6,7 +6,6 @@
 module.exports = function () {
 
   const dotfiles = [
-    '.bowerrc',
     '.editorconfig',
     '.gitattributes',
     '.gitignore'

@@ -10,11 +10,12 @@ describe('Ask for Bower use', () => {
     gen = generator();
   });
 
-  it('Default No', done => {
+  it('Default is No', done => {
     gen
       .on('end', () => {
         assert.noFileContent('package.json',
           /(bower)/);
+        assert.noFile('.bowerrc');
         done();
       });
   });
@@ -25,6 +26,7 @@ describe('Ask for Bower use', () => {
       .on('end', () => {
         assert.fileContent('package.json',
           /bower": "/);
+        assert.file('.bowerrc');
         done();
       });
   });
