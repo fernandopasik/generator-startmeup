@@ -1,7 +1,10 @@
 {
+  "extends": [ "fernandopasik", "fernandopasik/es6" ],
   "env": {
     "es6": true,
     "node": true
   },
-  "extends": "eslint-config-fernandopasik"
+  "parserOptions": {
+    "sourceType": "script"
+  }
 }
