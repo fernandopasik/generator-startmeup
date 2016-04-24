@@ -33,12 +33,10 @@ module.exports = generator.Base.extend({
   configuring: require('./configuring'),
 
   /**
-   * If the method name doesn't match a priority,
-   * it will be pushed to this group.
+   * Where you write the generator specific files
+   * (routes, controllers, etc)
    */
-  default: {
-    project: require('./project')
-  },
+  writing: require('./writing'),
 
   /**
    * Where installation are run (npm, bower)
