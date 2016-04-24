@@ -33,4 +33,18 @@ describe('Ask for app metadata', () => {
       });
   });
 
+  it('App name from existing package.json', done => {
+    gen
+      .on('ready', generator => {
+        generator.fs.copy(
+          path.join(__dirname, '../../package.json'),
+          path.join(__dirname, '../../.tmp/package.json')
+        );
+      })
+      .on('end', () => {
+        assert.jsonFileContent('package.json', { name: 'generator-startmeup' });
+        done();
+      });
+  });
+
 });

@@ -1,12 +1,30 @@
 'use strict';
 
 const
-  app = require('../../generators/app');
+  path = require('path'),
+  generator = require('../generator');
 
 describe('Initializing', () => {
 
-  it('can be imported without blowing up', () => {
-    assert.ok(app);
+  let gen, tempGen;
+
+  beforeEach(() => {
+    gen = generator();
+  });
+
+  it('creates expected files', done => {
+    gen
+      .on('ready', generator => {
+        tempGen = generator;
+        generator.fs.copy(
+          path.join(__dirname, '../../package.json'),
+          path.join(__dirname, '../../.tmp/package.json')
+        );
+      })
+      .on('end', () => {
+        assert.objectContent(tempGen.pkg, { name: 'generator-startmeup' });
+        done();
+      });
   });
 
 });

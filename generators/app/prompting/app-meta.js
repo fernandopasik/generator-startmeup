@@ -15,16 +15,15 @@ module.exports = function () {
     {
       name: 'appName',
       message: 'What is your app\'s name ?',
-      default: path.basename(process.cwd())
+      default: this.pkg.name || path.basename(process.cwd())
     },
     {
       name: 'description',
       message: 'What is your app\'s description ?',
-      default: ''
+      default: this.pkg.description
     }
   ], props => {
-    this.appname = props.appName;
-    this.appname = slug(this.appname);
+    this.appname = slug(props.appName);
     this.description = props.description;
     done();
   });
