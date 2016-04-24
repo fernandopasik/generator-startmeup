@@ -14,5 +14,5 @@ module.exports = function () {
 
   this.pkg = this.pkg || {};
   this.devDependencies = [];
-  this.rootDir = path.join(__dirname, '../../../');
+  this.rootDir = path.join(__dirname, '../../');
 };
