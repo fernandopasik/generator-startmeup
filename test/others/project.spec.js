@@ -4,7 +4,6 @@ const
   generator = require('../generator'),
   expectedFiles = [
     'package.json',
-    'bower.json',
     'README.md',
     'LICENSE'
   ],
@@ -24,6 +23,15 @@ describe('Project Creation', () => {
     gen
       .on('end', () => {
         assert.file(expectedFiles);
+        done();
+      });
+  });
+
+  it('creates expected files when bower present', done => {
+    gen
+      .withPrompts({ bowerConfirm: true })
+      .on('end', () => {
+        assert.file(expectedFiles.concat('bower.json'));
         done();
       });
   });
