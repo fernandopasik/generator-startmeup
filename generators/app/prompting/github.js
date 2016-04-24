@@ -6,10 +6,10 @@
 module.exports = function () {
 
   const done = this.async();
-  let githubUsername;
+  let suggestedGithubUsername;
 
   if (this.authorName && 'string' === typeof this.authorName) {
-    githubUsername = this.authorName.toLowerCase().replace(/\s/g, '');
+    suggestedGithubUsername = this.authorName.toLowerCase().replace(/\s/g, '');
   }
 
   this.prompt([
@@ -22,13 +22,12 @@ module.exports = function () {
     {
       name: 'githubUsername',
       message: 'What is your github username?',
-      default: githubUsername,
+      default: suggestedGithubUsername,
       when: props => props.githubConfirm
     }
   ], props => {
 
     if (props.githubConfirm) {
-      this.pkg.githubUsername = props.githubUsername;
       this.pkg.homepage = `https://github.com/${props.githubUsername}/${this.appname}`;
       this.pkg.bugs = `${this.pkg.homepage}/issues`;
       this.pkg.repository = `${this.pkg.homepage}.git`;
