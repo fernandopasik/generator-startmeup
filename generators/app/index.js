@@ -12,10 +12,7 @@ module.exports = generator.Base.extend({
    * Your initialization methods
    * (checking current project state, getting configs, etc)
    */
-  initializing: {
-    sayHi: require('./initializing/say-hi'),
-    initializing: require('./initializing/initializing')
-  },
+  initializing: require('./initializing'),
 
   /**
    * Where you prompt users for options
