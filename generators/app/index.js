@@ -14,7 +14,7 @@ module.exports = generator.Base.extend({
    */
   initializing: {
     sayHi: require('./initializing/say-hi'),
-    package: require('./initializing/package')
+    initializing: require('./initializing/initializing')
   },
 
   /**

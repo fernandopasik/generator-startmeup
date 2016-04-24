@@ -1,8 +1,9 @@
 'use strict';
 
-const app = require('../../generators/app');
+const
+  app = require('../../generators/app');
 
-describe('Init', () => {
+describe('Initializing', () => {
 
   it('can be imported without blowing up', () => {
     assert.ok(app);
