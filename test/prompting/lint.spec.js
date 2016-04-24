@@ -1,7 +1,7 @@
 'use strict';
 
 const
-  generator = require('../generator'),
+  helpers = require('../helpers'),
   pkg = require('../../package.json'),
   expectedFiles = [
     '.eslintrc',
@@ -13,7 +13,7 @@ describe('Linting', () => {
   let gen;
 
   beforeEach(() => {
-    gen = generator();
+    gen = helpers.generator();
   });
 
   it('Available methods is eslint', done => {

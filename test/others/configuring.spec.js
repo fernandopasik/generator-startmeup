@@ -1,6 +1,6 @@
 'use strict';
 
-const generator = require('../generator'),
+const helpers = require('../helpers'),
 
   // Add files you expect to exist here.
   expectedFiles = [
@@ -14,7 +14,7 @@ describe('dotfiles Creation', () => {
   let gen;
 
   beforeEach(() => {
-    gen = generator();
+    gen = helpers.generator();
   });
 
   it('creates expected files', done => {

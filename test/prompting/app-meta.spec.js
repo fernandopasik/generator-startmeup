@@ -2,7 +2,7 @@
 
 const
   path = require('path'),
-  generator = require('../generator'),
+  helpers = require('../helpers'),
   appName = 'testapp',
   description = 'This is a test App.';
 
@@ -11,7 +11,7 @@ describe('Ask for app metadata', () => {
   let gen;
 
   beforeEach(() => {
-    gen = generator();
+    gen = helpers.generator();
   });
 
   it('App name and description', done => {
@@ -33,16 +33,19 @@ describe('Ask for app metadata', () => {
       });
   });
 
-  it('App name from existing package.json', done => {
+  it('App name and description from existing package.json', done => {
+
+    const generatorPkg = require('../../package.json');
+
     gen
       .on('ready', generator => {
-        generator.fs.copy(
-          path.join(__dirname, '../../package.json'),
-          path.join(__dirname, '../../.tmp/package.json')
-        );
+        helpers.copyRootPkg(generator);
       })
       .on('end', () => {
-        assert.jsonFileContent('package.json', { name: 'generator-startmeup' });
+        assert.jsonFileContent('package.json', {
+          name: generatorPkg.name,
+          description: generatorPkg.description
+        });
         done();
       });
   });

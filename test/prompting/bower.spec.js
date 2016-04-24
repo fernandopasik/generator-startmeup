@@ -1,13 +1,13 @@
 'use strict';
 
-const generator = require('../generator');
+const helpers = require('../helpers');
 
 describe('Ask for Bower use', () => {
 
   let gen;
 
   beforeEach(() => {
-    gen = generator();
+    gen = helpers.generator();
   });
 
   it('Default is No', done => {

@@ -1,7 +1,7 @@
 'use strict';
 
 const
-  generator = require('../generator'),
+  helpers = require('../helpers'),
   authorName = 'Fernando Pasik',
   githubUsername = 'fernandopasik',
   appName = 'testapp',
@@ -12,7 +12,7 @@ describe('Ask for Github info', () => {
   let gen;
 
   beforeEach(() => {
-    gen = generator();
+    gen = helpers.generator();
   });
 
   it('No?', done => {

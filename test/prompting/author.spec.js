@@ -2,7 +2,7 @@
 
 const
   sinon = require('sinon'),
-  generator = require('../generator'),
+  helpers = require('../helpers'),
   authorName = 'Leonardo da Vinci',
   authorEmail = 'leonardo@davinci.com',
   authorUrl = 'http://davinci.com';
@@ -12,7 +12,7 @@ describe('Ask for Author info', () => {
   let gen, stub;
 
   beforeEach(done => {
-    gen = generator()
+    gen = helpers.generator()
       .on('ready', generator => {
 
         // Emulate when no git repository is present

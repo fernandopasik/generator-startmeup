@@ -1,7 +1,7 @@
 'use strict';
 
 const
-  generator = require('../generator'),
+  helpers = require('../helpers'),
   expectedFiles = [
     'package.json',
     'README.md',
@@ -15,7 +15,7 @@ describe('Project Creation', () => {
   let gen;
 
   beforeEach(() => {
-    gen = generator()
+    gen = helpers.generator()
       .withPrompts({ appName, description });
   });
 

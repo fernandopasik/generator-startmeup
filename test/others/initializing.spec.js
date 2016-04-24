@@ -1,25 +1,20 @@
 'use strict';
 
-const
-  path = require('path'),
-  generator = require('../generator');
+const helpers = require('../helpers');
 
 describe('Initializing', () => {
 
   let gen, tempGen;
 
   beforeEach(() => {
-    gen = generator();
+    gen = helpers.generator();
   });
 
   it('creates expected files', done => {
     gen
       .on('ready', generator => {
         tempGen = generator;
-        generator.fs.copy(
-          path.join(__dirname, '../../package.json'),
-          path.join(__dirname, '../../.tmp/package.json')
-        );
+        helpers.copyRootPkg(generator);
       })
       .on('end', () => {
         assert.objectContent(tempGen.pkg, { name: 'generator-startmeup' });
