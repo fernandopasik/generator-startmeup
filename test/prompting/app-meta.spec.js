@@ -2,7 +2,9 @@
 
 const
   path = require('path'),
-  generator = require('../generator');
+  generator = require('../generator'),
+  appName = 'testapp',
+  description = 'This is a test App.';
 
 describe('Ask for app metadata', () => {
 
@@ -12,11 +14,11 @@ describe('Ask for app metadata', () => {
     gen = generator();
   });
 
-  it('App name', done => {
+  it('App name and description', done => {
     gen
-      .withPrompts({ appName: 'testapp' })
+      .withPrompts({ appName, description })
       .on('end', () => {
-        assert.jsonFileContent('package.json', { name: 'testapp' });
+        assert.jsonFileContent('package.json', { name: appName, description });
         done();
       });
   });
@@ -27,15 +29,6 @@ describe('Ask for app metadata', () => {
         assert.jsonFileContent('package.json', {
           name: path.basename(process.cwd()).replace(/^\./, '')
         });
-        done();
-      });
-  });
-
-  it('App description', done => {
-    gen
-      .withPrompts({ description: 'This is a test App.' })
-      .on('end', () => {
-        assert.jsonFileContent('package.json', { description: 'This is a test App.' });
         done();
       });
   });
