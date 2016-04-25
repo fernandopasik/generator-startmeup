@@ -1,3 +1,3 @@
-# <%= appname %>
+# <%= pkg.name %>
 
-<%= description %>
+<%= pkg.description %>

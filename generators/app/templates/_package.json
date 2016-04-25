@@ -1,7 +1,7 @@
 {
-  "name": "<%= appname %>",
+  "name": "<%= pkg.name %>",
   "version": "0.0.0",
-  "description": "<%= description %>",
+  "description": "<%= pkg.description %>",
   "private": true,
   "keywords": [],
   "homepage": "<%= pkg.homepage %>",

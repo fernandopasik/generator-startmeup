@@ -23,8 +23,12 @@ module.exports = function () {
       default: this.pkg.description
     }
   ], props => {
-    this.appname = slug(props.appName);
-    this.description = props.description;
+
+    Object.assign(this.pkg, {
+      name: slug(props.appName),
+      description: props.description
+    });
+
     done();
   });
 

@@ -1,6 +1,6 @@
 {
-  "name": "<%= appname %>",
-  "description": "<%= description %>",
+  "name": "<%= pkg.name %>",
+  "description": "<%= pkg.description %>",
   "private": true,
   "keywords": [],
   "homepage": "<%= pkg.homepage %>",

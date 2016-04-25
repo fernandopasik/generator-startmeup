@@ -28,7 +28,7 @@ module.exports = function () {
   ], props => {
 
     if (props.githubConfirm) {
-      this.pkg.homepage = `https://github.com/${props.githubUsername}/${this.appname}`;
+      this.pkg.homepage = `https://github.com/${props.githubUsername}/${this.pkg.name}`;
       this.pkg.bugs = `${this.pkg.homepage}/issues`;
       this.pkg.repository = `${this.pkg.homepage}.git`;
     }

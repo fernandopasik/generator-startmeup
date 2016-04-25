@@ -41,22 +41,27 @@ module.exports = function () {
     {
       name: 'authorUrl',
       message: 'What is your url?',
-      default: existingAuthor.url || '',
+      default: existingAuthor.url,
       when: props => props.authorName
     }
   ], props => {
 
     if (props.authorName) {
+
+      let author = props.authorName;
+
+      // Save this for github username suggestion
       this.authorName = props.authorName;
-      this.pkg.author = props.authorName;
 
       if (props.authorEmail) {
-        this.pkg.author += ` <${props.authorEmail}>`;
+        author += ` <${props.authorEmail}>`;
       }
 
       if (props.authorUrl) {
-        this.pkg.author += ` (${props.authorUrl})`;
+        author += ` (${props.authorUrl})`;
       }
+
+      Object.assign(this.pkg, { author });
     }
 
     done();
