@@ -13,8 +13,10 @@ module.exports = function () {
   this.log(yosay('Welcome to the marvelous StartMeUp generator!'));
 
   // Try to load existing package.json
-  this.pkg = Object.assign({ devDependencies: {} },
-    this.fs.readJSON(this.destinationPath('package.json'), {}));
+  this.pkg = Object.assign(
+    this.fs.readJSON(this.templatePath('_package.json'), {}),
+    this.fs.readJSON(this.destinationPath('package.json'), {})
+  );
 
   this.dotfiles = [];
   this.rootDir = path.join(__dirname, '../../');
