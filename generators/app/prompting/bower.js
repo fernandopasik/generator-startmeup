@@ -17,8 +17,7 @@ module.exports = function () {
   ], props => {
 
     if (props.bowerConfirm) {
-      this.bower = {};
-      this.devDependencies.push({ name: 'bower', version: 'latest' });
+      Object.assign(this.pkg, { devDependencies: { bower: 'latest' } });
       this.dotfiles.push('.bowerrc');
     }
 
