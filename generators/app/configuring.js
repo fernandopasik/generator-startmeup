@@ -5,13 +5,8 @@
  */
 module.exports = function () {
 
-  const dotfiles = [
-    '.editorconfig',
-    '.gitattributes',
-    '.gitignore'
-  ];
-
-  dotfiles.forEach(dotfile => {
+  this.dotfiles.push('.editorconfig', '.gitattributes', '.gitignore');
+  this.dotfiles.forEach(dotfile => {
     this.copy(this.rootDir + dotfile, dotfile);
   });
 

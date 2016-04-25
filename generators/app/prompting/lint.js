@@ -37,8 +37,7 @@ module.exports = function () {
         }
       ]);
 
-      this.copy(`${this.rootDir}.eslintrc`, '.eslintrc');
-      this.copy(`${this.rootDir}.eslintignore`, '.eslintignore');
+      this.dotfiles.push('.eslintrc', '.eslintignore');
     }
 
     done();

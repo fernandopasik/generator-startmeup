@@ -16,6 +16,7 @@ module.exports = function () {
   this.pkg = Object.assign({ devDependencies: [] },
     this.fs.readJSON(this.destinationPath('package.json'), {}));
 
+  this.dotfiles = [];
   this.devDependencies = [];
   this.rootDir = path.join(__dirname, '../../');
 };
