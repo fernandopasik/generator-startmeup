@@ -27,11 +27,18 @@ module.exports = function () {
     }
   ], props => {
 
+    let
+      homepage = '',
+      bugs = '',
+      url = '';
+
     if (props.githubConfirm) {
-      this.pkg.homepage = `https://github.com/${props.githubUsername}/${this.pkg.name}`;
-      this.pkg.bugs = `${this.pkg.homepage}/issues`;
-      this.pkg.repository = `${this.pkg.homepage}.git`;
+      homepage = `https://github.com/${props.githubUsername}/${this.pkg.name}`;
+      bugs = `${homepage}/issues`;
+      url = `${homepage}.git`;
     }
+
+    Object.assign(this.pkg, { homepage, bugs, repository: { type: 'git', url } });
 
     done();
   });
