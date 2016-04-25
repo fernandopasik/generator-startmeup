@@ -46,9 +46,11 @@ module.exports = function () {
     }
   ], props => {
 
+    let author = '';
+
     if (props.authorName) {
 
-      let author = props.authorName;
+      author = props.authorName;
 
       // Save this for github username suggestion
       this.authorName = props.authorName;
@@ -60,9 +62,9 @@ module.exports = function () {
       if (props.authorUrl) {
         author += ` (${props.authorUrl})`;
       }
-
-      Object.assign(this.pkg, { author });
     }
+
+    Object.assign(this.pkg, { author });
 
     done();
   });
