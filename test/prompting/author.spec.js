@@ -81,3 +81,27 @@ describe('Ask for Author info', () => {
   });
 
 });
+
+describe('Existing Author info', () => {
+
+  let gen;
+
+  beforeEach(() => {
+    gen = helpers.generator();
+  });
+
+  it('from existing package.json', done => {
+
+    const generatorPkg = require('../../package.json');
+
+    gen
+      .on('ready', generator => {
+        helpers.copyRootPkg(generator);
+      })
+      .on('end', () => {
+        assert.jsonFileContent('package.json', { author: generatorPkg.author });
+        done();
+      });
+  });
+
+});
