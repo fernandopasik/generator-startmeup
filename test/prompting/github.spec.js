@@ -19,12 +19,16 @@ describe('Ask for Github info', () => {
     gen
       .withPrompts({ appName, githubConfirm: false })
       .on('end', () => {
-        assert.jsonFileContent('package.json', {
-          homepage: '',
-          bugs: '',
-          repository: { type: 'git', url: '' }
-        });
-        done();
+        try {
+          assert.jsonFileContent('package.json', {
+            homepage: '',
+            bugs: '',
+            repository: { type: 'git', url: '' }
+          });
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 
@@ -32,13 +36,16 @@ describe('Ask for Github info', () => {
     gen
       .withPrompts({ appName, githubUsername })
       .on('end', () => {
-
-        assert.jsonFileContent('package.json', {
-          homepage: githubUrl,
-          bugs: `${githubUrl}/issues`,
-          repository: { type: 'git', url: `${githubUrl}.git` }
-        });
-        done();
+        try {
+          assert.jsonFileContent('package.json', {
+            homepage: githubUrl,
+            bugs: `${githubUrl}/issues`,
+            repository: { type: 'git', url: `${githubUrl}.git` }
+          });
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 
@@ -46,13 +53,16 @@ describe('Ask for Github info', () => {
     gen
       .withPrompts({ appName, authorName })
       .on('end', () => {
-
-        assert.jsonFileContent('package.json', {
-          homepage: githubUrl,
-          bugs: `${githubUrl}/issues`,
-          repository: { type: 'git', url: `${githubUrl}.git` }
-        });
-        done();
+        try {
+          assert.jsonFileContent('package.json', {
+            homepage: githubUrl,
+            bugs: `${githubUrl}/issues`,
+            repository: { type: 'git', url: `${githubUrl}.git` }
+          });
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 

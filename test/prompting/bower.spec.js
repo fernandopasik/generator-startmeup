@@ -13,10 +13,14 @@ describe('Ask for Bower use', () => {
   it('Default is No', done => {
     gen
       .on('end', () => {
-        assert.noFileContent('package.json',
-          /(bower)/);
-        assert.noFile('.bowerrc');
-        done();
+        try {
+          assert.noFileContent('package.json',
+            /(bower)/);
+          assert.noFile('.bowerrc');
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 
@@ -24,10 +28,14 @@ describe('Ask for Bower use', () => {
     gen
       .withPrompts({ bowerConfirm: true })
       .on('end', () => {
-        assert.fileContent('package.json',
-          /bower": "/);
-        assert.file('.bowerrc');
-        done();
+        try {
+          assert.fileContent('package.json',
+            /bower": "/);
+          assert.file('.bowerrc');
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 });

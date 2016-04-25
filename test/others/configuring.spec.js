@@ -20,8 +20,12 @@ describe('dotfiles Creation', () => {
   it('creates expected files', done => {
 
     gen.on('end', () => {
-      assert.file(expectedFiles);
-      done();
+      try {
+        assert.file(expectedFiles);
+        done();
+      } catch (e) {
+        done(e);
+      }
     });
   });
 

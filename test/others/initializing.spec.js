@@ -17,8 +17,12 @@ describe('Initializing', () => {
         helpers.copyRootPkg(generator);
       })
       .on('end', () => {
-        assert.objectContent(tempGen.pkg, { name: 'generator-startmeup' });
-        done();
+        try {
+          assert.objectContent(tempGen.pkg, { name: 'generator-startmeup' });
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 

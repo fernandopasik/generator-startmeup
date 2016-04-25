@@ -75,8 +75,12 @@ describe('Ask for Author info', () => {
   it('No author name implies no email', done => {
     gen
       .on('end', () => {
-        assert.jsonFileContent('package.json', { author: '' });
-        done();
+        try {
+          assert.jsonFileContent('package.json', { author: '' });
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 

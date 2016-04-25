@@ -22,8 +22,12 @@ describe('Project Creation', () => {
   it('creates expected files', done => {
     gen
       .on('end', () => {
-        assert.file(expectedFiles);
-        done();
+        try {
+          assert.file(expectedFiles);
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 
@@ -31,17 +35,25 @@ describe('Project Creation', () => {
     gen
       .withPrompts({ bowerConfirm: true })
       .on('end', () => {
-        assert.file(expectedFiles.concat('bower.json'));
-        done();
+        try {
+          assert.file(expectedFiles.concat('bower.json'));
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 
   it('README contains app name and description', done => {
     gen
       .on('end', () => {
-        assert.fileContent('README.md', appName);
-        assert.fileContent('README.md', description);
-        done();
+        try {
+          assert.fileContent('README.md', appName);
+          assert.fileContent('README.md', description);
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 

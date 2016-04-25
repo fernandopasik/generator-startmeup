@@ -20,18 +20,26 @@ describe('Linting', () => {
     gen
       .withPrompts({ lintMethods: [ 'eslint' ] })
       .on('end', () => {
-        assert.fileContent('package.json', /eslint": "\^/);
-        assert.fileContent('package.json', /eslint-config-fernandopasik": "\^/);
-        done();
+        try {
+          assert.fileContent('package.json', /eslint": "\^/);
+          assert.fileContent('package.json', /eslint-config-fernandopasik": "\^/);
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 
   it('Has eslint enabled by default', done => {
     gen
       .on('end', () => {
-        assert.fileContent('package.json', /eslint": "\^/);
-        assert.fileContent('package.json', /eslint-config-fernandopasik": "\^/);
-        done();
+        try {
+          assert.fileContent('package.json', /eslint": "\^/);
+          assert.fileContent('package.json', /eslint-config-fernandopasik": "\^/);
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 
@@ -39,16 +47,20 @@ describe('Linting', () => {
     gen
       .withPrompts({ lintMethods: [] })
       .on('end', () => {
-        assert.noFile(expectedFiles);
-        assert.noJsonFileContent('package.json', {
-          devDependencies: {
-            eslint: pkg.devDependencies.eslint,
-            'eslint-config-fernandopasik': pkg.devDependencies['eslint-config-fernandopasik']
-          }
-        });
-        assert.noFileContent('package.json',
-          /(eslint|eslint-config-fernandopasik)/);
-        done();
+        try {
+          assert.noFile(expectedFiles);
+          assert.noJsonFileContent('package.json', {
+            devDependencies: {
+              eslint: pkg.devDependencies.eslint,
+              'eslint-config-fernandopasik': pkg.devDependencies['eslint-config-fernandopasik']
+            }
+          });
+          assert.noFileContent('package.json',
+            /(eslint|eslint-config-fernandopasik)/);
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 
@@ -56,8 +68,12 @@ describe('Linting', () => {
     gen
       .withPrompts({ lintMethods: [ 'eslint' ] })
       .on('end', () => {
-        assert.file(expectedFiles);
-        done();
+        try {
+          assert.file(expectedFiles);
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 
@@ -66,13 +82,17 @@ describe('Linting', () => {
     gen
       .withPrompts({ lintMethods: [ 'eslint' ] })
       .on('end', () => {
-        assert.jsonFileContent('package.json', {
-          devDependencies: {
-            eslint: pkg.devDependencies.eslint,
-            'eslint-config-fernandopasik': pkg.devDependencies['eslint-config-fernandopasik']
-          }
-        });
-        done();
+        try {
+          assert.jsonFileContent('package.json', {
+            devDependencies: {
+              eslint: pkg.devDependencies.eslint,
+              'eslint-config-fernandopasik': pkg.devDependencies['eslint-config-fernandopasik']
+            }
+          });
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 

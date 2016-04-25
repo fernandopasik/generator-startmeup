@@ -18,18 +18,26 @@ describe('Ask for app metadata', () => {
     gen
       .withPrompts({ appName, description })
       .on('end', () => {
-        assert.jsonFileContent('package.json', { name: appName, description });
-        done();
+        try {
+          assert.jsonFileContent('package.json', { name: appName, description });
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 
   it('App name by default is current directory', done => {
     gen
       .on('end', () => {
-        assert.jsonFileContent('package.json', {
-          name: path.basename(process.cwd()).replace(/^\./, '')
-        });
-        done();
+        try {
+          assert.jsonFileContent('package.json', {
+            name: path.basename(process.cwd()).replace(/^\./, '')
+          });
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 
@@ -42,11 +50,15 @@ describe('Ask for app metadata', () => {
         helpers.copyRootPkg(generator);
       })
       .on('end', () => {
-        assert.jsonFileContent('package.json', {
-          name: generatorPkg.name,
-          description: generatorPkg.description
-        });
-        done();
+        try {
+          assert.jsonFileContent('package.json', {
+            name: generatorPkg.name,
+            description: generatorPkg.description
+          });
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 
