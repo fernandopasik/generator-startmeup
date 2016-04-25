@@ -103,8 +103,12 @@ describe('Existing Author info', () => {
         helpers.copyRootPkg(generator);
       })
       .on('end', () => {
-        assert.jsonFileContent('package.json', { author: generatorPkg.author });
-        done();
+        try {
+          assert.jsonFileContent('package.json', { author: generatorPkg.author });
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 

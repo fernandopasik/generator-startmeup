@@ -58,3 +58,31 @@ describe('Project Creation', () => {
   });
 
 });
+
+describe('Existing Project info', () => {
+
+  let gen;
+
+  beforeEach(() => {
+    gen = helpers.generator();
+  });
+
+  it('from existing package.json', done => {
+
+    const generatorPkg = require('../../package.json');
+
+    gen
+      .on('ready', generator => {
+        helpers.copyRootPkg(generator);
+      })
+      .on('end', () => {
+        try {
+          assert.jsonFileContent('package.json', generatorPkg);
+          done();
+        } catch (e) {
+          done(e);
+        }
+      });
+  });
+
+});
