@@ -36,13 +36,13 @@
   },
   "devDependencies": {
     "coveralls": "^2.11.9",
-    "eslint": "^2.8.0",
-    "eslint-config-fernandopasik": "^0.0.3",
+    "eslint": "^2.9.0",
+    "eslint-config-fernandopasik": "^0.1.2",
     "istanbul": "^0.4.3",
     "mocha": "^2.4.5",
     "mocha-clean": "^1.0.0",
     "sinon": "^1.17.3",
-    "watch": "^0.17.1",
+    "watch": "^0.18.0",
     "yeoman-assert": "^2.2.1",
     "yeoman-test": "^1.1.0"
   },
