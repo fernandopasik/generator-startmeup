@@ -28,7 +28,8 @@ module.exports = function () {
     if (-1 !== props.lintMethods.indexOf('eslint')) {
       Object.assign(this.pkg.devDependencies, {
         eslint: rootPkg.devDependencies.eslint,
-        'eslint-config-fernandopasik': rootPkg.devDependencies['eslint-config-fernandopasik']
+        'eslint-config-fernandopasik':
+          rootPkg.devDependencies['eslint-config-fernandopasik']
       });
       this.dotfiles.push('.eslintrc', '.eslintignore');
     }

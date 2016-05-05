@@ -38,8 +38,13 @@ module.exports = function () {
       url = `${homepage}.git`;
     }
 
-    Object.assign(this.pkg, { homepage, bugs, repository: { type: 'git', url }});
-
-    done();
+    Object.assign(this.pkg, {
+      homepage,
+      bugs,
+      repository: {
+        type: 'git',
+        url
+      }
+    });
   });
 };

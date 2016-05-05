@@ -37,7 +37,7 @@
   "devDependencies": {
     "coveralls": "^2.11.9",
     "eslint": "^2.9.0",
-    "eslint-config-fernandopasik": "^0.1.2",
+    "eslint-config-fernandopasik": "^0.1.4",
     "istanbul": "^0.4.3",
     "mocha": "^2.4.5",
     "mocha-clean": "^1.0.0",

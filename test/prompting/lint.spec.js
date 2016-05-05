@@ -22,7 +22,8 @@ describe('Linting', () => {
       .on('end', () => {
         try {
           assert.fileContent('package.json', /eslint": "\^/);
-          assert.fileContent('package.json', /eslint-config-fernandopasik": "\^/);
+          assert.fileContent('package.json',
+            /eslint-config-fernandopasik": "\^/);
           done();
         } catch (e) {
           done(e);
@@ -35,7 +36,8 @@ describe('Linting', () => {
       .on('end', () => {
         try {
           assert.fileContent('package.json', /eslint": "\^/);
-          assert.fileContent('package.json', /eslint-config-fernandopasik": "\^/);
+          assert.fileContent('package.json',
+            /eslint-config-fernandopasik": "\^/);
           done();
         } catch (e) {
           done(e);
@@ -52,7 +54,8 @@ describe('Linting', () => {
           assert.noJsonFileContent('package.json', {
             devDependencies: {
               eslint: pkg.devDependencies.eslint,
-              'eslint-config-fernandopasik': pkg.devDependencies['eslint-config-fernandopasik']
+              'eslint-config-fernandopasik':
+                pkg.devDependencies['eslint-config-fernandopasik']
             }
           });
           assert.noFileContent('package.json',
@@ -86,7 +89,8 @@ describe('Linting', () => {
           assert.jsonFileContent('package.json', {
             devDependencies: {
               eslint: pkg.devDependencies.eslint,
-              'eslint-config-fernandopasik': pkg.devDependencies['eslint-config-fernandopasik']
+              'eslint-config-fernandopasik':
+                pkg.devDependencies['eslint-config-fernandopasik']
             }
           });
           done();

@@ -104,7 +104,9 @@ describe('Existing Author info', () => {
       })
       .on('end', () => {
         try {
-          assert.jsonFileContent('package.json', { author: generatorPkg.author });
+          assert.jsonFileContent('package.json', {
+            author: generatorPkg.author
+          });
           done();
         } catch (e) {
           done(e);

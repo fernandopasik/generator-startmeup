@@ -19,7 +19,10 @@ describe('Ask for app metadata', () => {
       .withPrompts({ appName, description })
       .on('end', () => {
         try {
-          assert.jsonFileContent('package.json', { name: appName, description });
+          assert.jsonFileContent('package.json', {
+            name: appName,
+            description
+          });
           done();
         } catch (e) {
           done(e);
