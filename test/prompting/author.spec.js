@@ -34,8 +34,12 @@ describe('Ask for Author info', () => {
     gen
       .withPrompts({ authorName })
       .on('end', () => {
-        assert.jsonFileContent('package.json', { author: authorName });
-        done();
+        try {
+          assert.jsonFileContent('package.json', { author: authorName });
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 
@@ -43,10 +47,14 @@ describe('Ask for Author info', () => {
     gen
       .withPrompts({ authorName, authorEmail })
       .on('end', () => {
-        assert.jsonFileContent('package.json', {
-          author: `${authorName} <${authorEmail}>`
-        });
-        done();
+        try {
+          assert.jsonFileContent('package.json', {
+            author: `${authorName} <${authorEmail}>`
+          });
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 
@@ -54,10 +62,14 @@ describe('Ask for Author info', () => {
     gen
       .withPrompts({ authorName, authorUrl })
       .on('end', () => {
-        assert.jsonFileContent('package.json', {
-          author: `${authorName} (${authorUrl})`
-        });
-        done();
+        try {
+          assert.jsonFileContent('package.json', {
+            author: `${authorName} (${authorUrl})`
+          });
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 
@@ -65,10 +77,14 @@ describe('Ask for Author info', () => {
     gen
       .withPrompts({ authorName, authorEmail, authorUrl })
       .on('end', () => {
-        assert.jsonFileContent('package.json', {
-          author: `${authorName} <${authorEmail}> (${authorUrl})`
-        });
-        done();
+        try {
+          assert.jsonFileContent('package.json', {
+            author: `${authorName} <${authorEmail}> (${authorUrl})`
+          });
+          done();
+        } catch (e) {
+          done(e);
+        }
       });
   });
 
