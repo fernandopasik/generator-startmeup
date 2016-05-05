@@ -19,14 +19,13 @@ function parseCommitter(committer) {
 
 /**
  * Ask for Author info.
+ * @returns {Promise} After prompting
  */
 module.exports = function () {
 
-  const
-    done = this.async(),
-    existingAuthor = parseCommitter(this.pkg.author);
+  const existingAuthor = parseCommitter(this.pkg.author);
 
-  this.prompt([
+  return this.prompt([
     {
       name: 'authorName',
       message: 'What is your name?',
@@ -44,7 +43,7 @@ module.exports = function () {
       default: existingAuthor.url,
       when: props => props.authorName
     }
-  ], props => {
+  ]).then(props => {
 
     let author = '';
 
@@ -65,7 +64,5 @@ module.exports = function () {
     }
 
     Object.assign(this.pkg, { author });
-
-    done();
   });
 };

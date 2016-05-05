@@ -2,17 +2,17 @@
 
 /**
  * Ask for Github account info.
+ * @returns {Promise} After prompting
  */
 module.exports = function () {
 
-  const done = this.async();
   let suggestedGithubUsername;
 
   if (this.authorName && 'string' === typeof this.authorName) {
     suggestedGithubUsername = this.authorName.toLowerCase().replace(/\s/g, '');
   }
 
-  this.prompt([
+  return this.prompt([
     {
       name: 'githubConfirm',
       type: 'confirm',
@@ -25,7 +25,7 @@ module.exports = function () {
       default: suggestedGithubUsername,
       when: props => props.githubConfirm
     }
-  ], props => {
+  ]).then(props => {
 
     let
       homepage = '',

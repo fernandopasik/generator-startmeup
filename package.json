@@ -31,7 +31,7 @@
   ],
   "dependencies": {
     "slug": "^0.9.1",
-    "yeoman-generator": "^0.22.6",
+    "yeoman-generator": "^0.23.3",
     "yosay": "^1.1.1"
   },
   "devDependencies": {
@@ -41,10 +41,10 @@
     "istanbul": "^0.4.3",
     "mocha": "^2.4.5",
     "mocha-clean": "^1.0.0",
-    "sinon": "^1.17.3",
+    "sinon": "^1.17.4",
     "watch": "^0.18.0",
     "yeoman-assert": "^2.2.1",
-    "yeoman-test": "^1.1.0"
+    "yeoman-test": "^1.4.0"
   },
   "engines": {
     "node": ">=4.0.0",

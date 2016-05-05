@@ -6,12 +6,11 @@ const
 
 /**
  * Ask for project metadata from the User.
+ * @returns {Promise} After prompting
  */
 module.exports = function () {
 
-  const done = this.async();
-
-  this.prompt([
+  return this.prompt([
     {
       name: 'appName',
       message: 'What is your app\'s name ?',
@@ -22,14 +21,12 @@ module.exports = function () {
       message: 'What is your app\'s description ?',
       default: this.pkg.description
     }
-  ], props => {
+  ]).then(props => {
 
     Object.assign(this.pkg, {
       name: slug(props.appName),
       description: props.description
     });
-
-    done();
   });
 
 };

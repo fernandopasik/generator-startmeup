@@ -3,11 +3,11 @@
 
 /**
  * Copy all the dotfiles for the project.
+ * @returns {Promise} After prompting
  */
 module.exports = function () {
 
   const
-    done = this.async(),
     path = require('path'),
     rootPkg = require(path.join(this.rootDir, 'package.json')),
     prompts = {
@@ -23,7 +23,7 @@ module.exports = function () {
       ]
     };
 
-  this.prompt(prompts, props => {
+  return this.prompt(prompts).then(props => {
 
     if (-1 !== props.lintMethods.indexOf('eslint')) {
       Object.assign(this.pkg.devDependencies, {
@@ -32,7 +32,5 @@ module.exports = function () {
       });
       this.dotfiles.push('.eslintrc', '.eslintignore');
     }
-
-    done();
   });
 };
