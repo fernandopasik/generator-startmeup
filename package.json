@@ -15,20 +15,26 @@
   "main": "generators/app/index.js",
   "scripts": {
     "start": "npm run watch",
+    "build": "npm run -s lint; npm test",
     "clean": "rm -rf .tmp coverage",
     "lint": "eslint .",
-    "test": "mocha",
+    "test": "nyc mocha",
     "pretest": "npm run clean",
-    "cov": "istanbul cover _mocha --report lcovonly --report html",
-    "precov": "npm run clean",
-    "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "precoveralls": "npm run -s cov",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "travis": "npm run -s lint && npm run -s coveralls",
-    "watch": "watch 'npm run -s lint; npm run -s cov' generators/ test/"
+    "watch": "watch 'npm run -s build' generators/ test/"
   },
-  "files": [
-    "generators"
-  ],
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "check-coverage": true,
+    "lines": 100,
+    "functions": 100,
+    "branches": 100,
+    "statements": 100
+  },
   "dependencies": {
     "slug": "^0.9.1",
     "yeoman-generator": "^0.23.3",
@@ -38,9 +44,9 @@
     "coveralls": "^2.11.9",
     "eslint": "^2.9.0",
     "eslint-config-fernandopasik": "^0.1.4",
-    "istanbul": "^0.4.3",
     "mocha": "^2.4.5",
     "mocha-clean": "^1.0.0",
+    "nyc": "^6.4.3",
     "sinon": "^1.17.4",
     "watch": "^0.18.0",
     "yeoman-assert": "^2.2.1",
