@@ -1,14 +1,14 @@
 {
-  "name": "<%= pkg.name %>",
-  "description": "<%= pkg.description %>",
+  "name": "",
+  "description": "",
   "private": true,
   "keywords": [],
-  "homepage": "<%= pkg.homepage %>",
+  "homepage": "",
   "license": "MIT",
-  "authors": "<%- pkg.author %>",
+  "authors": "",
   "repository": {
     "type": "git",
-    "url": "<%= pkg.repository %>"
+    "url": ""
   },
   "main": "",
   "moduleType": "es6",
