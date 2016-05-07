@@ -20,8 +20,8 @@
     "lint": "eslint .",
     "test": "nyc mocha",
     "pretest": "npm run clean",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "travis": "npm run -s lint && npm run -s coveralls",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "travis": "npm run -s build && npm run -s coveralls",
     "watch": "watch 'npm run -s build' generators/ test/"
   },
   "nyc": {
