@@ -25,7 +25,7 @@ module.exports = function () {
 
   return this.prompt(prompts).then(props => {
 
-    if (-1 !== props.lintMethods.indexOf('eslint')) {
+    if (props.lintMethods.indexOf('eslint') !== -1) {
       Object.assign(this.pkg.devDependencies, {
         eslint: rootPkg.devDependencies.eslint,
         'eslint-config-fernandopasik':

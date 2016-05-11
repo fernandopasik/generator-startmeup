@@ -8,7 +8,7 @@ module.exports = function () {
 
   let suggestedGithubUsername;
 
-  if (this.authorName && 'string' === typeof this.authorName) {
+  if (this.authorName && typeof this.authorName === 'string') {
     suggestedGithubUsername = this.authorName.toLowerCase().replace(/\s/g, '');
   }
 
