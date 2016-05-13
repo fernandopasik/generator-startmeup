@@ -17,6 +17,7 @@ describe('Ask for Bower use', () => {
           assert.noFileContent('package.json',
             /(bower)/);
           assert.noFile('.bowerrc');
+          assert.noFile('bower.json');
           done();
         } catch (e) {
           done(e);
