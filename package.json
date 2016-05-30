@@ -14,6 +14,7 @@
   },
   "main": "generators/app/index.js",
   "scripts": {
+    "postinstall": "cp .npmignore .gitignore",
     "start": "npm run watch",
     "build": "npm run -s lint; npm test",
     "clean": "rm -rf .tmp coverage",
