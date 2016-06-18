@@ -35,7 +35,7 @@ describe('Ask for app metadata', () => {
       .on('end', () => {
         try {
           assert.jsonFileContent('package.json', {
-            name: path.basename(process.cwd()).replace(/^\./, '')
+            name: path.basename(process.cwd())
           });
           done();
         } catch (e) {

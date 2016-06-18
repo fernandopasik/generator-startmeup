@@ -1,8 +1,7 @@
 'use strict';
 
 const
-  path = require('path'),
-  slug = require('slug');
+  path = require('path');
 
 /**
  * Ask for project metadata from the User.
@@ -23,8 +22,15 @@ module.exports = function () {
     }
   ]).then(props => {
 
+    const appName = props.appName
+      .toString()
+      .trim()
+      .toLowerCase()
+      .replace(/ /g, '-')
+      .replace(/([^a-zA-Z0-9\._-]+)/, '');
+
     Object.assign(this.pkg, {
-      name: slug(props.appName),
+      name: appName,
       description: props.description
     });
   });
