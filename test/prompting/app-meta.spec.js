@@ -34,9 +34,8 @@ describe('Ask for app metadata', () => {
     gen
       .on('end', () => {
         try {
-          assert.jsonFileContent('package.json', {
-            name: path.basename(process.cwd())
-          });
+          assert.jsonFileContent('package.json',
+            { name: path.basename(process.cwd()) });
           done();
         } catch (e) {
           done(e);

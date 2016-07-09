@@ -48,9 +48,8 @@ describe('Ask for Author info', () => {
       .withPrompts({ authorName, authorEmail })
       .on('end', () => {
         try {
-          assert.jsonFileContent('package.json', {
-            author: `${authorName} <${authorEmail}>`
-          });
+          assert.jsonFileContent('package.json',
+            { author: `${authorName} <${authorEmail}>` });
           done();
         } catch (e) {
           done(e);
@@ -63,9 +62,8 @@ describe('Ask for Author info', () => {
       .withPrompts({ authorName, authorUrl })
       .on('end', () => {
         try {
-          assert.jsonFileContent('package.json', {
-            author: `${authorName} (${authorUrl})`
-          });
+          assert.jsonFileContent('package.json',
+            { author: `${authorName} (${authorUrl})` });
           done();
         } catch (e) {
           done(e);
@@ -78,9 +76,8 @@ describe('Ask for Author info', () => {
       .withPrompts({ authorName, authorEmail, authorUrl })
       .on('end', () => {
         try {
-          assert.jsonFileContent('package.json', {
-            author: `${authorName} <${authorEmail}> (${authorUrl})`
-          });
+          assert.jsonFileContent('package.json',
+            { author: `${authorName} <${authorEmail}> (${authorUrl})` });
           done();
         } catch (e) {
           done(e);
@@ -120,9 +117,8 @@ describe('Existing Author info', () => {
       })
       .on('end', () => {
         try {
-          assert.jsonFileContent('package.json', {
-            author: generatorPkg.author
-          });
+          assert.jsonFileContent('package.json',
+            { author: generatorPkg.author });
           done();
         } catch (e) {
           done(e);
