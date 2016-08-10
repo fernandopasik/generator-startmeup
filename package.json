@@ -37,17 +37,17 @@
     "statements": 100
   },
   "dependencies": {
-    "yeoman-generator": "^0.23.4",
+    "yeoman-generator": "^0.24.1",
     "yosay": "^1.2.0"
   },
   "devDependencies": {
-    "coveralls": "^2.11.9",
-    "eslint": "^3.0.1",
-    "eslint-config-fernandopasik": "^0.4.1",
-    "mocha": "^2.5.3",
+    "coveralls": "^2.11.12",
+    "eslint": "^3.2.2",
+    "eslint-config-fernandopasik": "^0.4.4",
+    "mocha": "^3.0.2",
     "mocha-clean": "^1.0.0",
-    "nyc": "^6.6.1",
-    "sinon": "^1.17.4",
+    "nyc": "^7.1.0",
+    "sinon": "^1.17.5",
     "watch": "^0.19.1",
     "yeoman-assert": "^2.2.1",
     "yeoman-test": "^1.4.0"
