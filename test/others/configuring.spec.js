@@ -1,7 +1,7 @@
 'use strict';
 
-const helpers = require('../helpers'),
-
+const
+  helpers = require('../helpers'),
   // Add files you expect to exist here.
   expectedFiles = [
     '.editorconfig',
@@ -13,20 +13,14 @@ describe('dotfiles Creation', () => {
 
   let gen;
 
-  beforeEach(() => {
-    gen = helpers.generator();
+  before(() => {
+    gen = helpers.generator().toPromise();
   });
 
-  it('creates expected files', done => {
-
-    gen.on('end', () => {
-      try {
-        assert.file(expectedFiles);
-        done();
-      } catch (e) {
-        done(e);
-      }
-    });
-  });
+  it('creates expected files', () =>
+    gen.then(() => {
+      assert.file(expectedFiles);
+    })
+  );
 
 });
