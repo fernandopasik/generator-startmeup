@@ -18,7 +18,7 @@ describe('Linting', () => {
 
   it('Available methods is eslint', done => {
     gen
-      .withPrompts({ lintMethods: [ 'eslint' ]})
+      .withPrompts({ lintMethods: [ 'eslint' ] })
       .on('end', () => {
         try {
           assert.fileContent('package.json', /eslint": "\^/);
@@ -47,7 +47,7 @@ describe('Linting', () => {
 
   it('Methods can all be disabled', done => {
     gen
-      .withPrompts({ lintMethods: []})
+      .withPrompts({ lintMethods: [] })
       .on('end', () => {
         try {
           assert.noFile(expectedFiles);
@@ -69,7 +69,7 @@ describe('Linting', () => {
 
   it('Creates dotfiles', done => {
     gen
-      .withPrompts({ lintMethods: [ 'eslint' ]})
+      .withPrompts({ lintMethods: [ 'eslint' ] })
       .on('end', () => {
         try {
           assert.file(expectedFiles);
@@ -83,7 +83,7 @@ describe('Linting', () => {
   it('Has some dependencies', done => {
 
     gen
-      .withPrompts({ lintMethods: [ 'eslint' ]})
+      .withPrompts({ lintMethods: [ 'eslint' ] })
       .on('end', () => {
         try {
           assert.jsonFileContent('package.json', {

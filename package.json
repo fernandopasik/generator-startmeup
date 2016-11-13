@@ -42,9 +42,9 @@
   },
   "devDependencies": {
     "coveralls": "^2.11.14",
-    "eslint": "^3.7.1",
-    "eslint-config-fernandopasik": "^0.4.11",
     "mocha": "^3.1.0",
+    "eslint": "^3.10.0",
+    "eslint-config-fernandopasik": "^0.5.1",
     "mocha-clean": "^1.0.0",
     "nyc": "^8.3.0",
     "sinon": "^1.17.6",

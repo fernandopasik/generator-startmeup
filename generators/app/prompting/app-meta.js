@@ -27,7 +27,7 @@ module.exports = function () {
       .trim()
       .toLowerCase()
       .replace(/ /g, '-')
-      .replace(/([^a-zA-Z0-9\._-]+)/, '');
+      .replace(/([^a-zA-Z0-9._-]+)/, '');
 
     Object.assign(this.pkg, {
       name: appName,
