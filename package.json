@@ -6,7 +6,7 @@
   "homepage": "https://github.com/fernandopasik/generator-startmeup",
   "bugs": "https://github.com/fernandopasik/generator-startmeup/issues",
   "license": "MIT",
-  "author": "Fernando Pasik <fernando@pasik.com.ar> (http://fernandopasik.com/)",
+  "author": "Fernando Pasik <fernando@pasik.com.ar> (http://fernandopasik.com)",
   "contributors": [],
   "repository": {
     "type": "git",
@@ -16,11 +16,10 @@
   "scripts": {
     "postinstall": "cp .npmignore .gitignore",
     "start": "npm run watch",
-    "build": "npm run -s lint; npm test",
-    "clean": "rm -rf .tmp coverage",
     "lint": "eslint .",
-    "test": "nyc mocha",
-    "pretest": "npm run clean",
+    "test": "mocha",
+    "coverage": "rm -rf coverage .nyc_output && nyc mocha",
+    "build": "npm run -s lint && npm run -s coverage",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "travis": "npm run -s build && npm run -s coveralls",
     "watch": "watch 'npm run -s build' generators/ test/"
@@ -38,17 +37,17 @@
   },
   "dependencies": {
     "yeoman-generator": "^0.24.1",
-    "yosay": "^1.2.0"
+    "yosay": "^1.2.1"
   },
   "devDependencies": {
-    "coveralls": "^2.11.14",
-    "mocha": "^3.1.0",
+    "coveralls": "^2.11.15",
     "eslint": "^3.10.0",
     "eslint-config-fernandopasik": "^0.5.1",
+    "mocha": "^3.1.2",
     "mocha-clean": "^1.0.0",
-    "nyc": "^8.3.0",
+    "nyc": "^8.4.0",
     "sinon": "^1.17.6",
-    "watch": "^0.19.2",
+    "watch": "^1.0.1",
     "yeoman-assert": "^2.2.1",
     "yeoman-test": "^1.5.1"
   },
