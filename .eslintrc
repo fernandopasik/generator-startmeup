@@ -1,7 +1,6 @@
 {
   "extends": [ "fernandopasik", "fernandopasik/es6" ],
   "env": {
-    "es6": true,
     "node": true
   },
   "parserOptions": {

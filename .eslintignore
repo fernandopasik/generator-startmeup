@@ -2,4 +2,5 @@ node_modules/**
 bower_components/**
 dist/**
 coverage/**
+.nyc_output/**
 .tmp/**

@@ -15,13 +15,13 @@ node_modules
 bower_components
 npm-debug.log
 
+# test files
+coverage
+.nyc_output
+
 # sass cache folder
 .sass-cache
 
 # build and temp folders
 dist
 .tmp
-
-# project files
-coverage
-.nyc_output
