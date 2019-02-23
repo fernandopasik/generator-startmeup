@@ -1,21 +1,18 @@
-'use strict';
+const helpers = require('../helpers');
 
-const
-  helpers = require('../helpers'),
-  authorName = 'Fernando Pasik',
-  githubUsername = 'fernandopasik',
-  appName = 'testapp',
-  githubUrl = `https://github.com/${githubUsername}/${appName}`;
+const authorName = 'Fernando Pasik';
+const githubUsername = 'fernandopasik';
+const appName = 'testapp';
+const githubUrl = `https://github.com/${githubUsername}/${appName}`;
 
 describe('Ask for Github info', () => {
-
   let gen;
 
   beforeEach(() => {
     gen = helpers.generator();
   });
 
-  it('No?', done => {
+  it('No?', (done) => {
     gen
       .withPrompts({ appName, githubConfirm: false })
       .on('end', () => {
@@ -23,7 +20,7 @@ describe('Ask for Github info', () => {
           assert.jsonFileContent('package.json', {
             homepage: '',
             bugs: '',
-            repository: { type: 'git', url: '' }
+            repository: { type: 'git', url: '' },
           });
           done();
         } catch (e) {
@@ -32,7 +29,7 @@ describe('Ask for Github info', () => {
       });
   });
 
-  it('Username', done => {
+  it('Username', (done) => {
     gen
       .withPrompts({ appName, githubUsername })
       .on('end', () => {
@@ -40,7 +37,7 @@ describe('Ask for Github info', () => {
           assert.jsonFileContent('package.json', {
             homepage: githubUrl,
             bugs: `${githubUrl}/issues`,
-            repository: { type: 'git', url: `${githubUrl}.git` }
+            repository: { type: 'git', url: `${githubUrl}.git` },
           });
           done();
         } catch (e) {
@@ -49,7 +46,7 @@ describe('Ask for Github info', () => {
       });
   });
 
-  it('Default username from author name', done => {
+  it('Default username from author name', (done) => {
     gen
       .withPrompts({ appName, authorName })
       .on('end', () => {
@@ -57,7 +54,7 @@ describe('Ask for Github info', () => {
           assert.jsonFileContent('package.json', {
             homepage: githubUrl,
             bugs: `${githubUrl}/issues`,
-            repository: { type: 'git', url: `${githubUrl}.git` }
+            repository: { type: 'git', url: `${githubUrl}.git` },
           });
           done();
         } catch (e) {
@@ -65,5 +62,4 @@ describe('Ask for Github info', () => {
         }
       });
   });
-
 });

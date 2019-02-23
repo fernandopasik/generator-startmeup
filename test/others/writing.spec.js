@@ -1,17 +1,15 @@
-'use strict';
+const helpers = require('../helpers');
+const generatorPkg = require('../../package.json');
 
-const
-  helpers = require('../helpers'),
-  expectedFiles = [
-    'package.json',
-    'README.md',
-    'LICENSE'
-  ],
-  appName = 'testapp',
-  description = 'This is a test';
+const expectedFiles = [
+  'package.json',
+  'README.md',
+  'LICENSE',
+];
+const appName = 'testapp';
+const description = 'This is a test';
 
 describe('Project Creation', () => {
-
   let gen;
 
   beforeEach(() => {
@@ -19,7 +17,7 @@ describe('Project Creation', () => {
       .withPrompts({ appName, description });
   });
 
-  it('creates expected files', done => {
+  it('creates expected files', (done) => {
     gen
       .on('end', () => {
         try {
@@ -31,7 +29,7 @@ describe('Project Creation', () => {
       });
   });
 
-  it('creates expected files when bower present', done => {
+  it('creates expected files when bower present', (done) => {
     gen
       .withPrompts({ bowerConfirm: true })
       .on('end', () => {
@@ -44,7 +42,7 @@ describe('Project Creation', () => {
       });
   });
 
-  it('README contains app name and description', done => {
+  it('README contains app name and description', (done) => {
     gen
       .on('end', () => {
         try {
@@ -56,23 +54,18 @@ describe('Project Creation', () => {
         }
       });
   });
-
 });
 
 describe('Existing Project info', () => {
-
   let gen;
 
   beforeEach(() => {
     gen = helpers.generator();
   });
 
-  it('from existing package.json', done => {
-
-    const generatorPkg = require('../../package.json');
-
+  it('from existing package.json', (done) => {
     gen
-      .on('ready', generator => {
+      .on('ready', (generator) => {
         helpers.copyRootPkg(generator);
       })
       .on('end', () => {
@@ -84,5 +77,4 @@ describe('Existing Project info', () => {
         }
       });
   });
-
 });

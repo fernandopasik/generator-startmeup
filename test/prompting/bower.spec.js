@@ -1,16 +1,13 @@
-'use strict';
-
 const helpers = require('../helpers');
 
 describe('Ask for Bower use', () => {
-
   let gen;
 
   beforeEach(() => {
     gen = helpers.generator();
   });
 
-  it('Default is No', done => {
+  it('Default is No', (done) => {
     gen
       .on('end', () => {
         try {
@@ -25,7 +22,7 @@ describe('Ask for Bower use', () => {
       });
   });
 
-  it('Has a dev dependency', done => {
+  it('Has a dev dependency', (done) => {
     gen
       .withPrompts({ bowerConfirm: true })
       .on('end', () => {

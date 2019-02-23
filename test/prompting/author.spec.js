@@ -1,20 +1,18 @@
-'use strict';
+const sinon = require('sinon');
+const helpers = require('../helpers');
 
-const
-  sinon = require('sinon'),
-  helpers = require('../helpers'),
-  authorName = 'Leonardo da Vinci',
-  authorEmail = 'leonardo@davinci.com',
-  authorUrl = 'http://davinci.com';
+const authorName = 'Leonardo da Vinci';
+const authorEmail = 'leonardo@davinci.com';
+const authorUrl = 'http://davinci.com';
+const generatorPkg = require('../../package.json');
 
 describe('Ask for Author info', () => {
+  let gen; let
+    stub;
 
-  let gen, stub;
-
-  beforeEach(done => {
+  beforeEach((done) => {
     gen = helpers.generator()
-      .on('ready', generator => {
-
+      .on('ready', (generator) => {
         // Emulate when no git repository is present
         stub = {};
         stub.name = sinon.stub(generator.user.git, 'name').returns(null);
@@ -30,7 +28,7 @@ describe('Ask for Author info', () => {
     stub.email.restore();
   });
 
-  it('Name', done => {
+  it('Name', (done) => {
     gen
       .withPrompts({ authorName })
       .on('end', () => {
@@ -43,7 +41,7 @@ describe('Ask for Author info', () => {
       });
   });
 
-  it('Name and email', done => {
+  it('Name and email', (done) => {
     gen
       .withPrompts({ authorName, authorEmail })
       .on('end', () => {
@@ -57,7 +55,7 @@ describe('Ask for Author info', () => {
       });
   });
 
-  it('Name and url', done => {
+  it('Name and url', (done) => {
     gen
       .withPrompts({ authorName, authorUrl })
       .on('end', () => {
@@ -71,7 +69,7 @@ describe('Ask for Author info', () => {
       });
   });
 
-  it('Name, email and url', done => {
+  it('Name, email and url', (done) => {
     gen
       .withPrompts({ authorName, authorEmail, authorUrl })
       .on('end', () => {
@@ -85,7 +83,7 @@ describe('Ask for Author info', () => {
       });
   });
 
-  it('No author name implies no email', done => {
+  it('No author name implies no email', (done) => {
     gen
       .on('end', () => {
         try {
@@ -96,23 +94,18 @@ describe('Ask for Author info', () => {
         }
       });
   });
-
 });
 
 describe('Existing Author info', () => {
-
   let gen;
 
   beforeEach(() => {
     gen = helpers.generator();
   });
 
-  it('from existing package.json', done => {
-
-    const generatorPkg = require('../../package.json');
-
+  it('from existing package.json', (done) => {
     gen
-      .on('ready', generator => {
+      .on('ready', (generator) => {
         helpers.copyRootPkg(generator);
       })
       .on('end', () => {
@@ -125,5 +118,4 @@ describe('Existing Author info', () => {
         }
       });
   });
-
 });

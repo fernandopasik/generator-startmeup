@@ -1,5 +1,4 @@
-'use strict';
-
+/* eslint-disable global-require */
 const generator = require('yeoman-generator');
 
 /**
@@ -23,7 +22,7 @@ module.exports = generator.Base.extend({
     author: require('./prompting/author'),
     github: require('./prompting/github'),
     lint: require('./prompting/lint'),
-    bower: require('./prompting/bower')
+    bower: require('./prompting/bower'),
   },
 
   /**
@@ -41,5 +40,5 @@ module.exports = generator.Base.extend({
   /**
    * Where installation are run (npm, bower)
    */
-  install: require('./install')
+  install: require('./install'),
 });

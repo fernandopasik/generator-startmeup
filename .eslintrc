@@ -1,9 +1,6 @@
 {
-  "extends": [ "fernandopasik", "fernandopasik/es6" ],
+  "extends": [ "airbnb-base" ],
   "env": {
     "node": true
-  },
-  "parserOptions": {
-    "sourceType": "script"
   }
 }

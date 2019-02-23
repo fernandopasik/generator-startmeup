@@ -1,24 +1,21 @@
-'use strict';
+const helpers = require('../helpers');
+const pkg = require('../../package.json');
 
-const
-  helpers = require('../helpers'),
-  pkg = require('../../package.json'),
-  expectedFiles = [
-    '.eslintrc',
-    '.eslintignore'
-  ];
+const expectedFiles = [
+  '.eslintrc',
+  '.eslintignore',
+];
 
 describe('Linting', () => {
-
   let gen;
 
   beforeEach(() => {
     gen = helpers.generator();
   });
 
-  it('Available methods is eslint', done => {
+  it('Available methods is eslint', (done) => {
     gen
-      .withPrompts({ lintMethods: [ 'eslint' ] })
+      .withPrompts({ lintMethods: ['eslint'] })
       .on('end', () => {
         try {
           assert.fileContent('package.json', /eslint": "\^/);
@@ -31,7 +28,7 @@ describe('Linting', () => {
       });
   });
 
-  it('Has eslint enabled by default', done => {
+  it('Has eslint enabled by default', (done) => {
     gen
       .on('end', () => {
         try {
@@ -45,7 +42,7 @@ describe('Linting', () => {
       });
   });
 
-  it('Methods can all be disabled', done => {
+  it('Methods can all be disabled', (done) => {
     gen
       .withPrompts({ lintMethods: [] })
       .on('end', () => {
@@ -55,8 +52,8 @@ describe('Linting', () => {
             devDependencies: {
               eslint: pkg.devDependencies.eslint,
               'eslint-config-fernandopasik':
-                pkg.devDependencies['eslint-config-fernandopasik']
-            }
+                pkg.devDependencies['eslint-config-fernandopasik'],
+            },
           });
           assert.noFileContent('package.json',
             /(eslint|eslint-config-fernandopasik)/);
@@ -67,9 +64,9 @@ describe('Linting', () => {
       });
   });
 
-  it('Creates dotfiles', done => {
+  it('Creates dotfiles', (done) => {
     gen
-      .withPrompts({ lintMethods: [ 'eslint' ] })
+      .withPrompts({ lintMethods: ['eslint'] })
       .on('end', () => {
         try {
           assert.file(expectedFiles);
@@ -80,18 +77,17 @@ describe('Linting', () => {
       });
   });
 
-  it('Has some dependencies', done => {
-
+  it('Has some dependencies', (done) => {
     gen
-      .withPrompts({ lintMethods: [ 'eslint' ] })
+      .withPrompts({ lintMethods: ['eslint'] })
       .on('end', () => {
         try {
           assert.jsonFileContent('package.json', {
             devDependencies: {
               eslint: pkg.devDependencies.eslint,
               'eslint-config-fernandopasik':
-                pkg.devDependencies['eslint-config-fernandopasik']
-            }
+                pkg.devDependencies['eslint-config-fernandopasik'],
+            },
           });
           done();
         } catch (e) {
@@ -99,5 +95,4 @@ describe('Linting', () => {
         }
       });
   });
-
 });

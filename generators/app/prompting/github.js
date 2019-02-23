@@ -1,11 +1,8 @@
-'use strict';
-
 /**
  * Ask for Github account info.
  * @returns {Promise} After prompting
  */
-module.exports = function () {
-
+module.exports = function github() {
   let suggestedGithubUsername;
 
   if (this.authorName && typeof this.authorName === 'string') {
@@ -17,20 +14,19 @@ module.exports = function () {
       name: 'githubConfirm',
       type: 'confirm',
       default: true,
-      message: 'Are you going to use github?'
+      message: 'Are you going to use github?',
     },
     {
       name: 'githubUsername',
       message: 'What is your github username?',
       default: suggestedGithubUsername,
-      when: props => props.githubConfirm
-    }
-  ]).then(props => {
-
+      when: props => props.githubConfirm,
+    },
+  ]).then((props) => {
     let
-      homepage = '',
-      bugs = '',
-      url = '';
+      homepage = '';
+    let bugs = '';
+    let url = '';
 
     if (props.githubConfirm) {
       homepage = `https://github.com/${props.githubUsername}/${this.pkg.name}`;
@@ -43,8 +39,8 @@ module.exports = function () {
       bugs,
       repository: {
         type: 'git',
-        url
-      }
+        url,
+      },
     });
   });
 };

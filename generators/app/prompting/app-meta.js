@@ -1,27 +1,22 @@
-'use strict';
-
-const
-  path = require('path');
+const path = require('path');
 
 /**
  * Ask for project metadata from the User.
  * @returns {Promise} After prompting
  */
-module.exports = function () {
-
+module.exports = function appMeta() {
   return this.prompt([
     {
       name: 'appName',
       message: 'What is your app\'s name ?',
-      default: this.pkg.name || path.basename(process.cwd())
+      default: this.pkg.name || path.basename(process.cwd()),
     },
     {
       name: 'description',
       message: 'What is your app\'s description ?',
-      default: this.pkg.description
-    }
-  ]).then(props => {
-
+      default: this.pkg.description,
+    },
+  ]).then((props) => {
     const appName = props.appName
       .toString()
       .trim()
@@ -31,8 +26,7 @@ module.exports = function () {
 
     Object.assign(this.pkg, {
       name: appName,
-      description: props.description
+      description: props.description,
     });
   });
-
 };

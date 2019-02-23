@@ -1,18 +1,16 @@
-'use strict';
-
 const helpers = require('../helpers');
 
 describe('Initializing', () => {
-
-  let gen, tempGen;
+  let gen; let
+    tempGen;
 
   beforeEach(() => {
     gen = helpers.generator();
   });
 
-  it('creates expected files', done => {
+  it('creates expected files', (done) => {
     gen
-      .on('ready', generator => {
+      .on('ready', (generator) => {
         tempGen = generator;
         helpers.copyRootPkg(generator);
       })
@@ -25,5 +23,4 @@ describe('Initializing', () => {
         }
       });
   });
-
 });

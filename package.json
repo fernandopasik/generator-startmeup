@@ -6,7 +6,7 @@
   "homepage": "https://github.com/fernandopasik/generator-startmeup",
   "bugs": "https://github.com/fernandopasik/generator-startmeup/issues",
   "license": "MIT",
-  "author": "Fernando Pasik <fernando@pasik.com.ar> (http://fernandopasik.com)",
+  "author": "Fernando Pasik <fernando@pasik.com.ar> (https://fernandopasik.com)",
   "contributors": [],
   "repository": {
     "type": "git",
@@ -42,7 +42,8 @@
   "devDependencies": {
     "coveralls": "^3.0.3",
     "eslint": "^5.14.1",
-    "eslint-config-fernandopasik": "^0.8.2",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
     "mocha": "^6.0.1",
     "mocha-clean": "^1.0.0",
     "nyc": "^13.3.0",
