@@ -20,7 +20,7 @@ describe('Linting', () => {
         try {
           assert.fileContent('package.json', /eslint": "\^/);
           assert.fileContent('package.json',
-            /eslint-config-fernandopasik": "\^/);
+            /eslint-config-airbnb-base": "\^/);
           done();
         } catch (e) {
           done(e);
@@ -34,7 +34,7 @@ describe('Linting', () => {
         try {
           assert.fileContent('package.json', /eslint": "\^/);
           assert.fileContent('package.json',
-            /eslint-config-fernandopasik": "\^/);
+            /eslint-config-airbnb-base": "\^/);
           done();
         } catch (e) {
           done(e);
@@ -51,12 +51,12 @@ describe('Linting', () => {
           assert.noJsonFileContent('package.json', {
             devDependencies: {
               eslint: pkg.devDependencies.eslint,
-              'eslint-config-fernandopasik':
-                pkg.devDependencies['eslint-config-fernandopasik'],
+              'eslint-config-airbnb-base': pkg.devDependencies['eslint-config-airbnb-base'],
+              'eslint-plugin-import': pkg.devDependencies['eslint-plugin-import'],
             },
           });
           assert.noFileContent('package.json',
-            /(eslint|eslint-config-fernandopasik)/);
+            /(eslint|eslint-config-airbnb-base|eslint-plugin-import)/);
           done();
         } catch (e) {
           done(e);
@@ -85,8 +85,8 @@ describe('Linting', () => {
           assert.jsonFileContent('package.json', {
             devDependencies: {
               eslint: pkg.devDependencies.eslint,
-              'eslint-config-fernandopasik':
-                pkg.devDependencies['eslint-config-fernandopasik'],
+              'eslint-config-airbnb-base': pkg.devDependencies['eslint-config-airbnb-base'],
+              'eslint-plugin-import': pkg.devDependencies['eslint-plugin-import'],
             },
           });
           done();

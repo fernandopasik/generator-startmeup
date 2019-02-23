@@ -25,8 +25,8 @@ module.exports = function lint() {
     if (props.lintMethods.indexOf('eslint') !== -1) {
       Object.assign(this.pkg.devDependencies, {
         eslint: rootPkg.devDependencies.eslint,
-        'eslint-config-fernandopasik':
-          rootPkg.devDependencies['eslint-config-fernandopasik'],
+        'eslint-config-airbnb-base': rootPkg.devDependencies['eslint-config-airbnb-base'],
+        'eslint-plugin-import': rootPkg.devDependencies['eslint-plugin-import'],
       });
       this.dotfiles.push('.eslintrc', '.eslintignore');
     }
