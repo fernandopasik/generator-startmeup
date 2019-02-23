@@ -40,16 +40,16 @@
     "yosay": "^1.2.1"
   },
   "devDependencies": {
-    "coveralls": "^2.11.15",
-    "eslint": "^3.11.1",
-    "eslint-config-fernandopasik": "^0.5.1",
-    "mocha": "^3.2.0",
+    "coveralls": "^3.0.3",
+    "eslint": "^5.14.1",
+    "eslint-config-fernandopasik": "^0.8.2",
+    "mocha": "^6.0.1",
     "mocha-clean": "^1.0.0",
-    "nyc": "^10.0.0",
-    "sinon": "^1.17.6",
-    "watch": "^1.0.1",
-    "yeoman-assert": "^2.2.1",
-    "yeoman-test": "^1.5.1"
+    "nyc": "^13.3.0",
+    "sinon": "^7.2.4",
+    "watch": "^1.0.2",
+    "yeoman-assert": "^3.1.1",
+    "yeoman-test": "^1.9.1"
   },
   "engines": {
     "node": ">=4.0.0",
