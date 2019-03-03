@@ -18,9 +18,6 @@ npm-debug.log
 coverage
 .nyc_output
 
-# sass cache folder
-.sass-cache
-
 # build and temp folders
 dist
 .tmp
