@@ -10,9 +10,10 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-# npm installs
+# npm
 node_modules
 npm-debug.log
+yarn-error.log
 
 # test files
 coverage
