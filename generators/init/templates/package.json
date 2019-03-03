@@ -1,0 +1,19 @@
+{
+  "name": "<%= app.name %>",
+  "version": "0.0.0",
+  "description": "<%= app.description %>",
+  "keywords": [],
+  "homepage": "<%= github.homepage %>",
+  "bugs": "<%= github.bugs %>",
+  "license": "MIT",
+  "author": "<%- author.full %>",
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "<%= github.url %>"
+  },
+  "main": "",
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {}
+}

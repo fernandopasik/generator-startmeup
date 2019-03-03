@@ -1,3 +1,0 @@
-# <%= pkg.name %>
-
-<%= pkg.description %>
