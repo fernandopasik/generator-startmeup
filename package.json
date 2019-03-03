@@ -51,9 +51,5 @@
     "watch": "^1.0.2",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^1.9.1"
-  },
-  "engines": {
-    "node": ">=4.0.0",
-    "npm": ">=2.14.2"
   }
 }
