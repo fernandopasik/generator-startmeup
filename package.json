@@ -14,24 +14,10 @@
   },
   "main": "generators/app/index.js",
   "scripts": {
-    "postinstall": "cp .npmignore .gitignore",
-    "start": "npm run watch",
+    "start": "watch 'npm run -s build' generators/",
     "lint": "eslint .",
-    "test": "mocha",
-    "coverage": "rm -rf coverage .nyc_output && nyc mocha",
-    "build": "npm run -s lint && npm run -s coverage",
-    "watch": "watch 'npm run -s build' generators/ test/"
-  },
-  "nyc": {
-    "reporter": [
-      "lcov",
-      "text"
-    ],
-    "check-coverage": true,
-    "lines": 100,
-    "functions": 100,
-    "branches": 100,
-    "statements": 100
+    "test": "",
+    "preversion": "npm run -s lint"
   },
   "dependencies": {
     "yeoman-generator": "^0.24.1",

@@ -1,4 +1,0 @@
---require mocha-clean
---recursive
---reporter min
---ui bdd
