@@ -1,5 +1,5 @@
 /**
- * Install npm and bower dependencies.
+ * Install npm dependencies.
  */
 module.exports = function install() {
   /* istanbul ignore if */

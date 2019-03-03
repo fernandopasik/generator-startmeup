@@ -22,7 +22,6 @@ module.exports = generator.Base.extend({
     author: require('./prompting/author'),
     github: require('./prompting/github'),
     lint: require('./prompting/lint'),
-    bower: require('./prompting/bower'),
   },
 
   /**
@@ -38,7 +37,7 @@ module.exports = generator.Base.extend({
   writing: require('./writing'),
 
   /**
-   * Where installation are run (npm, bower)
+   * Where installation are run (npm)
    */
   install: require('./install'),
 });

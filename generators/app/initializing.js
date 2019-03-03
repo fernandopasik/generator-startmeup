@@ -2,7 +2,7 @@ const path = require('path');
 const yosay = require('yosay');
 
 /**
- * Start pkg object for npm and bower.
+ * Start pkg object for npm.
  */
 module.exports = function initializing() {
   // Have Yeoman greet the user.

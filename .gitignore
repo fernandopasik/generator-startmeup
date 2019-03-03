@@ -10,9 +10,8 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-# npm and bower installs
+# npm installs
 node_modules
-bower_components
 npm-debug.log
 
 # test files

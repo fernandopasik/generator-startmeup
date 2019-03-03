@@ -29,19 +29,6 @@ describe('Project Creation', () => {
       });
   });
 
-  it('creates expected files when bower present', (done) => {
-    gen
-      .withPrompts({ bowerConfirm: true })
-      .on('end', () => {
-        try {
-          assert.file(expectedFiles.concat('bower.json'));
-          done();
-        } catch (e) {
-          done(e);
-        }
-      });
-  });
-
   it('README contains app name and description', (done) => {
     gen
       .on('end', () => {
