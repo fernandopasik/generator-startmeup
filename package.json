@@ -41,13 +41,13 @@
   },
   "devDependencies": {
     "coveralls": "^3.0.3",
-    "eslint": "^5.14.1",
+    "eslint": "^5.15.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
-    "mocha": "^6.0.1",
+    "mocha": "^6.0.2",
     "mocha-clean": "^1.0.0",
     "nyc": "^13.3.0",
-    "sinon": "^7.2.4",
+    "sinon": "^7.2.6",
     "watch": "^1.0.2",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^1.9.1"
