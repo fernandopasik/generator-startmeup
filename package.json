@@ -21,7 +21,6 @@
     "coverage": "rm -rf coverage .nyc_output && nyc mocha",
     "build": "npm run -s lint && npm run -s coverage",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "travis": "npm run -s build && npm run -s coveralls",
     "watch": "watch 'npm run -s build' generators/ test/"
   },
   "nyc": {
