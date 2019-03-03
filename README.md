@@ -12,10 +12,10 @@ Yeoman generator for quickly set up your **dotfiles** and some other minor confi
 [img-2]:
 [img-3]: https://david-dm.org/fernandopasik/generator-startmeup.svg
 [img-4]: https://david-dm.org/fernandopasik/generator-startmeup/dev-status.svg
-[img-5]: https://img.shields.io/coveralls/fernandopasik/generator-startmeup.svg
+[img-5]:
 
 [1]: https://www.npmjs.com/package/generator-startmeup "npm version"
 [2]: "Build Status"
 [3]: https://david-dm.org/fernandopasik/generator-startmeup "Dependency Status"
 [4]: https://david-dm.org/fernandopasik/generator-startmeup#info=devDependencies "devDependency Status"
-[5]: https://coveralls.io/r/fernandopasik/generator-startmeup "Coverage Status"
+[5]: "Coverage Status"

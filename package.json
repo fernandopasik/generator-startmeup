@@ -20,7 +20,6 @@
     "test": "mocha",
     "coverage": "rm -rf coverage .nyc_output && nyc mocha",
     "build": "npm run -s lint && npm run -s coverage",
-    "coveralls": "cat ./coverage/lcov.info | coveralls",
     "watch": "watch 'npm run -s build' generators/ test/"
   },
   "nyc": {
@@ -39,7 +38,6 @@
     "yosay": "^2.0.2"
   },
   "devDependencies": {
-    "coveralls": "^3.0.3",
     "eslint": "^5.15.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
