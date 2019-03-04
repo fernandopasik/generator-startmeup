@@ -18,7 +18,7 @@ describe('App meta prompt', () => {
       type: 'input',
       name: 'name',
       message: 'What is your app\'s name?',
-      default: 'generator-startmeup',
+      default: expect.any(String),
     }]));
   });
 
