@@ -1,27 +1,15 @@
-const path = require('path');
-const Generator = require('yeoman-generator');
+const Base = require('../base');
 
-module.exports = class extends Generator {
-  main() {
-    const rootDir = path.join(__dirname, '../../');
-    const files = [
-      '.commitlintrc.json',
-      '.huskyrc.json',
-      '.lintstagedrc',
-    ];
+const commitLint = require('./commit-lint');
+const staged = require('./staged');
+const install = require('./install');
 
-    files.forEach((file) => {
-      this.fs.copy(
-        `${rootDir}${file}`,
-        this.destinationPath(file),
-      );
-    });
+module.exports = class extends Base {
+  async main() {
+    await commitLint.call(this);
+    staged.call(this);
+    install.call(this);
 
-    this.yarnInstall([
-      '@commitlint/cli',
-      '@commitlint/config-conventional',
-      'husky',
-      'lint-staged',
-    ], { dev: true });
+    this.yarnInstall(this.devDeps, { dev: true });
   }
 };
