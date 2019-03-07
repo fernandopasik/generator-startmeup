@@ -1,6 +1,8 @@
 const path = require('path');
 
 const Base = require('../base');
+const getChecks = require('./checks');
+const getStyleguides = require('./styleguides');
 
 module.exports = class extends Base {
   async main() {
@@ -9,8 +11,8 @@ module.exports = class extends Base {
     const options = {
       githubRepo: '',
       ...this.answers,
-      checks: '',
-      styleguides: '',
+      checks: getChecks.call(this),
+      styleguides: getStyleguides.call(this),
       year: new Date().getFullYear(),
     };
 

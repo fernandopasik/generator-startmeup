@@ -14,8 +14,8 @@ If no similar issue is found please submit a [new](<%= githubRepo %>/issues/new/
 4. Submit a pull request
 5. Please add a clear description of the problem and solution
 6. Include any related issue number
-7. Please ensure the PR passes the automated checks (<%= checks %>)
-
+7. Please ensure the PR passes the automated checks
+<%= checks %>
 
 ## Styleguides
 
