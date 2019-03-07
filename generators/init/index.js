@@ -24,11 +24,9 @@ module.exports = class extends Generator {
       );
     });
 
-    const rootDir = path.join(__dirname, '../../');
-
     ['.editorconfig', '.gitattributes', '.gitignore', '.npmignore'].forEach((file) => {
       this.fs.copy(
-        `${rootDir}${file}`,
+        path.join(__dirname, '../../', file),
         this.destinationPath(file),
       );
     });

@@ -3,7 +3,6 @@ const Generator = require('yeoman-generator');
 
 module.exports = class extends Generator {
   main() {
-    const rootDir = path.join(__dirname, '../../');
     const files = [
       '.github/PULL_REQUEST_TEMPLATE.md',
       '.github/ISSUE_TEMPLATE/bug_report.md',
@@ -13,7 +12,7 @@ module.exports = class extends Generator {
 
     files.forEach((file) => {
       this.fs.copy(
-        `${rootDir}${file}`,
+        path.join(__dirname, '../../', file),
         this.destinationPath(file),
       );
     });
