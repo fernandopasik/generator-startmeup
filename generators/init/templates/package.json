@@ -1,12 +1,12 @@
 {
-  "name": "<%= app.name %>",
+  "name": "<%= appName %>",
   "version": "0.0.0",
-  "description": "<%= app.description %>",
+  "description": "<%= appDescription %>",
   "keywords": [],
   "homepage": "<%= github.homepage %>",
   "bugs": "<%= github.bugs %>",
   "license": "MIT",
-  "author": "<%- author.full %>",
+  "author": "<%- author %>",
   "contributors": [],
   "repository": {
     "type": "git",
