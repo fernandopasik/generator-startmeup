@@ -25,7 +25,6 @@ module.exports = class extends Base {
         bugs: `${githubRepo}/issues`,
         url: `${githubRepo}.git`,
       } : {},
-      year: new Date().getFullYear(),
     };
 
     ['package.json'].forEach((template) => {
