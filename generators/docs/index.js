@@ -1,8 +1,27 @@
 const path = require('path');
-const Generator = require('yeoman-generator');
 
-module.exports = class extends Generator {
-  main() {
+const Base = require('../base');
+
+module.exports = class extends Base {
+  async main() {
+    await this.promptFields(['appName', 'appDescription', 'authorName', 'githubConfirm', 'githubUsername', 'githubRepo']);
+
+    const options = {
+      githubRepo: '',
+      ...this.answers,
+      checks: '',
+      styleguides: '',
+      year: new Date().getFullYear(),
+    };
+
+    ['LICENSE', 'README.md', 'CONTRIBUTING.md'].forEach((template) => {
+      this.fs.copyTpl(
+        this.templatePath(template),
+        this.destinationPath(template),
+        options,
+      );
+    });
+
     const files = [
       '.github/PULL_REQUEST_TEMPLATE.md',
       '.github/ISSUE_TEMPLATE/bug_report.md',

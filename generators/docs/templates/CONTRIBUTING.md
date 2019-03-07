@@ -2,8 +2,8 @@
 
 ## Reporting Bugs or suggesting features
 
-Ensure the bug or feature has not been reported before searching by [searching](<%= github.bugs %>) first.
-If no similar issue is found please submit a [new](<%= github.bugs %>/new/choose) one.
+Ensure the bug or feature has not been reported before searching by [searching](<%= githubRepo %>/issues) first.
+If no similar issue is found please submit a [new](<%= githubRepo %>/issues/new/choose) one.
 
 ## Submitting changes
 
