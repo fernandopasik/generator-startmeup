@@ -5,6 +5,7 @@
   },
   "overrides": [{
     "files": [
+      "generators/**/__mocks__/*.js",
       "generators/**/__tests__/*.js"
     ],
     "env": {

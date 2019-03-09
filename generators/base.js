@@ -7,15 +7,16 @@ module.exports = class Base extends Generator {
 
     this.pkgJson = Object.assign({}, this.fs.readJSON(this.destinationPath('package.json')));
     this.devDeps = [];
+    this.answers = {};
   }
 
   willInstall(dependency) {
     const { devDependencies = {} } = this.pkgJson;
-    return devDependencies[dependency] || this.devDeps.includes(dependency);
+    return Boolean(devDependencies[dependency]) || this.devDeps.includes(dependency);
   }
 
-  async promptFields(fieldNames) {
-    const availableFields = {
+  async getAllFields() {
+    return {
       appName: {
         type: 'input',
         name: 'appName',
@@ -69,8 +70,15 @@ module.exports = class Base extends Generator {
         when: props => props.githubConfirm,
       },
     };
+  }
 
-    const selectedFields = fieldNames || Object.keys(availableFields);
+  async promptFields(fieldNames = []) {
+    const availableFields = await this.getAllFields();
+    const allFieldNames = Object.keys(availableFields);
+
+    const selectedFields = fieldNames.length > 0
+      ? fieldNames.filter(fieldName => allFieldNames.includes(fieldName))
+      : allFieldNames;
 
     this.answers = await this.prompt(selectedFields.map(fieldName => availableFields[fieldName]));
   }
