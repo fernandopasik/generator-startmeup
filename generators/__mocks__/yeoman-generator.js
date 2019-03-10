@@ -1,3 +1,4 @@
+/* eslint-disable jest/prefer-spy-on */
 module.exports = jest.fn(function YeomanGenerator() {
   this.destinationPath = jest.fn();
   this.fs = {

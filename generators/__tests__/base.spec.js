@@ -7,7 +7,7 @@ describe('Base generator', () => {
   test('is a Yeoman Generator', () => {
     const SUT = new Base();
 
-    expect(Generator).toHaveBeenCalled();
+    expect(Generator).toHaveBeenCalledWith(undefined, undefined);
     expect(SUT).toHaveProperty('fs');
   });
 
