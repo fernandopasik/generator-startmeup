@@ -1,7 +1,5 @@
 module.exports = function typescript() {
-  const { devDependencies = {} } = this.pkgJson;
-
-  if (devDependencies['@babel/core']) {
+  if (this.willInstall('@babel/core')) {
     this.devDependencies.push('babel-eslint');
     this.eslintConfig.parser = 'babel-eslint';
   }

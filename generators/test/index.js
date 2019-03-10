@@ -6,8 +6,7 @@ module.exports = class extends Base {
   }
 
   configuring() {
-    const { dependencies = {}, devDependencies = {} } = this.pkgJson;
-    const hasReact = dependencies.react || devDependencies.react;
+    const hasReact = this.willInstall('react');
 
     this.devDependencies.push('jest');
 

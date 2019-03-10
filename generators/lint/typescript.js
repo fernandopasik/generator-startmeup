@@ -1,7 +1,5 @@
 module.exports = function typescript() {
-  const { devDependencies = {} } = this.pkgJson;
-
-  if (devDependencies.typescript) {
+  if (this.willInstall('typescript')) {
     this.devDependencies.push(
       '@typescript-eslint/eslint-plugin',
       '@typescript-eslint/parser',

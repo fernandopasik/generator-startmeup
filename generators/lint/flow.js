@@ -1,7 +1,5 @@
 module.exports = function flow() {
-  const { devDependencies = {} } = this.pkgJson;
-
-  if (devDependencies['flow-bin']) {
+  if (this.willInstall('flow-bin')) {
     this.eslintConfig.plugins.push('flowtype');
     this.devDependencies.push('eslint-plugin-flowtype');
   }

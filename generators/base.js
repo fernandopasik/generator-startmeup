@@ -12,8 +12,11 @@ module.exports = class Base extends Generator {
   }
 
   willInstall(dependency) {
-    const { devDependencies = {} } = this.pkgJson;
-    return Boolean(devDependencies[dependency]) || this.devDependencies.includes(dependency);
+    const { dependencies = {}, devDependencies = {} } = this.pkgJson;
+    return Boolean(devDependencies[dependency])
+      || Boolean(dependencies[dependency])
+      || this.devDependencies.includes(dependency)
+      || this.dependencies.includes(dependency);
   }
 
   async getAllFields() {

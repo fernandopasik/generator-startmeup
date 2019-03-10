@@ -1,7 +1,5 @@
 module.exports = function typescript() {
-  const { dependencies = {}, devDependencies = {} } = this.pkgJson;
-
-  if (dependencies.react || devDependencies.react) {
+  if (this.willInstall('react')) {
     this.devDependencies.push(
       'eslint-config-airbnb',
       'eslint-plugin-import',
