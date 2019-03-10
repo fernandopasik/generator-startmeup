@@ -18,7 +18,7 @@ module.exports = class extends Base {
       settings: {},
       overrides: [],
       rules: {
-        ...(currentConfig.rules || {}),
+        ...((currentConfig && currentConfig.rules) || {}),
       },
     };
   }
