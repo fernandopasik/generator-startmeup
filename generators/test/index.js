@@ -9,7 +9,7 @@ module.exports = class extends Base {
     const { dependencies = {}, devDependencies = {} } = this.pkgJson;
     const hasReact = dependencies.react || devDependencies.react;
 
-    this.devDeps.push('jest');
+    this.devDependencies.push('jest');
 
     this.jestConfig.collectCoverageFrom = [];
     this.jestConfig.testEnvironment = 'node';
@@ -25,21 +25,21 @@ module.exports = class extends Base {
     }
 
     if (this.willInstall('@babel/core')) {
-      this.devDeps.push('babel-jest');
+      this.devDependencies.push('babel-jest');
       this.jestConfig.transform = {
         [`^.+\\.js${hasReact ? 'x?' : ''}$`]: 'babel-jest',
       };
     }
 
     if (this.willInstall('typescript')) {
-      this.devDeps.push('ts-jest', '@types/jest');
+      this.devDependencies.push('ts-jest', '@types/jest');
       this.jestConfig.transform = {
         [`^.+\\.ts${hasReact ? 'x?' : ''}$`]: 'ts-jest',
       };
     }
 
     if (hasReact) {
-      this.devDeps.push(
+      this.devDependencies.push(
         'enzyme',
         'enzyme-adapter-react-16',
         'jest-environment-enzyme',
@@ -58,6 +58,6 @@ module.exports = class extends Base {
   }
 
   install() {
-    this.yarnInstall(this.devDeps, { dev: true });
+    this.yarnInstall(this.devDependencies, { dev: true });
   }
 };

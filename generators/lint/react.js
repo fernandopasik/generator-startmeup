@@ -2,7 +2,7 @@ module.exports = function typescript() {
   const { dependencies = {}, devDependencies = {} } = this.pkgJson;
 
   if (dependencies.react || devDependencies.react) {
-    this.devDeps.push(
+    this.devDependencies.push(
       'eslint-config-airbnb',
       'eslint-plugin-import',
       'eslint-plugin-jsx-a11y',
@@ -15,7 +15,7 @@ module.exports = function typescript() {
       browser: true,
     };
   } else {
-    this.devDeps.push(
+    this.devDependencies.push(
       'eslint-config-airbnb-base',
       'eslint-plugin-import',
     );

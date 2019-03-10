@@ -20,6 +20,6 @@ module.exports = function install() {
   if (Object.keys(config.hooks).length > 0) {
     this.fs.writeJSON(this.destinationPath('.huskyrc.json'), config);
 
-    this.devDeps.push('husky');
+    this.devDependencies.push('husky');
   }
 };

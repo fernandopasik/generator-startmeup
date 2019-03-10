@@ -2,7 +2,7 @@ module.exports = function jest() {
   const { dependencies = {}, devDependencies = {} } = this.pkgJson;
 
   if (devDependencies.jest) {
-    this.devDeps.push('eslint-plugin-jest');
+    this.devDependencies.push('eslint-plugin-jest');
 
     this.eslintConfig.plugins.push('jest');
 

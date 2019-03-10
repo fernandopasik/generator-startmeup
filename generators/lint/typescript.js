@@ -2,7 +2,7 @@ module.exports = function typescript() {
   const { devDependencies = {} } = this.pkgJson;
 
   if (devDependencies.typescript) {
-    this.devDeps.push(
+    this.devDependencies.push(
       '@typescript-eslint/eslint-plugin',
       '@typescript-eslint/parser',
     );

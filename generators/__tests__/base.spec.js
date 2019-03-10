@@ -42,7 +42,7 @@ describe('Base generator', () => {
 
     test('could return true if present in dependency install list', () => {
       const SUT = new Base();
-      SUT.devDeps = ['example'];
+      SUT.devDependencies = ['example'];
 
       expect(SUT.willInstall('example')).toBe(true);
     });

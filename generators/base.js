@@ -6,13 +6,13 @@ module.exports = class Base extends Generator {
     super(args, opts);
 
     this.pkgJson = Object.assign({}, this.fs.readJSON(this.destinationPath('package.json')));
-    this.devDeps = [];
+    this.devDependencies = [];
     this.answers = {};
   }
 
   willInstall(dependency) {
     const { devDependencies = {} } = this.pkgJson;
-    return Boolean(devDependencies[dependency]) || this.devDeps.includes(dependency);
+    return Boolean(devDependencies[dependency]) || this.devDependencies.includes(dependency);
   }
 
   async getAllFields() {

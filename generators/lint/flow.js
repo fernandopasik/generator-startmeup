@@ -3,6 +3,6 @@ module.exports = function flow() {
 
   if (devDependencies['flow-bin']) {
     this.eslintConfig.plugins.push('flowtype');
-    this.devDeps.push('eslint-plugin-flowtype');
+    this.devDependencies.push('eslint-plugin-flowtype');
   }
 };

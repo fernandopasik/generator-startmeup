@@ -48,6 +48,6 @@ module.exports = class extends Base {
   }
 
   install() {
-    this.yarnInstall(this.devDeps, { dev: true });
+    this.yarnInstall(this.devDependencies, { dev: true });
   }
 };

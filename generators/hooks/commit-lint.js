@@ -17,6 +17,6 @@ module.exports = async function commitLint() {
 
     this.fs.writeJSON(this.destinationPath('.commitlintrc.json'), config);
 
-    this.devDeps.push('@commitlint/cli', '@commitlint/config-conventional');
+    this.devDependencies.push('@commitlint/cli', '@commitlint/config-conventional');
   }
 };

@@ -2,7 +2,7 @@ module.exports = function litHtml() {
   const { dependencies = {}, devDependencies = {} } = this.pkgJson;
 
   if (dependencies['lit-html'] || devDependencies['lit-html']) {
-    this.devDeps.push('eslint-plugin-lit');
+    this.devDependencies.push('eslint-plugin-lit');
 
     this.eslintConfig.env = {
       ...this.eslintConfig.env,

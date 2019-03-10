@@ -32,6 +32,6 @@ module.exports = function staged() {
       [`*.{${extensions.join(',')}}`]: commands,
     });
 
-    this.devDeps.push('lint-staged');
+    this.devDependencies.push('lint-staged');
   }
 };
