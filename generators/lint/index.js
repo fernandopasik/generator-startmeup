@@ -1,3 +1,4 @@
+const path = require('path');
 const Base = require('../base');
 const typescript = require('./typescript');
 const babel = require('./babel');
@@ -47,6 +48,10 @@ module.exports = class extends Base {
 
   writing() {
     this.fs.writeJSON(this.destinationPath('.eslintrc.json'), this.eslintConfig);
+    this.fs.copy(
+      path.join(__dirname, '../../', '.eslintignore'),
+      this.destinationPath('.eslintignore'),
+    );
   }
 
   install() {
