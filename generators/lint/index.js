@@ -24,6 +24,8 @@ module.exports = class extends Base {
   }
 
   configuring() {
+    this.devDependencies.push('eslint');
+
     typescript.call(this);
     babel.call(this);
     flow.call(this);
