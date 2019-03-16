@@ -57,7 +57,9 @@ module.exports = class extends Base {
       this.dependencies.push('lit-html', 'lit-element');
     }
 
-    configReact.call(this, this.answers.compiler);
+    if (uiLibrary === 'react') {
+      configReact.call(this, this.answers.compiler);
+    }
   }
 
   writing() {
