@@ -1,4 +1,5 @@
 const Base = require('../base');
+const configReact = require('./react');
 const setupSrc = require('./setup-src');
 const setupTypescript = require('./setup-typescript');
 
@@ -40,11 +41,6 @@ module.exports = class extends Base {
 
       this.devDependencies.push('@babel/cli', '@babel/core', '@babel/preset-env');
 
-      if (this.answers.uiLibrary === 'react') {
-        this.devDependencies.push('@babel/preset-react');
-        this.babelConfig.presets.push('@babel/preset-react');
-      }
-
       if (this.answers.flow) {
         this.devDependencies.push('@babel/preset-flow', 'flow-bin');
         this.babelConfig.presets.push('@babel/preset-flow');
@@ -55,14 +51,11 @@ module.exports = class extends Base {
       this.devDependencies.push('typescript');
     }
 
-    if (this.answers.uiLibrary === 'react') {
-      this.dependencies.push('react', 'react-dom');
-      this.devDependencies.push('react-test-renderer');
-    }
-
     if (this.answers.uiLibrary === 'lit-html') {
       this.dependencies.push('lit-html', 'lit-element');
     }
+
+    configReact.call(this, this.answers.compiler);
   }
 
   writing() {
