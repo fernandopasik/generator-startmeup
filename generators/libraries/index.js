@@ -1,4 +1,5 @@
 const Base = require('../base');
+const setupSrc = require('./setup-src');
 
 module.exports = class extends Base {
   async prompting() {
@@ -106,6 +107,8 @@ module.exports = class extends Base {
 
       this.fs.writeJSON(this.destinationPath('tsconfig.json'), config);
     }
+
+    setupSrc.call(this, compiler === 'typescript', uiLibrary === 'react');
   }
 
   install() {
