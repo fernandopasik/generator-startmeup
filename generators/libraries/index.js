@@ -34,24 +34,26 @@ module.exports = class extends Base {
   }
 
   configuring() {
-    if (this.answers.compiler === 'babel') {
+    const { compiler, flow, uiLibrary } = this.answers;
+
+    if (compiler === 'babel') {
       this.babelConfig = {
         presets: ['@babel/preset-env'],
       };
 
       this.devDependencies.push('@babel/cli', '@babel/core', '@babel/preset-env');
 
-      if (this.answers.flow) {
+      if (flow) {
         this.devDependencies.push('@babel/preset-flow', 'flow-bin');
         this.babelConfig.presets.push('@babel/preset-flow');
       }
     }
 
-    if (this.answers.compiler === 'typescript') {
+    if (compiler === 'typescript') {
       this.devDependencies.push('typescript');
     }
 
-    if (this.answers.uiLibrary === 'lit-html') {
+    if (uiLibrary === 'lit-html') {
       this.dependencies.push('lit-html', 'lit-element');
     }
 
