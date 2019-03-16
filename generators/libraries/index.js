@@ -65,7 +65,9 @@ module.exports = class extends Base {
   }
 
   writing() {
-    if (this.answers.compiler === 'babel') {
+    const { compiler, uiLibrary } = this.answers;
+
+    if (compiler === 'babel') {
       this.fs.write(
         this.destinationPath('babel.config.js'),
         this.formatJsConfig(this.babelConfig),
