@@ -1,5 +1,6 @@
 const Base = require('../base');
 const setupSrc = require('./setup-src');
+const setupTypescript = require('./setup-typescript');
 
 module.exports = class extends Base {
   async prompting() {
@@ -74,40 +75,8 @@ module.exports = class extends Base {
       );
     }
 
-    if (this.answers.compiler === 'typescript') {
-      const config = {
-        compilerOptions: {
-          declaration: true,
-          declarationMap: true,
-          esModuleInterop: true,
-          experimentalDecorators: true,
-          inlineSources: true,
-          lib: ['es2017', 'dom'],
-          module: 'es2015',
-          moduleResolution: 'node',
-          noFallthroughCasesInSwitch: true,
-          noImplicitAny: false,
-          noImplicitReturns: true,
-          noUnusedLocals: true,
-          noUnusedParameters: true,
-          outDir: 'dist',
-          rootDir: 'src',
-          skipLibCheck: true,
-          sourceMap: true,
-          strict: true,
-          target: 'es2017',
-        },
-        include: [
-          'src/*.ts',
-        ],
-        exclude: [
-          'node_modules',
-          '**/__tests__/**/*.(js|ts)?(x)',
-          '**/?(*.)+(spec|test).(js|ts)?(x)',
-        ],
-      };
-
-      this.fs.writeJSON(this.destinationPath('tsconfig.json'), config);
+    if (compiler === 'typescript') {
+      setupTypescript.call(this);
     }
 
     setupSrc.call(this, compiler === 'typescript', uiLibrary === 'react');
