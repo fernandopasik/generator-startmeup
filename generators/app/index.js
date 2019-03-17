@@ -2,7 +2,7 @@ const Generator = require('yeoman-generator');
 const yosay = require('yosay');
 
 module.exports = class extends Generator {
-  main() {
+  initializing() {
     this.log(yosay('Welcome to the marvelous StartMeUp generator!'));
 
     const subGenerators = ['init', 'libraries', 'test', 'lint', 'hooks', 'docs'];
