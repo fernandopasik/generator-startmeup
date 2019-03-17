@@ -29,13 +29,11 @@ module.exports = class extends Base {
       } : {},
     };
 
-    ['package.json'].forEach((template) => {
-      this.fs.copyTpl(
-        this.templatePath(template),
-        this.destinationPath(template),
-        options,
-      );
-    });
+    this.fs.copyTpl(
+      this.templatePath('package.json'),
+      this.destinationPath('package.json'),
+      options,
+    );
 
     ['.editorconfig', '.gitattributes', '.gitignore', '.npmignore'].forEach((file) => {
       this.fs.copy(
