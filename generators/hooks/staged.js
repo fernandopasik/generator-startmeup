@@ -3,7 +3,6 @@ module.exports = function staged() {
 
   const commands = [];
   const extensions = [];
-  const { dependencies = {} } = this.pkgJson;
 
   if (this.willInstall('eslint')) {
     commands.push('eslint');
@@ -16,13 +15,13 @@ module.exports = function staged() {
   if (this.willInstall('typescript')) {
     extensions.push('ts');
 
-    if (dependencies.react) {
+    if (this.willInstall('react')) {
       extensions.push('tsx');
     }
   } else {
     extensions.push('js');
 
-    if (dependencies.react) {
+    if (this.willInstall('react')) {
       extensions.push('jsx');
     }
   }
