@@ -5,7 +5,9 @@ const Base = require('../base');
 module.exports = class extends Base {
   async prompting() {
     await this.promptFields();
+  }
 
+  writing() {
     const {
       authorName,
       authorEmail,
