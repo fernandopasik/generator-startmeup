@@ -1,4 +1,5 @@
 const Base = require('../base');
+const dependencies = require('../app/dependencies');
 
 const commitLint = require('./commit-lint');
 const staged = require('./staged');
@@ -10,6 +11,6 @@ module.exports = class extends Base {
     staged.call(this);
     install.call(this);
 
-    this.yarnInstall(this.devDependencies, { dev: true });
+    this.yarnInstall(dependencies.getDev(), { dev: true });
   }
 };

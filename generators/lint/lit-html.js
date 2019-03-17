@@ -1,6 +1,8 @@
+const dependencies = require('../app/dependencies');
+
 module.exports = function litHtml() {
-  if (this.willInstall('lit-html')) {
-    this.devDependencies.push('eslint-plugin-lit');
+  if (dependencies.has('lit-html')) {
+    dependencies.addDev(['eslint-plugin-lit']);
 
     this.eslintConfig.env = {
       ...this.eslintConfig.env,

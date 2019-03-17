@@ -1,3 +1,5 @@
+const dependencies = require('../app/dependencies');
+
 module.exports = function install() {
   this.log('Install git hooks');
 
@@ -5,11 +7,11 @@ module.exports = function install() {
 
   const config = { hooks: {} };
 
-  if (this.willInstall('@commitlint/cli')) {
+  if (dependencies.has('@commitlint/cli')) {
     config.hooks['commit-msg'] = 'commitlint -e $GIT_PARAMS';
   }
 
-  if (this.willInstall('lint-staged')) {
+  if (dependencies.has('lint-staged')) {
     config.hooks['pre-commit'] = 'lint-staged';
   }
 
@@ -20,6 +22,6 @@ module.exports = function install() {
   if (Object.keys(config.hooks).length > 0) {
     this.fs.writeJSON(this.destinationPath('.huskyrc.json'), config);
 
-    this.devDependencies.push('husky');
+    dependencies.addDev(['husky']);
   }
 };

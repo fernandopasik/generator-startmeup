@@ -1,5 +1,7 @@
 const path = require('path');
 const Base = require('../base');
+const dependencies = require('../app/dependencies');
+
 const typescript = require('./typescript');
 const babel = require('./babel');
 const flow = require('./flow');
@@ -25,7 +27,7 @@ module.exports = class extends Base {
   }
 
   configuring() {
-    this.devDependencies.push('eslint');
+    dependencies.addDev(['eslint']);
 
     typescript.call(this);
     babel.call(this);
@@ -55,6 +57,6 @@ module.exports = class extends Base {
   }
 
   install() {
-    this.yarnInstall(this.devDependencies, { dev: true });
+    this.yarnInstall(dependencies.getDev(), { dev: true });
   }
 };

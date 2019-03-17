@@ -1,3 +1,5 @@
+const dependencies = require('../app/dependencies');
+
 module.exports = async function commitLint() {
   this.log('Install commit linting');
 
@@ -17,6 +19,6 @@ module.exports = async function commitLint() {
 
     this.fs.writeJSON(this.destinationPath('.commitlintrc.json'), config);
 
-    this.devDependencies.push('@commitlint/cli', '@commitlint/config-conventional');
+    dependencies.addDev(['@commitlint/cli', '@commitlint/config-conventional']);
   }
 };

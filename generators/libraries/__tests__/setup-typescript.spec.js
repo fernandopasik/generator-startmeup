@@ -1,5 +1,4 @@
 const setupTypescript = require('../setup-typescript');
-const config = require('../tsconfig.json');
 
 describe('Setup typescript config', () => {
   test('file path', () => {
@@ -21,6 +20,6 @@ describe('Setup typescript config', () => {
 
     setupTypescript.call(mock);
 
-    expect(mock.fs.writeJSON).toHaveBeenCalledWith('/tsconfig.json', config);
+    expect(mock.fs.writeJSON).toHaveBeenCalledWith('/tsconfig.json', expect.any(Object));
   });
 });

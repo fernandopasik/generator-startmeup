@@ -1,9 +1,11 @@
+const dependencies = require('../app/dependencies');
+
 module.exports = function typescript() {
-  if (this.willInstall('typescript')) {
-    this.devDependencies.push(
+  if (dependencies.has('typescript')) {
+    dependencies.addDev([
       '@typescript-eslint/eslint-plugin',
       '@typescript-eslint/parser',
-    );
+    ]);
 
     this.eslintConfig.extends.push('plugin:@typescript-eslint/recommended');
     this.eslintConfig.parser = '@typescript-eslint/parser';

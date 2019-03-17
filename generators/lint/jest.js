@@ -1,11 +1,13 @@
+const dependencies = require('../app/dependencies');
+
 module.exports = function jest() {
-  if (this.willInstall('jest')) {
-    this.devDependencies.push('eslint-plugin-jest');
+  if (dependencies.has('jest')) {
+    dependencies.addDev(['eslint-plugin-jest']);
 
     this.eslintConfig.plugins.push('jest');
 
-    const extensions = [`${this.willInstall('typescript') ? 't' : 'j'}s`];
-    if (this.willInstall('react')) {
+    const extensions = [`${dependencies.has('typescript') ? 't' : 'j'}s`];
+    if (dependencies.has('react')) {
       extensions.push(`${extensions[0]}x`);
     }
 

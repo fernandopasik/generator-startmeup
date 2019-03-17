@@ -1,35 +1,29 @@
 const configReact = require('../react');
+const dependencies = require('../../app/dependencies');
+
+jest.mock('../../app/dependencies');
 
 describe('Setup React', () => {
   test('add react dependencies', () => {
-    const baseMock = {
-      dependencies: [],
-      devDependencies: [],
-    };
+    configReact();
 
-    configReact.call(baseMock);
-
-    expect(baseMock.dependencies).toStrictEqual(['react', 'react-dom']);
-    expect(baseMock.devDependencies).toStrictEqual(['react-test-renderer']);
+    expect(dependencies.add).toHaveBeenCalledWith(['react', 'react-dom']);
+    expect(dependencies.addDev).toHaveBeenCalledWith(['react-test-renderer']);
   });
 
   test('with babel adds preset', () => {
     const baseMock = {
       babelConfig: { presets: [] },
-      dependencies: [],
-      devDependencies: [],
     };
 
     configReact.call(baseMock, 'babel');
 
-    expect(baseMock.devDependencies).toStrictEqual(['react-test-renderer', '@babel/preset-react']);
+    expect(dependencies.addDev).toHaveBeenCalledWith(['@babel/preset-react']);
   });
 
   test('with babel sets the preset in babel config', () => {
     const baseMock = {
       babelConfig: { presets: [] },
-      dependencies: [],
-      devDependencies: [],
     };
 
     configReact.call(baseMock, 'babel');
@@ -38,13 +32,8 @@ describe('Setup React', () => {
   });
 
   test('with typescript adds types', () => {
-    const baseMock = {
-      dependencies: [],
-      devDependencies: [],
-    };
+    configReact.call({}, 'typescript');
 
-    configReact.call(baseMock, 'typescript');
-
-    expect(baseMock.devDependencies).toStrictEqual(['react-test-renderer', '@types/react', '@types/react-dom']);
+    expect(dependencies.addDev).toHaveBeenCalledWith(['@types/react', '@types/react-dom']);
   });
 });

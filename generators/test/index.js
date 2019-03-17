@@ -1,4 +1,5 @@
 const Base = require('../base');
+const dependencies = require('../app/dependencies');
 
 module.exports = class extends Base {
   initializing() {
@@ -6,14 +7,14 @@ module.exports = class extends Base {
   }
 
   configuring() {
-    const hasReact = this.willInstall('react');
+    const hasReact = dependencies.has('react');
 
-    this.devDependencies.push('jest');
+    dependencies.addDev(['jest']);
 
     this.jestConfig.collectCoverageFrom = [];
     this.jestConfig.testEnvironment = 'node';
 
-    if (this.willInstall('typescript')) {
+    if (dependencies.has('typescript')) {
       this.jestConfig.collectCoverageFrom.push('src/**/*.ts');
     } else {
       this.jestConfig.collectCoverageFrom.push('src/**/*.js');
@@ -23,27 +24,27 @@ module.exports = class extends Base {
       this.jestConfig.collectCoverageFrom.push(`${this.jestConfig.collectCoverageFrom[0]}x`);
     }
 
-    if (this.willInstall('@babel/core')) {
-      this.devDependencies.push('babel-jest');
+    if (dependencies.has('@babel/core')) {
+      dependencies.addDev(['babel-jest']);
       this.jestConfig.transform = {
         [`^.+\\.js${hasReact ? 'x?' : ''}$`]: 'babel-jest',
       };
     }
 
-    if (this.willInstall('typescript')) {
-      this.devDependencies.push('ts-jest', '@types/jest');
+    if (dependencies.has('typescript')) {
+      dependencies.addDev(['ts-jest', '@types/jest']);
       this.jestConfig.transform = {
         [`^.+\\.ts${hasReact ? 'x?' : ''}$`]: 'ts-jest',
       };
     }
 
     if (hasReact) {
-      this.devDependencies.push(
+      dependencies.addDev([
         'enzyme',
         'enzyme-adapter-react-16',
         'jest-environment-enzyme',
         'jest-enzyme',
-      );
+      ]);
       this.jestConfig.setupFilesAfterEnv = ['jest-enzyme'];
       this.jestConfig.testEnvironment = 'enzyme';
     }
@@ -57,6 +58,6 @@ module.exports = class extends Base {
   }
 
   install() {
-    this.yarnInstall(this.devDependencies, { dev: true });
+    this.yarnInstall(dependencies.getDev(), { dev: true });
   }
 };

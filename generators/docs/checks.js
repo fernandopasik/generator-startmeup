@@ -1,3 +1,5 @@
+const dependencies = require('../app/dependencies');
+
 module.exports = function checks() {
   const list = [];
   const { appName, githubUsername } = this.answers;
@@ -6,7 +8,7 @@ module.exports = function checks() {
     list.push(`    * [Circle CI](https://circleci.com/gh/${githubUsername}/${appName})`);
   }
 
-  if (this.willInstall('codecov')) {
+  if (dependencies.has('codecov')) {
     list.push(`    * [Codecov](https://codecov.io/gh/${githubUsername}/${appName})`);
   }
 

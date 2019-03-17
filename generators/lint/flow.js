@@ -1,6 +1,8 @@
+const dependencies = require('../app/dependencies');
+
 module.exports = function flow() {
-  if (this.willInstall('flow-bin')) {
+  if (dependencies.has('flow-bin')) {
     this.eslintConfig.plugins.push('flowtype');
-    this.devDependencies.push('eslint-plugin-flowtype');
+    dependencies.addDev(['eslint-plugin-flowtype']);
   }
 };
