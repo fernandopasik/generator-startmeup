@@ -3,7 +3,9 @@ const dependencies = require('../app/dependencies');
 module.exports = function install() {
   this.log('Install git hooks');
 
-  const { scripts = {} } = this.pkgJson;
+  const pkgJson = Object.assign({}, this.fs.readJSON(this.destinationPath('package.json')));
+
+  const { scripts = {} } = pkgJson;
 
   const config = { hooks: {} };
 
