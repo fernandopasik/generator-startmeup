@@ -4,19 +4,7 @@ const path = require('path');
 module.exports = class Base extends Generator {
   constructor(args, opts) {
     super(args, opts);
-
-    this.pkgJson = Object.assign({}, this.fs.readJSON(this.destinationPath('package.json')));
-    this.devDependencies = [];
-    this.dependencies = [];
     this.answers = {};
-  }
-
-  willInstall(dependency) {
-    const { dependencies = {}, devDependencies = {} } = this.pkgJson;
-    return Boolean(devDependencies[dependency])
-      || Boolean(dependencies[dependency])
-      || this.devDependencies.includes(dependency)
-      || this.dependencies.includes(dependency);
   }
 
   async getAllFields() {

@@ -11,43 +11,6 @@ describe('Base generator', () => {
     expect(SUT).toHaveProperty('fs');
   });
 
-  test('reads package.json', () => {
-    const pkgJson = { name: 'example' };
-    const readJSON = jest.fn(() => pkgJson);
-    const destinationPath = jest.fn(() => './package.json');
-    Generator.mockImplementationOnce(() => ({
-      destinationPath,
-      fs: { readJSON },
-    }));
-    const SUT = new Base();
-
-    expect(destinationPath).toHaveBeenCalledWith('package.json');
-    expect(readJSON).toHaveBeenCalledWith('./package.json');
-    expect(SUT).toHaveProperty('pkgJson', pkgJson);
-  });
-
-  describe('check if will install a dev dependency', () => {
-    test('return false if not present in current package.json nor dependency install list', () => {
-      const SUT = new Base();
-
-      expect(SUT.willInstall('example')).toBe(false);
-    });
-
-    test('could return true if present in current package.json', () => {
-      const SUT = new Base();
-      SUT.pkgJson.devDependencies = { example: '*' };
-
-      expect(SUT.willInstall('example')).toBe(true);
-    });
-
-    test('could return true if present in dependency install list', () => {
-      const SUT = new Base();
-      SUT.devDependencies = ['example'];
-
-      expect(SUT.willInstall('example')).toBe(true);
-    });
-  });
-
   describe('prompt fields', () => {
     test('calls for promp util', async () => {
       const SUT = new Base();
