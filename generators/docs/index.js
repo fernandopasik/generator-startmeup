@@ -1,16 +1,30 @@
+const Generator = require('yeoman-generator');
 const path = require('path');
 
-const Base = require('../base');
+const info = require('../app/info.js');
 const getChecks = require('./checks');
 const getStyleguides = require('./styleguides');
 
-module.exports = class extends Base {
-  async main() {
-    await this.promptFields(['appName', 'appDescription', 'authorName', 'githubConfirm', 'githubUsername', 'githubRepo']);
+module.exports = class extends Generator {
+  initializing() {
+    info.setApi(this);
+  }
 
+  async prompting() {
+    await info.ask([
+      'appName',
+      'appDescription',
+      'authorName',
+      'githubConfirm',
+      'githubUsername',
+      'githubRepo',
+    ]);
+  }
+
+  writing() {
     const options = {
       githubRepo: '',
-      ...this.answers,
+      ...info.answers,
       checks: getChecks.call(this),
       styleguides: getStyleguides.call(this),
       year: new Date().getFullYear(),
