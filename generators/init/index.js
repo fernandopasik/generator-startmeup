@@ -1,10 +1,24 @@
+const Generator = require('yeoman-generator');
 const path = require('path');
 
-const Base = require('../base');
+const info = require('../app/info.js');
 
-module.exports = class extends Base {
+module.exports = class extends Generator {
+  initializing() {
+    info.setApi(this);
+  }
+
   async prompting() {
-    await this.promptFields();
+    await info.ask([
+      'appName',
+      'appDescription',
+      'authorName',
+      'authorEmail',
+      'authorUrl',
+      'githubConfirm',
+      'githubUsername',
+      'githubRepo',
+    ]);
   }
 
   writing() {
@@ -13,10 +27,10 @@ module.exports = class extends Base {
       authorEmail,
       authorUrl,
       githubRepo,
-    } = this.answers;
+    } = info.answers;
 
     const options = {
-      ...this.answers,
+      ...info.answers,
       author: [
         authorName,
         !authorEmail ? '' : ` <${authorEmail}>`,
