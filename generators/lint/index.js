@@ -1,5 +1,6 @@
 const path = require('path');
-const Base = require('../base');
+const Generator = require('yeoman-generator');
+
 const dependencies = require('../app/dependencies');
 
 const typescript = require('./typescript');
@@ -9,7 +10,7 @@ const react = require('./react');
 const litHtml = require('./lit-html');
 const jest = require('./jest');
 
-module.exports = class extends Base {
+module.exports = class extends Generator {
   initializing() {
     const currentConfig = this.fs.readJSON(this.destinationPath('.eslintrc.json'));
 

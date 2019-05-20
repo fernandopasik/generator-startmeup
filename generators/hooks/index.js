@@ -1,11 +1,11 @@
-const Base = require('../base');
+const Generator = require('yeoman-generator');
 const dependencies = require('../app/dependencies');
 
 const commitLint = require('./commit-lint');
 const staged = require('./staged');
 const install = require('./install');
 
-module.exports = class extends Base {
+module.exports = class extends Generator {
   async main() {
     await commitLint.call(this);
     staged.call(this);

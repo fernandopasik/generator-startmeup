@@ -1,14 +1,14 @@
-const Base = require('../base');
+const Generator = require('yeoman-generator');
+
 const dependencies = require('../app/dependencies');
 const util = require('../app/util');
 const configReact = require('./react');
 const setupSrc = require('./setup-src');
 const setupTypescript = require('./setup-typescript');
 
-module.exports = class extends Base {
+module.exports = class extends Generator {
   async prompting() {
     this.answers = {
-      ...this.answers,
       ...await this.prompt([
         {
           type: 'list',

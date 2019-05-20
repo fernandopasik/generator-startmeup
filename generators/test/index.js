@@ -1,8 +1,9 @@
-const Base = require('../base');
+const Generator = require('yeoman-generator');
+
 const dependencies = require('../app/dependencies');
 const util = require('../app/util');
 
-module.exports = class extends Base {
+module.exports = class extends Generator {
   initializing() {
     this.jestConfig = {};
   }
