@@ -1,5 +1,6 @@
 const Base = require('../base');
 const dependencies = require('../app/dependencies');
+const util = require('../app/util');
 const configReact = require('./react');
 const setupSrc = require('./setup-src');
 const setupTypescript = require('./setup-typescript');
@@ -69,7 +70,7 @@ module.exports = class extends Base {
     if (compiler === 'babel') {
       this.fs.write(
         this.destinationPath('babel.config.js'),
-        this.formatJsConfig(this.babelConfig),
+        util.formatJsConfig(this.babelConfig),
       );
     }
 

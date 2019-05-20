@@ -1,5 +1,6 @@
 const Base = require('../base');
 const dependencies = require('../app/dependencies');
+const util = require('../app/util');
 
 module.exports = class extends Base {
   initializing() {
@@ -53,7 +54,7 @@ module.exports = class extends Base {
   writing() {
     this.fs.write(
       this.destinationPath('jest.config.js'),
-      this.formatJsConfig(this.jestConfig),
+      util.formatJsConfig(this.jestConfig),
     );
   }
 
