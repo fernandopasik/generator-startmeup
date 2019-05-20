@@ -38,5 +38,8 @@
     "watch": "^1.0.2",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^1.9.1"
+  },
+  "resolutions": {
+    "github-username": "5.0.0"
   }
 }
