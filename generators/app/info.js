@@ -1,5 +1,6 @@
 const path = require('path');
 const githubUsername = require('github-username');
+const { prototype: { user } } = require('yeoman-generator');
 
 let api = {};
 
@@ -23,12 +24,12 @@ const questions = {
   authorName: {
     type: 'input',
     message: 'What is your name?',
-    default: () => api.user.git.name(),
+    default: () => user.git.name(),
   },
   authorEmail: {
     type: 'input',
     message: 'What is your email?',
-    default: () => api.user.git.email(),
+    default: () => user.git.email(),
     when: props => props.authorName,
   },
   authorUrl: {
