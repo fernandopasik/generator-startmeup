@@ -1,4 +1,5 @@
 const path = require('path');
+const githubUsername = require('github-username');
 
 let api = {};
 
@@ -44,8 +45,8 @@ const questions = {
   githubUsername: {
     type: 'input',
     message: 'What is your github username?',
-    default: async () => {
-      const username = await api.user.github.username();
+    default: async (props) => {
+      const username = await githubUsername(props.authorEmail);
       return username;
     },
     when: props => props.githubConfirm,
