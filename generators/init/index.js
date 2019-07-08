@@ -4,10 +4,6 @@ const path = require('path');
 const info = require('../app/info.js');
 
 module.exports = class extends Generator {
-  initializing() {
-    info.setApi(this);
-  }
-
   async prompting() {
     await info.ask([
       'appName',

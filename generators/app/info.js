@@ -1,10 +1,5 @@
+const inquirer = require('inquirer');
 const questions = require('./questions');
-
-let api = {};
-
-const setApi = (generator) => {
-  api = generator;
-};
 
 const answers = {};
 
@@ -33,7 +28,7 @@ const ask = async (questionNames = []) => {
     name: questionName,
   }));
 
-  const responses = await api.prompt(toAsk);
+  const responses = await inquirer.prompt(toAsk);
 
   Object.assign(answers, responses);
 
@@ -46,5 +41,4 @@ module.exports = {
   filterAnswers,
   filterKnownQuestions,
   filterRespondedQuestions,
-  setApi,
 };

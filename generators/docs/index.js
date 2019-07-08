@@ -6,10 +6,6 @@ const getChecks = require('./checks');
 const getStyleguides = require('./styleguides');
 
 module.exports = class extends Generator {
-  initializing() {
-    info.setApi(this);
-  }
-
   async prompting() {
     await info.ask([
       'appName',
