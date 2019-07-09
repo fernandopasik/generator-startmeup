@@ -44,9 +44,9 @@ const questions = {
     },
     when: props => props.githubConfirm,
   },
-  githubRepo: {
+  githubUrl: {
     type: 'input',
-    message: 'What is your github repo?',
+    message: 'What is your github url?',
     default: props => `https://github.com/${props.githubUsername}/${props.appName}`,
     when: props => props.githubConfirm,
   },

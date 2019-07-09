@@ -19,13 +19,14 @@ const filterAnswers = (answersToFilter, questionNames) => (
     ), {})
 );
 
-const ask = async (questionNames = []) => {
+const ask = async (questionNames = [], defaults = {}) => {
   const knownQuestions = filterKnownQuestions(questionNames);
   const questionsToAsk = filterRespondedQuestions(knownQuestions);
 
   const toAsk = questionsToAsk.map(questionName => ({
     ...questions[questionName],
     name: questionName,
+    default: defaults[questionName] || questions[questionName].default,
   }));
 
   const responses = await inquirer.prompt(toAsk);

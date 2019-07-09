@@ -23,3 +23,15 @@
 [url-deps-dev]: https://david-dm.org/fernandopasik/generator-startmeup?type=dev "Dev Dependency Status"
 
 Yeoman generator for quickly set up your **dotfiles** and some other minor configurations.
+It's composed by a collection of subgenerators to do project tasks.
+
+## SubGenerators
+
+### Write or update package.json
+
+- Reads current package.json
+- Parses information and sets parameters from existing package.json properties
+- Asks for data for based on those parameters
+- Composes the new package.json
+- Sorts package.json properties
+- Writes new version of package.json

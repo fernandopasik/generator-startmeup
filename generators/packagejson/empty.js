@@ -1,0 +1,22 @@
+module.exports = {
+  name: '',
+  version: '0.0.0',
+  private: true,
+  description: '',
+  keywords: [],
+  homepage: '',
+  bugs: '',
+  repository: {
+    type: 'git',
+    url: '',
+  },
+  license: 'MIT',
+  author: '',
+  contributors: [],
+  // files: [],
+  // main: '',
+  // module: '',
+  scripts: {},
+  dependencies: {},
+  devDependencies: {},
+};
