@@ -5,7 +5,7 @@ module.exports = class extends Generator {
   initializing() {
     this.log(yosay('Welcome to the marvelous StartMeUp generator!'));
 
-    const subGenerators = ['init', 'libraries', 'test', 'lint', 'hooks', 'docs'];
+    const subGenerators = ['init', 'package.json', 'libraries', 'test', 'lint', 'hooks', 'docs'];
 
     subGenerators.forEach((subGenerator) => {
       this.composeWith(require.resolve(`../${subGenerator}`));
