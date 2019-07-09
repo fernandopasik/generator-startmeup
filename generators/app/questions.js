@@ -50,6 +50,12 @@ const questions = {
     default: props => `https://github.com/${props.githubUsername}/${props.appName}`,
     when: props => props.githubConfirm,
   },
+  license: {
+    type: 'list',
+    message: 'What license do you want?',
+    default: 0,
+    choices: ['MIT', 'UNLICENSED', 'BSD-3-Clause'],
+  },
 };
 
 module.exports = questions;

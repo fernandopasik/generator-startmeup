@@ -4,6 +4,7 @@ const parse = (pkg) => {
     description,
     author,
     repository,
+    license,
   } = pkg;
 
   let {
@@ -28,6 +29,7 @@ const parse = (pkg) => {
     authorUrl,
     githubConfirm: repoUrl && !!repoUrl.match(/github\.com/),
     githubUrl: repoUrl && repoUrl.replace(/.git$/, ''),
+    license,
   };
 
   const parsed = Object.keys(parseable).reduce((all, parsedKey) => ({

@@ -237,4 +237,17 @@ describe('Parse package.json and get parameters', () => {
       expect(githubUrl).toBe(url);
     });
   });
+
+  describe('License', () => {
+    test('from existing', () => {
+      const license = 'example-app';
+      const parsed = parse({ license });
+      expect(parsed).toStrictEqual({ license });
+    });
+
+    test('when not exist', () => {
+      const parsed = parse({});
+      expect(parsed).toStrictEqual({});
+    });
+  });
 });

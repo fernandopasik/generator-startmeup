@@ -21,6 +21,7 @@ module.exports = class extends Generator {
       'githubConfirm',
       'githubUsername',
       'githubUrl',
+      'license',
     ];
 
     await info.ask(questions, this.parameters);

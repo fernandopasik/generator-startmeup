@@ -6,6 +6,7 @@ const compose = ({
   authorUrl = '',
   githubConfirm,
   githubUrl,
+  license,
 }) => ({
   name: appName,
   description: appDescription,
@@ -22,6 +23,7 @@ const compose = ({
     homepage: githubUrl,
     bugs: `${githubUrl}/issues`,
   }),
+  license,
 });
 
 module.exports = compose;
