@@ -212,7 +212,7 @@ describe('Parse package.json and get parameters', () => {
     });
   });
 
-  describe('Repo', () => {
+  describe('Github Url', () => {
     test('from undefined repository', () => {
       const { githubUrl } = parse({});
       expect(githubUrl).toBeUndefined();
