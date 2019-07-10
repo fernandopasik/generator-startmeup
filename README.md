@@ -35,3 +35,9 @@ It's composed by a collection of subgenerators to do project tasks.
 - Composes the new package.json
 - Sorts package.json properties
 - Writes new version of package.json
+
+### Compiler
+- Reads current package.json and looks for packages
+- Asks for choosing one
+- Writes configuration files
+- Installs dependencies
