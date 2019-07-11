@@ -1,26 +1,14 @@
 const Generator = require('yeoman-generator');
 const babelConfig = require('./babelConfig');
 const tsConfig = require('./tsConfig');
+const compilerUtils = require('./compiler');
 
 const COMPILERS = ['none', 'babel', 'typescript'];
 
 module.exports = class extends Generator {
   initializing() {
-    const { devDependencies } = this.fs.readJSON('package.json') || {};
-
-    this.existingCompiler = 'none';
-
-    if (!devDependencies) {
-      return;
-    }
-
-    if (devDependencies['@babel/core']) {
-      this.existingCompiler = 'babel';
-    }
-
-    if (devDependencies.typescript) {
-      this.existingCompiler = 'typescript';
-    }
+    const pkg = this.fs.readJSON('package.json');
+    this.existingCompiler = compilerUtils.detect(pkg);
   }
 
   async prompting() {
@@ -39,14 +27,11 @@ module.exports = class extends Generator {
 
   configuring() {
     const { compiler } = this.answers;
-    this.dependencies = [];
 
     if (compiler !== 'none') {
-      this.dependencies.push('@babel/cli', '@babel/core', '@babel/preset-env');
       babelConfig.addPreset('@babel/preset-env');
 
       if (compiler === 'typescript') {
-        this.dependencies.push('typescript', '@babel/preset-typescript');
         babelConfig.addPreset('@babel/preset-typescript');
 
         this.fs.writeJSON(this.destinationPath('tsconfig.json'), tsConfig);
@@ -57,6 +42,6 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.yarnInstall(this.dependencies, { dev: true });
+    this.yarnInstall(compilerUtils.getDependencies(this.answers.compiler), { dev: true });
   }
 };
