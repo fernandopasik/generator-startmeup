@@ -14,10 +14,11 @@
   "contributors": [],
   "main": "generators/app/index.js",
   "scripts": {
+    "build": "tsc",
     "lint": "eslint .",
     "start": "watch 'yarn preversion' generators/",
     "test": "jest",
-    "preversion": "yarn lint && yarn test"
+    "preversion": "yarn lint && yarn test && yarn build"
   },
   "dependencies": {
     "github-username": "^5.0.1",
