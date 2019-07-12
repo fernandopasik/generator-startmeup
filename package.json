@@ -14,10 +14,11 @@
   "contributors": [],
   "main": "generators/app/index.js",
   "scripts": {
+    "build": "tsc",
     "lint": "eslint .",
     "start": "watch 'yarn preversion' generators/",
     "test": "jest",
-    "preversion": "yarn lint && yarn test"
+    "preversion": "yarn lint && yarn test && yarn build"
   },
   "dependencies": {
     "github-username": "^5.0.1",
@@ -38,6 +39,7 @@
     "jest": "^24.8.0",
     "jest-junit": "^6.4.0",
     "lint-staged": "^9.2.0",
+    "typescript": "^3.5.3",
     "watch": "^1.0.2",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^2.0.0"
