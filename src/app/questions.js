@@ -3,12 +3,12 @@ const githubUsername = require('github-username');
 const { prototype: { user } } = require('yeoman-generator');
 
 const questions = {
-  appName: {
+  name: {
     type: 'input',
     message: 'What is your app\'s name?',
     default: () => path.basename(process.cwd()),
   },
-  appDescription: {
+  description: {
     type: 'input',
     message: 'What is your app\'s description?',
     default: '',
@@ -47,7 +47,7 @@ const questions = {
   githubUrl: {
     type: 'input',
     message: 'What is your github url?',
-    default: props => `https://github.com/${props.githubUsername}/${props.appName}`,
+    default: props => `https://github.com/${props.githubUsername}/${props.name}`,
     when: props => props.githubConfirm,
   },
   license: {

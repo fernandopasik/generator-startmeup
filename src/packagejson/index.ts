@@ -21,8 +21,8 @@ export default class PackageJsonGenrator extends Generator {
 
   public async prompting(): Promise<void> {
     const questions = [
-      'appName',
-      'appDescription',
+      'name',
+      'description',
       'authorName',
       'authorEmail',
       'authorUrl',

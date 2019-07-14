@@ -8,8 +8,8 @@ const getStyleguides = require('./styleguides');
 module.exports = class extends Generator {
   async prompting() {
     await info.ask([
-      'appName',
-      'appDescription',
+      'name',
+      'description',
       'authorName',
       'githubConfirm',
       'githubUsername',
