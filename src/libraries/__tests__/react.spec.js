@@ -1,24 +1,31 @@
 const configReact = require('../react');
 const dependencies = require('../../app/dependencies');
 
-jest.mock('../../app/dependencies');
-
 describe('Setup React', () => {
   test('add react dependencies', () => {
+    const spyAdd = jest.spyOn(dependencies, 'add');
+    const spyAddDev = jest.spyOn(dependencies, 'addDev');
+
     configReact();
 
-    expect(dependencies.add).toHaveBeenCalledWith(['react', 'react-dom']);
-    expect(dependencies.addDev).toHaveBeenCalledWith(['react-test-renderer']);
+    expect(spyAdd).toHaveBeenCalledWith(['react', 'react-dom']);
+    expect(spyAddDev).toHaveBeenCalledWith(['react-test-renderer']);
+
+    spyAdd.mockRestore();
+    spyAddDev.mockRestore();
   });
 
   test('with babel adds preset', () => {
     const baseMock = {
       babelConfig: { presets: [] },
     };
+    const spyAddDev = jest.spyOn(dependencies, 'addDev');
 
     configReact.call(baseMock, 'babel');
 
-    expect(dependencies.addDev).toHaveBeenCalledWith(['@babel/preset-react']);
+    expect(spyAddDev).toHaveBeenCalledWith(['@babel/preset-react']);
+
+    spyAddDev.mockRestore();
   });
 
   test('with babel sets the preset in babel config', () => {
@@ -32,8 +39,12 @@ describe('Setup React', () => {
   });
 
   test('with typescript adds types', () => {
+    const spyAddDev = jest.spyOn(dependencies, 'addDev');
+
     configReact.call({}, 'typescript');
 
-    expect(dependencies.addDev).toHaveBeenCalledWith(['@types/react', '@types/react-dom']);
+    expect(spyAddDev).toHaveBeenCalledWith(['@types/react', '@types/react-dom']);
+
+    spyAddDev.mockRestore();
   });
 });
