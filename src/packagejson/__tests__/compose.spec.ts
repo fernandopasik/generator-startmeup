@@ -4,7 +4,7 @@ const minimumParsed = {
   name: 'example-app',
   version: 'none',
   github: false,
-}
+};
 
 describe('Compose package.json from', () => {
   test('name', () => {

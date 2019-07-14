@@ -9,7 +9,7 @@ const minimumParsed = {
   name: 'example-app',
   version: 'none',
   github: false,
-}
+};
 
 describe('Parse package.json and get', () => {
   test('name', () => {
@@ -188,7 +188,7 @@ describe('Parse package.json and get', () => {
       expect(githubUrl).toBe(url);
     });
 
-    test('from object git repository', () => {
+    test('from object non git repository', () => {
       const url = 'https://gitlab.com/example/example';
       const { githubUrl } = parse({ ...minimumPkg, repository: { type: 'git', url } });
       expect(githubUrl).toBeUndefined();

@@ -1,4 +1,6 @@
-import { isEmpty, isEqual, isUndefined, omitBy } from 'lodash';
+import {
+  isEmpty, isEqual, isUndefined, omitBy,
+} from 'lodash';
 import { PackageJson, Person } from './package-json';
 
 export interface Parsed {
@@ -56,7 +58,10 @@ const parse = (pkg: PackageJson): Parsed => {
     license,
   };
 
-  return omitBy(parsed, item => isUndefined(item) || isEqual(item, {})) as unknown as Parsed;
+  return omitBy(
+    parsed,
+    (item: string | object): boolean => isUndefined(item) || isEqual(item, {}),
+  ) as unknown as Parsed;
 };
 
 export default parse;
