@@ -16,7 +16,7 @@
   "scripts": {
     "build": "tsc",
     "prebuild": "del generators",
-    "lint": "eslint .",
+    "lint": "eslint . --ext ts,js",
     "start": "watch 'yarn preversion' generators/",
     "test": "jest",
     "preversion": "yarn lint && yarn test && yarn build"
@@ -31,6 +31,8 @@
   "devDependencies": {
     "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^8.0.0",
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
+    "@typescript-eslint/parser": "^1.11.0",
     "codecov": "^3.5.0",
     "del-cli": "^2.0.0",
     "eslint": "^6.0.1",

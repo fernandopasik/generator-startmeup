@@ -1,26 +1,52 @@
 {
   "extends": [
-    "airbnb-base"
+    "airbnb-base",
+    "plugin:@typescript-eslint/recommended"
   ],
+  "parser": "@typescript-eslint/parser",
   "env": {
-    "node": true
+    "browser": true
   },
-  "plugins": [
-    "jest"
-  ],
+  "plugins": [ "@typescript-eslint", "jest" ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [ ".ts", ".js" ]
+      }
+    }
+  },
   "overrides": [
     {
       "files": [
+        "**/__mocks__/*.ts",
+        "**/__tests__/*.ts",
+        "**/*.spec.ts",
         "**/__mocks__/*.js",
         "**/__tests__/*.js",
         "**/*.spec.js"
       ],
       "env": {
         "jest": true
+      },
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off"
+      }
+    },
+    {
+      "files": [
+        "**/*.js"
+      ],
+      "env": {
+        "jest": true
+      },
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
       }
     }
   ],
   "rules": {
+    "@typescript-eslint/indent": ["error", 2],
+    "import/extensions": ["error", "never"],
     "class-methods-use-this": "off",
     "jest/consistent-test-it": [
       "error",
