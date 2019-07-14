@@ -30,7 +30,7 @@ const questions = {
     default: '',
     when: props => props.authorName,
   },
-  githubConfirm: {
+  github: {
     type: 'confirm',
     default: true,
     message: 'Are you going to use github?',
@@ -42,13 +42,13 @@ const questions = {
       const username = await githubUsername(props.authorEmail);
       return username;
     },
-    when: props => props.githubConfirm,
+    when: props => props.github,
   },
   githubUrl: {
     type: 'input',
     message: 'What is your github url?',
     default: props => `https://github.com/${props.githubUsername}/${props.name}`,
-    when: props => props.githubConfirm,
+    when: props => props.github,
   },
   license: {
     type: 'list',

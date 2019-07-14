@@ -26,7 +26,7 @@ export default class PackageJsonGenrator extends Generator {
       'authorName',
       'authorEmail',
       'authorUrl',
-      'githubConfirm',
+      'github',
       'githubUsername',
       'githubUrl',
       'license',

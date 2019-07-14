@@ -11,7 +11,7 @@ module.exports = class extends Generator {
       'name',
       'description',
       'authorName',
-      'githubConfirm',
+      'github',
       'githubUsername',
       'githubRepo',
     ]);
