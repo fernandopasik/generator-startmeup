@@ -2,7 +2,7 @@ import Generator from 'yeoman-generator';
 import sort from 'sort-package-json';
 
 import info from '../app/info';
-import parse from './parse';
+import parse, { Parsed } from './parse';
 import compose from './compose';
 
 import { PackageJson } from './package-json';
@@ -10,7 +10,7 @@ import { PackageJson } from './package-json';
 export default class PackageJsonGenrator extends Generator {
   private pkg?: PackageJson
 
-  private parameters: object = {}
+  private parameters?: Parsed
 
   public initializing(): void {
     this.pkg = this.fs.readJSON('package.json') || {};
@@ -38,7 +38,7 @@ export default class PackageJsonGenrator extends Generator {
   public writing(): void {
     const pkg = {
       ...this.pkg,
-      ...compose(info.answers),
+      ...compose(info.answers as Parsed),
     };
 
     const sortedPkg = sort(pkg);
