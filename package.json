@@ -22,6 +22,7 @@
     "preversion": "yarn lint && yarn test && yarn build"
   },
   "dependencies": {
+    "core-js": "^3.1.4",
     "github-username": "^5.0.1",
     "inquirer": "^6.5.0",
     "lodash": "^4.17.14",
