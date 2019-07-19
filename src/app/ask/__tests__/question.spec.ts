@@ -1,6 +1,24 @@
-import { AskQuestion, flatten, setDefaultValue, setDefaultValues } from '../question';
+import { AskQuestion, flatten, getNames, setDefaultValue, setDefaultValues } from '../question';
 
 describe('Question', () => {
+  describe('getNames', () => {
+    it('from empty', () => {
+      expect(getNames([])).toStrictEqual([]);
+    });
+
+    it('from questions', () => {
+      const questions: AskQuestion[] = [
+        { name: 'question1', default: 'default1', type: 'input' },
+        { name: 'question2', default: 'default2', type: 'input' },
+        { name: 'question3', default: 'default3', type: 'input' },
+      ];
+
+      const names = getNames(questions);
+
+      expect(names).toStrictEqual(['question1', 'question2', 'question3']);
+    });
+  });
+
   describe('setDefaultValue', () => {
     it('receives a question and default value and sets on it', () => {
       const question: AskQuestion & { name: string } = {

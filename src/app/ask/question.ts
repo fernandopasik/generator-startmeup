@@ -10,6 +10,9 @@ export type AskQuestion = Question & {
   questions?: AskQuestion[];
 };
 
+export const getNames = (questions: AskQuestion[]): string[] =>
+  questions.map((question: AskQuestion) => question.name);
+
 export const setDefaultValue = (question: AskQuestion, defaultValue?: any): AskQuestion => ({
   ...question,
   default: defaultValue || question.default,
