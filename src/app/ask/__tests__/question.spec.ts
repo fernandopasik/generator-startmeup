@@ -87,6 +87,10 @@ describe('Question', () => {
   });
 
   describe('flatten', () => {
+    it('handles empty questions', () => {
+      expect([]).toStrictEqual([]);
+    });
+
     it('keeps originals if no nested questions', () => {
       const questions: AskQuestion[] = [
         { name: 'question1', default: 'default1', type: 'input' },
