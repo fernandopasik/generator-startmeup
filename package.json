@@ -17,7 +17,7 @@
     "build": "tsc",
     "prebuild": "del generators",
     "lint": "eslint . --ext ts,js",
-    "start": "watch 'yarn preversion' generators/",
+    "start": "yarn build -w",
     "test": "jest",
     "preversion": "yarn lint && yarn test && yarn build"
   },
