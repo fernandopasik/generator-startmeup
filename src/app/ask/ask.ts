@@ -23,7 +23,7 @@ const ask = (questions: AskQuestion[], defaultValues: Answers = {}): Promise<Ans
 
   return inquirer.prompt(questionsToAsk).then(
     (answers: Answers): Answers => {
-      rememberAll(answers);
+      rememberAll(flattenAnswers(answers));
       return {
         ...getAnswers(flattenedQuestionNames),
         ...answers,
