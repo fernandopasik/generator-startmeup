@@ -1,12 +1,13 @@
-import inquirer, { Question, Answers, Answer } from 'inquirer';
+import inquirer, { Answers } from 'inquirer';
 
-import { flatten as flattenQuestions, getNames, setDefaultValues } from './question';
+import {
+  flatten as flattenQuestions,
+  getNames,
+  setDefaultValues,
+  AskQuestion,
+  AskSubQuestion,
+} from './question';
 import { flatten as flattenAnswers, get as getAnswers, areUnanswered, rememberAll } from './answer';
-
-type AskQuestion = Question<Answer> & {
-  name: string;
-  questions?: AskQuestion[];
-};
 
 const ask = (questions: AskQuestion[], defaultValues: Answers = {}): Promise<Answers> => {
   const flattenedQuestions = flattenQuestions(questions);
@@ -14,7 +15,7 @@ const ask = (questions: AskQuestion[], defaultValues: Answers = {}): Promise<Ans
   const flattenedDefaults = flattenAnswers(defaultValues);
 
   const unansweredQuestionNames = areUnanswered(flattenedQuestionNames);
-  const unansweredQuestions = flattenedQuestions.filter(question =>
+  const unansweredQuestions = flattenedQuestions.filter((question: AskSubQuestion): boolean =>
     unansweredQuestionNames.includes(question.name),
   );
 

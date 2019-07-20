@@ -1,7 +1,7 @@
 import 'core-js/features/array/flat-map';
 import { Answers, Question } from 'inquirer';
 
-type AskSubQuestion = Question & {
+export type AskSubQuestion = Question & {
   name: string;
 };
 
