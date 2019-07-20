@@ -1,27 +1,27 @@
 // Type definition is based on specs from https://docs.npmjs.com/files/package.json
 
-type Bugs =
-  | string
-  | {
-      url?: string;
-      email?: string;
-    };
+interface BugsObject {
+  url?: string;
+  email?: string;
+}
 
-export type Person =
-  | string
-  | {
-      name?: string;
-      email?: string;
-      url?: string;
-    };
+type Bugs = BugsObject | string;
 
-type Repository =
-  | string
-  | {
-      type: string;
-      url: string;
-      directory?: string;
-    };
+interface PersonObject {
+  name?: string;
+  email?: string;
+  url?: string;
+}
+
+export type Person = PersonObject | string;
+
+interface RepositoryObject {
+  type: string;
+  url: string;
+  directory?: string;
+}
+
+type Repository = RepositoryObject | string;
 
 interface DefaultScripts {
   // Install
