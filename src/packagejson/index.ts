@@ -10,11 +10,11 @@ import ask from '../app/ask';
 import { PackageJson } from './package-json';
 
 export default class PackageJsonGenrator extends Generator {
-  private pkg?: PackageJson
+  private pkg?: PackageJson;
 
-  private parameters?: Parsed
+  private parameters?: Parsed;
 
-  private answers?: Answers
+  private answers?: Answers;
 
   public initializing(): void {
     this.pkg = this.fs.readJSON('package.json') || {};
