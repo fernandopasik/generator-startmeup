@@ -53,10 +53,7 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    this.fs.write(
-      this.destinationPath('jest.config.js'),
-      util.formatJsConfig(this.jestConfig),
-    );
+    this.fs.write(this.destinationPath('jest.config.js'), util.formatJsConfig(this.jestConfig));
   }
 
   install() {

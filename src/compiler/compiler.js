@@ -6,7 +6,7 @@ const COMPILER_DEPENDENCIES = new Map([
 
 const DEPENDENCIES_COMPILER = new Map();
 COMPILER_DEPENDENCIES.forEach((dependencies, compiler) => {
-  dependencies.forEach((dependency) => {
+  dependencies.forEach(dependency => {
     DEPENDENCIES_COMPILER.set(dependency, compiler);
   });
 });
@@ -16,7 +16,7 @@ module.exports.detect = (pkg = {}) => {
   let compiler;
 
   if (devDependencies) {
-    DEPENDENCIES_COMPILER.forEach((dependency) => {
+    DEPENDENCIES_COMPILER.forEach(dependency => {
       if (devDependencies[dependency]) {
         compiler = DEPENDENCIES_COMPILER.get(dependency);
       }
@@ -26,7 +26,7 @@ module.exports.detect = (pkg = {}) => {
   return compiler;
 };
 
-module.exports.getDependencies = (compiler) => {
+module.exports.getDependencies = compiler => {
   const dependencies = [];
 
   if (compiler !== 'none') {

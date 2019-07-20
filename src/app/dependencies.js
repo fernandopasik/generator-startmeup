@@ -1,11 +1,11 @@
 const devDependencies = [];
 const dependencies = [];
 
-module.exports.add = (names) => {
+module.exports.add = names => {
   dependencies.push(...names);
 };
 
-module.exports.addDev = (names) => {
+module.exports.addDev = names => {
   devDependencies.push(...names);
 };
 

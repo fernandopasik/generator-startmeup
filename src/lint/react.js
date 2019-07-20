@@ -15,10 +15,7 @@ module.exports = function typescript() {
       browser: true,
     };
   } else {
-    dependencies.addDev([
-      'eslint-config-airbnb-base',
-      'eslint-plugin-import',
-    ]);
+    dependencies.addDev(['eslint-config-airbnb-base', 'eslint-plugin-import']);
 
     this.eslintConfig.extends.push('airbnb-base');
   }

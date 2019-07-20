@@ -13,7 +13,7 @@ module.exports = class extends Generator {
 
   async prompting() {
     this.answers = {
-      ...await this.prompt([
+      ...(await this.prompt([
         {
           type: 'list',
           name: 'uiLibrary',
@@ -21,7 +21,7 @@ module.exports = class extends Generator {
           choices: ['none', 'react', 'lit-html'],
           default: 0,
         },
-      ]),
+      ])),
     };
   }
 

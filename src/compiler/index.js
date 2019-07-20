@@ -13,7 +13,7 @@ module.exports = class extends Generator {
 
   async prompting() {
     this.answers = {
-      ...await this.prompt([
+      ...(await this.prompt([
         {
           type: 'list',
           name: 'compiler',
@@ -21,7 +21,7 @@ module.exports = class extends Generator {
           choices: COMPILERS,
           default: COMPILERS.indexOf(this.existingCompiler),
         },
-      ]),
+      ])),
     };
   }
 

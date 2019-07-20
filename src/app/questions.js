@@ -1,16 +1,18 @@
 const path = require('path');
 const githubUsername = require('github-username');
-const { prototype: { user } } = require('yeoman-generator');
+const {
+  prototype: { user },
+} = require('yeoman-generator');
 
 const questions = {
   name: {
     type: 'input',
-    message: 'What is your app\'s name?',
+    message: "What is your app's name?",
     default: () => path.basename(process.cwd()),
   },
   description: {
     type: 'input',
-    message: 'What is your app\'s description?',
+    message: "What is your app's description?",
     default: '',
   },
   authorName: {
@@ -38,7 +40,7 @@ const questions = {
   githubUsername: {
     type: 'input',
     message: 'What is your github username?',
-    default: async (props) => {
+    default: async props => {
       const username = await githubUsername(props.authorEmail);
       return username;
     },

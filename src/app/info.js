@@ -3,21 +3,20 @@ const questions = require('./questions');
 
 const answers = {};
 
-const filterKnownQuestions = questionNames => (
-  questionNames.filter(questionName => questions[questionName])
-);
+const filterKnownQuestions = questionNames =>
+  questionNames.filter(questionName => questions[questionName]);
 
-const filterRespondedQuestions = questionNames => (
-  questionNames.filter(questionName => typeof answers[questionName] === 'undefined')
-);
+const filterRespondedQuestions = questionNames =>
+  questionNames.filter(questionName => typeof answers[questionName] === 'undefined');
 
-const filterAnswers = (answersToFilter, questionNames) => (
+const filterAnswers = (answersToFilter, questionNames) =>
   Object.entries(answersToFilter)
     .filter(([questionName]) => questionNames.includes(questionName))
-    .reduce((knownAnswers, [questionName, answer]) => (
-      Object.assign(knownAnswers, { [questionName]: answer })
-    ), {})
-);
+    .reduce(
+      (knownAnswers, [questionName, answer]) =>
+        Object.assign(knownAnswers, { [questionName]: answer }),
+      {},
+    );
 
 const ask = async (questionNames = [], defaults = {}) => {
   const knownQuestions = filterKnownQuestions(questionNames);

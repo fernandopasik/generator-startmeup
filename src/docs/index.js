@@ -7,14 +7,7 @@ const getStyleguides = require('./styleguides');
 
 module.exports = class extends Generator {
   async prompting() {
-    await info.ask([
-      'name',
-      'description',
-      'authorName',
-      'github',
-      'githubUsername',
-      'githubRepo',
-    ]);
+    await info.ask(['name', 'description', 'authorName', 'github', 'githubUsername', 'githubRepo']);
   }
 
   writing() {
@@ -26,12 +19,8 @@ module.exports = class extends Generator {
       year: new Date().getFullYear(),
     };
 
-    ['LICENSE', 'README.md', 'CONTRIBUTING.md'].forEach((template) => {
-      this.fs.copyTpl(
-        this.templatePath(template),
-        this.destinationPath(template),
-        options,
-      );
+    ['LICENSE', 'README.md', 'CONTRIBUTING.md'].forEach(template => {
+      this.fs.copyTpl(this.templatePath(template), this.destinationPath(template), options);
     });
 
     const files = [
@@ -41,11 +30,8 @@ module.exports = class extends Generator {
       'CODE_OF_CONDUCT.md',
     ];
 
-    files.forEach((file) => {
-      this.fs.copy(
-        path.join(__dirname, '../../', file),
-        this.destinationPath(file),
-      );
+    files.forEach(file => {
+      this.fs.copy(path.join(__dirname, '../../', file), this.destinationPath(file));
     });
   }
 };
