@@ -5,7 +5,12 @@ import { Question, Answer, Answers } from 'inquirer';
 
 const { prototype: { user } } = yeomanGenerator;
 
-const questions: Question<Answer>[] = [
+type AskQuestion = Question<Answer> & {
+  name: string;
+  questions?: AskQuestion[];
+};
+
+const questions: AskQuestion[] = [
   {
     name: 'name',
     type: 'input',
@@ -17,22 +22,25 @@ const questions: Question<Answer>[] = [
     message: 'What is your app\'s description?',
     default: '',
   }, {
-    name: 'authorName',
-    type: 'input',
-    message: 'What is your name?',
-    default: (): string => user.git.name(),
-  }, {
-    name: 'authorEmail',
-    type: 'input',
-    message: 'What is your email?',
-    default: (): string => user.git.email(),
-    when: (props: Answers): boolean => !!props.authorName,
-  }, {
-    name: 'authorUrl',
-    type: 'input',
-    message: 'What is your url?',
-    default: '',
-    when: (props: Answers): boolean => !!props.authorName,
+    name: 'author',
+    questions: [{
+      name: 'name',
+      type: 'input',
+      message: 'What is your name?',
+      default: (): string => user.git.name(),
+    }, {
+      name: 'email',
+      type: 'input',
+      message: 'What is your email?',
+      default: (): string => user.git.email(),
+      when: (props: Answers): boolean => !!props.author.name,
+    }, {
+      name: 'url',
+      type: 'input',
+      message: 'What is your url?',
+      default: '',
+      when: (props: Answers): boolean => !!props.author.name,
+    }],
   }, {
     name: 'github',
     type: 'confirm',
@@ -43,7 +51,7 @@ const questions: Question<Answer>[] = [
     type: 'input',
     message: 'What is your github username?',
     default: async (props: Answers): Promise<string> => {
-      const username = await githubUsername(props.authorEmail);
+      const username = await githubUsername(props.author.email);
       return username;
     },
     when: (props: Answers): boolean => !!props.github,
