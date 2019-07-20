@@ -14,7 +14,7 @@ type AskQuestion = Question<Answer> & {
   questions?: AskQuestion[];
 };
 
-export default class PackageJsonGenrator extends Generator {
+export default class PackageJsonGenerator extends Generator {
   private pkg?: PackageJson;
 
   private parameters?: Parsed;
