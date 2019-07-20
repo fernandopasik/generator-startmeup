@@ -16,6 +16,7 @@
   "scripts": {
     "build": "tsc",
     "prebuild": "del generators",
+    "postbuild": "cpy **/templates/* ../generators/ --cwd=src --parents",
     "lint": "eslint . --ext ts,js",
     "start": "yarn build -w",
     "test": "jest",
@@ -41,6 +42,7 @@
     "@typescript-eslint/eslint-plugin": "^1.12.0",
     "@typescript-eslint/parser": "^1.12.0",
     "codecov": "^3.5.0",
+    "cpy-cli": "^2.0.0",
     "del-cli": "^2.0.0",
     "eslint": "^6.0.1",
     "eslint-config-airbnb-base": "^13.2.0",
