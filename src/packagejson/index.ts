@@ -1,18 +1,14 @@
 import Generator from 'yeoman-generator';
 import sort from 'sort-package-json';
-import { Answers, Question, Answer } from 'inquirer';
+import { Answers } from 'inquirer';
 
 import parse, { Parsed } from './parse';
 import compose from './compose';
 import questions from './questions';
 import ask from '../app/ask/ask';
+import { AskQuestion } from '../app/ask/question';
 
 import { PackageJson } from './package-json';
-
-type AskQuestion = Question<Answer> & {
-  name: string;
-  questions?: AskQuestion[];
-};
 
 export default class PackageJsonGenerator extends Generator {
   private pkg?: PackageJson;
