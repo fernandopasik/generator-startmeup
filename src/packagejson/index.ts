@@ -8,6 +8,7 @@ import questions from './questions';
 import ask from '../app/ask/ask';
 
 import { PackageJson } from './package-json';
+
 type AskQuestion = Question<Answer> & {
   name: string;
   questions?: AskQuestion[];

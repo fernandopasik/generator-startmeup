@@ -14,7 +14,7 @@ export const rememberAll = (answers: Answers): void => {
 
 export const getAll = (answerNames?: string[]): Answers => {
   const obj: Answers = {};
-  for (let [key, value] of memory) {
+  for (const [key, value] of memory) {
     if (!answerNames || answerNames.includes(key)) {
       obj[key] = value;
     }
