@@ -2,7 +2,7 @@ import Generator from 'yeoman-generator';
 import yosay from 'yosay';
 
 export default class StartMeUpGenerator extends Generator {
-  initializing() {
+  public initializing(): void {
     this.log(yosay('Welcome to the marvelous StartMeUp generator!'));
 
     const subGenerators = [
@@ -16,7 +16,7 @@ export default class StartMeUpGenerator extends Generator {
       'docs',
     ];
 
-    subGenerators.map(subGenerator => {
+    subGenerators.forEach((subGenerator: string): void => {
       this.composeWith(`startmeup:${subGenerator}`, {});
     });
   }
