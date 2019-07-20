@@ -2,11 +2,11 @@ import { AskQuestion, flatten, getNames, setDefaultValue, setDefaultValues } fro
 
 describe('Question', () => {
   describe('getNames', () => {
-    it('from empty', () => {
+    test('from empty', () => {
       expect(getNames([])).toStrictEqual([]);
     });
 
-    it('from questions', () => {
+    test('from questions', () => {
       const questions: AskQuestion[] = [
         { name: 'question1', default: 'default1', type: 'input' },
         { name: 'question2', default: 'default2', type: 'input' },
@@ -20,7 +20,7 @@ describe('Question', () => {
   });
 
   describe('setDefaultValue', () => {
-    it('receives a question and default value and sets on it', () => {
+    test('receives a question and default value and sets on it', () => {
       const question: AskQuestion & { name: string } = {
         name: 'question1',
         default: 'originalDefault',
@@ -33,7 +33,7 @@ describe('Question', () => {
       expect(newQuestion).toHaveProperty('default', defaultValue);
     });
 
-    it('receives a question and keeps its existing default value', () => {
+    test('receives a question and keeps its existing default value', () => {
       const question: AskQuestion & { name: string } = {
         name: 'question1',
         default: 'originalDefault',
@@ -48,7 +48,7 @@ describe('Question', () => {
   });
 
   describe('setDefaultValues', () => {
-    it('receives a group of questions and defaults and sets them', () => {
+    test('receives a group of questions and defaults and sets them', () => {
       const questions: AskQuestion[] = [
         { name: 'question1', default: 'default1', type: 'input' },
         { name: 'question2', default: 'default2', type: 'input' },
@@ -70,7 +70,7 @@ describe('Question', () => {
       ]);
     });
 
-    it('receives a group of questions and some defaults and sets only some', () => {
+    test('receives a group of questions and some defaults and sets only some', () => {
       const questions: AskQuestion[] = [
         { name: 'question1', default: 'default1', type: 'input' },
         { name: 'question2', default: 'default2', type: 'input' },
@@ -91,7 +91,7 @@ describe('Question', () => {
       ]);
     });
 
-    it('receives a group of questions and no defaults and keeps originals', () => {
+    test('receives a group of questions and no defaults and keeps originals', () => {
       const questions: AskQuestion[] = [
         { name: 'question1', default: 'default1', type: 'input' },
         { name: 'question2', default: 'default2', type: 'input' },
@@ -105,11 +105,11 @@ describe('Question', () => {
   });
 
   describe('flatten', () => {
-    it('handles empty questions', () => {
+    test('handles empty questions', () => {
       expect([]).toStrictEqual([]);
     });
 
-    it('keeps originals if no nested questions', () => {
+    test('keeps originals if no nested questions', () => {
       const questions: AskQuestion[] = [
         { name: 'question1', default: 'default1', type: 'input' },
         { name: 'question2', default: 'default2', type: 'input' },
@@ -121,7 +121,7 @@ describe('Question', () => {
       expect(flattened).toStrictEqual(questions);
     });
 
-    it('flattens nested questions', () => {
+    test('flattens nested questions', () => {
       const questions: AskQuestion[] = [
         { name: 'question1', default: 'default1', type: 'input' },
         {
@@ -139,7 +139,7 @@ describe('Question', () => {
       expect(flattened).toHaveLength(4);
     });
 
-    it('flattens nested questions with name composed with parent', () => {
+    test('flattens nested questions with name composed with parent', () => {
       const questions: AskQuestion[] = [
         { name: 'question1', default: 'default1', type: 'input' },
         {
@@ -162,7 +162,7 @@ describe('Question', () => {
       ]);
     });
 
-    it('flattens nested questions with name composed with parent with more than 2 levels', () => {
+    test('flattens nested questions with name composed with parent with more than 2 levels', () => {
       const questions: AskQuestion[] = [
         {
           name: 'question1',

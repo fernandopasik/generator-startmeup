@@ -16,14 +16,14 @@ describe('Answer', () => {
       forgetAll();
     });
 
-    it('saves in memory an answer', () => {
+    test('saves in memory an answer', () => {
       const answer = 'this is an example';
       remember('example', answer);
 
       expect(get('example')).toBe(answer);
     });
 
-    it('replaces existing stored answer', () => {
+    test('replaces existing stored answer', () => {
       const answer = 'this is an example';
       const anotherAnswer = 'this is another example';
       remember('example', answer);
@@ -38,7 +38,7 @@ describe('Answer', () => {
       forgetAll();
     });
 
-    it('saves in memory a group of answers', () => {
+    test('saves in memory a group of answers', () => {
       const answers = {
         answer1: 'value1',
         answer2: 'value2',
@@ -49,7 +49,7 @@ describe('Answer', () => {
       expect(getAll()).toStrictEqual(answers);
     });
 
-    it('saves in existing memory a group of answers', () => {
+    test('saves in existing memory a group of answers', () => {
       const answers1 = {
         answer1: 'value1',
         answer2: 'value2',
@@ -67,7 +67,7 @@ describe('Answer', () => {
       });
     });
 
-    it('handles empty group of answers', () => {
+    test('handles empty group of answers', () => {
       rememberAll({});
 
       expect(getAll()).toStrictEqual({});
@@ -79,7 +79,7 @@ describe('Answer', () => {
       forgetAll();
     });
 
-    it('can get an answer', () => {
+    test('can get an answer', () => {
       const answers = {
         answer1: 'value1',
         answer2: 'value2',
@@ -89,7 +89,7 @@ describe('Answer', () => {
       expect(get('answer1')).toBe('value1');
     });
 
-    it('can get a group of answers', () => {
+    test('can get a group of answers', () => {
       const answers = {
         answer1: 'value1',
         answer2: 'value2',
@@ -100,7 +100,7 @@ describe('Answer', () => {
       expect(get(['answer1', 'answer2'])).toStrictEqual({ answer1: 'value1', answer2: 'value2' });
     });
 
-    it('can handle non existent answer', () => {
+    test('can handle non existent answer', () => {
       const answers = {
         answer1: 'value1',
         answer2: 'value2',
@@ -116,7 +116,7 @@ describe('Answer', () => {
       forgetAll();
     });
 
-    it('can get all answers', () => {
+    test('can get all answers', () => {
       const answers = {
         answer1: 'value1',
         answer2: 'value2',
@@ -126,7 +126,7 @@ describe('Answer', () => {
       expect(getAll()).toStrictEqual(answers);
     });
 
-    it('can get a group of answers', () => {
+    test('can get a group of answers', () => {
       const answers = {
         answer1: 'value1',
         answer2: 'value2',
@@ -140,7 +140,7 @@ describe('Answer', () => {
       });
     });
 
-    it('can get a group of some known answers', () => {
+    test('can get a group of some known answers', () => {
       const answers = {
         answer1: 'value1',
         answer2: 'value2',
@@ -160,7 +160,7 @@ describe('Answer', () => {
       forgetAll();
     });
 
-    it('with existing answer', () => {
+    test('with existing answer', () => {
       const answers = {
         answer1: 'value1',
         answer2: 'value2',
@@ -170,7 +170,7 @@ describe('Answer', () => {
       expect(has('answer1')).toBe(true);
     });
 
-    it('with non existing answer', () => {
+    test('with non existing answer', () => {
       const answers = {
         answer1: 'value1',
         answer2: 'value2',
@@ -186,7 +186,7 @@ describe('Answer', () => {
       forgetAll();
     });
 
-    it('an existing answer', () => {
+    test('an existing answer', () => {
       const answers = {
         answer1: 'value1',
         answer2: 'value2',
@@ -199,7 +199,7 @@ describe('Answer', () => {
       expect(getAll()).toStrictEqual({ answer2: 'value2' });
     });
 
-    it('an non existing answer', () => {
+    test('an non existing answer', () => {
       const answers = {
         answer1: 'value1',
         answer2: 'value2',
@@ -211,19 +211,19 @@ describe('Answer', () => {
       expect(getAll()).toStrictEqual(answers);
     });
 
-    it('when no answers are remembered', () => {
+    test('when no answers are remembered', () => {
       forget('answer3');
 
       expect(getAll()).toStrictEqual({});
     });
   });
 
-  describe('forget', () => {
+  describe('forgetAll', () => {
     beforeEach(() => {
       forgetAll();
     });
 
-    it('when existing answers', () => {
+    test('when existing answers', () => {
       const answers = {
         answer1: 'value1',
         answer2: 'value2',
@@ -235,7 +235,7 @@ describe('Answer', () => {
       expect(getAll()).toStrictEqual({});
     });
 
-    it('when non existing answers', () => {
+    test('when non existing answers', () => {
       forgetAll();
 
       expect(getAll()).toStrictEqual({});
@@ -247,7 +247,7 @@ describe('Answer', () => {
       forgetAll();
     });
 
-    it('when some are', () => {
+    test('when some are', () => {
       const answers = {
         answer1: 'value1',
         answer2: 'value2',
@@ -260,7 +260,7 @@ describe('Answer', () => {
       ]);
     });
 
-    it('when all are', () => {
+    test('when all are', () => {
       const answers = {
         answer1: 'value1',
         answer2: 'value2',
@@ -270,7 +270,7 @@ describe('Answer', () => {
       expect(areUnanswered(['answer3', 'answer4'])).toStrictEqual(['answer3', 'answer4']);
     });
 
-    it('when none are', () => {
+    test('when none are', () => {
       const answers = {
         answer1: 'value1',
         answer2: 'value2',
@@ -282,11 +282,11 @@ describe('Answer', () => {
   });
 
   describe('flatten', () => {
-    it('handles empty answers', () => {
+    test('handles empty answers', () => {
       expect({}).toStrictEqual({});
     });
 
-    it('returns same answers when no nested', () => {
+    test('returns same answers when no nested', () => {
       const answers = {
         a: 'valueA',
         b: 'valueB',
@@ -297,7 +297,7 @@ describe('Answer', () => {
       expect(flattened).toStrictEqual(answers);
     });
 
-    it('split nested answers', () => {
+    test('split nested answers', () => {
       const answers = {
         a: 'valueA',
         b: {
@@ -312,7 +312,7 @@ describe('Answer', () => {
       expect(Object.keys(flattened)).toHaveLength(4);
     });
 
-    it('split nested answers with composed names', () => {
+    test('split nested answers with composed names', () => {
       const answers = {
         a: 'valueA',
         b: {
@@ -332,7 +332,7 @@ describe('Answer', () => {
       });
     });
 
-    it('split nested answers with more than 2 levels', () => {
+    test('split nested answers with more than 2 levels', () => {
       const answers = {
         a: 'valueA',
         b: {
