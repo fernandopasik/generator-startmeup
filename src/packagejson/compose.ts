@@ -8,11 +8,10 @@ interface Author {
   url?: string;
 }
 
-const composeAuthor = (author: Author): string => [
-  author.name,
-  author.email && ` <${author.email}>`,
-  author.url && ` (${author.url})`,
-].join('').trim();
+const composeAuthor = (author: Author): string =>
+  [author.name, author.email && ` <${author.email}>`, author.url && ` (${author.url})`]
+    .join('')
+    .trim();
 
 interface RepoInfo {
   repository?: {
@@ -49,7 +48,7 @@ const compose = ({
     license,
   };
 
-  return omitBy(composed, isEmpty) as unknown as PackageJson;
+  return (omitBy(composed, isEmpty) as unknown) as PackageJson;
 };
 
 export default compose;

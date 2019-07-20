@@ -1,6 +1,4 @@
-import {
-  isEmpty, isEqual, isUndefined, omitBy,
-} from 'lodash';
+import { isEmpty, isEqual, isUndefined, omitBy } from 'lodash';
 import { PackageJson, Person } from './package-json';
 
 export interface Parsed {
@@ -18,22 +16,15 @@ export interface Parsed {
 }
 
 const parse = (pkg: PackageJson): Parsed => {
-  const {
-    name,
-    version,
-    description,
-    author,
-    repository,
-    license,
-  } = pkg;
+  const { name, version, description, author, repository, license } = pkg;
 
   let parsedAuthor: Person | undefined;
 
   if (typeof author === 'string') {
     parsedAuthor = {};
     parsedAuthor.name = author.replace(/\s?[(<].*/g, '');
-    [, parsedAuthor.email = undefined] = (author.match(/<([^>]+)>/) || []);
-    [, parsedAuthor.url = undefined] = (author.match(/\(([^)]+)\)/) || []);
+    [, parsedAuthor.email = undefined] = author.match(/<([^>]+)>/) || [];
+    [, parsedAuthor.url = undefined] = author.match(/\(([^)]+)\)/) || [];
   } else {
     parsedAuthor = author;
   }
@@ -58,10 +49,10 @@ const parse = (pkg: PackageJson): Parsed => {
     license,
   };
 
-  return omitBy(
+  return (omitBy(
     parsed,
     (item: string | object): boolean => isUndefined(item) || isEqual(item, {}),
-  ) as unknown as Parsed;
+  ) as unknown) as Parsed;
 };
 
 export default parse;

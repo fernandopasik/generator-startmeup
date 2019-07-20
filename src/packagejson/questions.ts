@@ -3,7 +3,9 @@ import githubUsername from 'github-username';
 import yeomanGenerator from 'yeoman-generator';
 import { Question, Answer, Answers } from 'inquirer';
 
-const { prototype: { user } } = yeomanGenerator;
+const {
+  prototype: { user },
+} = yeomanGenerator;
 
 type AskQuestion = Question<Answer> & {
   name: string;
@@ -14,39 +16,47 @@ const questions: AskQuestion[] = [
   {
     name: 'name',
     type: 'input',
-    message: 'What is your app\'s name?',
+    message: "What is your app's name?",
     default: (): string => path.basename(process.cwd()),
-  }, {
+  },
+  {
     name: 'description',
     type: 'input',
-    message: 'What is your app\'s description?',
+    message: "What is your app's description?",
     default: '',
-  }, {
+  },
+  {
     name: 'author',
-    questions: [{
-      name: 'name',
-      type: 'input',
-      message: 'What is your name?',
-      default: (): string => user.git.name(),
-    }, {
-      name: 'email',
-      type: 'input',
-      message: 'What is your email?',
-      default: (): string => user.git.email(),
-      when: (props: Answers): boolean => !!props.author.name,
-    }, {
-      name: 'url',
-      type: 'input',
-      message: 'What is your url?',
-      default: '',
-      when: (props: Answers): boolean => !!props.author.name,
-    }],
-  }, {
+    questions: [
+      {
+        name: 'name',
+        type: 'input',
+        message: 'What is your name?',
+        default: (): string => user.git.name(),
+      },
+      {
+        name: 'email',
+        type: 'input',
+        message: 'What is your email?',
+        default: (): string => user.git.email(),
+        when: (props: Answers): boolean => !!props.author.name,
+      },
+      {
+        name: 'url',
+        type: 'input',
+        message: 'What is your url?',
+        default: '',
+        when: (props: Answers): boolean => !!props.author.name,
+      },
+    ],
+  },
+  {
     name: 'github',
     type: 'confirm',
     default: true,
     message: 'Are you going to use github?',
-  }, {
+  },
+  {
     name: 'githubUsername',
     type: 'input',
     message: 'What is your github username?',
@@ -55,7 +65,8 @@ const questions: AskQuestion[] = [
       return username;
     },
     when: (props: Answers): boolean => !!props.github,
-  }, {
+  },
+  {
     name: 'githubUrl',
     type: 'input',
     message: 'What is your github url?',

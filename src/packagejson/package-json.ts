@@ -1,21 +1,27 @@
 // Type definition is based on specs from https://docs.npmjs.com/files/package.json
 
-type Bugs = string | {
-  url?: string;
-  email?: string;
-}
+type Bugs =
+  | string
+  | {
+      url?: string;
+      email?: string;
+    };
 
-export type Person = string | {
-  name?: string;
-  email?: string;
-  url?: string;
-}
+export type Person =
+  | string
+  | {
+      name?: string;
+      email?: string;
+      url?: string;
+    };
 
-type Repository = string | {
-  type: string;
-  url: string;
-  directory?: string;
-}
+type Repository =
+  | string
+  | {
+      type: string;
+      url: string;
+      directory?: string;
+    };
 
 interface DefaultScripts {
   // Install
@@ -65,7 +71,7 @@ interface DefaultScripts {
 
 type Scripts = DefaultScripts & {
   [scriptName: string]: string;
-}
+};
 
 interface Dependencies {
   [packageName: string]: string;
