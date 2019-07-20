@@ -1,16 +1,13 @@
 import path from 'path';
 import githubUsername from 'github-username';
 import yeomanGenerator from 'yeoman-generator';
-import { Question, Answer, Answers } from 'inquirer';
+import { Answers } from 'inquirer';
+
+import { AskQuestion } from '../app/ask/question';
 
 const {
   prototype: { user },
 } = yeomanGenerator;
-
-type AskQuestion = Question<Answer> & {
-  name: string;
-  questions?: AskQuestion[];
-};
 
 const questions: AskQuestion[] = [
   {
