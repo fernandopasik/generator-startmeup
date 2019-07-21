@@ -2,8 +2,7 @@ import Generator from 'yeoman-generator';
 import path from 'path';
 import { Answers } from 'inquirer';
 
-import ask from '../app/ask/ask';
-import { Question } from '../app/ask/question';
+import ask, { Question } from '../app/ask';
 import { PackageJson } from '../packagejson/package-json';
 import parse, { Parsed } from '../packagejson/parse';
 import questions from './questions';
