@@ -1,7 +1,7 @@
 const Generator = require('yeoman-generator');
 
 const dependencies = require('../app/dependencies');
-const util = require('../app/util');
+const util = require('./util');
 
 module.exports = class extends Generator {
   initializing() {
