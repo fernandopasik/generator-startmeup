@@ -1,38 +1,35 @@
 import 'core-js/features/array/flat-map';
-import { Answers, Question } from 'inquirer';
+import { Answers, Question as InquirerQuestion } from 'inquirer';
 
-export type AskSubQuestion = Question & {
+export type SubQuestion = InquirerQuestion & {
   name: string;
 };
 
-export type AskQuestion = Question & {
+export type Question = InquirerQuestion & {
   name: string;
-  questions?: AskQuestion[];
+  questions?: Question[];
 };
 
-export const getNames = (questions: AskQuestion[]): string[] =>
-  questions.map((question: AskQuestion): string => question.name);
+export const getNames = (questions: Question[]): string[] =>
+  questions.map((question: Question): string => question.name);
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const setDefaultValue = (question: AskQuestion, defaultValue?: any): AskQuestion => ({
+export const setDefaultValue = (question: Question, defaultValue?: any): Question => ({
   ...question,
   default: defaultValue || question.default,
 });
 
-export const setDefaultValues = (
-  questions: AskQuestion[] = [],
-  defaultValues?: Answers,
-): AskQuestion[] =>
+export const setDefaultValues = (questions: Question[] = [], defaultValues?: Answers): Question[] =>
   questions.map(
-    (question: AskQuestion): AskQuestion =>
+    (question: Question): Question =>
       setDefaultValue(question, defaultValues && defaultValues[question.name]),
   );
 
-export const flatten = (questions: AskQuestion[] = []): AskSubQuestion[] =>
-  questions.flatMap((question: AskQuestion): AskQuestion[] => {
+export const flatten = (questions: Question[] = []): SubQuestion[] =>
+  questions.flatMap((question: Question): Question[] => {
     if (question.questions) {
       return flatten(question.questions).map(
-        (subquestion: AskSubQuestion): AskSubQuestion => ({
+        (subquestion: SubQuestion): SubQuestion => ({
           ...subquestion,
           name: `${question.name}.${subquestion.name}`,
         }),

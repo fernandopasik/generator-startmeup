@@ -1,4 +1,4 @@
-import { AskQuestion, flatten, getNames, setDefaultValue, setDefaultValues } from '../question';
+import { Question, flatten, getNames, setDefaultValue, setDefaultValues } from '../question';
 
 describe('Question', () => {
   describe('getNames', () => {
@@ -7,7 +7,7 @@ describe('Question', () => {
     });
 
     test('from questions', () => {
-      const questions: AskQuestion[] = [
+      const questions: Question[] = [
         { name: 'question1', default: 'default1', type: 'input' },
         { name: 'question2', default: 'default2', type: 'input' },
         { name: 'question3', default: 'default3', type: 'input' },
@@ -21,7 +21,7 @@ describe('Question', () => {
 
   describe('setDefaultValue', () => {
     test('receives a question and default value and sets on it', () => {
-      const question: AskQuestion & { name: string } = {
+      const question: Question & { name: string } = {
         name: 'question1',
         default: 'originalDefault',
         type: 'input',
@@ -34,7 +34,7 @@ describe('Question', () => {
     });
 
     test('receives a question and keeps its existing default value', () => {
-      const question: AskQuestion & { name: string } = {
+      const question: Question & { name: string } = {
         name: 'question1',
         default: 'originalDefault',
         type: 'input',
@@ -49,7 +49,7 @@ describe('Question', () => {
 
   describe('setDefaultValues', () => {
     test('receives a group of questions and defaults and sets them', () => {
-      const questions: AskQuestion[] = [
+      const questions: Question[] = [
         { name: 'question1', default: 'default1', type: 'input' },
         { name: 'question2', default: 'default2', type: 'input' },
         { name: 'question3', default: 'default3', type: 'input' },
@@ -71,7 +71,7 @@ describe('Question', () => {
     });
 
     test('receives a group of questions and some defaults and sets only some', () => {
-      const questions: AskQuestion[] = [
+      const questions: Question[] = [
         { name: 'question1', default: 'default1', type: 'input' },
         { name: 'question2', default: 'default2', type: 'input' },
         { name: 'question3', default: 'default3', type: 'input' },
@@ -92,7 +92,7 @@ describe('Question', () => {
     });
 
     test('receives a group of questions and no defaults and keeps originals', () => {
-      const questions: AskQuestion[] = [
+      const questions: Question[] = [
         { name: 'question1', default: 'default1', type: 'input' },
         { name: 'question2', default: 'default2', type: 'input' },
         { name: 'question3', default: 'default3', type: 'input' },
@@ -110,7 +110,7 @@ describe('Question', () => {
     });
 
     test('keeps originals if no nested questions', () => {
-      const questions: AskQuestion[] = [
+      const questions: Question[] = [
         { name: 'question1', default: 'default1', type: 'input' },
         { name: 'question2', default: 'default2', type: 'input' },
         { name: 'question3', default: 'default3', type: 'input' },
@@ -122,7 +122,7 @@ describe('Question', () => {
     });
 
     test('flattens nested questions', () => {
-      const questions: AskQuestion[] = [
+      const questions: Question[] = [
         { name: 'question1', default: 'default1', type: 'input' },
         {
           name: 'question2',
@@ -140,7 +140,7 @@ describe('Question', () => {
     });
 
     test('flattens nested questions with name composed with parent', () => {
-      const questions: AskQuestion[] = [
+      const questions: Question[] = [
         { name: 'question1', default: 'default1', type: 'input' },
         {
           name: 'question2',
@@ -163,7 +163,7 @@ describe('Question', () => {
     });
 
     test('flattens nested questions with name composed with parent with more than 2 levels', () => {
-      const questions: AskQuestion[] = [
+      const questions: Question[] = [
         {
           name: 'question1',
           questions: [

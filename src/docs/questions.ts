@@ -3,13 +3,13 @@ import githubUsername from 'github-username';
 import yeomanGenerator from 'yeoman-generator';
 import { Answers } from 'inquirer';
 
-import { AskQuestion } from '../app/ask/question';
+import { Question } from '../app/ask/question';
 
 const {
   prototype: { user },
 } = yeomanGenerator;
 
-const questions: AskQuestion[] = [
+const questions: Question[] = [
   {
     name: 'name',
     type: 'input',

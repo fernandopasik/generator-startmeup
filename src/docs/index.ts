@@ -3,7 +3,7 @@ import path from 'path';
 import { Answers } from 'inquirer';
 
 import ask from '../app/ask/ask';
-import { AskQuestion } from '../app/ask/question';
+import { Question } from '../app/ask/question';
 import { PackageJson } from '../packagejson/package-json';
 import parse, { Parsed } from '../packagejson/parse';
 import questions from './questions';
@@ -23,7 +23,7 @@ module.exports = class extends Generator {
   }
 
   public async prompting(): Promise<void> {
-    this.answers = await ask(questions as AskQuestion[], this.parameters as Answers);
+    this.answers = await ask(questions as Question[], this.parameters as Answers);
   }
 
   public writing(): void {
