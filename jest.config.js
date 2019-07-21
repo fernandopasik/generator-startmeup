@@ -1,6 +1,6 @@
 module.exports = {
   roots: ['src'],
-  collectCoverageFrom: ['generators/**/*.js'],
+  collectCoverageFrom: ['src/**/*.ts'],
   testEnvironment: 'node',
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
