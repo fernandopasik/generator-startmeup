@@ -48,6 +48,11 @@ describe('Question', () => {
   });
 
   describe('setDefaultValues', () => {
+    test('handles empty group of questions', () => {
+      expect(setDefaultValues()).toStrictEqual([]);
+      expect(setDefaultValues([])).toStrictEqual([]);
+    });
+
     test('receives a group of questions and defaults and sets them', () => {
       const questions: Question[] = [
         { name: 'question1', default: 'default1', type: 'input' },
@@ -106,7 +111,8 @@ describe('Question', () => {
 
   describe('flatten', () => {
     test('handles empty questions', () => {
-      expect([]).toStrictEqual([]);
+      expect(flatten()).toStrictEqual([]);
+      expect(flatten([])).toStrictEqual([]);
     });
 
     test('keeps originals if no nested questions', () => {
