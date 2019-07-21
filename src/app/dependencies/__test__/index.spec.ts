@@ -1,27 +1,27 @@
-import { add, addDev, clearAll, get, getDev, has } from '../index';
+import * as dependencies from '../index';
 
 describe('Dependencies', () => {
   test('add', () => {
-    expect(add).toBeInstanceOf(Function);
+    expect(dependencies.add).toBeInstanceOf(Function);
   });
 
   test('addDev', () => {
-    expect(addDev).toBeInstanceOf(Function);
+    expect(dependencies.addDev).toBeInstanceOf(Function);
   });
 
   test('clearAll', () => {
-    expect(clearAll).toBeInstanceOf(Function);
+    expect(dependencies.clearAll).toBeInstanceOf(Function);
   });
 
   test('get', () => {
-    expect(get).toBeInstanceOf(Function);
+    expect(dependencies.get).toBeInstanceOf(Function);
   });
 
   test('getDev', () => {
-    expect(getDev).toBeInstanceOf(Function);
+    expect(dependencies.getDev).toBeInstanceOf(Function);
   });
 
   test('has', () => {
-    expect(has).toBeInstanceOf(Function);
+    expect(dependencies.has).toBeInstanceOf(Function);
   });
 });
