@@ -2,6 +2,11 @@ export interface Dependencies {
   [name: string]: string;
 }
 
+interface PackageJson {
+  dependencies?: Dependencies;
+  devDependencies?: Dependencies;
+}
+
 const dependencies: Set<string> = new Set();
 const devDependencies: Set<string> = new Set();
 
@@ -22,6 +27,16 @@ export const addDev = (names: string[] | string): void => {
     names.forEach((name: string): void => {
       devDependencies.add(name);
     });
+  }
+};
+
+export const addFromPkg = (pkg: PackageJson = {}): void => {
+  if (pkg.dependencies) {
+    add(Object.keys(pkg.dependencies));
+  }
+
+  if (pkg.devDependencies) {
+    addDev(Object.keys(pkg.devDependencies));
   }
 };
 

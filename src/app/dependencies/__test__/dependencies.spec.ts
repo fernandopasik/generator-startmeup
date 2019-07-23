@@ -1,4 +1,4 @@
-import { add, addDev, clearAll, get, getDev, has } from '../dependencies';
+import { add, addDev, addFromPkg, clearAll, get, getDev, has } from '../dependencies';
 
 describe('Dependencies', () => {
   describe('add', () => {
@@ -36,6 +36,66 @@ describe('Dependencies', () => {
 
       expect(has('eslint')).toBe(true);
       expect(has('jest')).toBe(true);
+    });
+  });
+
+  describe('addFromPkg', () => {
+    beforeEach(() => {
+      clearAll();
+    });
+
+    test('handle empty pkg', () => {
+      expect(() => addFromPkg()).not.toThrow();
+    });
+
+    test('no dependencies', () => {
+      addFromPkg({});
+
+      expect(get()).toStrictEqual([]);
+      expect(getDev()).toStrictEqual([]);
+    });
+
+    test('dependencies', () => {
+      addFromPkg({
+        dependencies: {
+          dep1: '*',
+          dep2: '*',
+          dep3: '*',
+        },
+      });
+
+      expect(get()).toStrictEqual(['dep1', 'dep2', 'dep3']);
+      expect(getDev()).toStrictEqual([]);
+    });
+
+    test('dev dependencies', () => {
+      addFromPkg({
+        devDependencies: {
+          dep1: '*',
+          dep2: '*',
+          dep3: '*',
+        },
+      });
+
+      expect(get()).toStrictEqual([]);
+      expect(getDev()).toStrictEqual(['dep1', 'dep2', 'dep3']);
+    });
+
+    test('dev dependencies and dependencies', () => {
+      addFromPkg({
+        dependencies: {
+          dep1: '*',
+          dep2: '*',
+          dep3: '*',
+        },
+        devDependencies: {
+          dep4: '*',
+          dep5: '*',
+        },
+      });
+
+      expect(get()).toStrictEqual(['dep1', 'dep2', 'dep3']);
+      expect(getDev()).toStrictEqual(['dep4', 'dep5']);
     });
   });
 
