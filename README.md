@@ -41,3 +41,12 @@ It's composed by a collection of subgenerators to do project tasks.
 - Asks for choosing one
 - Writes configuration files
 - Installs dependencies
+
+### Src folder
+
+1. Read dependencies
+2. Read existing `package.json`
+3. Merge dependencies, devDependencies, peerDependencies
+4. If using typescript then set `index.ts`, else set `index.js`
+5. If using react then set `x` at the end
+6. Write index file

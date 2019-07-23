@@ -3,7 +3,6 @@ const Generator = require('yeoman-generator');
 const dependencies = require('../app/dependencies');
 const compilerUtils = require('../compiler/compiler');
 const configReact = require('./react');
-const setupSrc = require('./setup-src');
 
 module.exports = class extends Generator {
   initializing() {
@@ -35,11 +34,6 @@ module.exports = class extends Generator {
     if (uiLibrary === 'react') {
       configReact.call(this, this.existingCompiler);
     }
-  }
-
-  writing() {
-    const { uiLibrary } = this.answers;
-    setupSrc.call(this, this.existingCompiler === 'typescript', uiLibrary === 'react');
   }
 
   install() {

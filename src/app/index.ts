@@ -14,6 +14,7 @@ export default class StartMeUpGenerator extends Generator {
       'lint',
       'hooks',
       'docs',
+      'src',
     ];
 
     subGenerators.forEach((subGenerator: string): void => {
