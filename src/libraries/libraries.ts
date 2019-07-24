@@ -38,7 +38,6 @@ export default class LibrariesGenerator extends Generator {
 
       if (has('@babel/core')) {
         addDev(['@babel/preset-react']);
-        // this.babelConfig.presets.push('@babel/preset-react');
       }
 
       if (has('typescript')) {

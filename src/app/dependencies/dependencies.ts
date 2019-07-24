@@ -46,6 +46,10 @@ export const clearAll = (): void => {
 };
 
 export const has = (name: string): boolean => dependencies.has(name) || devDependencies.has(name);
+export const hasAny = (names: string[]): boolean =>
+  names.reduce((response: boolean, name: string): boolean => {
+    return response || has(name);
+  }, false);
 
 export const get = (): string[] => Array.from(dependencies);
 export const getDev = (): string[] => Array.from(devDependencies);

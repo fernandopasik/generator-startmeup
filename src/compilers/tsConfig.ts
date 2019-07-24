@@ -1,4 +1,4 @@
-module.exports = {
+const tsConfig = {
   compilerOptions: {
     declaration: true,
     declarationMap: true,
@@ -28,3 +28,5 @@ module.exports = {
   include: ['src/**/*'],
   exclude: ['node_modules'],
 };
+
+export default tsConfig;
