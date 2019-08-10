@@ -9,7 +9,7 @@ export default class StartMeUpGenerator extends Generator {
       'init',
       'packagejson',
       'libraries',
-      'compiler',
+      'compilers',
       'test',
       'lint',
       'hooks',
