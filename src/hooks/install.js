@@ -2,7 +2,7 @@ const dependencies = require('../app/dependencies');
 
 module.exports = function install() {
   this.log('Install git hooks');
-
+  // eslint-disable-next-line prefer-object-spread
   const pkgJson = Object.assign({}, this.fs.readJSON(this.destinationPath('package.json')));
 
   const { scripts = {} } = pkgJson;
