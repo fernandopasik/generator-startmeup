@@ -1,90 +1,30 @@
 {
   "extends": [
     "airbnb-base",
+    "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
+    "plugin:jest/all",
+    "prettier",
+    "prettier/@typescript-eslint"
   ],
   "parser": "@typescript-eslint/parser",
   "env": {
     "browser": true
   },
-  "plugins": ["@typescript-eslint", "jest"],
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [".ts", ".js"]
-      }
-    }
-  },
   "overrides": [
     {
-      "files": [
-        "**/__mocks__/*.ts",
-        "**/__tests__/*.ts",
-        "**/*.spec.ts",
-        "**/__mocks__/*.js",
-        "**/__tests__/*.js",
-        "**/*.spec.js"
-      ],
-      "env": {
-        "jest": true
-      },
-      "rules": {
-        "@typescript-eslint/explicit-function-return-type": "off"
-      }
-    },
-    {
       "files": ["**/*.js"],
-      "env": {
-        "jest": true
-      },
       "rules": {
+        "@typescript-eslint/no-require-imports": "off",
         "@typescript-eslint/no-var-requires": "off"
       }
     }
   ],
   "rules": {
-    "@typescript-eslint/indent": ["error", 2],
-    "import/extensions": ["error", "never"],
     "class-methods-use-this": "off",
-    "jest/consistent-test-it": [
-      "error",
-      {
-        "fn": "test"
-      }
-    ],
-    "jest/expect-expect": "error",
-    "jest/lowercase-name": [
-      "error",
-      {
-        "ignore": ["describe"]
-      }
-    ],
-    "jest/no-alias-methods": "error",
-    "jest/no-disabled-tests": "error",
-    "jest/no-focused-tests": "error",
+    "jest/consistent-test-it": ["error", { "fn": "test" }],
+    "jest/lowercase-name": ["error", { "ignore": ["describe"] }],
     "jest/no-hooks": "off",
-    "jest/no-identical-title": "error",
-    "jest/no-jasmine-globals": "error",
-    "jest/no-jest-import": "error",
-    "jest/no-large-snapshots": "error",
-    "jest/no-test-callback": "error",
-    "jest/no-test-prefixes": "error",
-    "jest/no-test-return-statement": "error",
-    "jest/no-truthy-falsy": "error",
-    "jest/prefer-called-with": "error",
-    "jest/prefer-expect-assertions": "off",
-    "jest/prefer-inline-snapshots": "error",
-    "jest/prefer-spy-on": "error",
-    "jest/prefer-strict-equal": "error",
-    "jest/prefer-to-be-null": "error",
-    "jest/prefer-to-be-undefined": "error",
-    "jest/prefer-to-contain": "error",
-    "jest/prefer-to-have-length": "error",
-    "jest/prefer-todo": "error",
-    "jest/require-tothrow-message": "error",
-    "jest/valid-describe": "error",
-    "jest/valid-expect-in-promise": "error",
-    "jest/valid-expect": "error"
+    "jest/prefer-expect-assertions": "off"
   }
 }
