@@ -13,8 +13,8 @@ module.exports = function jest() {
 
     const files = [
       `**/__mocks__/*.${extensions[0]}`,
-      ...extensions.map(extension => `**/__tests__/*.${extension}`),
-      ...extensions.map(extension => `**/*.spec.${extension}`),
+      ...extensions.map((extension) => `**/__tests__/*.${extension}`),
+      ...extensions.map((extension) => `**/*.spec.${extension}`),
     ];
 
     const override = {

@@ -41,7 +41,7 @@ module.exports = class extends Generator {
       this.eslintConfig.env.node = true;
     }
 
-    Object.keys(this.eslintConfig).forEach(key => {
+    Object.keys(this.eslintConfig).forEach((key) => {
       const entry = this.eslintConfig[key];
       if (entry === '' || entry.length === 0 || Object.keys(entry).length === 0) {
         delete this.eslintConfig[key];
