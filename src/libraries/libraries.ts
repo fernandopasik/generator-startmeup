@@ -5,16 +5,14 @@ import { add, addDev, get, getDev, has, addFromPkg } from '../app/dependencies/i
 const LIBRARIES = ['lit-html', 'react'];
 
 export default class LibrariesGenerator extends Generator {
-  private answers: {
-    libraries?: string[];
-  } = {};
+  private libraries: string[] = [];
 
   public initializing(): void {
     addFromPkg(this.fs.readJSON('package.json'));
   }
 
   public async prompting(): Promise<void> {
-    this.answers = await this.prompt([
+    const { libraries } = await this.prompt([
       {
         type: 'checkbox',
         name: 'libraries',
@@ -23,16 +21,16 @@ export default class LibrariesGenerator extends Generator {
         default: LIBRARIES.filter((library: string): boolean => has(library)),
       },
     ]);
+
+    this.libraries = libraries;
   }
 
   public configuring(): void {
-    const { libraries = [] } = this.answers;
-
-    if (libraries.includes('lit-html')) {
+    if (this.libraries.includes('lit-html')) {
       add(['lit-html', 'lit-element']);
     }
 
-    if (libraries.includes('react')) {
+    if (this.libraries.includes('react')) {
       add(['react', 'react-dom']);
       addDev(['react-test-renderer']);
 
