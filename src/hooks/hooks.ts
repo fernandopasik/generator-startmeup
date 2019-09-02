@@ -75,7 +75,7 @@ export default class HooksGenerator extends Generator {
     const config: { hooks: Hooks } = { hooks: {} };
 
     if (has('@commitlint/cli')) {
-      config.hooks['commit-msg'] = 'commitlint -e $GIT_PARAMS';
+      config.hooks['commit-msg'] = 'commitlint -E HUSKY_GIT_PARAMS';
     }
 
     if (has('lint-staged')) {
