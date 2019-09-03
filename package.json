@@ -14,8 +14,8 @@
   "contributors": [],
   "main": "generators/app/index.js",
   "scripts": {
-    "build": "tsc",
     "prebuild": "del generators",
+    "build": "tsc",
     "postbuild": "cpy **/templates/* ../generators/ --cwd=src --parents",
     "lint": "eslint . --ext ts,js",
     "start": "yarn build -w",
