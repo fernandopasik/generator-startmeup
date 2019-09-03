@@ -1,6 +1,8 @@
 import Generator from 'yeoman-generator';
 import prettier from 'prettier';
+
 import { addDev, getDev, has, addFromPkg } from '../app/dependencies/index';
+import setJestConfig from './config';
 
 export default class TestingGenerator extends Generator {
   jestConfig: jest.InitialOptions = {};
@@ -12,19 +14,13 @@ export default class TestingGenerator extends Generator {
   public configuring(): void {
     addDev(['jest']);
 
-    this.jestConfig.collectCoverageFrom = [
-      `src/**/*.${has('typescript') ? 't' : 'j'}s${has('react') ? '{,x}' : ''}`,
-    ];
-
-    this.jestConfig.testEnvironment = 'node';
-
     if (has('@babel/core')) {
-      this.jestConfig.transform = { '^.+\\.[t|j]sx?$': 'babel-jest' };
       addDev(['babel-jest']);
     } else if (has('typescript')) {
-      this.jestConfig.transform = { '^.+\\.[t|j]sx?$': 'ts-jest' };
       addDev(['ts-jest']);
     }
+
+    this.jestConfig = setJestConfig();
   }
 
   public writing(): void {
