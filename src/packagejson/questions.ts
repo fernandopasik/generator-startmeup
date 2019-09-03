@@ -9,6 +9,8 @@ const {
   prototype: { user },
 } = yeomanGenerator;
 
+const LICENSES = ['MIT', 'UNLICENSED'];
+
 const questions: Question[] = [
   {
     name: 'name',
@@ -69,6 +71,13 @@ const questions: Question[] = [
     message: 'What is your github url?',
     default: (props: Answers): string => `https://github.com/${props.githubUsername}/${props.name}`,
     when: (props: Answers): boolean => !!props.github,
+  },
+  {
+    name: 'license',
+    type: 'list',
+    message: 'What kind of license do you want?',
+    choices: LICENSES,
+    default: LICENSES[0],
   },
 ];
 

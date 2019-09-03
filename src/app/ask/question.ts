@@ -1,11 +1,15 @@
 import 'core-js/features/array/flat-map';
 import { Answers, Question as InquirerQuestion } from 'inquirer';
 
-export type SubQuestion = InquirerQuestion & {
+interface InquirerQuestions extends InquirerQuestion {
+  choices?: string[];
+}
+
+export type SubQuestion = InquirerQuestions & {
   name: string;
 };
 
-export type Question = InquirerQuestion & {
+export type Question = InquirerQuestions & {
   name: string;
   questions?: Question[];
 };
