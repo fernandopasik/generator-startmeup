@@ -16,6 +16,7 @@ export default class StartMeUpGenerator extends Generator {
       'lint',
       'hooks',
       'docs',
+      'commit-lint',
       'src',
     ];
 
