@@ -10,11 +10,13 @@ export default class LintGenerator extends Generator {
 
   public initializing(): void {
     addFromPkg(this.fs.readJSON('package.json'));
-    this.eslintConfig = this.fs.readJSON(this.destinationPath('.eslintrc.json'));
+    this.eslintConfig = this.fs.readJSON(this.destinationPath('.eslintrc.json')) || {};
   }
 
   public configuring(): void {
     addDev(['eslint']);
+
+    this.eslintConfig.extends = [];
 
     if (has('react')) {
       addDev([
@@ -23,10 +25,10 @@ export default class LintGenerator extends Generator {
         'eslint-plugin-jsx-a11y',
         'eslint-plugin-react',
       ]);
-      this.eslintConfig.extends = ['airbnb'];
+      this.eslintConfig.extends.push('airbnb');
     } else {
       addDev(['eslint-config-airbnb-base', 'eslint-plugin-import']);
-      this.eslintConfig.extends = ['airbnb-base'];
+      this.eslintConfig.extends.push('airbnb-base');
     }
 
     if (has('typescript')) {
