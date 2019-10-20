@@ -6,8 +6,6 @@ interface Hooks {
 }
 
 export default class HooksGenerator extends Generator {
-  confirm?: boolean;
-
   public initializing(): void {
     addFromPkg(this.fs.readJSON('package.json'));
   }
