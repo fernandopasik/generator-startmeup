@@ -17,7 +17,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "outDir": "generators",
-    "rootDir": "src",
+    "rootDirs": ["src"],
     "sourceMap": false,
     "strict": true,
     "strictBindCallApply": true,
