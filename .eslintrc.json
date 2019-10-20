@@ -8,9 +8,7 @@
     "prettier/@typescript-eslint"
   ],
   "parser": "@typescript-eslint/parser",
-  "env": {
-    "browser": true
-  },
+  "env": { "browser": true },
   "overrides": [
     {
       "files": ["**/*.js"],
