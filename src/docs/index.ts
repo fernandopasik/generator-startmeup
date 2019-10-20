@@ -2,7 +2,7 @@ import Generator from 'yeoman-generator';
 import path from 'path';
 import { Answers } from 'inquirer';
 
-import ask, { Question } from '../app/ask';
+import ask from '../app/ask';
 import { PackageJson } from '../packagejson/package-json';
 import parse, { Parsed } from '../packagejson/parse';
 import questions from './questions';
@@ -22,7 +22,7 @@ module.exports = class extends Generator {
   }
 
   public async prompting(): Promise<void> {
-    this.answers = await ask(questions as Question[], this.parameters as Answers);
+    this.answers = await ask(questions, this.parameters as Answers);
   }
 
   public writing(): void {

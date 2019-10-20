@@ -5,7 +5,7 @@ import { Answers } from 'inquirer';
 import parse, { Parsed } from './parse';
 import compose from './compose';
 import questions from './questions';
-import ask, { Question } from '../app/ask';
+import ask from '../app/ask';
 
 import { PackageJson } from './package-json';
 
@@ -24,7 +24,7 @@ export default class PackageJsonGenerator extends Generator {
   }
 
   public async prompting(): Promise<void> {
-    this.answers = await ask(questions as Question[], this.parameters as Answers);
+    this.answers = await ask(questions, this.parameters as Answers);
   }
 
   public async writing(): Promise<void> {
