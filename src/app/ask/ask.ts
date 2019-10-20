@@ -9,7 +9,7 @@ import {
 } from './question';
 import { flatten as flattenAnswers, get as getAnswers, areUnanswered, rememberAll } from './answer';
 
-const ask = (questions: Question[], defaultValues: Answers = {}): Promise<Answers> => {
+const ask = async (questions: Question[], defaultValues: Answers = {}): Promise<Answers> => {
   const flattenedQuestions = flattenQuestions(questions);
   const flattenedQuestionNames = getNames(flattenedQuestions);
   const flattenedDefaults = flattenAnswers(defaultValues);
@@ -21,7 +21,7 @@ const ask = (questions: Question[], defaultValues: Answers = {}): Promise<Answer
 
   const questionsToAsk = setDefaultValues(unansweredQuestions, flattenedDefaults);
 
-  return inquirer.prompt(questionsToAsk).then(
+  const prompted = await inquirer.prompt(questionsToAsk).then(
     (answers: Answers): Answers => {
       rememberAll(flattenAnswers(answers));
       return {
@@ -30,6 +30,8 @@ const ask = (questions: Question[], defaultValues: Answers = {}): Promise<Answer
       };
     },
   );
+
+  return prompted;
 };
 
 export default ask;
