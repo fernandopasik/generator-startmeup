@@ -9,15 +9,6 @@
   ],
   "parserOptions": { "project": "./tsconfig.all.json" },
   "env": { "browser": true },
-  "overrides": [
-    {
-      "files": ["**/*.js"],
-      "rules": {
-        "@typescript-eslint/no-require-imports": "off",
-        "@typescript-eslint/no-var-requires": "off"
-      }
-    }
-  ],
   "rules": {
     "class-methods-use-this": "off",
     "jest/no-hooks": "off",
