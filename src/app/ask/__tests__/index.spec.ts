@@ -1,7 +1,7 @@
 import * as ask from '../index';
 
 describe('Ask', () => {
-  test('default', () => {
+  it('default', () => {
     expect(ask.default).toBeInstanceOf(Function);
   });
 });

@@ -2,11 +2,11 @@ import { Question, flatten, getNames, setDefaultValue, setDefaultValues } from '
 
 describe('Question', () => {
   describe('getNames', () => {
-    test('from empty', () => {
+    it('from empty', () => {
       expect(getNames([])).toStrictEqual([]);
     });
 
-    test('from questions', () => {
+    it('from questions', () => {
       const questions: Question[] = [
         { name: 'question1', default: 'default1', type: 'input' },
         { name: 'question2', default: 'default2', type: 'input' },
@@ -20,7 +20,7 @@ describe('Question', () => {
   });
 
   describe('setDefaultValue', () => {
-    test('receives a question and default value and sets on it', () => {
+    it('receives a question and default value and sets on it', () => {
       const question: Question & { name: string } = {
         name: 'question1',
         default: 'originalDefault',
@@ -33,7 +33,7 @@ describe('Question', () => {
       expect(newQuestion).toHaveProperty('default', defaultValue);
     });
 
-    test('receives a question and keeps its existing default value', () => {
+    it('receives a question and keeps its existing default value', () => {
       const question: Question & { name: string } = {
         name: 'question1',
         default: 'originalDefault',
@@ -48,12 +48,12 @@ describe('Question', () => {
   });
 
   describe('setDefaultValues', () => {
-    test('handles empty group of questions', () => {
+    it('handles empty group of questions', () => {
       expect(setDefaultValues()).toStrictEqual([]);
       expect(setDefaultValues([])).toStrictEqual([]);
     });
 
-    test('receives a group of questions and defaults and sets them', () => {
+    it('receives a group of questions and defaults and sets them', () => {
       const questions: Question[] = [
         { name: 'question1', default: 'default1', type: 'input' },
         { name: 'question2', default: 'default2', type: 'input' },
@@ -75,7 +75,7 @@ describe('Question', () => {
       ]);
     });
 
-    test('receives a group of questions and some defaults and sets only some', () => {
+    it('receives a group of questions and some defaults and sets only some', () => {
       const questions: Question[] = [
         { name: 'question1', default: 'default1', type: 'input' },
         { name: 'question2', default: 'default2', type: 'input' },
@@ -96,7 +96,7 @@ describe('Question', () => {
       ]);
     });
 
-    test('receives a group of questions and no defaults and keeps originals', () => {
+    it('receives a group of questions and no defaults and keeps originals', () => {
       const questions: Question[] = [
         { name: 'question1', default: 'default1', type: 'input' },
         { name: 'question2', default: 'default2', type: 'input' },
@@ -110,12 +110,12 @@ describe('Question', () => {
   });
 
   describe('flatten', () => {
-    test('handles empty questions', () => {
+    it('handles empty questions', () => {
       expect(flatten()).toStrictEqual([]);
       expect(flatten([])).toStrictEqual([]);
     });
 
-    test('keeps originals if no nested questions', () => {
+    it('keeps originals if no nested questions', () => {
       const questions: Question[] = [
         { name: 'question1', default: 'default1', type: 'input' },
         { name: 'question2', default: 'default2', type: 'input' },
@@ -127,7 +127,7 @@ describe('Question', () => {
       expect(flattened).toStrictEqual(questions);
     });
 
-    test('flattens nested questions', () => {
+    it('flattens nested questions', () => {
       const questions: Question[] = [
         { name: 'question1', default: 'default1', type: 'input' },
         {
@@ -145,7 +145,7 @@ describe('Question', () => {
       expect(flattened).toHaveLength(4);
     });
 
-    test('flattens nested questions with name composed with parent', () => {
+    it('flattens nested questions with name composed with parent', () => {
       const questions: Question[] = [
         { name: 'question1', default: 'default1', type: 'input' },
         {
@@ -168,7 +168,7 @@ describe('Question', () => {
       ]);
     });
 
-    test('flattens nested questions with name composed with parent with more than 2 levels', () => {
+    it('flattens nested questions with name composed with parent with more than 2 levels', () => {
       const questions: Question[] = [
         {
           name: 'question1',

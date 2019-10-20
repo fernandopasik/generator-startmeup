@@ -6,13 +6,13 @@ describe('Dependencies', () => {
       clearAll();
     });
 
-    test('one new dependency', () => {
+    it('one new dependency', () => {
       add('jquery');
 
       expect(has('jquery')).toBe(true);
     });
 
-    test('some new dependencies', () => {
+    it('some new dependencies', () => {
       add(['jquery', 'lodash']);
 
       expect(has('jquery')).toBe(true);
@@ -25,13 +25,13 @@ describe('Dependencies', () => {
       clearAll();
     });
 
-    test('one new dev dependency', () => {
+    it('one new dev dependency', () => {
       addDev('jest');
 
       expect(has('jest')).toBe(true);
     });
 
-    test('some new dev dependencies', () => {
+    it('some new dev dependencies', () => {
       addDev(['eslint', 'jest']);
 
       expect(has('eslint')).toBe(true);
@@ -44,18 +44,18 @@ describe('Dependencies', () => {
       clearAll();
     });
 
-    test('handle empty pkg', () => {
+    it('handle empty pkg', () => {
       expect(() => addFromPkg()).not.toThrow();
     });
 
-    test('no dependencies', () => {
+    it('no dependencies', () => {
       addFromPkg({});
 
       expect(get()).toStrictEqual([]);
       expect(getDev()).toStrictEqual([]);
     });
 
-    test('dependencies', () => {
+    it('dependencies', () => {
       addFromPkg({
         dependencies: {
           dep1: '*',
@@ -68,7 +68,7 @@ describe('Dependencies', () => {
       expect(getDev()).toStrictEqual([]);
     });
 
-    test('dev dependencies', () => {
+    it('dev dependencies', () => {
       addFromPkg({
         devDependencies: {
           dep1: '*',
@@ -81,7 +81,7 @@ describe('Dependencies', () => {
       expect(getDev()).toStrictEqual(['dep1', 'dep2', 'dep3']);
     });
 
-    test('dev dependencies and dependencies', () => {
+    it('dev dependencies and dependencies', () => {
       addFromPkg({
         dependencies: {
           dep1: '*',
@@ -104,7 +104,7 @@ describe('Dependencies', () => {
       clearAll();
     });
 
-    test('in dev dependencies or dependencies', () => {
+    it('in dev dependencies or dependencies', () => {
       addDev('eslint');
       add('jquery');
 
@@ -118,11 +118,11 @@ describe('Dependencies', () => {
       clearAll();
     });
 
-    test('empty dependencies', () => {
+    it('empty dependencies', () => {
       expect(get()).toStrictEqual([]);
     });
 
-    test('all dependencies', () => {
+    it('all dependencies', () => {
       const deps = ['jquery', 'lodash'];
       add(deps);
 
@@ -135,11 +135,11 @@ describe('Dependencies', () => {
       clearAll();
     });
 
-    test('empty dev dependencies', () => {
+    it('empty dev dependencies', () => {
       expect(getDev()).toStrictEqual([]);
     });
 
-    test('all dev dependencies', () => {
+    it('all dev dependencies', () => {
       const deps = ['eslint', 'jest'];
       addDev(deps);
 

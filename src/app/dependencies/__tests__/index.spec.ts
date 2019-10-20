@@ -1,27 +1,27 @@
 import * as dependencies from '../index';
 
 describe('Dependencies', () => {
-  test('add', () => {
+  it('add', () => {
     expect(dependencies.add).toBeInstanceOf(Function);
   });
 
-  test('addDev', () => {
+  it('addDev', () => {
     expect(dependencies.addDev).toBeInstanceOf(Function);
   });
 
-  test('clearAll', () => {
+  it('clearAll', () => {
     expect(dependencies.clearAll).toBeInstanceOf(Function);
   });
 
-  test('get', () => {
+  it('get', () => {
     expect(dependencies.get).toBeInstanceOf(Function);
   });
 
-  test('getDev', () => {
+  it('getDev', () => {
     expect(dependencies.getDev).toBeInstanceOf(Function);
   });
 
-  test('has', () => {
+  it('has', () => {
     expect(dependencies.has).toBeInstanceOf(Function);
   });
 });

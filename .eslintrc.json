@@ -20,7 +20,6 @@
   ],
   "rules": {
     "class-methods-use-this": "off",
-    "jest/consistent-test-it": ["error", { "fn": "test" }],
     "jest/lowercase-name": ["error", { "ignore": ["describe"] }],
     "jest/no-hooks": "off",
     "jest/prefer-expect-assertions": "off"
