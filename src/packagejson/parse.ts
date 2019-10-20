@@ -23,8 +23,8 @@ const parse = (pkg: PackageJson): Parsed => {
   if (typeof author === 'string') {
     parsedAuthor = {};
     parsedAuthor.name = author.replace(/\s?[(<].*/g, '');
-    [, parsedAuthor.email = undefined] = author.match(/<([^>]+)>/) || [];
-    [, parsedAuthor.url = undefined] = author.match(/\(([^)]+)\)/) || [];
+    [, parsedAuthor.email = undefined] = /<([^>]+)>/.exec(author) || [];
+    [, parsedAuthor.url = undefined] = /\(([^)]+)\)/.exec(author) || [];
   } else {
     parsedAuthor = author;
   }
@@ -37,7 +37,7 @@ const parse = (pkg: PackageJson): Parsed => {
     repoUrl = repository;
   }
 
-  const isGitRepo = !!repoUrl && !!repoUrl.match(/github\.com/);
+  const isGitRepo = Boolean(repoUrl && repoUrl.includes('github.com'));
 
   const parsed = {
     name,
