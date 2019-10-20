@@ -27,7 +27,7 @@ export default class PackageJsonGenerator extends Generator {
     this.answers = await ask(questions, this.parameters as Answers);
   }
 
-  public async writing(): Promise<void> {
+  public writing(): void {
     const pkg = {
       ...this.pkg,
       ...compose(this.answers as Parsed),
