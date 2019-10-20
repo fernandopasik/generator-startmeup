@@ -2,7 +2,7 @@ import Generator from 'yeoman-generator';
 import { addDev, getDev, addFromPkg } from '../app/dependencies/index';
 
 export default class CommitLintGenerator extends Generator {
-  confirm?: boolean;
+  private confirm?: boolean;
 
   public initializing(): void {
     addFromPkg(this.fs.readJSON('package.json'));

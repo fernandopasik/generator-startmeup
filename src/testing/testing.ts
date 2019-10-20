@@ -5,7 +5,7 @@ import { addDev, getDev, has, addFromPkg } from '../app/dependencies/index';
 import setJestConfig from './config';
 
 export default class TestingGenerator extends Generator {
-  jestConfig: jest.InitialOptions = {};
+  private jestConfig: jest.InitialOptions = {};
 
   public initializing(): void {
     addFromPkg(this.fs.readJSON('package.json'));

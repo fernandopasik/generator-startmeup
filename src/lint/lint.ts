@@ -6,7 +6,7 @@ import { Linter } from 'eslint';
 import { addDev, getDev, has, addFromPkg } from '../app/dependencies/index';
 
 export default class LintGenerator extends Generator {
-  eslintConfig: Linter.Config = {};
+  private eslintConfig: Linter.Config = {};
 
   public initializing(): void {
     addFromPkg(this.fs.readJSON('package.json'));
