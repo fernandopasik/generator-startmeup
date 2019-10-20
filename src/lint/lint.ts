@@ -9,8 +9,8 @@ export default class LintGenerator extends Generator {
   private eslintConfig: Linter.Config = {};
 
   public initializing(): void {
-    addFromPkg(this.fs.readJSON('package.json'));
-    this.eslintConfig = this.fs.readJSON(this.destinationPath('.eslintrc.json')) || {};
+    addFromPkg(this.fs.readJSON('package.json', {}));
+    this.eslintConfig = this.fs.readJSON(this.destinationPath('.eslintrc.json'), {});
   }
 
   public configuring(): void {

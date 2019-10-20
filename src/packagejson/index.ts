@@ -17,7 +17,7 @@ export default class PackageJsonGenerator extends Generator {
   private answers?: Answers;
 
   public initializing(): void {
-    this.pkg = this.fs.readJSON('package.json') || {};
+    this.pkg = this.fs.readJSON('package.json', {});
     if (this.pkg) {
       this.parameters = parse(this.pkg);
     }
