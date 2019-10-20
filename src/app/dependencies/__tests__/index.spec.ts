@@ -1,6 +1,6 @@
 import * as dependencies from '../index';
 
-describe('Dependencies', () => {
+describe('dependencies', () => {
   it('add', () => {
     expect(dependencies.add).toBeInstanceOf(Function);
   });

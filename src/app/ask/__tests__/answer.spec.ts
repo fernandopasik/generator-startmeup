@@ -10,7 +10,7 @@ import {
   areUnanswered,
 } from '../answer';
 
-describe('Answer', () => {
+describe('answer', () => {
   describe('remember', () => {
     beforeEach(() => {
       forgetAll();

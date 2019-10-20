@@ -11,7 +11,7 @@ const minimumParsed = {
   github: false,
 };
 
-describe('Parse package.json and get', () => {
+describe('parse package.json and get', () => {
   it('name', () => {
     const name = 'example-app';
     const parsed = parse({ ...minimumPkg, name });
@@ -128,7 +128,7 @@ describe('Parse package.json and get', () => {
     });
   });
 
-  describe('Github Confirm', () => {
+  describe('github Confirm', () => {
     it('from undefined repository', () => {
       const { github } = parse({ ...minimumPkg });
       expect(github).toBe(false);
@@ -163,7 +163,7 @@ describe('Parse package.json and get', () => {
     });
   });
 
-  describe('Github Url', () => {
+  describe('github Url', () => {
     it('from undefined repository', () => {
       const { githubUrl } = parse({ ...minimumPkg });
       expect(githubUrl).toBeUndefined();

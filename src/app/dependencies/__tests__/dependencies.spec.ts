@@ -1,6 +1,6 @@
 import { add, addDev, addFromPkg, clearAll, get, getDev, has } from '../dependencies';
 
-describe('Dependencies', () => {
+describe('dependencies', () => {
   describe('add', () => {
     beforeEach(() => {
       clearAll();

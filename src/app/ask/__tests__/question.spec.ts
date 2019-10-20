@@ -1,6 +1,6 @@
 import { Question, flatten, getNames, setDefaultValue, setDefaultValues } from '../question';
 
-describe('Question', () => {
+describe('question', () => {
   describe('getNames', () => {
     it('from empty', () => {
       expect(getNames([])).toStrictEqual([]);

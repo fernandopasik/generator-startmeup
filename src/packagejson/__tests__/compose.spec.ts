@@ -6,7 +6,7 @@ const minimumParsed = {
   github: false,
 };
 
-describe('Compose package.json from', () => {
+describe('compose package.json from', () => {
   it('name', () => {
     const name = 'example-app';
     const pkg = compose({ ...minimumParsed, name });
