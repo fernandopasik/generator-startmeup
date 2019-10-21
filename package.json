@@ -24,7 +24,7 @@
     "preversion": "yarn lint && yarn test && yarn build"
   },
   "dependencies": {
-    "core-js": "^3.3.2",
+    "core-js": "^3.3.3",
     "github-username": "^5.0.1",
     "inquirer": "^7.0.0",
     "lodash": "^4.17.15",
@@ -43,8 +43,8 @@
     "@types/prettier": "^1.18.3",
     "@types/yeoman-generator": "^3.1.4",
     "@types/yosay": "^0.0.29",
-    "@typescript-eslint/eslint-plugin": "^2.4.0",
-    "@typescript-eslint/parser": "^2.4.0",
+    "@typescript-eslint/eslint-plugin": "^2.5.0",
+    "@typescript-eslint/parser": "^2.5.0",
     "codecov": "^3.6.1",
     "cpy-cli": "^2.0.0",
     "del-cli": "^3.0.0",
