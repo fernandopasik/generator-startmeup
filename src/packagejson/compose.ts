@@ -8,7 +8,7 @@ interface Author {
   url?: string;
 }
 
-const composeAuthor = (author: Author): string =>
+const composeAuthor = (author: Author = {}): string =>
   [author.name, author.email && ` <${author.email}>`, author.url && ` (${author.url})`]
     .join('')
     .trim();
@@ -43,7 +43,7 @@ const compose = ({
     name,
     version,
     description,
-    author: composeAuthor(author || {}),
+    author: composeAuthor(author),
     ...(!githubUrl ? {} : composeGithubUrl(githubUrl)),
     license,
   };
