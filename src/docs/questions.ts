@@ -36,14 +36,14 @@ const questions: Question[] = [
         type: 'input',
         message: 'What is your email?',
         default: (): string => user.git.email(),
-        when: (props: Answers): boolean => !!props.author.name,
+        when: (props: Answers): boolean => Boolean(props.author.name),
       },
       {
         name: 'url',
         type: 'input',
         message: 'What is your url?',
         default: '',
-        when: (props: Answers): boolean => !!props.author.name,
+        when: (props: Answers): boolean => Boolean(props.author.name),
       },
     ],
   },
@@ -61,14 +61,14 @@ const questions: Question[] = [
       const username = await githubUsername(props.author.email);
       return username;
     },
-    when: (props: Answers): boolean => !!props.github,
+    when: (props: Answers): boolean => Boolean(props.github),
   },
   {
     name: 'githubUrl',
     type: 'input',
     message: 'What is your github url?',
     default: (props: Answers): string => `https://github.com/${props.githubUsername}/${props.name}`,
-    when: (props: Answers): boolean => !!props.github,
+    when: (props: Answers): boolean => Boolean(props.github),
   },
 ];
 
