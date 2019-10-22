@@ -40,9 +40,9 @@ export const forgetAll = (): void => memory.clear();
 export const areUnanswered = (questionNames: string[]): string[] =>
   questionNames.filter((questionName: string): boolean => !memory.has(questionName));
 
-export const flatten = (answers: Answers, namePrefix: string = ''): Answers =>
+export const flatten = (answers: Answers, namePrefix?: string): Answers =>
   Object.keys(answers).reduce((flattened: Answers, answerName: string): Answers => {
-    const name = namePrefix ? `${namePrefix}.${answerName}` : answerName;
+    const name = typeof namePrefix !== 'undefined' ? `${namePrefix}.${answerName}` : answerName;
     if (typeof answers[answerName] === 'object') {
       return {
         ...flattened,
