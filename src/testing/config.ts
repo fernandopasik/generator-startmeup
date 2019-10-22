@@ -1,10 +1,14 @@
 import { has } from '../app/dependencies/index';
 
-export const getCoveragePattern = (hasTypescript = false, hasReact = false): string =>
-  `src/**/*.${hasTypescript ? 't' : 'j'}s${hasReact ? '{,x}' : ''}`;
+export const getCoveragePattern = (
+  hasTypescript: boolean = false,
+  hasReact: boolean = false,
+): string => `src/**/*.${hasTypescript ? 't' : 'j'}s${hasReact ? '{,x}' : ''}`;
 
-export const getTransformPattern = (hasTypescript = false, hasReact = false): string =>
-  `^.+\\.${hasTypescript ? '[t|j]' : 'j'}s${hasReact ? 'x?' : ''}$`;
+export const getTransformPattern = (
+  hasTypescript: boolean = false,
+  hasReact: boolean = false,
+): string => `^.+\\.${hasTypescript ? '[t|j]' : 'j'}s${hasReact ? 'x?' : ''}$`;
 
 const setJestConfig = (existingConfig: jest.InitialOptions = {}): jest.InitialOptions => {
   const config: jest.InitialOptions = {
