@@ -10,6 +10,7 @@ const {
 } = yeomanGenerator;
 
 const LICENSES = ['MIT', 'UNLICENSED'];
+const [DEFAULT_LICENSE] = LICENSES;
 
 const questions: Question[] = [
   {
@@ -77,7 +78,7 @@ const questions: Question[] = [
     type: 'list',
     message: 'What kind of license do you want?',
     choices: LICENSES,
-    default: LICENSES[0],
+    default: DEFAULT_LICENSE,
   },
 ];
 
