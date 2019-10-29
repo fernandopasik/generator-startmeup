@@ -37,7 +37,7 @@ const parse = (pkg: PackageJson): Parsed => {
     repoUrl = repository;
   }
 
-  const isGitRepo = Boolean(repoUrl && repoUrl.includes('github.com'));
+  const isGitRepo = typeof repoUrl !== 'undefined' && repoUrl.includes('github.com');
 
   const parsed = {
     name,
@@ -45,7 +45,8 @@ const parse = (pkg: PackageJson): Parsed => {
     description,
     author: omitBy(parsedAuthor, isEmpty),
     github: isGitRepo,
-    githubUrl: isGitRepo ? repoUrl && repoUrl.replace(/.git$/, '') : undefined,
+    githubUrl:
+      isGitRepo && typeof repoUrl !== 'undefined' ? repoUrl.replace(/.git$/, '') : undefined,
     license,
   };
 
