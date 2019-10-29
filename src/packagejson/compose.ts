@@ -44,7 +44,7 @@ const compose = ({
     version,
     description,
     author: composeAuthor(author),
-    ...(!githubUrl ? {} : composeGithubUrl(githubUrl)),
+    ...(typeof githubUrl === 'undefined' ? {} : composeGithubUrl(githubUrl)),
     license,
   };
 

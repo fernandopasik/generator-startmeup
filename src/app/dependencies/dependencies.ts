@@ -31,11 +31,11 @@ export const addDev = (names: string[] | string): void => {
 };
 
 export const addFromPkg = (pkg: PackageJson = {}): void => {
-  if (pkg.dependencies) {
+  if ('dependencies' in pkg && typeof pkg.dependencies === 'object') {
     add(Object.keys(pkg.dependencies));
   }
 
-  if (pkg.devDependencies) {
+  if ('devDependencies' in pkg && typeof pkg.devDependencies === 'object') {
     addDev(Object.keys(pkg.devDependencies));
   }
 };
