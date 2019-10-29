@@ -7,11 +7,13 @@
     "prettier",
     "prettier/@typescript-eslint"
   ],
+  "plugins": ["prettier"],
   "parserOptions": { "project": "./tsconfig.all.json" },
   "env": { "browser": true },
   "rules": {
+    "@typescript-eslint/no-inferrable-types": ["error", { "ignoreParameters": true }],
     "jest/no-hooks": "off",
     "jest/prefer-expect-assertions": "off",
-    "@typescript-eslint/no-inferrable-types": ["error", { "ignoreParameters": true }]
+    "prettier/prettier": "error"
   }
 }
