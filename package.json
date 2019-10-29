@@ -24,7 +24,7 @@
     "preversion": "yarn lint && yarn test && yarn build"
   },
   "dependencies": {
-    "core-js": "^3.3.4",
+    "core-js": "^3.3.5",
     "github-username": "^5.0.1",
     "inquirer": "^7.0.0",
     "lodash": "^4.17.15",
@@ -43,8 +43,8 @@
     "@types/prettier": "^1.18.3",
     "@types/yeoman-generator": "^3.1.4",
     "@types/yosay": "^0.0.29",
-    "@typescript-eslint/eslint-plugin": "^2.5.0",
-    "@typescript-eslint/parser": "^2.5.0",
+    "@typescript-eslint/eslint-plugin": "^2.6.0",
+    "@typescript-eslint/parser": "^2.6.0",
     "codecov": "^3.6.1",
     "cpy-cli": "^2.0.0",
     "del-cli": "^3.0.0",
@@ -52,7 +52,7 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^23.0.0",
+    "eslint-plugin-jest": "^23.0.2",
     "eslint-plugin-prettier": "^3.1.1",
     "husky": "^3.0.9",
     "jest": "^24.9.0",
