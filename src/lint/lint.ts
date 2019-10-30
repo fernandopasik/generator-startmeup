@@ -72,6 +72,11 @@ export default class LintGenerator extends Generator {
     if (has('prettier')) {
       addDev(['eslint-config-prettier', 'eslint-plugin-prettier']);
       plugins.push('prettier');
+
+      if (this.eslintConfig.rules) {
+        delete this.eslintConfig.rules['prettier/prettier'];
+      }
+
       this.eslintConfig.extends.push('plugin:prettier/recommended');
 
       if (has('typescript')) {
