@@ -14,6 +14,7 @@ export default class LintGenerator extends Generator {
   }
 
   public configuring(): void {
+    const plugins: string[] = [];
     addDev(['eslint']);
 
     this.eslintConfig.extends = [];
@@ -25,14 +26,17 @@ export default class LintGenerator extends Generator {
         'eslint-plugin-jsx-a11y',
         'eslint-plugin-react',
       ]);
+      plugins.push('import', 'jsx-a11y', 'react');
       this.eslintConfig.extends.push('airbnb');
     } else {
       addDev(['eslint-config-airbnb-base', 'eslint-plugin-import']);
+      plugins.push('import');
       this.eslintConfig.extends.push('airbnb-base');
     }
 
     if (has('typescript')) {
       addDev(['@typescript-eslint/eslint-plugin', '@typescript-eslint/parser']);
+      plugins.push('typescript');
       this.eslintConfig.extends.push(
         'plugin:import/typescript',
         'plugin:@typescript-eslint/recommended',
@@ -44,11 +48,13 @@ export default class LintGenerator extends Generator {
 
     if (has('lit-html')) {
       addDev(['eslint-plugin-lit']);
+      plugins.push('lit');
       this.eslintConfig.extends.push('plugin:lit/all');
     }
 
     if (has('jest')) {
       addDev(['eslint-plugin-jest']);
+      plugins.push('jest');
       this.eslintConfig.extends.push('plugin:jest/all');
       this.eslintConfig.rules = {
         ...this.eslintConfig.rules,
@@ -59,16 +65,24 @@ export default class LintGenerator extends Generator {
 
     if (has('flow-bin')) {
       addDev(['eslint-plugin-flowtype']);
+      plugins.push('flowtype');
       this.eslintConfig.extends.push('plugin:flowtype/recommended');
     }
 
     if (has('prettier')) {
       addDev(['eslint-config-prettier', 'eslint-plugin-prettier']);
+      plugins.push('prettier');
       this.eslintConfig.extends.push('plugin:prettier/recommended');
 
       if (has('typescript')) {
         this.eslintConfig.extends.push('prettier/@typescript-eslint');
       }
+    }
+
+    if (this.eslintConfig.plugins) {
+      this.eslintConfig.plugins = this.eslintConfig.plugins.filter(
+        (plugin) => !plugins.includes(plugin),
+      );
     }
   }
 
