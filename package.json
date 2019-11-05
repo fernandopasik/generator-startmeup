@@ -1,6 +1,6 @@
 {
   "name": "generator-startmeup",
-  "version": "0.16.4",
+  "version": "0.16.5",
   "description": "StartMeUp Yeoman Generator for starting a project with dotfiles and some common tools",
   "keywords": [],
   "homepage": "https://github.com/fernandopasik/generator-startmeup",
