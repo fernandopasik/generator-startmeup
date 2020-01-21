@@ -11,6 +11,7 @@
   "env": { "browser": true },
   "rules": {
     "@typescript-eslint/no-inferrable-types": ["error", { "ignoreParameters": true }],
+    "import/extensions": ["error", "never"],
     "jest/no-hooks": "off",
     "jest/prefer-expect-assertions": "off"
   }
