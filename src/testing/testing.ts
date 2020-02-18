@@ -20,6 +20,10 @@ export default class TestingGenerator extends Generator {
       addDev(['ts-jest']);
     }
 
+    if (has('typescript')) {
+      addDev(['@types/jest']);
+    }
+
     this.jestConfig = setJestConfig();
   }
 
