@@ -1,11 +1,12 @@
 import Generator from 'yeoman-generator';
 import prettier from 'prettier';
+import { Config } from '@jest/types';
 
 import { addDev, getDev, has, addFromPkg } from '../app/dependencies/index';
 import setJestConfig from './config';
 
 export default class TestingGenerator extends Generator {
-  private jestConfig: jest.InitialOptions = {};
+  private jestConfig: Config.InitialOptions = {};
 
   public initializing(): void {
     addFromPkg(this.fs.readJSON('package.json'));

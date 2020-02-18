@@ -1,3 +1,4 @@
+import { Config } from '@jest/types';
 import { has } from '../app/dependencies/index';
 
 export const getCoveragePattern = (
@@ -10,8 +11,8 @@ export const getTransformPattern = (
   hasReact: boolean = false,
 ): string => `^.+\\.${hasTypescript ? '[t|j]' : 'j'}s${hasReact ? 'x?' : ''}$`;
 
-const setJestConfig = (existingConfig: jest.InitialOptions = {}): jest.InitialOptions => {
-  const config: jest.InitialOptions = {
+const setJestConfig = (existingConfig: Config.InitialOptions = {}): Config.InitialOptions => {
+  const config: Config.InitialOptions = {
     collectCoverageFrom: [getCoveragePattern(has('typescript'), has('react'))],
     testEnvironment: 'node',
     ...existingConfig,

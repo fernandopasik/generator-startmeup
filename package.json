@@ -24,6 +24,7 @@
     "preversion": "yarn lint && yarn test && yarn build"
   },
   "dependencies": {
+    "@jest/types": "^25.1.0",
     "core-js": "^3.6.4",
     "github-username": "^5.0.1",
     "inquirer": "^7.0.4",
