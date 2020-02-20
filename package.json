@@ -21,7 +21,8 @@
     "lint": "eslint . --ext ts,js",
     "start": "yarn build -w",
     "test": "jest",
-    "preversion": "yarn lint && yarn test && yarn build"
+    "verify": "yarn lint && yarn test && yarn build",
+    "preversion": "yarn verify"
   },
   "dependencies": {
     "@jest/types": "^25.1.0",
