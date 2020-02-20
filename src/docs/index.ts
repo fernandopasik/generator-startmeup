@@ -30,6 +30,9 @@ module.exports = class extends Generator {
     const options = {
       githubUrl: '',
       ...this.answers,
+      author: {
+        name: this?.answers?.['author.name'],
+      },
       eslint: !!devDependencies.eslint,
       codecov: !!devDependencies.codecov,
       commitlint: !!devDependencies['@commitlint/cli'],
