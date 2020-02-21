@@ -35,7 +35,7 @@ export default class TestingGenerator extends Generator {
       singleQuote: true,
       trailingComma: 'all',
     });
-    this.fs.write(this.destinationPath('jest.config.js'), jestConfigJs);
+    this.fs.write(this.destinationPath('jest.config.cjs'), jestConfigJs);
   }
 
   public install(): void {
