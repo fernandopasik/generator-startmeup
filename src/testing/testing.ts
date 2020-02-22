@@ -2,7 +2,7 @@ import Generator from 'yeoman-generator';
 import prettier from 'prettier';
 import { Config } from '@jest/types';
 
-import { addDev, getDev, has, addFromPkg } from '../app/dependencies/index';
+import { addDev, getDev, hasDev, addFromPkg } from '../app/dependencies/index';
 import setJestConfig from './config';
 
 export default class TestingGenerator extends Generator {
@@ -15,14 +15,10 @@ export default class TestingGenerator extends Generator {
   public configuring(): void {
     addDev(['jest']);
 
-    if (has('@babel/core')) {
-      addDev(['babel-jest']);
-    } else if (has('typescript')) {
+    if (hasDev('typescript')) {
       addDev(['ts-jest']);
-    }
-
-    if (has('typescript')) {
-      addDev(['@types/jest']);
+    } else if (hasDev('@babel/core')) {
+      addDev(['babel-jest']);
     }
 
     this.jestConfig = setJestConfig();
