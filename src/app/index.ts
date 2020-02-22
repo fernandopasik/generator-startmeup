@@ -10,6 +10,7 @@ export default class StartMeUpGenerator extends Generator {
     const subGenerators = [
       'init',
       'packagejson',
+      'prettier',
       'libraries',
       'compilers',
       'testing',
