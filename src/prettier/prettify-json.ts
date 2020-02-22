@@ -1,10 +1,14 @@
 import prettier, { Options } from 'prettier';
 
-export interface AnyJson {
-  [key: string]: number | string | boolean | AnyJson | null;
+export type AnyJson = boolean | number | string | null | JsonArray | JsonMap;
+
+interface JsonMap {
+  [key: string]: AnyJson;
 }
 
 const prettifyJson = (json: AnyJson, config: Options): string =>
+type JsonArray = Array<AnyJson>;
+
   prettier.format(JSON.stringify(json, null, 2), { ...config, parser: 'json' });
 
 export default prettifyJson;
