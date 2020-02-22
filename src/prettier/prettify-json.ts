@@ -6,9 +6,9 @@ interface JsonMap {
   [key: string]: AnyJson;
 }
 
-const prettifyJson = (json: AnyJson, config: Options): string =>
 type JsonArray = Array<AnyJson>;
 
+const prettifyJson = (json: AnyJson, config: Options = {}): string =>
   prettier.format(JSON.stringify(json, null, 2), { ...config, parser: 'json' });
 
 export default prettifyJson;
