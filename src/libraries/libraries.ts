@@ -1,6 +1,6 @@
 import Generator from 'yeoman-generator';
 
-import { add, addDev, get, getDev, has, addFromPkg } from '../app/dependencies/index';
+import { add, addDev, get, getDev, has, hasDev, addFromPkg } from '../app/dependencies/index';
 
 const LIBRARIES = ['lit-html', 'react'];
 
@@ -34,11 +34,11 @@ export default class LibrariesGenerator extends Generator {
       add(['react', 'react-dom']);
       addDev(['react-test-renderer']);
 
-      if (has('@babel/core')) {
+      if (hasDev('@babel/core')) {
         addDev(['@babel/preset-react']);
       }
 
-      if (has('typescript')) {
+      if (hasDev('typescript')) {
         addDev(['@types/react', '@types/react-dom']);
       }
     }

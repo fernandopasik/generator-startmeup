@@ -51,5 +51,7 @@ export const hasAny = (names: string[]): boolean =>
     return response || has(name);
   }, false);
 
+export const hasDev = (name: string): boolean => devDependencies.has(name);
+
 export const get = (): string[] => Array.from(dependencies);
 export const getDev = (): string[] => Array.from(devDependencies);

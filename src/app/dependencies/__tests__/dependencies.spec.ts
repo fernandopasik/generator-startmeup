@@ -1,4 +1,4 @@
-import { add, addDev, addFromPkg, clearAll, get, getDev, has } from '../dependencies';
+import { add, addDev, addFromPkg, clearAll, get, getDev, has, hasDev } from '../dependencies';
 
 describe('dependencies', () => {
   describe('add', () => {
@@ -110,6 +110,32 @@ describe('dependencies', () => {
 
       expect(has('eslint')).toBe(true);
       expect(has('jquery')).toBe(true);
+    });
+  });
+
+  describe('hasDev', () => {
+    beforeEach(() => {
+      clearAll();
+    });
+
+    it('are empty', () => {
+      expect(hasDev('eslint')).toBe(false);
+    });
+
+    it('with one', () => {
+      addDev('eslint');
+      expect(hasDev('eslint')).toBe(true);
+    });
+
+    it('with more than one', () => {
+      addDev('eslint');
+      addDev('jest');
+      expect(hasDev('eslint')).toBe(true);
+    });
+
+    it('with none on dev', () => {
+      add('jquery');
+      expect(hasDev('jquery')).toBe(false);
     });
   });
 

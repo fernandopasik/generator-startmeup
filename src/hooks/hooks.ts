@@ -1,5 +1,5 @@
 import Generator from 'yeoman-generator';
-import { addDev, getDev, has, addFromPkg } from '../app/dependencies/index';
+import { addDev, getDev, has, hasDev, addFromPkg } from '../app/dependencies/index';
 
 interface Hooks {
   [name: string]: string;
@@ -14,15 +14,15 @@ export default class HooksGenerator extends Generator {
     const commands = [];
     const extensions = [];
 
-    if (has('eslint')) {
+    if (hasDev('eslint')) {
       commands.push('eslint');
     }
 
-    if (has('jest')) {
+    if (hasDev('jest')) {
       commands.push('jest --bail --findRelatedTests');
     }
 
-    if (has('typescript')) {
+    if (hasDev('typescript')) {
       extensions.push('ts');
 
       if (has('react')) {
@@ -46,7 +46,7 @@ export default class HooksGenerator extends Generator {
 
     const config: { hooks: Hooks } = { hooks: {} };
 
-    if (has('lint-staged')) {
+    if (hasDev('lint-staged')) {
       config.hooks['pre-commit'] = 'lint-staged';
     }
 

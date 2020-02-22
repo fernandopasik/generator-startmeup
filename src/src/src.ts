@@ -1,5 +1,5 @@
 import Generator from 'yeoman-generator';
-import { has, addFromPkg } from '../app/dependencies/index';
+import { has, hasDev, addFromPkg } from '../app/dependencies/index';
 
 export default class SrcGenerator extends Generator {
   public initializing(): void {
@@ -9,7 +9,7 @@ export default class SrcGenerator extends Generator {
   public writing(): void {
     let extension = 'js';
 
-    if (has('typescript')) {
+    if (hasDev('typescript')) {
       extension = 'ts';
     }
 

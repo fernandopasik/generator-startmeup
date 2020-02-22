@@ -3,7 +3,7 @@ import prettier from 'prettier';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Linter } from 'eslint';
 
-import { addDev, getDev, has, addFromPkg } from '../app/dependencies/index';
+import { addDev, getDev, has, hasDev, addFromPkg } from '../app/dependencies/index';
 
 export default class LintGenerator extends Generator {
   private eslintConfig: Linter.Config = {};
@@ -34,14 +34,14 @@ export default class LintGenerator extends Generator {
       this.eslintConfig.extends.push('airbnb-base');
     }
 
-    if (has('typescript')) {
+    if (hasDev('typescript')) {
       addDev(['@typescript-eslint/eslint-plugin', '@typescript-eslint/parser']);
       plugins.push('typescript');
       this.eslintConfig.extends.push(
         'plugin:import/typescript',
         'plugin:@typescript-eslint/recommended',
       );
-    } else if (has('@babel/core')) {
+    } else if (hasDev('@babel/core')) {
       addDev(['babel-eslint']);
       this.eslintConfig.parser = 'babel-eslint';
     }
@@ -52,7 +52,7 @@ export default class LintGenerator extends Generator {
       this.eslintConfig.extends.push('plugin:lit/all');
     }
 
-    if (has('jest')) {
+    if (hasDev('jest')) {
       addDev(['eslint-plugin-jest']);
       plugins.push('jest');
       this.eslintConfig.extends.push('plugin:jest/all');
@@ -63,13 +63,13 @@ export default class LintGenerator extends Generator {
       };
     }
 
-    if (has('flow-bin')) {
+    if (hasDev('flow-bin')) {
       addDev(['eslint-plugin-flowtype']);
       plugins.push('flowtype');
       this.eslintConfig.extends.push('plugin:flowtype/recommended');
     }
 
-    if (has('prettier')) {
+    if (hasDev('prettier')) {
       addDev(['eslint-config-prettier', 'eslint-plugin-prettier']);
       plugins.push('prettier');
 
@@ -79,7 +79,7 @@ export default class LintGenerator extends Generator {
 
       this.eslintConfig.extends.push('plugin:prettier/recommended');
 
-      if (has('typescript')) {
+      if (hasDev('typescript')) {
         this.eslintConfig.extends.push('prettier/@typescript-eslint');
       }
     }
