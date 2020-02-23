@@ -1,9 +1,10 @@
 import Generator from 'yeoman-generator';
 import 'core-js/features/array/flat-map';
+import { format, resolveConfig } from 'prettier';
 
 import { COMPILERS, COMPILER_DEPENDENCIES } from './dependencies';
 import { addDev, getDev, has, hasAny, addFromPkg } from '../app/dependencies/index';
-import { addPreset, formatFile } from './babelConfig';
+import { addPreset, getConfig } from './babelConfig';
 import tsConfig from './tsConfig';
 
 export default class CompilerGenerator extends Generator {
@@ -50,15 +51,23 @@ export default class CompilerGenerator extends Generator {
       if (compilers.includes('typescript')) {
         addPreset('@babel/preset-typescript');
       }
+    }
 
-      this.fs.write('babel.config.js', formatFile());
+    addDev(dependencies);
+  }
+
+  public async writing(): Promise<void> {
+    const { compilers = [] } = this.answers;
+    const prettierConfig = (await resolveConfig(process.cwd())) || {};
+
+    if (compilers.includes('babel')) {
+      const babelConfigJs = format(`module.exports=${JSON.stringify(getConfig())}`, prettierConfig);
+      this.fs.write(this.destinationPath('babel.config.js'), babelConfigJs);
     }
 
     if (compilers.includes('typescript')) {
       this.fs.writeJSON(this.destinationPath('tsconfig.json'), tsConfig);
     }
-
-    addDev(dependencies);
   }
 
   public install(): void {
