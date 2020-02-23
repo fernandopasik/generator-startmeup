@@ -40,6 +40,7 @@ export default class CompilerGenerator extends Generator {
 
     if (compilers.includes('babel')) {
       addPreset('@babel/preset-env');
+      addDev('@babel/preset-env');
 
       if (has('react')) {
         addPreset('@babel/preset-react');
