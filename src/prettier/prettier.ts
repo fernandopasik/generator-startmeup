@@ -38,7 +38,7 @@ export default class PrettierGenerator extends Generator {
         trailingComma: 'all',
       };
 
-      this.fs.writeJSON(
+      this.fs.write(
         this.destinationPath('.prettierrc.json'),
         prettifyJson(config as AnyJson, config as Options),
       );
