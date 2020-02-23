@@ -1,5 +1,7 @@
 import Generator from 'yeoman-generator';
 import prettier from 'prettier';
+
+import prettifyJson from '../prettier/prettify-json';
 import { addDev, getDev, addFromPkg } from '../app/dependencies/index';
 
 export default class CommitLintGenerator extends Generator {
@@ -29,15 +31,15 @@ export default class CommitLintGenerator extends Generator {
 
   public async writing(): Promise<void> {
     if (this.confirm) {
-      const prettierConfig = await prettier.resolveConfig(process.cwd());
+      const prettierConfig = (await prettier.resolveConfig(process.cwd())) || {};
 
       const config = {
         extends: ['@commitlint/config-conventional'],
       };
 
-      this.fs.writeJSON(
+      this.fs.write(
         this.destinationPath('.commitlintrc.json'),
-        JSON.parse(prettier.format(JSON.stringify(config), { ...prettierConfig, parser: 'json' })),
+        prettifyJson(config, prettierConfig),
       );
 
       const huskyConfig = this.fs.readJSON(this.destinationPath('.huskyrc.json'));
@@ -48,15 +50,7 @@ export default class CommitLintGenerator extends Generator {
         .sort()
         .reduce((sorted, key) => ({ ...sorted, [key]: hooks[key] }), {});
 
-      this.fs.writeJSON(
-        this.destinationPath('.huskyrc.json'),
-        JSON.parse(
-          prettier.format(JSON.stringify({ hooks: sortedHooks }), {
-            ...prettierConfig,
-            parser: 'json',
-          }),
-        ),
-      );
+      this.fs.write(this.destinationPath('.huskyrc.json'), prettifyJson({ hooks: sortedHooks }));
     }
   }
 
