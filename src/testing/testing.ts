@@ -24,13 +24,14 @@ export default class TestingGenerator extends Generator {
     this.jestConfig = setJestConfig();
   }
 
-  public writing(): void {
-    const jestConfigJs = prettier.format(`module.exports=${JSON.stringify(this.jestConfig)}`, {
-      arrowParens: 'always',
-      printWidth: 100,
-      singleQuote: true,
-      trailingComma: 'all',
-    });
+  public async writing(): Promise<void> {
+    const prettierConfig = (await prettier.resolveConfig(process.cwd())) || {};
+
+    const jestConfigJs = prettier.format(
+      `module.exports=${JSON.stringify(this.jestConfig)}`,
+      prettierConfig,
+    );
+
     this.fs.write(this.destinationPath('jest.config.cjs'), jestConfigJs);
   }
 
