@@ -1,5 +1,5 @@
 import Generator from 'yeoman-generator';
-import prettier from 'prettier';
+import { format, resolveConfig } from 'prettier';
 import { Config } from '@jest/types';
 
 import { addDev, getDev, hasDev, addFromPkg } from '../app/dependencies/index';
@@ -25,9 +25,9 @@ export default class TestingGenerator extends Generator {
   }
 
   public async writing(): Promise<void> {
-    const prettierConfig = (await prettier.resolveConfig(process.cwd())) || {};
+    const prettierConfig = (await resolveConfig(process.cwd())) || {};
 
-    const jestConfigJs = prettier.format(
+    const jestConfigJs = format(
       `module.exports=${JSON.stringify(this.jestConfig)}`,
       prettierConfig,
     );
