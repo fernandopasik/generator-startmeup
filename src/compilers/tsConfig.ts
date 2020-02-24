@@ -1,4 +1,6 @@
-const tsConfig = {
+import { has, hasDev } from '../app/dependencies/index';
+
+const getTSConfig = (): any => ({
   compilerOptions: {
     declaration: true,
     declarationMap: true,
@@ -33,4 +35,4 @@ const tsConfig = {
   ],
 });
 
-export default tsConfig;
+export default getTSConfig;
