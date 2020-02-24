@@ -26,7 +26,11 @@ const tsConfig = {
     target: 'es2017',
   },
   include: ['src/**/*'],
-  exclude: ['node_modules'],
-};
+  exclude: [
+    'node_modules',
+    '**/__tests__/**/*',
+    `**/?(*.)+(spec|test).${hasDev('typescript') ? '(js|ts)' : 'js'}${has('react') ? '?(x)' : ''}`,
+  ],
+});
 
 export default tsConfig;
