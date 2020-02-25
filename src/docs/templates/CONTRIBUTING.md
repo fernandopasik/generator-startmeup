@@ -26,8 +26,8 @@ If no similar issue is found please submit a [new](<%= githubUrl %>/issues/new/c
 
 <%_ } -%>
 <% if (commitlint) { -%>
-   - Git commit messages are checked with [commitlint](https://github.com/marionebl/commitlint) and follow the [conventional commits rules](https://github.com/marionebl/commitlint/tree/master/@commitlint/config-conventional#rules).
+- Git commit messages are checked with [commitlint](https://github.com/marionebl/commitlint) and follow the [conventional commits rules](https://github.com/marionebl/commitlint/tree/master/@commitlint/config-conventional#rules).
 <%_ } -%>
 <% if (eslint) { -%>
-   - JavaScript styles are checked with [eslint](https://eslint.org/) and follow the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript).
+- JavaScript styles are checked with [eslint](https://eslint.org/) and follow the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript).
 <%_ } -%>
