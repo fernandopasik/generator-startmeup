@@ -3,7 +3,7 @@ import { format, resolveConfig } from 'prettier';
 import { Config } from '@jest/types';
 
 import { addDev, getDev, hasDev, addFromPkg } from '../app/dependencies/index';
-import setJestConfig from './config';
+import setJestConfig from './jest-config';
 
 export default class TestingGenerator extends Generator {
   private jestConfig: Config.InitialOptions = {};
