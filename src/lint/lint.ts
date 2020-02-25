@@ -4,6 +4,7 @@ import prettier from 'prettier';
 import { Linter } from 'eslint';
 
 import { addDev, getDev, has, hasDev, addFromPkg } from '../app/dependencies/index';
+import prettifyJson, { AnyJson } from '../prettier/prettify-json';
 
 export default class LintGenerator extends Generator {
   private eslintConfig: Linter.Config = {};
@@ -95,15 +96,13 @@ export default class LintGenerator extends Generator {
     }
   }
 
-  public writing(): void {
-    const eslintConfigJson = prettier.format(JSON.stringify(this.eslintConfig), {
-      parser: 'json',
-      arrowParens: 'always',
-      printWidth: 100,
-      singleQuote: true,
-      trailingComma: 'all',
-    });
-    this.fs.write(this.destinationPath('.eslintrc.json'), eslintConfigJson);
+  public async writing(): Promise<void> {
+    const prettierConfig = (await prettier.resolveConfig(process.cwd())) || {};
+
+    this.fs.write(
+      this.destinationPath('.eslintrc.json'),
+      prettifyJson(this.eslintConfig as AnyJson, prettierConfig),
+    );
   }
 
   public install(): void {
