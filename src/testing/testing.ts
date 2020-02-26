@@ -41,6 +41,12 @@ export default class TestingGenerator extends Generator {
 
     const pkg = this.fs.readJSON('package.json');
 
+    const wrongFilename = `jest.config.${pkg.type === 'module' ? 'js' : 'cjs'}`;
+
+    if (this.fs.exists(this.destinationPath(wrongFilename))) {
+      this.fs.delete(this.destinationPath(wrongFilename));
+    }
+
     const filename = `jest.config.${pkg.type === 'module' ? 'cjs' : 'js'}`;
 
     this.fs.write(this.destinationPath(filename), jestConfigJs);
