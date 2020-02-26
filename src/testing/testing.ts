@@ -13,7 +13,8 @@ export default class TestingGenerator extends Generator {
 
     ['jest.config.cjs', 'jest.config.js'].forEach(async (configFile) => {
       if (this.fs.exists(configFile)) {
-        this.jestConfig = await import(this.destinationPath(configFile));
+        const file = await import(this.destinationPath(configFile));
+        this.jestConfig = file.default;
       }
     });
   }
