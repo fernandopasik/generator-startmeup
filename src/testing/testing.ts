@@ -8,8 +8,14 @@ import { buildConfig } from './jest-config';
 export default class TestingGenerator extends Generator {
   private jestConfig: Config.InitialOptions = {};
 
-  public initializing(): void {
+  public async initializing(): Promise<void> {
     addFromPkg(this.fs.readJSON('package.json'));
+
+    ['jest.config.cjs', 'jest.config.js'].forEach(async (configFile) => {
+      if (this.fs.exists(configFile)) {
+        this.jestConfig = await import(this.destinationPath(configFile));
+      }
+    });
   }
 
   public configuring(): void {
