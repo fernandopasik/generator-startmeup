@@ -34,10 +34,10 @@ export default class JestGenerator extends Generator {
   public async writing(): Promise<void> {
     const prettierConfig = (await resolveConfig(process.cwd())) || {};
 
-    const jestConfigJs = format(
-      `module.exports=${JSON.stringify(this.jestConfig)}`,
-      prettierConfig,
-    );
+    const jestConfigJs = format(`module.exports=${JSON.stringify(this.jestConfig)}`, {
+      ...prettierConfig,
+      parser: 'babel',
+    });
 
     const pkg = this.fs.readJSON('package.json');
 
