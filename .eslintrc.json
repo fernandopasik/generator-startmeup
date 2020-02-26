@@ -10,7 +10,10 @@
   "parserOptions": { "project": "./tsconfig.all.json" },
   "env": { "browser": true },
   "rules": {
-    "@typescript-eslint/no-inferrable-types": ["error", { "ignoreParameters": true }],
+    "@typescript-eslint/no-inferrable-types": [
+      "error",
+      { "ignoreParameters": true, "ignoreProperties": true }
+    ],
     "import/extensions": ["error", "never"],
     "jest/no-hooks": "off",
     "jest/prefer-expect-assertions": "off"
