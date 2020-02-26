@@ -3,7 +3,7 @@ import { format, resolveConfig } from 'prettier';
 import { Config } from '@jest/types';
 
 import { addDev, getDev, hasDev, addFromPkg } from '../app/dependencies/index';
-import setJestConfig from './jest-config';
+import { buildConfig } from './jest-config';
 
 export default class TestingGenerator extends Generator {
   private jestConfig: Config.InitialOptions = {};
@@ -21,7 +21,7 @@ export default class TestingGenerator extends Generator {
       addDev(['babel-jest']);
     }
 
-    this.jestConfig = setJestConfig();
+    this.jestConfig = buildConfig(this.jestConfig);
   }
 
   public async writing(): Promise<void> {

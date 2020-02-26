@@ -11,7 +11,7 @@ export const generateTransformPattern = (
   hasReact: boolean = false,
 ): string => `^.+\\.${hasTypescript ? '[j|t]' : 'j'}s${hasReact ? 'x?' : ''}$`;
 
-const setJestConfig = (existingConfig: Config.InitialOptions = {}): Config.InitialOptions => {
+export const buildConfig = (existingConfig: Config.InitialOptions = {}): Config.InitialOptions => {
   const hasTypescript = hasDev('typescript');
   const hasReact = has('react');
   const collectCoverageFrom = [generateCoveragePattern(hasTypescript, hasReact)];
@@ -31,5 +31,3 @@ const setJestConfig = (existingConfig: Config.InitialOptions = {}): Config.Initi
 
   return config;
 };
-
-export default setJestConfig;
