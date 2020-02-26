@@ -11,6 +11,9 @@ export const generateTransformPattern = (
   hasReact: boolean = false,
 ): string => `^.+\\.${hasTypescript ? '[j|t]' : 'j'}s${hasReact ? 'x?' : ''}$`;
 
+export const generateFilename = (isModuleType = false): string =>
+  `jest.config.${isModuleType ? 'cjs' : 'js'}`;
+
 export const buildConfig = (existingConfig: Config.InitialOptions = {}): Config.InitialOptions => {
   const hasTypescript = hasDev('typescript');
   const hasReact = has('react');

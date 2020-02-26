@@ -3,7 +3,7 @@ import { format, resolveConfig } from 'prettier';
 import { Config } from '@jest/types';
 
 import { addDev, getDev, hasDev, addFromPkg } from '../app/dependencies/index';
-import { buildConfig } from './jest-config';
+import { buildConfig, generateFilename } from './jest-config';
 
 export default class TestingGenerator extends Generator {
   private jestConfig: Config.InitialOptions = {};
@@ -41,13 +41,13 @@ export default class TestingGenerator extends Generator {
 
     const pkg = this.fs.readJSON('package.json');
 
-    const wrongFilename = `jest.config.${pkg.type === 'module' ? 'js' : 'cjs'}`;
+    const wrongFilename = generateFilename(pkg.type !== 'module');
 
     if (this.fs.exists(this.destinationPath(wrongFilename))) {
       this.fs.delete(this.destinationPath(wrongFilename));
     }
 
-    const filename = `jest.config.${pkg.type === 'module' ? 'cjs' : 'js'}`;
+    const filename = generateFilename(pkg.type === 'module');
 
     this.fs.write(this.destinationPath(filename), jestConfigJs);
   }
