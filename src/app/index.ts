@@ -13,7 +13,7 @@ export default class StartMeUpGenerator extends Generator {
       'prettier',
       'libraries',
       'compilers',
-      'testing',
+      'jest',
       'lint',
       'hooks',
       'docs',

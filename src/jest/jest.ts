@@ -3,9 +3,9 @@ import { format, resolveConfig } from 'prettier';
 import { Config } from '@jest/types';
 
 import { addDev, getDev, hasDev, addFromPkg } from '../app/dependencies/index';
-import { buildConfig, generateFilename } from './jest-config';
+import { buildConfig, generateFilename } from './config';
 
-export default class TestingGenerator extends Generator {
+export default class JestGenerator extends Generator {
   private jestConfig: Config.InitialOptions = {};
 
   public async initializing(): Promise<void> {

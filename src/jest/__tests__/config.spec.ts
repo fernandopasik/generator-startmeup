@@ -1,8 +1,4 @@
-import {
-  generateCoveragePattern,
-  generateFilename,
-  generateTransformPattern,
-} from '../jest-config';
+import { generateCoveragePattern, generateFilename, generateTransformPattern } from '../config';
 
 describe('jest config', () => {
   describe('generate coverage pattern', () => {
