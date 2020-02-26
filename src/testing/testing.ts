@@ -39,7 +39,11 @@ export default class TestingGenerator extends Generator {
       prettierConfig,
     );
 
-    this.fs.write(this.destinationPath('jest.config.cjs'), jestConfigJs);
+    const pkg = this.fs.readJSON('package.json');
+
+    const filename = `jest.config.${pkg.type === 'module' ? 'cjs' : 'js'}`;
+
+    this.fs.write(this.destinationPath(filename), jestConfigJs);
   }
 
   public install(): void {
