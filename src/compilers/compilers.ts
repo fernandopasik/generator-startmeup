@@ -62,7 +62,10 @@ export default class CompilerGenerator extends Generator {
     const prettierConfig = (await resolveConfig(process.cwd())) || {};
 
     if (compilers.includes('babel')) {
-      const babelConfigJs = format(`module.exports=${JSON.stringify(getConfig())}`, prettierConfig);
+      const babelConfigJs = format(`module.exports=${JSON.stringify(getConfig())}`, {
+        ...prettierConfig,
+        parser: 'babel',
+      });
       this.fs.write(this.destinationPath('babel.config.js'), babelConfigJs);
     }
 
