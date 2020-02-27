@@ -12,7 +12,7 @@ export default class HooksGenerator extends Generator {
 
   public writing(): void {
     const commands = [];
-    const extensions = [];
+    const extensions = ['js'];
 
     if (hasDev('eslint')) {
       commands.push('eslint');
@@ -22,17 +22,15 @@ export default class HooksGenerator extends Generator {
       commands.push('jest --bail --findRelatedTests');
     }
 
+    if (has('react')) {
+      extensions.push('jsx');
+    }
+
     if (hasDev('typescript')) {
       extensions.push('ts');
 
       if (has('react')) {
         extensions.push('tsx');
-      }
-    } else {
-      extensions.push('js');
-
-      if (has('react')) {
-        extensions.push('jsx');
       }
     }
 
