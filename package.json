@@ -67,7 +67,7 @@
     "jest-junit": "^10.0.0",
     "lint-staged": "^10.0.8",
     "ts-jest": "^25.2.1",
-    "typescript": "^3.8.2",
+    "typescript": "^3.8.3",
     "watch": "^1.0.2",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^2.2.0"
