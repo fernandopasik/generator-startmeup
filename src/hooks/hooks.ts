@@ -1,43 +1,35 @@
 import Generator from 'yeoman-generator';
-import { addDev, getDev, has, hasDev, addFromPkg } from '../app/dependencies/index';
+import prettier from 'prettier';
+
+import { addDev, getDev, hasDev, addFromPkg } from '../app/dependencies/index';
+import { buildConfig as buildLintStagedConfig, LintStagedConfig } from './lint-staged';
+import prettifyJson from '../prettier/prettify-json';
 
 interface Hooks {
   [name: string]: string;
 }
 
 export default class HooksGenerator extends Generator {
+  private lintStagedConfig: LintStagedConfig = {};
+
   public initializing(): void {
     addFromPkg(this.fs.readJSON('package.json'));
   }
 
-  public writing(): void {
-    const commands = [];
-    const extensions = ['js'];
+  public configuring(): void {
+    this.lintStagedConfig = buildLintStagedConfig();
+  }
 
-    if (hasDev('eslint')) {
-      commands.push('eslint');
-    }
+  public async writing(): Promise<void> {
+    const prettierConfig = (await prettier.resolveConfig(process.cwd())) || {};
 
-    if (hasDev('jest')) {
-      commands.push('jest --bail --findRelatedTests');
-    }
+    if (Object.keys(this.lintStagedConfig).length > 0) {
+      prettifyJson(this.lintStagedConfig);
 
-    if (has('react')) {
-      extensions.push('jsx');
-    }
-
-    if (hasDev('typescript')) {
-      extensions.push('ts');
-
-      if (has('react')) {
-        extensions.push('tsx');
-      }
-    }
-
-    if (commands.length > 0) {
-      this.fs.writeJSON(this.destinationPath('.lintstagedrc.json'), {
-        [`*.{${extensions.join(',')}}`]: commands,
-      });
+      this.fs.write(
+        this.destinationPath('.lintstagedrc.json'),
+        prettifyJson(this.lintStagedConfig, prettierConfig),
+      );
 
       addDev(['lint-staged']);
     }
