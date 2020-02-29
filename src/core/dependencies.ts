@@ -2,9 +2,14 @@ interface All {
   [groupName: string]: Map<string, string | undefined>;
 }
 
-const groupNames = ['dependencies', 'devDependencies', 'optionalDependencies', 'peerDependencies'];
+enum GroupNames {
+  dependencies,
+  devDependencies,
+  optionalDependencies,
+  peerDependencies,
+}
 
-const all: All = groupNames.reduce((acc, groupName: string) => {
+const all: All = Object.keys(GroupNames).reduce((acc, groupName: string) => {
   acc[groupName] = new Map();
   return acc;
 }, {} as All);
