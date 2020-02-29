@@ -1,4 +1,4 @@
-import { add, has, remove, removeAll } from '../dependencies';
+import { add, has, remove, removeAll, importFromPkg } from '../dependencies';
 
 describe('dependencies', () => {
   beforeEach(() => {
@@ -168,6 +168,58 @@ describe('dependencies', () => {
       expect(has('jest', 'devDependencies')).toBe(false);
       expect(has('react-dom', 'peerDependencies')).toBe(false);
       expect(has('jquery', 'optionalDependencies')).toBe(false);
+    });
+  });
+
+  describe('import from package.json', () => {
+    it('dependencies', () => {
+      importFromPkg({
+        name: 'name',
+        version: '',
+        dependencies: {
+          react: '*',
+          'react-dom': '*',
+        },
+      });
+
+      expect(has('react', 'dependencies')).toBe(true);
+      expect(has('react-dom', 'dependencies')).toBe(true);
+    });
+
+    it('other dependency groups', () => {
+      importFromPkg({
+        name: 'name',
+        version: '',
+        dependencies: {
+          react: '*',
+          'react-dom': '*',
+        },
+        devDependencies: {
+          jest: '*',
+        },
+      });
+
+      expect(has('react', 'dependencies')).toBe(true);
+      expect(has('react-dom', 'dependencies')).toBe(true);
+      expect(has('jest', 'devDependencies')).toBe(true);
+    });
+
+    it('peerDependencies add devDependencies as well', () => {
+      importFromPkg({
+        name: 'name',
+        version: '',
+        peerDependencies: {
+          react: '*',
+          'react-dom': '*',
+        },
+      });
+
+      expect(has('react', 'peerDependencies')).toBe(true);
+      expect(has('react', 'devDependencies')).toBe(true);
+      expect(has('react', 'dependencies')).toBe(false);
+      expect(has('react-dom', 'peerDependencies')).toBe(true);
+      expect(has('react-dom', 'devDependencies')).toBe(true);
+      expect(has('react-dom', 'dependencies')).toBe(false);
     });
   });
 });

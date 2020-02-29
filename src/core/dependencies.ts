@@ -1,3 +1,5 @@
+import { PackageJson } from '../packagejson/package-json';
+
 interface All {
   [groupName: string]: Map<string, string | undefined>;
 }
@@ -50,5 +52,17 @@ export const remove = (name: string, groupName: string | 'all' = 'dependencies')
 export const removeAll = (): void => {
   Object.keys(all).forEach((group: string) => {
     all[group].clear();
+  });
+};
+
+export const importFromPkg = (pkg: PackageJson): void => {
+  Object.keys(GroupNames).forEach((groupName: string): void => {
+    const deps = pkg[groupName as keyof typeof GroupNames];
+
+    if (deps) {
+      Object.keys(deps).forEach((dependencyName) => {
+        add(dependencyName, groupName);
+      });
+    }
   });
 };
