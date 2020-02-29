@@ -245,5 +245,9 @@ describe('dependencies', () => {
       expect(has('react-dom', 'devDependencies')).toBe(true);
       expect(has('react-dom', 'dependencies')).toBe(false);
     });
+
+    it('deals with empty package.json', () => {
+      expect(() => importFromPkg()).not.toThrow();
+    });
   });
 });
