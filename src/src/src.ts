@@ -7,11 +7,11 @@ export default class SrcGenerator extends Generator {
   public initializing(): void {
     const pkg = this.fs.readJSON('package.json');
     dependencies.importFromPkg(pkg);
-    this.mainPath = this.destinationPath(pkg.main);
+    this.mainPath = pkg?.main;
   }
 
   public writing(): void {
-    if (!this.fs.exists(this.mainPath)) {
+    if (!this.mainPath || !this.fs.exists(this.destinationPath(this.mainPath))) {
       let extension = 'js';
 
       if (dependencies.has('typescript', 'devDependencies')) {
