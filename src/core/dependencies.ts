@@ -55,7 +55,7 @@ export const removeAll = (): void => {
   });
 };
 
-export const importFromPkg = (pkg: PackageJson): void => {
+export const importFromPkg = (pkg: PackageJson = { name: '', version: '' }): void => {
   groupNames.forEach((groupName: string): void => {
     const deps = pkg[groupName as GroupNames];
 
