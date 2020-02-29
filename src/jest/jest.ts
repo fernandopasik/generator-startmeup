@@ -2,14 +2,14 @@ import Generator from 'yeoman-generator';
 import { format, resolveConfig } from 'prettier';
 import { Config } from '@jest/types';
 
-import { addDev, getDev, hasDev, addFromPkg } from '../app/dependencies/index';
+import { dependencies } from '../core';
 import { buildConfig, generateFilename } from './config';
 
 export default class JestGenerator extends Generator {
   private jestConfig: Config.InitialOptions = {};
 
   public async initializing(): Promise<void> {
-    addFromPkg(this.fs.readJSON('package.json'));
+    dependencies.importFromPkg(this.fs.readJSON('package.json'));
 
     ['jest.config.cjs', 'jest.config.js'].forEach(async (configFile) => {
       if (this.fs.exists(configFile)) {
@@ -20,12 +20,12 @@ export default class JestGenerator extends Generator {
   }
 
   public configuring(): void {
-    addDev(['jest']);
+    dependencies.add('jest', 'devDependencies');
 
-    if (hasDev('typescript')) {
-      addDev(['ts-jest']);
-    } else if (hasDev('@babel/core')) {
-      addDev(['babel-jest']);
+    if (dependencies.has('typescript', 'devDependencies')) {
+      dependencies.add('ts-jest', 'devDependencies');
+    } else if (dependencies.has('@babel/core', 'devDependencies')) {
+      dependencies.add('babel-jest', 'devDependencies');
     }
 
     this.jestConfig = buildConfig(this.jestConfig);
@@ -53,6 +53,6 @@ export default class JestGenerator extends Generator {
   }
 
   public install(): void {
-    this.yarnInstall(getDev(), { dev: true });
+    this.yarnInstall(dependencies.get('devDependencies'), { dev: true });
   }
 }

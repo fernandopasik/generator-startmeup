@@ -1,4 +1,4 @@
-import { has, hasDev } from '../app/dependencies/index';
+import { dependencies } from '../core';
 
 export interface LintStagedConfig {
   [matcher: string]: string | string[];
@@ -9,22 +9,22 @@ export const sourceFilesConfig = (): LintStagedConfig => {
   const extensions = ['js'];
   const commands = [];
 
-  if (hasDev('eslint')) {
+  if (dependencies.has('eslint', 'devDependencies')) {
     commands.push('eslint');
   }
 
-  if (hasDev('jest')) {
+  if (dependencies.has('jest', 'devDependencies')) {
     commands.push('jest --bail --findRelatedTests');
   }
 
-  if (has('react')) {
+  if (dependencies.has('react')) {
     extensions.push('jsx');
   }
 
-  if (hasDev('typescript')) {
+  if (dependencies.has('typescript', 'devDependencies')) {
     extensions.push('ts');
 
-    if (has('react')) {
+    if (dependencies.has('react')) {
       extensions.push('tsx');
     }
   }

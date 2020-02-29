@@ -1,14 +1,14 @@
 import Generator from 'yeoman-generator';
 import { Options } from 'prettier';
 
+import { dependencies } from '../core';
 import prettifyJson, { AnyJson } from './prettify-json';
-import { addDev, getDev, addFromPkg } from '../app/dependencies/index';
 
 export default class PrettierGenerator extends Generator {
   private confirm?: boolean;
 
   public initializing(): void {
-    addFromPkg(this.fs.readJSON('package.json'));
+    dependencies.importFromPkg(this.fs.readJSON('package.json'));
   }
 
   public async prompting(): Promise<void> {
@@ -25,7 +25,7 @@ export default class PrettierGenerator extends Generator {
 
   public configuring(): void {
     if (this.confirm) {
-      addDev(['prettier']);
+      dependencies.add('prettier', 'devDependencies');
     }
   }
 
@@ -46,6 +46,6 @@ export default class PrettierGenerator extends Generator {
   }
 
   public install(): void {
-    this.yarnInstall(getDev(), { dev: true });
+    this.yarnInstall(dependencies.get('devDependencies'), { dev: true });
   }
 }

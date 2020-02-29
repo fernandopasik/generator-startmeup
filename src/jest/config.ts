@@ -1,5 +1,5 @@
 import { Config } from '@jest/types';
-import { has, hasDev } from '../app/dependencies/index';
+import { dependencies } from '../core';
 
 export const generateCoveragePattern = (
   hasTypescript: boolean = false,
@@ -15,20 +15,20 @@ export const generateFilename = (isModuleType = false): string =>
   `jest.config.${isModuleType ? 'cjs' : 'js'}`;
 
 export const buildConfig = (existingConfig: Config.InitialOptions = {}): Config.InitialOptions => {
-  const hasTypescript = hasDev('typescript');
-  const hasReact = has('react');
+  const hasTypescript = dependencies.has('typescript', 'devDependencies');
+  const hasReact = dependencies.has('react');
   const collectCoverageFrom = [generateCoveragePattern(hasTypescript, hasReact)];
   const transformPattern = generateTransformPattern(hasTypescript, hasReact);
 
   const config: Config.InitialOptions = {
     collectCoverageFrom,
-    testEnvironment: hasDev('enzyme') ? 'enzyme' : 'node',
+    testEnvironment: dependencies.has('enzyme', 'devDependencies') ? 'enzyme' : 'node',
     ...existingConfig,
   };
 
-  if (hasDev('typescript')) {
+  if (dependencies.has('typescript', 'devDependencies')) {
     config.transform = { [transformPattern]: 'ts-jest' };
-  } else if (hasDev('@babel/core')) {
+  } else if (dependencies.has('@babel/core', 'devDependencies')) {
     config.transform = { [transformPattern]: 'babel-jest' };
   }
 

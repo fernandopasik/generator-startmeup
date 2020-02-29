@@ -1,7 +1,7 @@
 import Generator from 'yeoman-generator';
 import prettier from 'prettier';
 
-import { addDev, getDev, hasDev, addFromPkg } from '../app/dependencies/index';
+import { dependencies } from '../core';
 import { buildConfig as buildLintStagedConfig, LintStagedConfig } from './lint-staged';
 import prettifyJson from '../prettier/prettify-json';
 
@@ -13,7 +13,7 @@ export default class HooksGenerator extends Generator {
   private lintStagedConfig: LintStagedConfig = {};
 
   public initializing(): void {
-    addFromPkg(this.fs.readJSON('package.json'));
+    dependencies.importFromPkg(this.fs.readJSON('package.json'));
   }
 
   public configuring(): void {
@@ -31,12 +31,12 @@ export default class HooksGenerator extends Generator {
         prettifyJson(this.lintStagedConfig, prettierConfig),
       );
 
-      addDev(['lint-staged']);
+      dependencies.has('lint-staged', 'devDependencies');
     }
 
     const config: { hooks: Hooks } = { hooks: {} };
 
-    if (hasDev('lint-staged')) {
+    if (dependencies.has('lint-staged', 'devDependencies')) {
       config.hooks['pre-commit'] = 'lint-staged';
     }
 
@@ -45,11 +45,11 @@ export default class HooksGenerator extends Generator {
     if (Object.keys(config.hooks).length > 0) {
       this.fs.writeJSON(this.destinationPath('.huskyrc.json'), config);
 
-      addDev(['husky']);
+      dependencies.has('husky', 'devDependencies');
     }
   }
 
   public install(): void {
-    this.yarnInstall(getDev(), { dev: true });
+    this.yarnInstall(dependencies.get('devDependencies'), { dev: true });
   }
 }

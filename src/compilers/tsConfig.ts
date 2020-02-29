@@ -1,4 +1,4 @@
-import { has, hasDev } from '../app/dependencies/index';
+import { dependencies } from '../core';
 
 const getTSConfig = (): any => ({
   compilerOptions: {
@@ -7,7 +7,7 @@ const getTSConfig = (): any => ({
     esModuleInterop: true,
     experimentalDecorators: true,
     inlineSources: true,
-    ...(has('react') ? { jsx: 'react' } : {}),
+    ...(dependencies.has('react') ? { jsx: 'react' } : {}),
     lib: ['es2020', 'dom', 'dom.iterable'],
     module: 'ESNext',
     moduleResolution: 'node',
@@ -31,7 +31,9 @@ const getTSConfig = (): any => ({
   exclude: [
     'node_modules',
     '**/__tests__/**/*',
-    `**/?(*.)+(spec|test).${hasDev('typescript') ? '(js|ts)' : 'js'}${has('react') ? '?(x)' : ''}`,
+    `**/?(*.)+(spec|test).${dependencies.has('typescript', 'devDependencies') ? '(js|ts)' : 'js'}${
+      dependencies.has('react') ? '?(x)' : ''
+    }`,
   ],
 });
 

@@ -3,58 +3,59 @@ import prettier from 'prettier';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Linter } from 'eslint';
 
-import { addDev, getDev, has, hasDev, addFromPkg } from '../app/dependencies/index';
+import { dependencies } from '../core';
 import prettifyJson, { AnyJson } from '../prettier/prettify-json';
 
 export default class LintGenerator extends Generator {
   private eslintConfig: Linter.Config = {};
 
   public initializing(): void {
-    addFromPkg(this.fs.readJSON('package.json', {}));
+    dependencies.importFromPkg(this.fs.readJSON('package.json'));
     this.eslintConfig = this.fs.readJSON(this.destinationPath('.eslintrc.json'), {});
   }
 
   public configuring(): void {
     const plugins: string[] = [];
-    addDev(['eslint']);
+    dependencies.add('eslint', 'devDependencies');
 
     this.eslintConfig.extends = [];
 
-    if (has('react')) {
-      addDev([
-        'eslint-config-airbnb',
-        'eslint-plugin-import',
-        'eslint-plugin-jsx-a11y',
-        'eslint-plugin-react',
-      ]);
+    if (dependencies.has('react')) {
+      dependencies.add('eslint-config-airbnb', 'devDependencies');
+      dependencies.add('eslint-plugin-import', 'devDependencies');
+      dependencies.add('eslint-plugin-jsx-a11y', 'devDependencies');
+      dependencies.add('eslint-plugin-react', 'devDependencies');
+
       plugins.push('import', 'jsx-a11y', 'react');
       this.eslintConfig.extends.push('airbnb');
     } else {
-      addDev(['eslint-config-airbnb-base', 'eslint-plugin-import']);
+      dependencies.add('eslint-config-airbnb-base', 'devDependencies');
+      dependencies.add('eslint-plugin-import', 'devDependencies');
       plugins.push('import');
       this.eslintConfig.extends.push('airbnb-base');
     }
 
-    if (hasDev('typescript')) {
-      addDev(['@typescript-eslint/eslint-plugin', '@typescript-eslint/parser']);
+    if (dependencies.has('typescript', 'devDependencies')) {
+      dependencies.add('@typescript-eslint/eslint-plugin', 'devDependencies');
+      dependencies.add('@typescript-eslint/parser', 'devDependencies');
       plugins.push('typescript');
       this.eslintConfig.extends.push(
         'plugin:import/typescript',
         'plugin:@typescript-eslint/recommended',
       );
-    } else if (hasDev('@babel/core')) {
-      addDev(['babel-eslint']);
+    } else if (dependencies.has('@babel/core', 'devDependencies')) {
+      dependencies.add('babel-eslint', 'devDependencies');
       this.eslintConfig.parser = 'babel-eslint';
     }
 
-    if (has('lit-html')) {
-      addDev(['eslint-plugin-lit']);
+    if (dependencies.has('lit-html')) {
+      dependencies.add('eslint-plugin-lit', 'devDependencies');
       plugins.push('lit');
       this.eslintConfig.extends.push('plugin:lit/all');
     }
 
-    if (hasDev('jest')) {
-      addDev(['eslint-plugin-jest']);
+    if (dependencies.has('jest', 'devDependencies')) {
+      dependencies.add('eslint-plugin-jest', 'devDependencies');
       plugins.push('jest');
       this.eslintConfig.extends.push('plugin:jest/all');
       this.eslintConfig.rules = {
@@ -64,14 +65,15 @@ export default class LintGenerator extends Generator {
       };
     }
 
-    if (hasDev('flow-bin')) {
-      addDev(['eslint-plugin-flowtype']);
+    if (dependencies.has('flow-bin', 'devDependencies')) {
+      dependencies.add('eslint-plugin-flowtype', 'devDependencies');
       plugins.push('flowtype');
       this.eslintConfig.extends.push('plugin:flowtype/recommended');
     }
 
-    if (hasDev('prettier')) {
-      addDev(['eslint-config-prettier', 'eslint-plugin-prettier']);
+    if (dependencies.has('prettier', 'devDependencies')) {
+      dependencies.add('eslint-config-prettier', 'devDependencies');
+      dependencies.add('eslint-plugin-prettier', 'devDependencies');
       plugins.push('prettier');
 
       if (this.eslintConfig.rules) {
@@ -80,7 +82,7 @@ export default class LintGenerator extends Generator {
 
       this.eslintConfig.extends.push('plugin:prettier/recommended');
 
-      if (hasDev('typescript')) {
+      if (dependencies.has('typescript', 'devDependencies')) {
         this.eslintConfig.extends.push('prettier/@typescript-eslint');
       }
     }
@@ -106,6 +108,6 @@ export default class LintGenerator extends Generator {
   }
 
   public install(): void {
-    this.yarnInstall(getDev(), { dev: true });
+    this.yarnInstall(dependencies.get('devDependencies'), { dev: true });
   }
 }

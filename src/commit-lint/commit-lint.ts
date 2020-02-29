@@ -1,14 +1,14 @@
 import Generator from 'yeoman-generator';
 import prettier from 'prettier';
 
+import { dependencies } from '../core';
 import prettifyJson from '../prettier/prettify-json';
-import { addDev, getDev, addFromPkg } from '../app/dependencies/index';
 
 export default class CommitLintGenerator extends Generator {
   private confirm?: boolean;
 
   public initializing(): void {
-    addFromPkg(this.fs.readJSON('package.json'));
+    dependencies.importFromPkg(this.fs.readJSON('package.json'));
   }
 
   public async prompting(): Promise<void> {
@@ -25,7 +25,8 @@ export default class CommitLintGenerator extends Generator {
 
   public configuring(): void {
     if (this.confirm) {
-      addDev(['@commitlint/cli', '@commitlint/config-conventional']);
+      dependencies.add('@commitlint/cli', 'devDependencies');
+      dependencies.add('@commitlint/config-conventional', 'devDependencies');
     }
   }
 
@@ -55,6 +56,6 @@ export default class CommitLintGenerator extends Generator {
   }
 
   public install(): void {
-    this.yarnInstall(getDev(), { dev: true });
+    this.yarnInstall(dependencies.get('devDependencies'), { dev: true });
   }
 }

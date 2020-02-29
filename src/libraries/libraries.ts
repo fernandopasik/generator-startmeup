@@ -1,6 +1,6 @@
 import Generator from 'yeoman-generator';
 
-import { add, addDev, get, getDev, has, hasDev, addFromPkg } from '../app/dependencies/index';
+import { dependencies } from '../core';
 
 const LIBRARIES = ['lit-html', 'react'];
 
@@ -8,7 +8,7 @@ export default class LibrariesGenerator extends Generator {
   private libraries: string[] = [];
 
   public initializing(): void {
-    addFromPkg(this.fs.readJSON('package.json'));
+    dependencies.importFromPkg(this.fs.readJSON('package.json'));
   }
 
   public async prompting(): Promise<void> {
@@ -18,7 +18,7 @@ export default class LibrariesGenerator extends Generator {
         name: 'libraries',
         message: 'Which UI library do you want to use?',
         choices: LIBRARIES,
-        default: LIBRARIES.filter((library: string): boolean => has(library)),
+        default: LIBRARIES.filter((library: string): boolean => dependencies.has(library, 'all')),
       },
     ]);
 
@@ -27,25 +27,28 @@ export default class LibrariesGenerator extends Generator {
 
   public configuring(): void {
     if (this.libraries.includes('lit-html')) {
-      add(['lit-html', 'lit-element']);
+      dependencies.add('lit-html');
+      dependencies.add('lit-element');
     }
 
     if (this.libraries.includes('react')) {
-      add(['react', 'react-dom']);
-      addDev(['react-test-renderer']);
+      dependencies.add('react');
+      dependencies.add('react-dom');
+      dependencies.add('react-test-renderer', 'devDependencies');
 
-      if (hasDev('@babel/core')) {
-        addDev(['@babel/preset-react']);
+      if (dependencies.has('@babel/core', 'devDependencies')) {
+        dependencies.add('@babel/preset-react', 'devDependencies');
       }
 
-      if (hasDev('typescript')) {
-        addDev(['@types/react', '@types/react-dom']);
+      if (dependencies.has('typescript', 'devDependencies')) {
+        dependencies.add('@types/react', 'devDependencies');
+        dependencies.add('@types/react-dom', 'devDependencies');
       }
     }
   }
 
   public install(): void {
-    this.yarnInstall(get());
-    this.yarnInstall(getDev(), { dev: true });
+    this.yarnInstall(dependencies.get());
+    this.yarnInstall(dependencies.get('devDependencies'), { dev: true });
   }
 }

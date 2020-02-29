@@ -2,8 +2,8 @@ import Generator from 'yeoman-generator';
 import 'core-js/features/array/flat-map';
 import { format, resolveConfig } from 'prettier';
 
+import { dependencies } from '../core';
 import { COMPILERS, COMPILER_DEPENDENCIES } from './dependencies';
-import { addDev, getDev, has, hasAny, addFromPkg } from '../app/dependencies/index';
 import { addPreset, getConfig } from './babelConfig';
 import getTSConfig from './tsConfig';
 import prettifyJson from '../prettier/prettify-json';
@@ -14,7 +14,7 @@ export default class CompilerGenerator extends Generator {
   } = {};
 
   public initializing(): void {
-    addFromPkg(this.fs.readJSON('package.json'));
+    dependencies.importFromPkg(this.fs.readJSON('package.json'));
   }
 
   public async prompting(): Promise<void> {
@@ -26,7 +26,10 @@ export default class CompilerGenerator extends Generator {
           message: 'Which compiler do you want to use?',
           choices: COMPILERS,
           default: COMPILERS.filter((compilerName: string): boolean =>
-            hasAny(COMPILER_DEPENDENCIES[compilerName]),
+            COMPILER_DEPENDENCIES[compilerName].reduce(
+              (acc: boolean, name: string): boolean => acc || dependencies.has(name, 'all'),
+              false,
+            ),
           ),
         },
       ])),
@@ -36,17 +39,17 @@ export default class CompilerGenerator extends Generator {
   public configuring(): void {
     const { compilers = [] } = this.answers;
 
-    const dependencies = compilers.flatMap(
+    const packages = compilers.flatMap(
       (compilerName: string): string[] => COMPILER_DEPENDENCIES[compilerName],
     );
 
     if (compilers.includes('babel')) {
       addPreset('@babel/preset-env');
-      addDev('@babel/preset-env');
+      dependencies.add('@babel/preset-env', 'devDependencies');
 
-      if (has('react')) {
+      if (dependencies.has('react')) {
         addPreset('@babel/preset-react');
-        addDev('@babel/preset-react');
+        dependencies.add('@babel/preset-react', 'devDependencies');
       }
 
       if (compilers.includes('typescript')) {
@@ -54,7 +57,7 @@ export default class CompilerGenerator extends Generator {
       }
     }
 
-    addDev(dependencies);
+    packages.forEach((packageName) => dependencies.add(packageName, 'devDependencies'));
   }
 
   public async writing(): Promise<void> {
@@ -78,6 +81,6 @@ export default class CompilerGenerator extends Generator {
   }
 
   public install(): void {
-    this.yarnInstall(getDev(), { dev: true });
+    this.yarnInstall(dependencies.get('devDependencies'), { dev: true });
   }
 }

@@ -1,7 +1,7 @@
 import Generator from 'yeoman-generator';
 import yosay from 'yosay';
 
-import { getDev, get } from './dependencies';
+import { dependencies } from '../core';
 
 export default class StartMeUpGenerator extends Generator {
   public initializing(): void {
@@ -27,7 +27,7 @@ export default class StartMeUpGenerator extends Generator {
   }
 
   public install(): void {
-    this.yarnInstall(get());
-    this.yarnInstall(getDev(), { dev: true });
+    this.yarnInstall(dependencies.get());
+    this.yarnInstall(dependencies.get('devDependencies'), { dev: true });
   }
 }

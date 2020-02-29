@@ -1,19 +1,19 @@
 import Generator from 'yeoman-generator';
-import { has, hasDev, addFromPkg } from '../app/dependencies/index';
+import { dependencies } from '../core';
 
 export default class SrcGenerator extends Generator {
   public initializing(): void {
-    addFromPkg(this.fs.readJSON('package.json'));
+    dependencies.importFromPkg(this.fs.readJSON('package.json'));
   }
 
   public writing(): void {
     let extension = 'js';
 
-    if (hasDev('typescript')) {
+    if (dependencies.has('typescript', 'devDependencies')) {
       extension = 'ts';
     }
 
-    if (has('react')) {
+    if (dependencies.has('react')) {
       extension += 'x';
     }
 
