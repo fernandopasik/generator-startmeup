@@ -31,7 +31,7 @@ export default class HooksGenerator extends Generator {
         prettifyJson(this.lintStagedConfig, prettierConfig),
       );
 
-      dependencies.has('lint-staged', 'devDependencies');
+      dependencies.add('lint-staged', 'devDependencies');
     }
 
     const config: { hooks: Hooks } = { hooks: {} };
@@ -45,7 +45,7 @@ export default class HooksGenerator extends Generator {
     if (Object.keys(config.hooks).length > 0) {
       this.fs.writeJSON(this.destinationPath('.huskyrc.json'), config);
 
-      dependencies.has('husky', 'devDependencies');
+      dependencies.add('husky', 'devDependencies');
     }
   }
 
