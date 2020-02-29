@@ -24,6 +24,10 @@ export const add = (name: string, groupName: string = 'dependencies', version?: 
   }
 };
 
+export const get = (groupName: string = 'dependencies'): string[] => {
+  return Array.from(all[groupName].keys());
+};
+
 export const has = (name: string, groupName: string | 'all' = 'dependencies'): boolean => {
   if (groupName === 'all') {
     return Object.keys(all).reduce(

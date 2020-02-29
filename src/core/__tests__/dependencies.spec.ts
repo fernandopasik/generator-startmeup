@@ -1,4 +1,4 @@
-import { add, has, remove, removeAll, importFromPkg } from '../dependencies';
+import { add, get, has, remove, removeAll, importFromPkg } from '../dependencies';
 
 describe('dependencies', () => {
   beforeEach(() => {
@@ -56,6 +56,30 @@ describe('dependencies', () => {
 
       expect(has('react', 'optionalDependencies')).toBe(true);
       expect(has('react', 'dependencies')).toBe(false);
+    });
+  });
+
+  describe('get', () => {
+    it('dependencies', () => {
+      add('react', 'dependencies');
+      add('react-dom', 'dependencies');
+
+      expect(get('dependencies')).toStrictEqual(['react', 'react-dom']);
+    });
+
+    it('dependencies if no group provided', () => {
+      add('react', 'dependencies');
+      add('react-dom', 'dependencies');
+
+      expect(get()).toStrictEqual(['react', 'react-dom']);
+    });
+
+    it('dependencies from other groups', () => {
+      add('react', 'dependencies');
+      add('jest', 'devDependencies');
+      add('enzyme', 'devDependencies');
+
+      expect(get('devDependencies')).toStrictEqual(['jest', 'enzyme']);
     });
   });
 
