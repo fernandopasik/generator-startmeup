@@ -4,14 +4,10 @@ interface All {
   [groupName: string]: Map<string, string | undefined>;
 }
 
-enum GroupNames {
-  dependencies,
-  devDependencies,
-  optionalDependencies,
-  peerDependencies,
-}
+const groupNames = ['dependencies', 'devDependencies', 'optionalDependencies', 'peerDependencies'];
+type GroupNames = 'dependencies' | 'devDependencies' | 'optionalDependencies' | 'peerDependencies';
 
-const all: All = Object.keys(GroupNames).reduce((acc, groupName: string) => {
+const all: All = groupNames.reduce((acc, groupName: string) => {
   acc[groupName] = new Map();
   return acc;
 }, {} as All);
@@ -60,8 +56,8 @@ export const removeAll = (): void => {
 };
 
 export const importFromPkg = (pkg: PackageJson): void => {
-  Object.keys(GroupNames).forEach((groupName: string): void => {
-    const deps = pkg[groupName as keyof typeof GroupNames];
+  groupNames.forEach((groupName: string): void => {
+    const deps = pkg[groupName as GroupNames];
 
     if (deps) {
       Object.keys(deps).forEach((dependencyName) => {
