@@ -20,7 +20,7 @@ export default class LintGenerator extends Generator {
 
     this.eslintConfig.extends = [];
 
-    if (dependencies.has('react')) {
+    if (dependencies.has('react') || dependencies.has('react', 'peerDependencies')) {
       dependencies.add('eslint-config-airbnb', 'devDependencies');
       dependencies.add('eslint-plugin-import', 'devDependencies');
       dependencies.add('eslint-plugin-jsx-a11y', 'devDependencies');
@@ -48,7 +48,7 @@ export default class LintGenerator extends Generator {
       this.eslintConfig.parser = 'babel-eslint';
     }
 
-    if (dependencies.has('lit-html')) {
+    if (dependencies.has('lit-html') || dependencies.has('lit-html', 'peerDependencies')) {
       dependencies.add('eslint-plugin-lit', 'devDependencies');
       plugins.push('lit');
       this.eslintConfig.extends.push('plugin:lit/all');
