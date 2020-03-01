@@ -3,7 +3,7 @@ import 'core-js/features/array/flat-map';
 import { format, resolveConfig } from 'prettier';
 
 import { dependencies } from '../core';
-import { COMPILERS, COMPILER_DEPENDENCIES } from './dependencies';
+import { COMPILER_DEPENDENCIES } from './dependencies';
 import { addPreset, getConfig } from './babelConfig';
 import getTSConfig from './tsConfig';
 import prettifyJson from '../prettier/prettify-json';
@@ -18,18 +18,20 @@ export default class CompilerGenerator extends Generator {
   }
 
   public async prompting(): Promise<void> {
+    const compilers: Record<string, string> = {
+      babel: '@babel/core',
+      typescript: 'typescript',
+    };
+
     this.answers = {
       ...(await this.prompt([
         {
           type: 'checkbox',
           name: 'compilers',
           message: 'Which compiler do you want to use?',
-          choices: COMPILERS,
-          default: COMPILERS.filter((compilerName: string): boolean =>
-            COMPILER_DEPENDENCIES[compilerName].reduce(
-              (acc: boolean, name: string): boolean => acc || dependencies.has(name, 'all'),
-              false,
-            ),
+          choices: Object.keys(compilers),
+          default: Object.keys(compilers).filter((compilerName: string): boolean =>
+            dependencies.has(compilers[compilerName], 'devDependencies'),
           ),
         },
       ])),
