@@ -5,7 +5,7 @@ import { format, resolveConfig } from 'prettier';
 import { dependencies } from '../core';
 import { addPreset, getConfig } from './babelConfig';
 import getTSConfig from './tsConfig';
-import prettifyJson from '../prettier/prettify-json';
+import prettifyJson, { AnyJson } from '../prettier/prettify-json';
 
 export default class CompilerGenerator extends Generator {
   private answers: {
@@ -78,7 +78,7 @@ export default class CompilerGenerator extends Generator {
     if (compilers.includes('typescript')) {
       this.fs.write(
         this.destinationPath('tsconfig.json'),
-        prettifyJson(getTSConfig(), prettierConfig),
+        prettifyJson((getTSConfig() as unknown) as AnyJson, prettierConfig),
       );
     }
   }
