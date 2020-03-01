@@ -1,8 +1,7 @@
 import Generator from 'yeoman-generator';
-import { format, resolveConfig } from 'prettier';
 import { Config } from '@jest/types';
 
-import { dependencies } from '../core';
+import { dependencies, configs } from '../core';
 import { buildConfig, generateFilename } from './config';
 
 export default class JestGenerator extends Generator {
@@ -11,10 +10,9 @@ export default class JestGenerator extends Generator {
   public async initializing(): Promise<void> {
     dependencies.importFromPkg(this.fs.readJSON('package.json'));
 
-    ['jest.config.cjs', 'jest.config.js'].forEach(async (configFile) => {
-      if (this.fs.exists(configFile)) {
-        const file = await import(this.destinationPath(configFile));
-        this.jestConfig = file.default;
+    ['jest.config.cjs', 'jest.config.js'].forEach(async (filename) => {
+      if (configs.fileExists(filename)) {
+        this.jestConfig = (await configs.load(filename)) as Config.InitialOptions;
       }
     });
   }
@@ -32,24 +30,17 @@ export default class JestGenerator extends Generator {
   }
 
   public async writing(): Promise<void> {
-    const prettierConfig = (await resolveConfig(process.cwd())) || {};
-
-    const jestConfigJs = format(`module.exports=${JSON.stringify(this.jestConfig)}`, {
-      ...prettierConfig,
-      parser: 'babel',
-    });
-
-    const pkg = this.fs.readJSON('package.json');
+    const pkg = (await configs.load('package.json')) || {};
 
     const wrongFilename = generateFilename(pkg.type !== 'module');
 
-    if (this.fs.exists(this.destinationPath(wrongFilename))) {
+    if (configs.fileExists(wrongFilename)) {
       this.fs.delete(this.destinationPath(wrongFilename));
     }
 
     const filename = generateFilename(pkg.type === 'module');
 
-    this.fs.write(this.destinationPath(filename), jestConfigJs);
+    configs.save(filename, this.jestConfig, 'js');
   }
 
   public install(): void {

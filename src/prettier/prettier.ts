@@ -1,8 +1,6 @@
 import Generator from 'yeoman-generator';
-import { Options } from 'prettier';
 
-import { dependencies } from '../core';
-import prettifyJson, { AnyJson } from './prettify-json';
+import { dependencies, configs } from '../core';
 
 export default class PrettierGenerator extends Generator {
   private confirm?: boolean;
@@ -38,10 +36,7 @@ export default class PrettierGenerator extends Generator {
         trailingComma: 'all',
       };
 
-      this.fs.write(
-        this.destinationPath('.prettierrc.json'),
-        prettifyJson(config as AnyJson, config as Options),
-      );
+      configs.save('.prettierrc.json', config);
     }
   }
 
