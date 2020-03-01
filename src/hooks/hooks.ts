@@ -21,7 +21,7 @@ export default class HooksGenerator extends Generator {
   }
 
   public async writing(): Promise<void> {
-    const prettierConfig = (await prettier.resolveConfig(process.cwd())) || {};
+    const prettierConfig = (await prettier.resolveConfig(process.cwd())) ?? {};
 
     if (Object.keys(this.lintStagedConfig).length > 0) {
       prettifyJson(this.lintStagedConfig);

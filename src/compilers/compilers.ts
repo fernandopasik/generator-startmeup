@@ -65,7 +65,7 @@ export default class CompilerGenerator extends Generator {
 
   public async writing(): Promise<void> {
     const { compilers = [] } = this.answers;
-    const prettierConfig = (await resolveConfig(process.cwd())) || {};
+    const prettierConfig = (await resolveConfig(process.cwd())) ?? {};
 
     if (compilers.includes('babel')) {
       const babelConfigJs = format(`module.exports=${JSON.stringify(getConfig())}`, {

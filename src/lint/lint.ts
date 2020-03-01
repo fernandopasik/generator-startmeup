@@ -40,7 +40,7 @@ export default class LintGenerator extends Generator {
       dependencies.add('@typescript-eslint/parser', 'devDependencies');
       plugins.push('typescript');
       this.eslintConfig.extends.push('plugin:import/typescript', 'plugin:@typescript-eslint/all');
-      this.eslintConfig.overrides = this.eslintConfig.overrides || [];
+      this.eslintConfig.overrides = this.eslintConfig.overrides ?? [];
       this.eslintConfig.overrides.push({
         files: ['*.spec.*'],
         rules: { '@typescript-eslint/no-magic-numbers': 'off' },
@@ -104,7 +104,7 @@ export default class LintGenerator extends Generator {
   }
 
   public async writing(): Promise<void> {
-    const prettierConfig = (await prettier.resolveConfig(process.cwd())) || {};
+    const prettierConfig = (await prettier.resolveConfig(process.cwd())) ?? {};
 
     this.fs.write(
       this.destinationPath('.eslintrc.json'),

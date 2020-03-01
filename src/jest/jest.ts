@@ -30,7 +30,7 @@ export default class JestGenerator extends Generator {
   }
 
   public async writing(): Promise<void> {
-    const pkg = (await configs.load('package.json')) || {};
+    const pkg = (await configs.load('package.json')) ?? {};
 
     const wrongFilename = generateFilename(pkg.type !== 'module');
 

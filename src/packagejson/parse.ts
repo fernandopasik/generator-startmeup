@@ -23,8 +23,8 @@ const parse = (pkg: PackageJson): Parsed => {
   if (typeof author === 'string') {
     parsedAuthor = {};
     parsedAuthor.name = author.replace(/\s?[(<].*/g, '');
-    [, parsedAuthor.email = undefined] = /<([^>]+)>/.exec(author) || [];
-    [, parsedAuthor.url = undefined] = /\(([^)]+)\)/.exec(author) || [];
+    [, parsedAuthor.email = undefined] = /<([^>]+)>/.exec(author) ?? [];
+    [, parsedAuthor.url = undefined] = /\(([^)]+)\)/.exec(author) ?? [];
   } else {
     parsedAuthor = author;
   }

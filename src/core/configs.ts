@@ -44,7 +44,7 @@ export const loadPrettierConfig = ((): (() => Promise<Options>) => {
   return async (): Promise<Options> => {
     if (!prettierConfig) {
       prettierConfig =
-        (await prettier.resolveConfig(process.cwd())) || (defaultPrettierConfig as Options);
+        (await prettier.resolveConfig(process.cwd())) ?? (defaultPrettierConfig as Options);
     }
 
     return prettierConfig;

@@ -25,7 +25,7 @@ module.exports = class extends Generator {
   }
 
   public writing(): void {
-    const { devDependencies = {} } = this.pkg || {};
+    const { devDependencies = {} } = this.pkg ?? {};
     const options = {
       githubUrl: '',
       ...this.answers,

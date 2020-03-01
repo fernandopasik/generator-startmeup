@@ -32,7 +32,7 @@ export default class CommitLintGenerator extends Generator {
 
   public async writing(): Promise<void> {
     if (this.confirm) {
-      const prettierConfig = (await prettier.resolveConfig(process.cwd())) || {};
+      const prettierConfig = (await prettier.resolveConfig(process.cwd())) ?? {};
 
       const config = {
         extends: ['@commitlint/config-conventional'],
