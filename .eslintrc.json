@@ -14,7 +14,6 @@
       "error",
       { "ignoreParameters": true, "ignoreProperties": true }
     ],
-    "@typescript-eslint/array-type": "warn",
     "@typescript-eslint/explicit-module-boundary-types": "warn",
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/no-floating-promises": "warn",
@@ -22,8 +21,6 @@
     "@typescript-eslint/no-misused-promises": "warn",
     "@typescript-eslint/no-type-alias": "warn",
     "@typescript-eslint/no-unnecessary-condition": "warn",
-    "@typescript-eslint/no-unnecessary-type-assertion": "warn",
-    "@typescript-eslint/prefer-optional-chain": "warn",
     "@typescript-eslint/require-array-sort-compare": "warn",
     "@typescript-eslint/require-await": "warn",
     "@typescript-eslint/restrict-template-expressions": "warn",

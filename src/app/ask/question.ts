@@ -25,8 +25,7 @@ export const setDefaultValue = (question: Question, defaultValue?: any): Questio
 
 export const setDefaultValues = (questions: Question[] = [], defaultValues?: Answers): Question[] =>
   questions.map(
-    (question: Question): Question =>
-      setDefaultValue(question, defaultValues && defaultValues[question.name]),
+    (question: Question): Question => setDefaultValue(question, defaultValues?.[question.name]),
   );
 
 export const flatten = (questions: Question[] = []): SubQuestion[] =>

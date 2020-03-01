@@ -6,7 +6,7 @@ interface JsonMap {
   [key: string]: AnyJson;
 }
 
-type JsonArray = Array<AnyJson>;
+type JsonArray = AnyJson[];
 
 const prettifyJson = (json: AnyJson, config: Options = {}): string =>
   prettier.format(JSON.stringify(json, null, 2), { ...config, parser: 'json' });

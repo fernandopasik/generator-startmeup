@@ -48,7 +48,7 @@ export function unflatObject(obj?: NonNestedObject): NestedObject | undefined {
           acc[subkey] = acc[subkey] || {};
         }
         return acc[subkey];
-      }, previous as NestedObject);
+      }, previous);
 
       return previous;
     }
