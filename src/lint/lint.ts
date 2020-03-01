@@ -81,7 +81,7 @@ export default class LintGenerator extends Generator {
       dependencies.add('eslint-plugin-prettier', 'devDependencies');
       plugins.push('prettier');
 
-      if (this.eslintConfig.rules) {
+      if (typeof this.eslintConfig.rules !== 'undefined') {
         delete this.eslintConfig.rules['prettier/prettier'];
       }
 
@@ -92,7 +92,7 @@ export default class LintGenerator extends Generator {
       }
     }
 
-    if (this.eslintConfig.plugins) {
+    if (typeof this.eslintConfig.plugins !== 'undefined') {
       this.eslintConfig.plugins = this.eslintConfig.plugins.filter(
         (plugin) => !plugins.includes(plugin),
       );

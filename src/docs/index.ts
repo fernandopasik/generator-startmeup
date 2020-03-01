@@ -15,7 +15,7 @@ module.exports = class extends Generator {
 
   public initializing(): void {
     this.pkg = this.fs.readJSON('package.json', {});
-    if (this.pkg) {
+    if (typeof this.pkg !== 'undefined') {
       this.parameters = parse(this.pkg);
     }
   }
@@ -32,9 +32,9 @@ module.exports = class extends Generator {
       author: {
         name: this?.answers?.['author.name'],
       },
-      eslint: !!devDependencies.eslint,
-      codecov: !!devDependencies.codecov,
-      commitlint: !!devDependencies['@commitlint/cli'],
+      eslint: Boolean(devDependencies.eslint),
+      codecov: Boolean(devDependencies.codecov),
+      commitlint: Boolean(devDependencies['@commitlint/cli']),
       circleci: !!this.fs.exists(this.destinationPath('.circleci/config.yml')),
       year: new Date().getFullYear(),
     };

@@ -5,7 +5,7 @@ import { dependencies } from '../core';
 import prettifyJson from '../prettier/prettify-json';
 
 export default class CommitLintGenerator extends Generator {
-  private confirm?: boolean;
+  private confirm: boolean = true;
 
   public initializing(): void {
     dependencies.importFromPkg(this.fs.readJSON('package.json'));

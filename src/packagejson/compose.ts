@@ -9,8 +9,9 @@ interface Author {
 }
 
 const composeAuthor = (author: Author = {}): string =>
-  [author.name, author.email && ` <${author.email}>`, author.url && ` (${author.url})`]
-    .join('')
+  `${author.name ?? ''} <${author.email ?? ''}> (${author.url ?? ''})`
+    .replace(' <>', '')
+    .replace(' ()', '')
     .trim();
 
 interface RepoInfo {

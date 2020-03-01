@@ -21,8 +21,7 @@ export const load = async (filename: string, initial?: Config): Promise<Config |
     cache.set('filename', config);
     return config;
   } catch (error) {
-    if (!initial) {
-      console.error(error.message);
+    if (typeof initial === 'undefined') {
       return undefined;
     }
 
@@ -32,7 +31,7 @@ export const load = async (filename: string, initial?: Config): Promise<Config |
 };
 
 export const loadPrettierConfig = ((): (() => Promise<Options>) => {
-  let prettierConfig: Options;
+  let prettierConfig: Options | undefined;
 
   const defaultPrettierConfig = {
     arrowParens: 'always',
@@ -42,7 +41,7 @@ export const loadPrettierConfig = ((): (() => Promise<Options>) => {
   };
 
   return async (): Promise<Options> => {
-    if (!prettierConfig) {
+    if (typeof prettierConfig === 'undefined') {
       prettierConfig =
         (await prettier.resolveConfig(process.cwd())) ?? (defaultPrettierConfig as Options);
     }

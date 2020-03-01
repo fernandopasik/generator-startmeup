@@ -20,7 +20,7 @@ export const getNames = (questions: Question[]): string[] =>
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const setDefaultValue = (question: Question, defaultValue?: any): Question => ({
   ...question,
-  default: defaultValue || question.default,
+  default: defaultValue ?? question.default,
 });
 
 export const setDefaultValues = (questions: Question[] = [], defaultValues?: Answers): Question[] =>
@@ -30,7 +30,7 @@ export const setDefaultValues = (questions: Question[] = [], defaultValues?: Ans
 
 export const flatten = (questions: Question[] = []): SubQuestion[] =>
   questions.flatMap((question: Question): Question[] => {
-    if (question.questions) {
+    if (typeof question.questions !== 'undefined') {
       return flatten(question.questions).map(
         (subquestion: SubQuestion): SubQuestion => ({
           ...subquestion,

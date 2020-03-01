@@ -14,7 +14,7 @@ export function flatObject(obj?: NestedObject, path?: string): NonNestedObject |
   }
 
   return Object.keys(obj).reduce((previous: NonNestedObject, key: string): NonNestedObject => {
-    const currentKey = path ? `${path}.${key}` : key;
+    const currentKey = typeof path !== 'undefined' ? `${path}.${key}` : key;
     const element = obj[key];
 
     if (typeof element !== 'object') {
@@ -45,7 +45,7 @@ export function unflatObject(obj?: NonNestedObject): NestedObject | undefined {
         if (index === keys.length - 1) {
           acc[subkey] = element;
         } else {
-          acc[subkey] = acc[subkey] || {};
+          acc[subkey] = acc[subkey] ?? {};
         }
         return acc[subkey];
       }, previous);

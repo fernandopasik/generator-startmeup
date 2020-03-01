@@ -59,7 +59,7 @@ export const importFromPkg = (pkg: PackageJson = { name: '', version: '' }): voi
   groupNames.forEach((groupName: string): void => {
     const deps = pkg[groupName as GroupNames];
 
-    if (deps) {
+    if (typeof deps !== 'undefined') {
       Object.keys(deps).forEach((dependencyName) => {
         add(dependencyName, groupName);
       });

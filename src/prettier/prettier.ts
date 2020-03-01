@@ -3,7 +3,7 @@ import Generator from 'yeoman-generator';
 import { dependencies, configs } from '../core';
 
 export default class PrettierGenerator extends Generator {
-  private confirm?: boolean;
+  private confirm: boolean = true;
 
   public initializing(): void {
     dependencies.importFromPkg(this.fs.readJSON('package.json'));

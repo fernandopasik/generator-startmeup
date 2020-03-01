@@ -23,7 +23,6 @@
     "@typescript-eslint/no-unnecessary-condition": "warn",
     "@typescript-eslint/require-array-sort-compare": "warn",
     "@typescript-eslint/restrict-template-expressions": "warn",
-    "@typescript-eslint/strict-boolean-expressions": "warn",
     "@typescript-eslint/typedef": "warn",
     "import/extensions": ["error", "never"],
     "jest/no-hooks": "off",
