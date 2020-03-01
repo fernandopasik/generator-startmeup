@@ -18,7 +18,7 @@ export const getNames = (questions: Question[]): string[] =>
   questions.map((question: Question): string => question.name);
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const setDefaultValue = (question: Question, defaultValue?: any): Question => ({
+export const setDefaultValue = (question: Question, defaultValue?: any | any[]): Question => ({
   ...question,
   default: defaultValue ?? question.default,
 });

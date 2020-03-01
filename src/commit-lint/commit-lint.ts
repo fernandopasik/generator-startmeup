@@ -48,7 +48,7 @@ export default class CommitLintGenerator extends Generator {
       hooks['commit-msg'] = 'commitlint -E HUSKY_GIT_PARAMS';
 
       const sortedHooks = Object.keys(hooks)
-        .sort()
+        .sort((a: string, b: string) => a.toLowerCase().localeCompare(b.toLowerCase()))
         .reduce((sorted, key) => ({ ...sorted, [key]: hooks[key] }), {});
 
       this.fs.write(this.destinationPath('.huskyrc.json'), prettifyJson({ hooks: sortedHooks }));
