@@ -36,7 +36,7 @@ export default class PrettierGenerator extends Generator {
         trailingComma: 'all',
       };
 
-      configs.save('.prettierrc.json', config);
+      await configs.save('.prettierrc.json', config);
     }
   }
 
