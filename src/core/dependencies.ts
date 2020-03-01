@@ -1,19 +1,19 @@
 import { PackageJson } from '../packagejson/package-json';
 
 interface All {
-  [groupName: string]: Map<string, string | undefined>;
+  [groupName: string]: Set<string>;
 }
 
 const groupNames = ['dependencies', 'devDependencies', 'optionalDependencies', 'peerDependencies'];
 type GroupNames = 'dependencies' | 'devDependencies' | 'optionalDependencies' | 'peerDependencies';
 
 const all: All = groupNames.reduce((acc, groupName: string) => {
-  acc[groupName] = new Map();
+  acc[groupName] = new Set();
   return acc;
 }, {} as All);
 
-export const add = (name: string, groupName: string = 'dependencies', version?: string): void => {
-  all[groupName].set(name, version);
+export const add = (name: string, groupName: string = 'dependencies'): void => {
+  all[groupName].add(name);
 
   if (groupName === 'peerDependencies') {
     add(name, 'devDependencies');
