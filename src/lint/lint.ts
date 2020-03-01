@@ -65,7 +65,10 @@ export default class LintGenerator extends Generator {
       };
     }
 
-    if (dependencies.has('flow-bin', 'devDependencies')) {
+    if (
+      dependencies.has('flow-bin', 'devDependencies') &&
+      !dependencies.has('flowgen', 'devDependencies')
+    ) {
       dependencies.add('eslint-plugin-flowtype', 'devDependencies');
       plugins.push('flowtype');
       this.eslintConfig.extends.push('plugin:flowtype/recommended');
