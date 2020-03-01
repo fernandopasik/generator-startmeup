@@ -13,6 +13,9 @@
   "author": "Fernando Pasik <fernando@pasik.com.ar> (https://fernandopasik.com)",
   "contributors": [],
   "main": "generators/app/index.js",
+  "files": [
+    "/generators"
+  ],
   "scripts": {
     "prebuild": "del generators",
     "build": "tsc",
