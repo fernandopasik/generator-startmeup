@@ -1,16 +1,30 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import {
+  CompilerOptions,
+  JsxEmit,
+  ModuleKind,
+  ModuleResolutionKind,
+  ScriptTarget,
+} from 'typescript';
 import { dependencies } from '../core';
 
-const getTSConfig = (): any => ({
+interface TypescriptConfig {
+  compilerOptions?: CompilerOptions;
+  include: string[];
+  exclude: string[];
+}
+
+const getTSConfig = (): TypescriptConfig => ({
   compilerOptions: {
     declaration: true,
     declarationMap: true,
     esModuleInterop: true,
     experimentalDecorators: true,
     inlineSources: true,
-    ...(dependencies.has('react') ? { jsx: 'react' } : {}),
+    ...(dependencies.has('react') ? { jsx: ('react' as unknown) as JsxEmit } : {}),
     lib: ['es2020', 'dom', 'dom.iterable'],
-    module: 'ESNext',
-    moduleResolution: 'node',
+    module: ('ESNext' as unknown) as ModuleKind,
+    moduleResolution: ('node' as unknown) as ModuleResolutionKind,
     noFallthroughCasesInSwitch: true,
     noImplicitAny: true,
     noImplicitReturns: true,
@@ -25,7 +39,7 @@ const getTSConfig = (): any => ({
     strictFunctionTypes: true,
     strictNullChecks: true,
     strictPropertyInitialization: true,
-    target: 'es2017',
+    target: ('es2017' as unknown) as ScriptTarget,
   },
   include: ['src/**/*'],
   exclude: [
