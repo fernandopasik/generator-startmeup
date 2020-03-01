@@ -21,7 +21,7 @@ export const add = (name: string, groupName: string = 'dependencies'): void => {
 };
 
 export const get = (groupName: string = 'dependencies'): string[] => {
-  return Array.from(all[groupName].keys());
+  return Array.from(all[groupName].values());
 };
 
 export const has = (name: string, groupName: string | 'all' = 'dependencies'): boolean => {
