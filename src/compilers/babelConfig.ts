@@ -1,9 +1,16 @@
+type Plugin = string | [string, Record<string, string | number | boolean>];
+
+interface BabelConfig {
+  presets?: string[];
+  plugins?: Plugin[];
+}
+
 const presets: Set<string> = new Set();
 
 export const addPreset = (preset: string): Set<string> => presets.add(preset);
 export const getPresets = (): string[] => Array.from(presets);
 
-export const getConfig = (): any => ({
+export const getConfig = (): BabelConfig => ({
   presets: Array.from(presets),
   plugins: [
     '@babel/plugin-proposal-class-properties',
