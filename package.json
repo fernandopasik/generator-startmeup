@@ -19,7 +19,7 @@
   "scripts": {
     "prebuild": "del generators",
     "build": "tsc",
-    "postbuild": "cpy **/templates/* ../generators/ --cwd=src --parents",
+    "postbuild": "cpy **/templates/** ../generators/ --cwd=src --parents",
     "check-types": "tsc --noEmit -p tsconfig.all.json",
     "lint": "eslint . --ext ts,js",
     "start": "yarn build -w",
