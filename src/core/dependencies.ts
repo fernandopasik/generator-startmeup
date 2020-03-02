@@ -7,7 +7,7 @@ interface All {
 const groupNames = ['dependencies', 'devDependencies', 'optionalDependencies', 'peerDependencies'];
 type GroupNames = 'dependencies' | 'devDependencies' | 'optionalDependencies' | 'peerDependencies';
 
-const all: All = groupNames.reduce((acc, groupName: string) => {
+const all: All = groupNames.reduce((acc: All, groupName: string) => {
   acc[groupName] = new Set();
   return acc;
 }, {} as All);
@@ -60,7 +60,7 @@ export const importFromPkg = (pkg: PackageJson = { name: '', version: '' }): voi
     const deps = pkg[groupName as GroupNames];
 
     if (typeof deps !== 'undefined') {
-      Object.keys(deps).forEach((dependencyName) => {
+      Object.keys(deps).forEach((dependencyName: string) => {
         add(dependencyName, groupName);
       });
     }

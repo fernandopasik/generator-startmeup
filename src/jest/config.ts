@@ -11,7 +11,7 @@ export const generateTransformPattern = (
   hasReact: boolean = false,
 ): string => `^.+\\.${hasTypescript ? '[j|t]' : 'j'}s${hasReact ? 'x?' : ''}$`;
 
-export const generateFilename = (isModuleType = false): string =>
+export const generateFilename = (isModuleType: boolean = false): string =>
   `jest.config.${isModuleType ? 'cjs' : 'js'}`;
 
 export const buildConfig = (existingConfig: Config.InitialOptions = {}): Config.InitialOptions => {

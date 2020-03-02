@@ -49,7 +49,13 @@ export default class CommitLintGenerator extends Generator {
 
       const sortedHooks = Object.keys(hooks)
         .sort((a: string, b: string) => a.toLowerCase().localeCompare(b.toLowerCase()))
-        .reduce((sorted, key) => ({ ...sorted, [key]: hooks[key] }), {});
+        .reduce(
+          (sorted: Record<string, string | string[]>, key: string) => ({
+            ...sorted,
+            [key]: hooks[key],
+          }),
+          {} as Record<string, string | string[]>,
+        );
 
       this.fs.write(this.destinationPath('.huskyrc.json'), prettifyJson({ hooks: sortedHooks }));
     }

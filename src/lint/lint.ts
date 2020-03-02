@@ -94,7 +94,7 @@ export default class LintGenerator extends Generator {
 
     if (typeof this.eslintConfig.plugins !== 'undefined') {
       this.eslintConfig.plugins = this.eslintConfig.plugins.filter(
-        (plugin) => !plugins.includes(plugin),
+        (plugin: string) => !plugins.includes(plugin),
       );
 
       if (this.eslintConfig.plugins.length === 0) {
