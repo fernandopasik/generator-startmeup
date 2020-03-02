@@ -2,8 +2,8 @@ import path from 'path';
 import fs from 'fs';
 import prettier, { Options } from 'prettier';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-type-alias
 type Config = Record<string, any>;
-type ConfigFormat = 'json' | 'js';
 
 const cache = new Map();
 
@@ -50,7 +50,7 @@ export const loadPrettierConfig = ((): (() => Promise<Options>) => {
   };
 })();
 
-export const format = async (content: string, type: ConfigFormat = 'json'): Promise<string> => {
+export const format = async (content: string, type: 'json' | 'js' = 'json'): Promise<string> => {
   const prettierConfig = await loadPrettierConfig();
 
   const parser = type === 'js' ? 'babel' : 'json';
@@ -60,9 +60,10 @@ export const format = async (content: string, type: ConfigFormat = 'json'): Prom
 export const save = async (
   filename: string,
   json: Config,
-  type: ConfigFormat = 'json',
+  type: 'json' | 'js' = 'json',
 ): Promise<void> => {
-  const stringifiedJson = JSON.stringify(json, null, 2);
+  const JSON_SPACES = 2;
+  const stringifiedJson = JSON.stringify(json, null, JSON_SPACES);
   const content = type === 'js' ? `module.exports = ${stringifiedJson}` : stringifiedJson;
 
   const formattedContent = await format(content, type);

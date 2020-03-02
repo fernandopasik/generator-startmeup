@@ -1,11 +1,9 @@
-type Primitives = number | string | boolean;
-
 interface NestedObject {
-  [property: string]: Primitives | NestedObject;
+  [property: string]: number | string | boolean | NestedObject;
 }
 
 interface NonNestedObject {
-  [property: string]: Primitives;
+  [property: string]: number | string | boolean;
 }
 
 export function flatObject(obj?: NestedObject, path?: string): NonNestedObject | undefined {
@@ -41,6 +39,7 @@ export function unflatObject(obj?: NonNestedObject): NestedObject | undefined {
     const keys = key.split('.');
 
     if (keys.length > 0) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       keys.reduce((acc: any, subkey: string, index: number): NestedObject => {
         if (index === keys.length - 1) {
           acc[subkey] = element;
