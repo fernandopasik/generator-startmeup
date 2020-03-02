@@ -4,7 +4,7 @@ import prettier from 'prettier';
 import { Linter } from 'eslint';
 
 import { dependencies } from '../core';
-import prettifyJson, { AnyJson } from '../prettier/prettify-json';
+import prettifyJson from '../prettier/prettify-json';
 
 export default class LintGenerator extends Generator {
   private eslintConfig: Linter.Config = {};
@@ -108,7 +108,7 @@ export default class LintGenerator extends Generator {
 
     this.fs.write(
       this.destinationPath('.eslintrc.json'),
-      prettifyJson(this.eslintConfig as AnyJson, prettierConfig),
+      prettifyJson(this.eslintConfig, prettierConfig),
     );
   }
 
