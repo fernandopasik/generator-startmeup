@@ -17,7 +17,6 @@
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/no-magic-numbers": "warn",
     "@typescript-eslint/no-type-alias": "warn",
-    "@typescript-eslint/restrict-template-expressions": "warn",
     "@typescript-eslint/typedef": "warn",
     "import/extensions": ["error", "never"],
     "jest/no-hooks": "off",

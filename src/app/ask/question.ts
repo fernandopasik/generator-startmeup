@@ -34,7 +34,7 @@ export const flatten = (questions: Question[] = []): SubQuestion[] =>
       return flatten(question.questions).map(
         (subquestion: SubQuestion): SubQuestion => ({
           ...subquestion,
-          name: `${question.name}.${subquestion.name}`,
+          name: `${question.name as string}.${subquestion.name as string}`,
         }),
       );
     }

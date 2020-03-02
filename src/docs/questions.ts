@@ -67,7 +67,10 @@ const questions: Question[] = [
     name: 'githubUrl',
     type: 'input',
     message: 'What is your github url?',
-    default: (props: Answers): string => `https://github.com/${props.githubUsername}/${props.name}`,
+    default: (props: Answers): string =>
+      Boolean(props.githubUsername) && Boolean(props.name)
+        ? `https://github.com/${props.githubUsername as string}/${props.name as string}`
+        : '',
     when: (props: Answers): boolean => Boolean(props.github),
   },
 ];
