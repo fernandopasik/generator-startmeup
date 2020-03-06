@@ -16,6 +16,7 @@
     ],
     "@typescript-eslint/no-magic-numbers": "warn",
     "@typescript-eslint/no-type-alias": "warn",
+    "@typescript-eslint/prefer-readonly-parameter-types": "warn",
     "import/extensions": ["error", "never"],
     "jest/no-hooks": "off",
     "jest/prefer-expect-assertions": "off"
