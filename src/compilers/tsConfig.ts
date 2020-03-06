@@ -44,10 +44,11 @@ const getTSConfig = (): TypescriptConfig => ({
   include: ['src/**/*'],
   exclude: [
     'node_modules',
-    '**/__tests__/**/*',
-    `**/?(*.)+(spec|test).${dependencies.has('typescript', 'devDependencies') ? '(js|ts)' : 'js'}${
-      dependencies.has('react') ? '?(x)' : ''
-    }`,
+    '**/__tests__/**',
+    '**/__mocks__/**',
+    '**/*.spec.*',
+    '**/*.e2e.*',
+    '**/*.test.*',
   ],
 });
 
