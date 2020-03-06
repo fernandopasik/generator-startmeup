@@ -9,6 +9,7 @@ import {
 import { dependencies } from '../core';
 
 interface TypescriptConfig {
+  extends?: string;
   compilerOptions?: CompilerOptions;
   include: string[];
   exclude: string[];
@@ -52,6 +53,16 @@ const getTSConfig = (): TypescriptConfig => ({
     '**/*.test.*',
     '**/*.stories.*',
   ],
+});
+
+export const getTSConfigAll = (): TypescriptConfig => ({
+  extends: './tsconfig.json',
+  compilerOptions: {
+    allowJs: true,
+    noEmit: true,
+  },
+  include: ['src/**/*', './*.js'],
+  exclude: ['node_modules'],
 });
 
 export default getTSConfig;
