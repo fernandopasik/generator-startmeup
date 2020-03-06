@@ -27,5 +27,12 @@
     "target": "es2017"
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/__tests__/**", "**/__mocks__/**"]
+  "exclude": [
+    "node_modules",
+    "**/__tests__/**",
+    "**/__mocks__/**",
+    "**/*.spec.*",
+    "**/*.e2e.*",
+    "**/*.test.*"
+  ]
 }
