@@ -46,9 +46,11 @@ const getTSConfig = (): TypescriptConfig => ({
     'node_modules',
     '**/__tests__/**',
     '**/__mocks__/**',
+    '**/__stories__/**',
     '**/*.spec.*',
     '**/*.e2e.*',
     '**/*.test.*',
+    '**/*.stories.*',
   ],
 });
 
