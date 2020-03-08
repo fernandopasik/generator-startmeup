@@ -29,7 +29,7 @@ describe('configs', () => {
       expect(await loadPrettierConfig()).toMatchInlineSnapshot(`
         Object {
           "arrowParens": "always",
-          "printWidth": 100,
+          "printWidth": 80,
           "singleQuote": true,
           "trailingComma": "all",
         }

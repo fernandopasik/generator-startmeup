@@ -35,7 +35,7 @@ export const loadPrettierConfig = ((): (() => Promise<Options>) => {
 
   const defaultPrettierConfig = {
     arrowParens: 'always',
-    printWidth: 100,
+    printWidth: 80,
     singleQuote: true,
     trailingComma: 'all',
   };
@@ -45,6 +45,8 @@ export const loadPrettierConfig = ((): (() => Promise<Options>) => {
       prettierConfig =
         (await prettier.resolveConfig(process.cwd())) ?? (defaultPrettierConfig as Options);
     }
+
+    prettierConfig.printWidth = 80;
 
     return prettierConfig;
   };
