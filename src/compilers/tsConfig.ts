@@ -15,6 +15,33 @@ interface TypescriptConfig {
   exclude: string[];
 }
 
+const getExclude = (): string[] => {
+  const exclude: string[] = [];
+
+  if (dependencies.has('jest', 'devDependencies')) {
+    exclude.push('**/__tests__/**', '**/__mocks__/**', '**/*.spec.*');
+  }
+
+  if (dependencies.has('jest-puppeteer', 'devDependencies')) {
+    exclude.push('**/*.e2e.*');
+  }
+
+  if (
+    dependencies.has('@storybook/react', 'devDependencies') ||
+    dependencies.has('@storybook/web-components', 'devDependencies')
+  ) {
+    exclude.push('**/__stories__/**', '**/*.stories.*');
+  }
+
+  if (dependencies.has('flow-bin', 'devDependencies')) {
+    exclude.push('**/*.flow');
+  }
+
+  exclude.push('node_modules');
+
+  return exclude;
+};
+
 const getTSConfig = (): TypescriptConfig => ({
   compilerOptions: {
     declaration: true,
@@ -43,16 +70,7 @@ const getTSConfig = (): TypescriptConfig => ({
     target: ('es2017' as unknown) as ScriptTarget,
   },
   include: ['src/**/*'],
-  exclude: [
-    'node_modules',
-    '**/__tests__/**',
-    '**/__mocks__/**',
-    '**/__stories__/**',
-    '**/*.spec.*',
-    '**/*.e2e.*',
-    '**/*.test.*',
-    '**/*.stories.*',
-  ],
+  exclude: getExclude(),
 });
 
 export const getTSConfigAll = (): TypescriptConfig => ({
