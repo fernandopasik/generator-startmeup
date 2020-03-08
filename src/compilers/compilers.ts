@@ -1,11 +1,9 @@
 import Generator from 'yeoman-generator';
 import 'core-js/features/array/flat-map';
-import { format, resolveConfig } from 'prettier';
 
-import { dependencies } from '../core';
-import { addPreset, getConfig } from './babelConfig';
+import { dependencies, configs } from '../core';
+import { addPreset, getBabelConfig } from './babelConfig';
 import getTSConfig, { getTSConfigAll } from './tsConfig';
-import prettifyJson from '../prettier/prettify-json';
 
 export default class CompilerGenerator extends Generator {
   private answers: {
@@ -65,26 +63,14 @@ export default class CompilerGenerator extends Generator {
 
   public async writing(): Promise<void> {
     const { compilers = [] } = this.answers;
-    const prettierConfig = (await resolveConfig(process.cwd())) ?? {};
 
     if (compilers.includes('babel')) {
-      const babelConfigJs = format(`module.exports=${JSON.stringify(getConfig())}`, {
-        ...prettierConfig,
-        parser: 'babel',
-      });
-      this.fs.write(this.destinationPath('babel.config.js'), babelConfigJs);
+      await configs.save('babel.config.js', getBabelConfig(), 'js');
     }
 
     if (compilers.includes('typescript')) {
-      this.fs.write(
-        this.destinationPath('tsconfig.json'),
-        prettifyJson(getTSConfig(), prettierConfig),
-      );
-
-      this.fs.write(
-        this.destinationPath('tsconfig.all.json'),
-        prettifyJson(getTSConfigAll(), prettierConfig),
-      );
+      await configs.save('tsconfig.json', getTSConfig());
+      await configs.save('tsconfig.all.json', getTSConfigAll());
     }
   }
 
