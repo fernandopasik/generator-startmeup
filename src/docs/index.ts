@@ -39,11 +39,15 @@ module.exports = class extends Generator {
       year: new Date().getFullYear(),
     };
 
-    ['LICENSE', 'README.md', 'CONTRIBUTING.md', 'CODE_OF_CONDUCT.md'].forEach(
-      (template: string): void => {
+    ['LICENSE', 'README.md'].forEach((template: string): void => {
+      if (!this.fs.exists(this.destinationPath(template))) {
         this.fs.copyTpl(this.templatePath(template), this.destinationPath(template), options);
-      },
-    );
+      }
+    });
+
+    ['CONTRIBUTING.md', 'CODE_OF_CONDUCT.md'].forEach((template: string): void => {
+      this.fs.copyTpl(this.templatePath(template), this.destinationPath(template), options);
+    });
 
     [
       'github/PULL_REQUEST_TEMPLATE.md',
