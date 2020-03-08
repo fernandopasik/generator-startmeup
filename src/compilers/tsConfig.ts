@@ -39,7 +39,7 @@ const getExclude = (): string[] => {
 
   exclude.push('node_modules');
 
-  return exclude;
+  return exclude.sort((a: string, b: string) => a.toLowerCase().localeCompare(b.toLowerCase()));
 };
 
 const getTSConfig = (): TypescriptConfig => ({
