@@ -36,7 +36,7 @@ export default class HooksGenerator extends Generator {
     config.hooks['pre-push'] = 'yarn verify';
 
     if (Object.keys(config.hooks).length > 0) {
-      this.fs.writeJSON(this.destinationPath('.huskyrc.json'), config);
+      await configs.save('.huskyrc.json', config);
 
       dependencies.add('husky', 'devDependencies');
     }
