@@ -56,3 +56,9 @@ It's composed by a collection of subgenerators to do project tasks.
 1. Ask if want to use
 2. Add prettier to dev dependencies
 3. Set prettier config file
+
+### Commit Lint
+
+1. Ask if want to use
+2. Add cli and config to dev dependencies
+3. Set config file
