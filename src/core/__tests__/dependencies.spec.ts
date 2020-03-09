@@ -1,4 +1,4 @@
-import { add, get, has, remove, clear, importFromPkg } from '../dependencies';
+import { add, get, has, remove, clear, importFrom } from '../dependencies';
 
 describe('dependencies', () => {
   beforeEach(() => {
@@ -197,7 +197,7 @@ describe('dependencies', () => {
 
   describe('import from package.json', () => {
     it('dependencies', () => {
-      importFromPkg({
+      importFrom({
         name: 'name',
         version: '',
         dependencies: {
@@ -211,7 +211,7 @@ describe('dependencies', () => {
     });
 
     it('other dependency groups', () => {
-      importFromPkg({
+      importFrom({
         name: 'name',
         version: '',
         dependencies: {
@@ -229,7 +229,7 @@ describe('dependencies', () => {
     });
 
     it('peerDependencies add devDependencies as well', () => {
-      importFromPkg({
+      importFrom({
         name: 'name',
         version: '',
         peerDependencies: {
@@ -247,7 +247,7 @@ describe('dependencies', () => {
     });
 
     it('deals with empty package.json', () => {
-      expect(() => importFromPkg()).not.toThrow();
+      expect(() => importFrom()).not.toThrow();
     });
   });
 });

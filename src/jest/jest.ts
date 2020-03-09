@@ -8,7 +8,7 @@ export default class JestGenerator extends Generator {
   private jestConfig: Config.InitialOptions = {};
 
   public async initializing(): Promise<void> {
-    dependencies.importFromPkg(this.fs.readJSON('package.json'));
+    dependencies.importFrom(this.fs.readJSON('package.json'));
 
     if (configs.fileExists('jest.config.cjs')) {
       this.jestConfig = (await configs.load('jest.config.cjs')) as Config.InitialOptions;

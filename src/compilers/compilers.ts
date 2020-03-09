@@ -11,7 +11,7 @@ export default class CompilerGenerator extends Generator {
   } = {};
 
   public initializing(): void {
-    dependencies.importFromPkg(this.fs.readJSON('package.json'));
+    dependencies.importFrom(this.fs.readJSON('package.json'));
   }
 
   public async prompting(): Promise<void> {

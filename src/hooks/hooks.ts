@@ -13,7 +13,7 @@ export default class HooksGenerator extends Generator {
   private lintStagedConfig: LintStagedConfig = {};
 
   public initializing(): void {
-    dependencies.importFromPkg(this.fs.readJSON('package.json'));
+    dependencies.importFrom(this.fs.readJSON('package.json'));
   }
 
   public configuring(): void {

@@ -6,7 +6,7 @@ export default class SrcGenerator extends Generator {
 
   public initializing(): void {
     const pkg = this.fs.readJSON('package.json');
-    dependencies.importFromPkg(pkg);
+    dependencies.importFrom(pkg);
     this.mainPath = pkg?.main;
   }
 
