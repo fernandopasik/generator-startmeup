@@ -1,7 +1,5 @@
 import Generator from 'yeoman-generator';
-import prettier from 'prettier';
-
-import { dependencies } from '../core';
+import { dependencies, configs } from '../core';
 import { buildConfig as buildLintStagedConfig, LintStagedConfig } from './lint-staged';
 import prettifyJson from '../prettier/prettify-json';
 
@@ -21,15 +19,10 @@ export default class HooksGenerator extends Generator {
   }
 
   public async writing(): Promise<void> {
-    const prettierConfig = (await prettier.resolveConfig(process.cwd())) ?? {};
-
     if (Object.keys(this.lintStagedConfig).length > 0) {
       prettifyJson(this.lintStagedConfig);
 
-      this.fs.write(
-        this.destinationPath('.lintstagedrc.json'),
-        prettifyJson(this.lintStagedConfig, prettierConfig),
-      );
+      await configs.save('.lintstagedrc.json', this.lintStagedConfig);
 
       dependencies.add('lint-staged', 'devDependencies');
     }
