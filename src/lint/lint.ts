@@ -1,10 +1,7 @@
 import Generator from 'yeoman-generator';
-import prettier from 'prettier';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Linter } from 'eslint';
-
-import { dependencies } from '../core';
-import prettifyJson from '../prettier/prettify-json';
+import { dependencies, configs } from '../core';
 
 export default class LintGenerator extends Generator {
   private eslintConfig: Linter.Config = {};
@@ -104,12 +101,7 @@ export default class LintGenerator extends Generator {
   }
 
   public async writing(): Promise<void> {
-    const prettierConfig = (await prettier.resolveConfig(process.cwd())) ?? {};
-
-    this.fs.write(
-      this.destinationPath('.eslintrc.json'),
-      prettifyJson(this.eslintConfig, prettierConfig),
-    );
+    await configs.save('.eslintrc.json', this.eslintConfig);
   }
 
   public install(): void {
