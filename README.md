@@ -50,3 +50,9 @@ It's composed by a collection of subgenerators to do project tasks.
 4. If using typescript then set `index.ts`, else set `index.js`
 5. If using react then set `x` at the end
 6. Write index file
+
+### Prettier
+
+1. Ask if want to use
+2. Add prettier to dev dependencies
+3. Set prettier config file
