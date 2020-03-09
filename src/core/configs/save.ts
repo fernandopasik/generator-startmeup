@@ -9,7 +9,8 @@ const save = async (
   json: Config,
   type: 'json' | 'js' = 'json',
 ): Promise<void> => {
-  const stringifiedJson = JSON.stringify(json);
+  const SPACES = Object.keys(json).length > 1 ? 0 : 2;
+  const stringifiedJson = JSON.stringify(json, null, SPACES);
   const content = type === 'js' ? `module.exports = ${stringifiedJson}` : stringifiedJson;
 
   const formattedContent = await format(content, type);
