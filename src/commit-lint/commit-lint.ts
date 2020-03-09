@@ -1,8 +1,5 @@
 import Generator from 'yeoman-generator';
-import prettier from 'prettier';
-
-import { dependencies } from '../core';
-import prettifyJson from '../prettier/prettify-json';
+import { dependencies, configs } from '../core';
 
 export default class CommitLintGenerator extends Generator {
   private confirm: boolean = true;
@@ -32,16 +29,11 @@ export default class CommitLintGenerator extends Generator {
 
   public async writing(): Promise<void> {
     if (this.confirm) {
-      const prettierConfig = (await prettier.resolveConfig(process.cwd())) ?? {};
-
       const config = {
         extends: ['@commitlint/config-conventional'],
       };
 
-      this.fs.write(
-        this.destinationPath('.commitlintrc.json'),
-        prettifyJson(config, prettierConfig),
-      );
+      await configs.save('.commitlintrc.json', config);
 
       const huskyConfig = this.fs.readJSON(this.destinationPath('.huskyrc.json'));
       const { hooks } = huskyConfig;
@@ -57,7 +49,7 @@ export default class CommitLintGenerator extends Generator {
           {} as Record<string, string | string[]>,
         );
 
-      this.fs.write(this.destinationPath('.huskyrc.json'), prettifyJson({ hooks: sortedHooks }));
+      await configs.save('.huskyrc.json', { hooks: sortedHooks });
     }
   }
 
