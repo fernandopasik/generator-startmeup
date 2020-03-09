@@ -26,6 +26,10 @@ export default class HooksGenerator extends Generator {
 
     const config: { hooks: Hooks } = { hooks: {} };
 
+    if (dependencies.has('@commitlint/cli', 'devDependencies')) {
+      config.hooks['commit-msg'] = 'commitlint -E HUSKY_GIT_PARAMS';
+    }
+
     if (dependencies.has('lint-staged', 'devDependencies')) {
       config.hooks['pre-commit'] = 'lint-staged';
     }

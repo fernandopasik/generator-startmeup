@@ -34,22 +34,6 @@ export default class CommitLintGenerator extends Generator {
       };
 
       await configs.save('.commitlintrc.json', config);
-
-      const huskyConfig = this.fs.readJSON(this.destinationPath('.huskyrc.json'));
-      const { hooks } = huskyConfig;
-      hooks['commit-msg'] = 'commitlint -E HUSKY_GIT_PARAMS';
-
-      const sortedHooks = Object.keys(hooks)
-        .sort((a: string, b: string) => a.toLowerCase().localeCompare(b.toLowerCase()))
-        .reduce(
-          (sorted: Record<string, string | string[]>, key: string) => ({
-            ...sorted,
-            [key]: hooks[key],
-          }),
-          {} as Record<string, string | string[]>,
-        );
-
-      await configs.save('.huskyrc.json', { hooks: sortedHooks });
     }
   }
 

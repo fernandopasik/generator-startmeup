@@ -11,13 +11,13 @@ export default class StartMeUpGenerator extends Generator {
       'init',
       'packagejson',
       'prettier',
+      'commit-lint',
       'libraries',
       'compilers',
       'jest',
       'lint',
       'hooks',
       'docs',
-      'commit-lint',
       'src',
     ];
 
