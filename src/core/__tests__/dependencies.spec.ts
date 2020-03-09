@@ -1,8 +1,8 @@
-import { add, get, has, remove, removeAll, importFromPkg } from '../dependencies';
+import { add, get, has, remove, clear, importFromPkg } from '../dependencies';
 
 describe('dependencies', () => {
   beforeEach(() => {
-    removeAll();
+    clear();
   });
 
   describe('add', () => {
@@ -169,7 +169,7 @@ describe('dependencies', () => {
       expect(has('react', 'dependencies')).toBe(true);
       expect(has('react-dom', 'dependencies')).toBe(true);
 
-      removeAll();
+      clear();
 
       expect(has('react', 'dependencies')).toBe(false);
       expect(has('react-dom', 'dependencies')).toBe(false);
@@ -186,7 +186,7 @@ describe('dependencies', () => {
       expect(has('react-dom', 'peerDependencies')).toBe(true);
       expect(has('jquery', 'optionalDependencies')).toBe(true);
 
-      removeAll();
+      clear();
 
       expect(has('react', 'dependencies')).toBe(false);
       expect(has('jest', 'devDependencies')).toBe(false);

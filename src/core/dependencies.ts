@@ -49,7 +49,7 @@ export const remove = (name: string, groupName: string | 'all' = 'dependencies')
   }
 };
 
-export const removeAll = (): void => {
+export const clear = (): void => {
   Object.keys(all).forEach((group: string) => {
     all[group].clear();
   });
