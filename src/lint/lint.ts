@@ -38,10 +38,16 @@ export default class LintGenerator extends Generator {
       plugins.push('typescript');
       this.eslintConfig.extends.push('plugin:import/typescript', 'plugin:@typescript-eslint/all');
       this.eslintConfig.overrides = this.eslintConfig.overrides ?? [];
-      this.eslintConfig.overrides.push({
-        files: ['*.spec.*'],
-        rules: { '@typescript-eslint/no-magic-numbers': 'off' },
-      });
+      if (
+        typeof this.eslintConfig.overrides.find((override: Linter.RuleOverride) =>
+          override.files?.includes('*.spec.*'),
+        ) === 'undefined'
+      ) {
+        this.eslintConfig.overrides.push({
+          files: ['*.spec.*'],
+          rules: { '@typescript-eslint/no-magic-numbers': 'off' },
+        });
+      }
     } else if (dependencies.has('@babel/core', 'devDependencies')) {
       dependencies.add('babel-eslint', 'devDependencies');
       this.eslintConfig.parser = 'babel-eslint';
