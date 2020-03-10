@@ -32,6 +32,7 @@ export default class PrettierGenerator extends Generator {
       const config = {
         arrowParens: 'always',
         printWidth: 100,
+        proseWrap: 'never',
         singleQuote: true,
         trailingComma: 'all',
       };

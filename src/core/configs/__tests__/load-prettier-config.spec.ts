@@ -6,6 +6,7 @@ describe('load prettier config', () => {
       Object {
         "arrowParens": "always",
         "printWidth": 100,
+        "proseWrap": "never",
         "singleQuote": true,
         "trailingComma": "all",
       }
