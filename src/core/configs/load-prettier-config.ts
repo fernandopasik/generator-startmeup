@@ -4,7 +4,7 @@ let prettierConfig: Options | undefined;
 
 const defaultPrettierConfig = {
   arrowParens: 'always',
-  printWidth: 80,
+  printWidth: 100,
   singleQuote: true,
   trailingComma: 'all',
 };
@@ -14,8 +14,6 @@ const loadPrettierConfig = async (): Promise<Options> => {
     prettierConfig =
       (await prettier.resolveConfig(process.cwd())) ?? (defaultPrettierConfig as Options);
   }
-
-  prettierConfig.printWidth = 80;
 
   return prettierConfig;
 };

@@ -5,7 +5,7 @@ describe('load prettier config', () => {
     expect(await loadPrettierConfig()).toMatchInlineSnapshot(`
       Object {
         "arrowParens": "always",
-        "printWidth": 80,
+        "printWidth": 100,
         "singleQuote": true,
         "trailingComma": "all",
       }
