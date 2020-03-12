@@ -28,7 +28,8 @@
     "preversion": "yarn verify"
   },
   "resolutions": {
-    "github-username": "^5.0.1"
+    "github-username": "^5.0.1",
+    "mkdirp": "^1.0.3"
   },
   "dependencies": {
     "@jest/types": "^25.1.0",
