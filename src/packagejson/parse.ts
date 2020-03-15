@@ -18,7 +18,7 @@ export interface Parsed {
 const parse = (pkg: PackageJson): Parsed => {
   const { name, version, description, author, repository, license } = pkg;
 
-  let parsedAuthor: Person | undefined;
+  let parsedAuthor: Person | string | undefined;
 
   if (typeof author === 'string') {
     parsedAuthor = {};

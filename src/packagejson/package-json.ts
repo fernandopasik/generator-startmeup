@@ -1,29 +1,23 @@
 // Type definition is based on specs from https://docs.npmjs.com/files/package.json
 
-interface BugsObject {
+export interface Bugs {
   url?: string;
   email?: string;
 }
 
-type Bugs = BugsObject | string;
-
-interface PersonObject {
+export interface Person {
   name?: string;
   email?: string;
   url?: string;
 }
 
-export type Person = PersonObject | string;
-
-interface RepositoryObject {
+export interface Repository {
   type: string;
   url: string;
   directory?: string;
 }
 
-type Repository = RepositoryObject | string;
-
-interface DefaultScripts {
+export interface DefaultScripts {
   // Install
   preinstall?: string;
   install?: string;
@@ -69,11 +63,7 @@ interface DefaultScripts {
   postuninstall?: string;
 }
 
-type Scripts = DefaultScripts & {
-  [scriptName: string]: string;
-};
-
-interface Dependencies {
+export interface Dependencies {
   [packageName: string]: string;
 }
 
@@ -84,17 +74,17 @@ export interface PackageJson {
   description?: string;
   keywords?: string[];
   homepage?: string;
-  bugs?: Bugs;
-  repository?: Repository;
+  bugs?: Bugs | string;
+  repository?: Repository | string;
   license?: string;
-  author?: Person;
-  contributors?: Person[];
+  author?: Person | string;
+  contributors?: (Person | string)[];
   files?: string[];
   main?: string;
   module?: string;
   types?: string;
   typings?: string;
-  scripts?: Scripts;
+  scripts?: DefaultScripts & Record<string, string>;
   dependencies?: Dependencies;
   devDependencies?: Dependencies;
   peerDependencies?: Dependencies;
