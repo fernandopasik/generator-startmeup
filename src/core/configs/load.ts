@@ -1,8 +1,5 @@
 import currentPath from './current-path';
-import store from './store';
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-type-alias
-export type Config = Record<string, any>;
+import store, { Config } from './store';
 
 const load = async (filename: string, initial?: Config): Promise<Config | undefined> => {
   if (store.has(filename)) {

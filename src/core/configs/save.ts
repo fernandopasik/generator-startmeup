@@ -2,7 +2,7 @@ import fs from 'fs';
 
 import currentPath from './current-path';
 import format from './format';
-import { Config } from './load';
+import { Config } from './store';
 
 const save = async (
   filename: string,
