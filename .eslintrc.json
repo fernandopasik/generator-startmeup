@@ -7,6 +7,9 @@
     "plugin:prettier/recommended",
     "prettier/@typescript-eslint"
   ],
+  "overrides": [
+    { "files": ["*.spec.*"], "rules": { "@typescript-eslint/no-magic-numbers": "off" } }
+  ],
   "parserOptions": { "project": "./tsconfig.all.json" },
   "env": { "browser": true },
   "rules": {
