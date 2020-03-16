@@ -27,7 +27,7 @@ const ask = async (questions: Question[], defaultValues: Answers = {}): Promise<
       return {
         ...getAnswers(flattenedQuestionNames),
         ...answers,
-      };
+      } as Answers;
     },
   );
 
