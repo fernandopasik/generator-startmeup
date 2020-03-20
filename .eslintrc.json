@@ -1,17 +1,17 @@
 {
   "extends": [
     "airbnb-base",
-    "plugin:import/typescript",
     "plugin:@typescript-eslint/all",
+    "plugin:import/typescript",
     "plugin:jest/all",
     "plugin:prettier/recommended",
     "prettier/@typescript-eslint"
   ],
+  "env": { "browser": true },
   "overrides": [
     { "files": ["*.spec.*"], "rules": { "@typescript-eslint/no-magic-numbers": "off" } }
   ],
   "parserOptions": { "project": "./tsconfig.all.json" },
-  "env": { "browser": true },
   "rules": {
     "@typescript-eslint/no-inferrable-types": [
       "error",

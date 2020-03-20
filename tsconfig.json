@@ -5,8 +5,8 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "inlineSources": false,
+    "lib": ["dom", "dom.iterable", "es2020"],
     "module": "commonjs",
-    "lib": ["es2020", "dom", "dom.iterable"],
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
@@ -24,6 +24,6 @@
     "strictPropertyInitialization": true,
     "target": "es2017"
   },
-  "include": ["src/**/*"],
-  "exclude": ["**/__mocks__/**", "**/__tests__/**", "**/*.spec.*", "node_modules"]
+  "exclude": ["**/__mocks__/**", "**/__tests__/**", "**/*.spec.*", "node_modules"],
+  "include": ["src/**/*"]
 }
