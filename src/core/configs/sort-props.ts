@@ -4,11 +4,11 @@ const compareSortingValues = (
   value1: string | number | null | boolean | undefined,
   value2: string | number | null | boolean | undefined,
 ): number => {
-  if (value1 === 'extends') {
+  if (value1 === 'extends' || typeof value2 === 'object') {
     return -1;
   }
 
-  if (value2 === 'extends') {
+  if (value2 === 'extends' || typeof value1 === 'object') {
     return 1;
   }
 

@@ -126,4 +126,20 @@ describe('sort props', () => {
       }),
     );
   });
+
+  it('objects in arrays', () => {
+    const config = {
+      b: null,
+      c: [{}, 'a'],
+      a: 1,
+    };
+
+    expect(JSON.stringify(sortProps(config))).toStrictEqual(
+      JSON.stringify({
+        a: 1,
+        b: null,
+        c: ['a', {}],
+      }),
+    );
+  });
 });
