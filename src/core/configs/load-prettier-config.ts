@@ -1,4 +1,4 @@
-import prettier, { Options } from 'prettier';
+import { resolveConfig, Options } from 'prettier';
 import currentDir from './current-dir';
 
 let prettierConfig: Options | undefined;
@@ -13,8 +13,7 @@ const defaultPrettierConfig = {
 
 const loadPrettierConfig = async (): Promise<Options> => {
   if (typeof prettierConfig === 'undefined') {
-    prettierConfig =
-      (await prettier.resolveConfig(currentDir())) ?? (defaultPrettierConfig as Options);
+    prettierConfig = (await resolveConfig(currentDir())) ?? (defaultPrettierConfig as Options);
   }
 
   return prettierConfig;
