@@ -94,4 +94,36 @@ describe('sort props', () => {
       }),
     );
   });
+
+  it('lowercase and uppercase values', () => {
+    const config = {
+      B: null,
+      a: 1,
+      C: '',
+    };
+
+    expect(JSON.stringify(sortProps(config))).toStrictEqual(
+      JSON.stringify({
+        a: 1,
+        B: null,
+        C: '',
+      }),
+    );
+  });
+
+  it('extends goes always first', () => {
+    const config = {
+      b: null,
+      a: 1,
+      extends: '',
+    };
+
+    expect(JSON.stringify(sortProps(config))).toStrictEqual(
+      JSON.stringify({
+        extends: '',
+        a: 1,
+        b: null,
+      }),
+    );
+  });
 });

@@ -3,10 +3,19 @@ import { Config, ConfigValue } from './store';
 const compareSortingValues = (
   value1: string | number | null | boolean | undefined,
   value2: string | number | null | boolean | undefined,
-): number =>
-  String(value1)
+): number => {
+  if (value1 === 'extends') {
+    return -1;
+  }
+
+  if (value2 === 'extends') {
+    return 1;
+  }
+
+  return String(value1)
     .toLowerCase()
     .localeCompare(String(value2).toLowerCase());
+};
 
 const sortProps = (json?: Config): Config =>
   Object.fromEntries(
