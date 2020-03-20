@@ -11,6 +11,10 @@ const defaultPrettierConfig = {
   trailingComma: 'all',
 };
 
+export const clearPrettierConfig = (): void => {
+  prettierConfig = undefined;
+};
+
 const loadPrettierConfig = async (): Promise<Options> => {
   if (typeof prettierConfig === 'undefined') {
     prettierConfig = (await resolveConfig(currentDir())) ?? (defaultPrettierConfig as Options);
