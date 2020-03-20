@@ -114,8 +114,8 @@ describe('sort props', () => {
   it('extends goes always first', () => {
     const config = {
       b: null,
-      a: 1,
       extends: '',
+      a: 1,
     };
 
     expect(JSON.stringify(sortProps(config))).toStrictEqual(
@@ -130,7 +130,7 @@ describe('sort props', () => {
   it('objects in arrays', () => {
     const config = {
       b: null,
-      c: [{}, 'a'],
+      c: ['b', {}, 'a'],
       a: 1,
     };
 
@@ -138,7 +138,7 @@ describe('sort props', () => {
       JSON.stringify({
         a: 1,
         b: null,
-        c: ['a', {}],
+        c: ['a', 'b', {}],
       }),
     );
   });
