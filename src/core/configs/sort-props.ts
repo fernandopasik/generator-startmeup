@@ -4,12 +4,15 @@ const compareSortingValues = (
   value1: string | number | null | boolean | undefined,
   value2: string | number | null | boolean | undefined,
 ): number => {
+  const SORT_PREV = -1;
+  const SORT_NEXT = 1;
+
   if (value1 === 'extends' || typeof value2 === 'object') {
-    return -1;
+    return SORT_PREV;
   }
 
   if (value2 === 'extends' || typeof value1 === 'object') {
-    return 1;
+    return SORT_NEXT;
   }
 
   return String(value1)

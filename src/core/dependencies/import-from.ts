@@ -2,7 +2,7 @@ import { PackageJson } from '../../packagejson/package-json';
 import { groupNames, GroupNames } from './store';
 import add from './add';
 
-const importFrom = (pkg: PackageJson = { name: '', version: '' }): void => {
+const importFrom = (pkg: Readonly<PackageJson> = { name: '', version: '' }): void => {
   groupNames.forEach((groupName: string): void => {
     const deps = pkg[groupName as GroupNames];
 

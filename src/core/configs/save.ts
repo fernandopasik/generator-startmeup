@@ -7,11 +7,14 @@ import { Config } from './store';
 
 const save = async (
   filename: string,
-  json: Config,
+  json: Readonly<Config>,
   type: 'json' | 'js' = 'json',
 ): Promise<void> => {
   const sortedJson = sortProps(json);
-  const SPACES = Object.keys(sortedJson).length > 1 ? 0 : 2;
+  const SPACED = 2;
+  const NON_SPACED = 0;
+  const SINGLE_LINE = 1;
+  const SPACES = Object.keys(sortedJson).length > SINGLE_LINE ? NON_SPACED : SPACED;
   const stringifiedJson = JSON.stringify(sortedJson, null, SPACES);
   const content = type === 'js' ? `module.exports = ${stringifiedJson}` : stringifiedJson;
 
