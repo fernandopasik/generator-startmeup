@@ -9,15 +9,15 @@ export default class CommitLintGenerator extends Generator {
   }
 
   public async prompting(): Promise<void> {
-    const { confirm } = await ask([
+    const { commitLint } = await ask([
       {
         type: 'confirm',
-        name: 'commit-lint',
+        name: 'commitLint',
         default: true,
         message: 'Do you want to use commit lint with conventional commits format?',
       },
     ]);
-    this.confirm = confirm;
+    this.confirm = commitLint;
   }
 
   public configuring(): void {
