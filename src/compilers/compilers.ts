@@ -1,7 +1,7 @@
 import Generator from 'yeoman-generator';
 import 'core-js/features/array/flat-map';
 
-import { dependencies, configs } from '../core';
+import { ask, dependencies, configs } from '../core';
 import { addPreset, getBabelConfig } from './babelConfig';
 import getTSConfig, { getTSConfigAll } from './tsConfig';
 
@@ -21,7 +21,7 @@ export default class CompilerGenerator extends Generator {
     };
 
     this.answers = {
-      ...(await this.prompt([
+      ...(await ask([
         {
           type: 'checkbox',
           name: 'compilers',

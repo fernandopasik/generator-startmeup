@@ -1,5 +1,5 @@
 import Generator from 'yeoman-generator';
-import { dependencies, configs } from '../core';
+import { ask, dependencies, configs } from '../core';
 
 export default class CommitLintGenerator extends Generator {
   private confirm: boolean = true;
@@ -9,10 +9,10 @@ export default class CommitLintGenerator extends Generator {
   }
 
   public async prompting(): Promise<void> {
-    const { confirm } = await this.prompt([
+    const { confirm } = await ask([
       {
         type: 'confirm',
-        name: 'confirm',
+        name: 'commit-lint',
         default: true,
         message: 'Do you want to use commit lint with conventional commits format?',
       },

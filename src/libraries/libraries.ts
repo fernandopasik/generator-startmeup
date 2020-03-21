@@ -1,6 +1,6 @@
 import Generator from 'yeoman-generator';
 
-import { dependencies } from '../core';
+import { ask, dependencies } from '../core';
 
 const LIBRARIES = ['lit-html', 'react'];
 
@@ -12,7 +12,7 @@ export default class LibrariesGenerator extends Generator {
   }
 
   public async prompting(): Promise<void> {
-    const { libraries } = await this.prompt([
+    const { libraries } = await ask([
       {
         type: 'checkbox',
         name: 'libraries',
