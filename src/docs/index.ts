@@ -1,7 +1,7 @@
 import Generator from 'yeoman-generator';
 import { Answers } from 'inquirer';
 
-import ask from '../app/ask';
+import ask from '../core/ask';
 import { PackageJson } from '../packagejson/package-json';
 import parse, { Parsed } from '../packagejson/parse';
 import questions from './questions';

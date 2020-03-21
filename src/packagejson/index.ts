@@ -5,7 +5,7 @@ import { Answers } from 'inquirer';
 import parse, { Parsed } from './parse';
 import compose from './compose';
 import questions from './questions';
-import ask from '../app/ask';
+import ask from '../core/ask';
 
 import { PackageJson } from './package-json';
 

@@ -3,7 +3,7 @@ import githubUsername from 'github-username';
 import yeomanGenerator from 'yeoman-generator';
 import { Answers } from 'inquirer';
 
-import { Question } from '../app/ask';
+import { Question } from '../core/ask';
 
 const {
   prototype: { user },
