@@ -27,7 +27,6 @@ export default class StartMeUpGenerator extends Generator {
   }
 
   public install(): void {
-    this.yarnInstall(dependencies.get());
-    this.yarnInstall(dependencies.get('devDependencies'), { dev: true });
+    dependencies.install();
   }
 }

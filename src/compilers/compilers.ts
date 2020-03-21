@@ -75,6 +75,8 @@ export default class CompilerGenerator extends Generator {
   }
 
   public install(): void {
-    this.yarnInstall(dependencies.get('devDependencies'), { dev: true });
+    if (!(this.options['skip-install'] as boolean)) {
+      dependencies.install();
+    }
   }
 }
