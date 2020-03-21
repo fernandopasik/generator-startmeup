@@ -17,10 +17,9 @@ export default class CommitLintGenerator extends Generator {
         message: 'Do you want to use commit lint with conventional commits format?',
       },
     ]);
-    this.confirm = commitLint;
-  }
 
-  public configuring(): void {
+    this.confirm = commitLint;
+
     if (this.confirm) {
       dependencies.add('@commitlint/cli', 'devDependencies');
       dependencies.add('@commitlint/config-conventional', 'devDependencies');

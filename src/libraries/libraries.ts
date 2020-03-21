@@ -23,9 +23,7 @@ export default class LibrariesGenerator extends Generator {
     ]);
 
     this.libraries = libraries;
-  }
 
-  public configuring(): void {
     if (this.libraries.includes('lit-html')) {
       dependencies.add('lit-html');
       dependencies.add('lit-element');
@@ -35,7 +33,11 @@ export default class LibrariesGenerator extends Generator {
       dependencies.add('react');
       dependencies.add('react-dom');
       dependencies.add('react-test-renderer', 'devDependencies');
+    }
+  }
 
+  public configuring(): void {
+    if (this.libraries.includes('react')) {
       if (dependencies.has('@babel/core', 'devDependencies')) {
         dependencies.add('@babel/preset-react', 'devDependencies');
       }

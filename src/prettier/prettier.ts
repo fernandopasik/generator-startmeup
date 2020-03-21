@@ -18,10 +18,9 @@ export default class PrettierGenerator extends Generator {
         message: 'Do you want to use prettier to format files?',
       },
     ]);
-    this.confirm = prettier;
-  }
 
-  public configuring(): void {
+    this.confirm = prettier;
+
     if (this.confirm) {
       dependencies.add('prettier', 'devDependencies');
     }
