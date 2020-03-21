@@ -10,7 +10,7 @@ export default class PrettierGenerator extends Generator {
   }
 
   public async prompting(): Promise<void> {
-    const { confirm } = await ask([
+    const { prettier } = await ask([
       {
         type: 'confirm',
         name: 'prettier',
@@ -18,7 +18,7 @@ export default class PrettierGenerator extends Generator {
         message: 'Do you want to use prettier to format files?',
       },
     ]);
-    this.confirm = confirm;
+    this.confirm = prettier;
   }
 
   public configuring(): void {
