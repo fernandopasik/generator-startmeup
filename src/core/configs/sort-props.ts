@@ -15,9 +15,7 @@ const compareSortingValues = (
     return SORT_NEXT;
   }
 
-  return String(value1)
-    .toLowerCase()
-    .localeCompare(String(value2).toLowerCase());
+  return String(value1).toLowerCase().localeCompare(String(value2).toLowerCase());
 };
 
 const sortProps = (json?: Config): Config =>
