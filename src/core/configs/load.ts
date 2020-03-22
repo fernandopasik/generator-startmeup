@@ -1,13 +1,13 @@
 import loadFile from './load-file';
 import store, { Config } from './store';
 
-const load = async (filename: string, initial?: Config): Promise<Config | undefined> => {
+const load = async <T = Config>(filename: string, initial?: T): Promise<T | undefined> => {
   if (store.has(filename)) {
-    return store.get(filename);
+    return store.get(filename) as T;
   }
 
   try {
-    const config = await loadFile(filename);
+    const config = await loadFile<T>(filename);
     store.set(filename, config);
     return config;
   } catch (error) {

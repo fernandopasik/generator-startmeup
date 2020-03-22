@@ -1,13 +1,9 @@
 import currentPath from './current-path';
 import store, { Config } from './store';
 
-interface ConfigFile {
-  default: Config;
-}
-
-const loadFile = async (filename: string): Promise<Config> => {
+const loadFile = async <T = Config>(filename: string): Promise<T> => {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-  const { default: config } = (await import(currentPath(filename))) as ConfigFile;
+  const { default: config } = (await import(currentPath(filename))) as { default: T };
   store.set('filename', config);
   return config;
 };
