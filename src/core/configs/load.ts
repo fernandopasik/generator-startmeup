@@ -8,13 +8,14 @@ const load = async (filename: string, initial?: Config): Promise<Config | undefi
 
   try {
     const config = await loadFile(filename);
+    store.set(filename, config);
     return config;
   } catch (error) {
     if (typeof initial === 'undefined') {
       return undefined;
     }
 
-    store.set('filename', initial);
+    store.set(filename, initial);
     return initial;
   }
 };
