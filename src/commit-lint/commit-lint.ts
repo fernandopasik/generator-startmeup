@@ -4,8 +4,8 @@ import { ask, dependencies, configs } from '../core';
 export default class CommitLintGenerator extends Generator {
   private confirm: boolean = true;
 
-  public initializing(): void {
-    dependencies.importFrom(this.fs.readJSON('package.json'));
+  public async initializing(): Promise<void> {
+    await dependencies.importAll();
   }
 
   public async prompting(): Promise<void> {

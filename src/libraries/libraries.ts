@@ -7,8 +7,8 @@ const LIBRARIES = ['lit-html', 'react'];
 export default class LibrariesGenerator extends Generator {
   private libraries: string[] = [];
 
-  public initializing(): void {
-    dependencies.importFrom(this.fs.readJSON('package.json'));
+  public async initializing(): Promise<void> {
+    await dependencies.importAll();
   }
 
   public async prompting(): Promise<void> {

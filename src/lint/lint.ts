@@ -6,8 +6,8 @@ import { dependencies, configs } from '../core';
 export default class LintGenerator extends Generator {
   private eslintConfig: Linter.Config = {};
 
-  public initializing(): void {
-    dependencies.importFrom(this.fs.readJSON('package.json'));
+  public async initializing(): Promise<void> {
+    await dependencies.importAll();
     this.eslintConfig = this.fs.readJSON(this.destinationPath('.eslintrc.json'), {});
   }
 

@@ -1,4 +1,4 @@
-import { add, clear, get, has, importFrom, remove } from '../index';
+import { add, clear, get, has, importAll, remove } from '../index';
 
 describe('dependencies', () => {
   it('has the right exports', () => {
@@ -6,7 +6,7 @@ describe('dependencies', () => {
     expect(clear).toBeInstanceOf(Function);
     expect(get).toBeInstanceOf(Function);
     expect(has).toBeInstanceOf(Function);
-    expect(importFrom).toBeInstanceOf(Function);
+    expect(importAll).toBeInstanceOf(Function);
     expect(remove).toBeInstanceOf(Function);
   });
 });

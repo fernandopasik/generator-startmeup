@@ -9,8 +9,8 @@ interface Hooks {
 export default class HooksGenerator extends Generator {
   private lintStagedConfig: LintStagedConfig = {};
 
-  public initializing(): void {
-    dependencies.importFrom(this.fs.readJSON('package.json'));
+  public async initializing(): Promise<void> {
+    await dependencies.importAll();
   }
 
   public configuring(): void {

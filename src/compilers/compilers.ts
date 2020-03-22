@@ -8,8 +8,8 @@ import getTSConfig, { getTSConfigAll } from './tsConfig';
 export default class CompilerGenerator extends Generator {
   private compilers: string[] = [];
 
-  public initializing(): void {
-    dependencies.importFrom(this.fs.readJSON('package.json'));
+  public async initializing(): Promise<void> {
+    await dependencies.importAll();
   }
 
   public async prompting(): Promise<void> {

@@ -4,9 +4,9 @@ import { dependencies } from '../core';
 export default class SrcGenerator extends Generator {
   private mainPath: string | undefined;
 
-  public initializing(): void {
+  public async initializing(): Promise<void> {
+    await dependencies.importAll();
     const pkg = this.fs.readJSON('package.json');
-    dependencies.importFrom(pkg);
     this.mainPath = pkg?.main;
   }
 
