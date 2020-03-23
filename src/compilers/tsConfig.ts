@@ -73,14 +73,27 @@ const getTSConfig = (): TypescriptConfig => ({
   exclude: getExclude(),
 });
 
-export const getTSConfigAll = (): TypescriptConfig => ({
-  extends: './tsconfig.json',
-  compilerOptions: {
-    allowJs: true,
-    noEmit: true,
-  },
-  include: ['src/**/*', './*.js'],
-  exclude: ['node_modules'],
-});
+export const getTSConfigAll = (): TypescriptConfig => {
+  const include = ['src/**/*', './*.js'];
+  const exclude = [];
+
+  if (dependencies.has('jest-enzyme', 'devDependencies')) {
+    include.push('node_modules/jest-enzyme/lib/index.d.ts');
+  }
+
+  if (dependencies.has('flow-bin', 'devDependencies')) {
+    exclude.push('**/*.flow');
+  }
+
+  return {
+    extends: './tsconfig.json',
+    compilerOptions: {
+      allowJs: true,
+      noEmit: true,
+    },
+    include,
+    exclude,
+  };
+};
 
 export default getTSConfig;
