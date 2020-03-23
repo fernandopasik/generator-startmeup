@@ -8,7 +8,7 @@ interface Author {
   url?: string;
 }
 
-const composeAuthor = (author: Author = {}): string =>
+const composeAuthor = (author: Readonly<Author> = {}): string =>
   `${author.name ?? ''} <${author.email ?? ''}> (${author.url ?? ''})`
     .replace(' <>', '')
     .replace(' ()', '')
@@ -39,7 +39,7 @@ const compose = ({
   author,
   githubUrl,
   license,
-}: Parsed): PackageJson => {
+}: Readonly<Parsed>): PackageJson => {
   const composed = {
     name,
     version,

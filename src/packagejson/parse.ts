@@ -15,7 +15,7 @@ export interface Parsed {
   license?: string;
 }
 
-const parse = (pkg: PackageJson): Parsed => {
+const parse = (pkg: Readonly<PackageJson>): Parsed => {
   const { name, version, description, author, repository, license } = pkg;
 
   let parsedAuthor: Person | string | undefined;

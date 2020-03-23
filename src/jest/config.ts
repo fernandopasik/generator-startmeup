@@ -14,7 +14,9 @@ export const generateTransformPattern = (
 export const generateFilename = (isModuleType: boolean = false): string =>
   `jest.config.${isModuleType ? 'cjs' : 'js'}`;
 
-export const buildConfig = (existingConfig: Config.InitialOptions = {}): Config.InitialOptions => {
+export const buildConfig = (
+  existingConfig: Readonly<Config.InitialOptions> = {},
+): Config.InitialOptions => {
   const hasTypescript = dependencies.has('typescript', 'devDependencies');
   const hasReact = dependencies.has('react');
   const collectCoverageFrom = [generateCoveragePattern(hasTypescript, hasReact)];

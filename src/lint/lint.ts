@@ -39,7 +39,7 @@ export default class LintGenerator extends Generator {
       this.eslintConfig.extends.push('plugin:import/typescript', 'plugin:@typescript-eslint/all');
       this.eslintConfig.overrides = this.eslintConfig.overrides ?? [];
       if (
-        typeof this.eslintConfig.overrides.find((override: Linter.RuleOverride) =>
+        typeof this.eslintConfig.overrides.find((override: Readonly<Linter.RuleOverride>) =>
           override.files?.includes('*.spec.*'),
         ) === 'undefined'
       ) {
