@@ -5,10 +5,12 @@ interface InquirerQuestions extends InquirerQuestion {
   choices?: string[];
 }
 
+// eslint-disable-next-line @typescript-eslint/no-type-alias
 export type SubQuestion = InquirerQuestions & {
   name: string;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-type-alias
 export type Question = InquirerQuestions & {
   name: string;
   questions?: Question[];

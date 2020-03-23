@@ -1,6 +1,6 @@
 import { Answers } from 'inquirer';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-type-alias
 type Value = any;
 
 const memory: Map<string, Value> = new Map();
