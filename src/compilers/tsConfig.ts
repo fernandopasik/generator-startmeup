@@ -37,8 +37,6 @@ const getExclude = (): string[] => {
     exclude.push('**/*.flow');
   }
 
-  exclude.push('node_modules');
-
   return exclude.sort((a: string, b: string) => a.toLowerCase().localeCompare(b.toLowerCase()));
 };
 
