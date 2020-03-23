@@ -3,7 +3,7 @@ import fs from 'fs';
 import currentPath from './current-path';
 import format from './format';
 import sortProps from './sort-props';
-import { Config } from './store';
+import store, { Config } from './store';
 
 const save = async (
   filename: string,
@@ -20,6 +20,7 @@ const save = async (
 
   const formattedContent = await format(content, type);
 
+  store.set(filename, json);
   fs.writeFileSync(currentPath(filename), formattedContent);
 };
 
