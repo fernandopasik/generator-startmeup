@@ -9,20 +9,23 @@ import {
 } from './question';
 import { flatten as flattenAnswers, get as getAnswers, areUnanswered, rememberAll } from './answer';
 
-const ask = async (questions: Question[], defaultValues: Answers = {}): Promise<Answers> => {
+const ask = async (
+  questions: Question[],
+  defaultValues: Readonly<Answers> = {},
+): Promise<Answers> => {
   const flattenedQuestions = flattenQuestions(questions);
   const flattenedQuestionNames = getNames(flattenedQuestions);
   const flattenedDefaults = flattenAnswers(defaultValues);
 
   const unansweredQuestionNames = areUnanswered(flattenedQuestionNames);
-  const unansweredQuestions = flattenedQuestions.filter((question: SubQuestion): boolean =>
-    unansweredQuestionNames.includes(question.name),
+  const unansweredQuestions = flattenedQuestions.filter(
+    (question: Readonly<SubQuestion>): boolean => unansweredQuestionNames.includes(question.name),
   );
 
   const questionsToAsk = setDefaultValues(unansweredQuestions, flattenedDefaults);
 
   const prompted = await inquirer.prompt(questionsToAsk).then(
-    (answers: Answers): Answers => {
+    (answers: Readonly<Answers>): Answers => {
       rememberAll(flattenAnswers(answers));
       return {
         ...getAnswers(flattenedQuestionNames),

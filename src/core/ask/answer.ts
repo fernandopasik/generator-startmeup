@@ -9,7 +9,7 @@ export const remember = (answerName: string, answer: Value): void => {
   memory.set(answerName, answer);
 };
 
-export const rememberAll = (answers: Answers): void => {
+export const rememberAll = (answers: Readonly<Answers>): void => {
   Object.keys(answers).forEach((answerName: string): void => {
     remember(answerName, answers[answerName]);
   });
@@ -37,11 +37,11 @@ export const has = (answerName: string): boolean => memory.has(answerName);
 export const forget = (answerName: string): boolean => memory.delete(answerName);
 export const forgetAll = (): void => memory.clear();
 
-export const areUnanswered = (questionNames: string[]): string[] =>
+export const areUnanswered = (questionNames: readonly string[]): string[] =>
   questionNames.filter((questionName: string): boolean => !memory.has(questionName));
 
-export const flatten = (answers: Answers, namePrefix?: string): Answers =>
-  Object.keys(answers).reduce((flattened: Answers, answerName: string): Answers => {
+export const flatten = (answers: Readonly<Answers>, namePrefix?: string): Answers =>
+  Object.keys(answers).reduce((flattened: Readonly<Answers>, answerName: string): Answers => {
     const name = typeof namePrefix !== 'undefined' ? `${namePrefix}.${answerName}` : answerName;
     if (typeof answers[answerName] === 'object') {
       return {
