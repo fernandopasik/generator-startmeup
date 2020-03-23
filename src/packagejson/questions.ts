@@ -39,14 +39,14 @@ const questions: Question[] = [
         type: 'input',
         message: 'What is your email?',
         default: (): string => user.git.email(),
-        when: (props: Answers): boolean => Boolean(props.author.name),
+        when: (props: Readonly<Answers>): boolean => Boolean(props.author.name),
       },
       {
         name: 'url',
         type: 'input',
         message: 'What is your url?',
         default: '',
-        when: (props: Answers): boolean => Boolean(props.author.name),
+        when: (props: Readonly<Answers>): boolean => Boolean(props.author.name),
       },
     ],
   },
@@ -60,21 +60,21 @@ const questions: Question[] = [
     name: 'githubUsername',
     type: 'input',
     message: 'What is your github username?',
-    default: async (props: Answers): Promise<string> => {
+    default: async (props: Readonly<Answers>): Promise<string> => {
       const username = await githubUsername(props.author.email);
       return username;
     },
-    when: (props: Answers): boolean => Boolean(props.github),
+    when: (props: Readonly<Answers>): boolean => Boolean(props.github),
   },
   {
     name: 'githubUrl',
     type: 'input',
     message: 'What is your github url?',
-    default: (props: Answers): string =>
+    default: (props: Readonly<Answers>): string =>
       Boolean(props.githubUsername) && Boolean(props.name)
         ? `https://github.com/${props.githubUsername as string}/${props.name as string}`
         : '',
-    when: (props: Answers): boolean => Boolean(props.github),
+    when: (props: Readonly<Answers>): boolean => Boolean(props.github),
   },
   {
     name: 'license',
