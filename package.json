@@ -40,7 +40,7 @@
     "github-username": "^5.0.1",
     "inquirer": "^7.1.0",
     "lodash": "^4.17.15",
-    "prettier": "^2.0.1",
+    "prettier": "^2.0.2",
     "sort-package-json": "^1.40.0",
     "yeoman-generator": "^4.7.2",
     "yosay": "^2.0.2"
