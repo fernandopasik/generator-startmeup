@@ -65,7 +65,8 @@ jobs:
           name: Unit Tests
           command: yarn test --coverage --runInBand --ci --reporters=default --reporters=jest-junit
           environment:
-            JEST_JUNIT_OUTPUT: 'reports/junit/js-test-results.xml'
+            JEST_JUNIT_OUTPUT_DIR: 'reports/junit'
+            JEST_JUNIT_OUTPUT_NAME: 'js-test-results.xml'
       - run:
           name: Send coverage
           command: yarn codecov
