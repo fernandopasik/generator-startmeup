@@ -52,6 +52,7 @@ export default class LintGenerator extends Generator {
         ...this.eslintConfig.rules,
         '@typescript-eslint/no-magic-numbers': ['error', { ignore: [0] }],
       };
+      this.eslintConfig.parserOptions = { project: './tsconfig.all.json' };
     } else if (dependencies.has('@babel/core', 'devDependencies')) {
       dependencies.add('babel-eslint', 'devDependencies');
       this.eslintConfig.parser = 'babel-eslint';
