@@ -3,7 +3,7 @@ import store from '../store';
 
 describe('load file', () => {
   it('dynamic imports a file', async () => {
-    const file = await loadFile('./jest.config.js');
+    const file = await loadFile('./jest.config.cjs');
 
     expect(file).toMatchInlineSnapshot(`
       Object {
@@ -20,9 +20,9 @@ describe('load file', () => {
 
   it('sets in cache the imported file', async () => {
     const spy = jest.spyOn(store, 'set');
-    const file = await loadFile('./jest.config.js');
+    const file = await loadFile('./jest.config.cjs');
 
-    expect(spy).toHaveBeenLastCalledWith('./jest.config.js', file);
+    expect(spy).toHaveBeenLastCalledWith('./jest.config.cjs', file);
 
     spy.mockRestore();
   });
