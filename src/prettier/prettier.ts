@@ -1,12 +1,14 @@
 import Generator from 'yeoman-generator';
 
-import { ask, dependencies, configs } from '../core';
+import { ask, dependencies, configs, modules } from '../core';
+import config from './config';
 
 export default class PrettierGenerator extends Generator {
   private confirm: boolean = true;
 
   public async initializing(): Promise<void> {
     await dependencies.importAll();
+    modules.load('prettier', config);
   }
 
   public async prompting(): Promise<void> {
@@ -14,7 +16,7 @@ export default class PrettierGenerator extends Generator {
       {
         type: 'confirm',
         name: 'prettier',
-        default: true,
+        default: modules.isPresent('prettier'),
         message: 'Do you want to use prettier to format files?',
       },
     ]);
@@ -28,7 +30,7 @@ export default class PrettierGenerator extends Generator {
 
   public async writing(): Promise<void> {
     if (this.confirm) {
-      const config = {
+      const defaultConfig = {
         arrowParens: 'always',
         printWidth: 100,
         proseWrap: 'never',
@@ -36,7 +38,7 @@ export default class PrettierGenerator extends Generator {
         trailingComma: 'all',
       };
 
-      await configs.save('.prettierrc.json', config);
+      await configs.save('.prettierrc.json', defaultConfig);
     }
   }
 
