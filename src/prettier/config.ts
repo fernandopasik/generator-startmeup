@@ -1,10 +1,4 @@
 export default {
-  mainDependencies: [
-    {
-      name: 'prettier',
-      type: 'devDependencies',
-    },
-  ],
   configFilename: '.prettierrc.json',
   configContent: {
     arrowParens: 'always',
@@ -13,5 +7,11 @@ export default {
     singleQuote: true,
     trailingComma: 'all',
   },
+  mainDependencies: [
+    {
+      name: 'prettier',
+      type: 'devDependencies',
+    },
+  ],
   replaceConfig: true,
 };
