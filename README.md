@@ -1,12 +1,8 @@
 # StartMeUp Generator
 
-[![Build Status][badge-ci]][url-ci]
-[![Coverage Status][badge-cov]][url-cov]
-[![Known Vulnerabilities][badge-sec]][url-sec]
+[![Build Status][badge-ci]][url-ci] [![Coverage Status][badge-cov]][url-cov] [![Known Vulnerabilities][badge-sec]][url-sec]
 
-[![npm version][badge-version]][url-version]
-[![Dependency Status][badge-deps]][url-deps]
-[![devDependency Status][badge-deps-dev]][url-deps-dev]
+[![npm version][badge-version]][url-version] [![Dependency Status][badge-deps]][url-deps] [![devDependency Status][badge-deps-dev]][url-deps-dev]
 
 [badge-ci]: https://circleci.com/gh/fernandopasik/generator-startmeup.svg?style=svg
 [badge-cov]: https://codecov.io/gh/fernandopasik/generator-startmeup/branch/master/graph/badge.svg
@@ -21,8 +17,7 @@
 [url-deps]: https://david-dm.org/fernandopasik/generator-startmeup 'Dependency Status'
 [url-deps-dev]: https://david-dm.org/fernandopasik/generator-startmeup?type=dev 'Dev Dependency Status'
 
-Yeoman generator for quickly set up your **dotfiles** and some other minor configurations.
-It's composed by a collection of subgenerators to do project tasks.
+Yeoman generator for quickly set up your **dotfiles** and some other minor configurations. It's composed by a collection of subgenerators to do project tasks.
 
 ## SubGenerators
 
