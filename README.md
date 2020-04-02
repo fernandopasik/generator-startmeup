@@ -11,7 +11,7 @@
 [badge-ci]: https://circleci.com/gh/fernandopasik/generator-startmeup.svg?style=svg
 [badge-cov]: https://codecov.io/gh/fernandopasik/generator-startmeup/branch/master/graph/badge.svg
 [badge-sec]: https://snyk.io/test/github/fernandopasik/generator-startmeup/badge.svg?targetFile=package.json
-[badge-version]: https://img.shields.io/npm/v/generator-startmeup.svg
+[badge-version]: https://badge.fury.io/js/generator-startmeup.svg
 [badge-deps]: https://david-dm.org/fernandopasik/generator-startmeup/status.svg
 [badge-deps-dev]: https://david-dm.org/fernandopasik/generator-startmeup/dev-status.svg
 [url-ci]: https://circleci.com/gh/fernandopasik/generator-startmeup 'Build Status'
