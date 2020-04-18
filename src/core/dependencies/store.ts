@@ -20,6 +20,6 @@ export type GroupNames =
 const store: All = groupNames.reduce((acc: All, groupName: string) => {
   acc[groupName] = new Set();
   return acc;
-}, {} as All);
+}, {});
 
 export default store;

@@ -21,7 +21,6 @@
     "@typescript-eslint/no-unsafe-assignment": "warn",
     "@typescript-eslint/no-unsafe-member-access": "warn",
     "@typescript-eslint/prefer-readonly-parameter-types": "warn",
-    "@typescript-eslint/prefer-reduce-type-parameter": "warn",
     "class-methods-use-this": "off",
     "import/extensions": ["error", "never"],
     "jest/no-hooks": "off",
