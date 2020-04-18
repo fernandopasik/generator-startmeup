@@ -11,6 +11,7 @@ export default {
   },
   confirm: true,
   confirmMessage: 'Do you want to use prettier to format files?',
+  name: 'prettier',
   mainDependencies: [
     {
       name: 'prettier',

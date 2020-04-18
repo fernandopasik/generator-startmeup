@@ -11,6 +11,7 @@ export interface ModuleConfig {
   configContent: Config;
   confirm?: boolean;
   confirmMessage?: string;
+  name: string;
   replaceConfig: boolean;
 }
 

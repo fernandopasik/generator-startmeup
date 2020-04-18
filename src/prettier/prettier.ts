@@ -8,11 +8,11 @@ export default class PrettierGenerator extends Generator {
 
   public async initializing(): Promise<void> {
     await dependencies.importAll();
-    modules.load('prettier', config);
+    modules.load(config.name, config);
   }
 
   public async prompting(): Promise<void> {
-    this.confirm = await modules.confirm('prettier', config.confirmMessage);
+    this.confirm = await modules.confirm(config.name, config.confirmMessage);
 
     if (this.confirm) {
       dependencies.add('prettier', 'devDependencies');
