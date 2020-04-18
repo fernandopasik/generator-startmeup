@@ -10,9 +10,9 @@ describe('format', () => {
     const myConfig = { test: true };
     const spy = jest.spyOn(prettier, 'format');
 
-    await format(JSON.stringify(myConfig));
+    await format(myConfig);
 
-    expect(spy).toHaveBeenCalledWith(JSON.stringify(myConfig), expect.anything());
+    expect(spy).toHaveBeenCalledWith(JSON.stringify(myConfig, null, 2), expect.anything());
 
     spy.mockRestore();
   });
@@ -20,17 +20,17 @@ describe('format', () => {
   it('loads prettier config', async () => {
     mocked(loadPrettierConfig).mockClear();
 
-    await format(JSON.stringify({}));
+    await format({});
 
     expect(loadPrettierConfig).toHaveBeenCalledTimes(1);
   });
 
   it('can do js', async () => {
     const myConfig = { test: true };
-    const content = `module.exports = ${JSON.stringify(myConfig)}`;
+    const content = `module.exports = ${JSON.stringify(myConfig, null, 2)}`;
     const spy = jest.spyOn(prettier, 'format');
 
-    await format(content, 'js');
+    await format(myConfig, 'js');
 
     expect(spy).toHaveBeenCalledWith(content, expect.objectContaining({ parser: 'babel' }));
 
@@ -41,10 +41,10 @@ describe('format', () => {
     const myConfig = { test: true };
     const spy = jest.spyOn(prettier, 'format');
 
-    await format(JSON.stringify(myConfig), 'json');
+    await format(myConfig, 'json');
 
     expect(spy).toHaveBeenCalledWith(
-      JSON.stringify(myConfig),
+      JSON.stringify(myConfig, null, 2),
       expect.objectContaining({ parser: 'json' }),
     );
 
