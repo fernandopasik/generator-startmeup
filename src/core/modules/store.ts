@@ -9,6 +9,8 @@ export interface ModuleConfig {
   mainDependencies: moduleMainDependency[];
   configFilename: string;
   configContent: Config;
+  confirm?: boolean;
+  confirmMessage?: string;
   replaceConfig: boolean;
 }
 
