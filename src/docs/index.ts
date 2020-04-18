@@ -1,23 +1,21 @@
 import Generator from 'yeoman-generator';
 import { Answers } from 'inquirer';
 
-import { ask } from '../core';
+import { ask, configs, dependencies } from '../core';
 import { PackageJson } from '../packagejson/package-json';
 import parse, { Parsed } from '../packagejson/parse';
 import questions from './questions';
 
 module.exports = class extends Generator {
-  private pkg?: PackageJson;
-
   private parameters?: Parsed;
 
   private answers?: Answers;
 
-  public initializing(): void {
-    this.pkg = this.fs.readJSON('package.json', {});
-    if (typeof this.pkg !== 'undefined') {
-      this.parameters = parse(this.pkg);
-    }
+  public async initializing(): Promise<void> {
+    await dependencies.importAll();
+
+    const pkg = (await configs.load('package.json')) ?? {};
+    this.parameters = parse(pkg as PackageJson);
   }
 
   public async prompting(): Promise<void> {
@@ -25,16 +23,15 @@ module.exports = class extends Generator {
   }
 
   public writing(): void {
-    const { devDependencies = {} } = this.pkg ?? {};
     const options = {
       githubUrl: '',
       ...this.answers,
       author: {
-        name: this?.answers?.['author.name'],
+        name: this?.answers?.['author.name'] as string,
       },
-      eslint: Boolean(devDependencies.eslint),
-      codecov: Boolean(devDependencies.codecov),
-      commitlint: Boolean(devDependencies['@commitlint/cli']),
+      eslint: dependencies.has('eslint', 'devDependencies'),
+      codecov: dependencies.has('codecov', 'devDependencies'),
+      commitlint: dependencies.has('@commitlint/cli', 'devDependencies'),
       circleci: !!this.fs.exists(this.destinationPath('.circleci/config.yml')),
       year: new Date().getFullYear(),
     };
