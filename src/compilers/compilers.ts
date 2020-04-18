@@ -59,7 +59,7 @@ export default class CompilerGenerator extends Generator {
 
   public async writing(): Promise<void> {
     if (this.compilers.includes('babel')) {
-      await configs.save('babel.config.js', getBabelConfig(), 'js');
+      await configs.save('babel.config.js', getBabelConfig());
     }
 
     if (this.compilers.includes('typescript')) {

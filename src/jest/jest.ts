@@ -42,7 +42,7 @@ export default class JestGenerator extends Generator {
 
     const filename = generateFilename(pkg.type === 'module');
 
-    await configs.save(filename, this.jestConfig, 'js');
+    await configs.save(filename, this.jestConfig);
   }
 
   public install(): void {
