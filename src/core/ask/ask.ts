@@ -10,7 +10,7 @@ import {
 import { flatten as flattenAnswers, get as getAnswers, areUnanswered, rememberAll } from './answer';
 
 const ask = async (
-  questions: Question[],
+  questions: readonly Readonly<Question>[],
   defaultValues: Readonly<Answers> = {},
 ): Promise<Answers> => {
   const flattenedQuestions = flattenQuestions(questions);

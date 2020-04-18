@@ -16,22 +16,29 @@ export type Question = InquirerQuestions & {
   questions?: Question[];
 };
 
-export const getNames = (questions: Question[]): string[] =>
+export const getNames = (questions: readonly Readonly<Question>[]): string[] =>
   questions.map((question: Readonly<Question>): string => question.name);
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const setDefaultValue = (question: Question, defaultValue?: any | any[]): Question => ({
+export const setDefaultValue = (
+  question: Readonly<Question>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  defaultValue?: any | any[],
+): Question => ({
   ...question,
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   default: defaultValue ?? question.default,
 });
 
-export const setDefaultValues = (questions: Question[] = [], defaultValues?: Answers): Question[] =>
+export const setDefaultValues = (
+  questions: readonly Readonly<Question>[] = [],
+  defaultValues?: Answers,
+): Question[] =>
   questions.map(
-    (question: Question): Question => setDefaultValue(question, defaultValues?.[question.name]),
+    (question: Readonly<Question>): Question =>
+      setDefaultValue(question, defaultValues?.[question.name]),
   );
 
-export const flatten = (questions: Question[] = []): SubQuestion[] =>
+export const flatten = (questions: readonly Readonly<Question>[] = []): SubQuestion[] =>
   questions.flatMap((question: Readonly<Question>): Question[] => {
     if (typeof question.questions !== 'undefined') {
       return flatten(question.questions).map(
