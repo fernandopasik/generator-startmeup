@@ -1,6 +1,6 @@
 import Generator from 'yeoman-generator';
 
-import { ask, dependencies, configs, modules } from '../core';
+import { dependencies, configs, modules } from '../core';
 import config from './config';
 
 export default class PrettierGenerator extends Generator {
@@ -12,16 +12,7 @@ export default class PrettierGenerator extends Generator {
   }
 
   public async prompting(): Promise<void> {
-    const { prettier } = await ask([
-      {
-        type: 'confirm',
-        name: 'prettier',
-        default: modules.isPresent('prettier'),
-        message: 'Do you want to use prettier to format files?',
-      },
-    ]);
-
-    this.confirm = prettier;
+    this.confirm = await modules.confirm('prettier', config.confirmMessage);
 
     if (this.confirm) {
       dependencies.add('prettier', 'devDependencies');

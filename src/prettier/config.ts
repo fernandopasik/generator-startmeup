@@ -9,6 +9,8 @@ export default {
     singleQuote: true,
     trailingComma: 'all',
   },
+  confirm: true,
+  confirmMessage: 'Do you want to use prettier to format files?',
   mainDependencies: [
     {
       name: 'prettier',
