@@ -1,7 +1,7 @@
 import currentPath from './current-path';
 import store, { Config } from './store';
 
-const load = async <T = Config>(filename: string, initial?: T): Promise<T | undefined> => {
+const load = async <T = Config>(filename: string): Promise<T | undefined> => {
   if (store.has(filename)) {
     return store.get(filename) as T;
   }
@@ -11,12 +11,7 @@ const load = async <T = Config>(filename: string, initial?: T): Promise<T | unde
     store.set(filename, config);
     return config;
   } catch (error) {
-    if (typeof initial === 'undefined') {
-      return undefined;
-    }
-
-    store.set(filename, initial);
-    return initial;
+    return undefined;
   }
 };
 
