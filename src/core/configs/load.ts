@@ -1,4 +1,4 @@
-import loadFile from './load-file';
+import currentPath from './current-path';
 import store, { Config } from './store';
 
 const load = async <T = Config>(filename: string, initial?: T): Promise<T | undefined> => {
@@ -7,7 +7,7 @@ const load = async <T = Config>(filename: string, initial?: T): Promise<T | unde
   }
 
   try {
-    const config = await loadFile<T>(filename);
+    const { default: config } = (await import(currentPath(filename))) as { default: T };
     store.set(filename, config);
     return config;
   } catch (error) {
