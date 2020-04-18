@@ -22,7 +22,7 @@ export default class LibrariesGenerator extends Generator {
       },
     ]);
 
-    this.libraries = libraries;
+    this.libraries = libraries as string[];
 
     if (this.libraries.includes('lit-html')) {
       dependencies.add('lit-html');

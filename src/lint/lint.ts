@@ -8,7 +8,10 @@ export default class LintGenerator extends Generator {
 
   public async initializing(): Promise<void> {
     await dependencies.importAll();
-    this.eslintConfig = this.fs.readJSON(this.destinationPath('.eslintrc.json'), {});
+    this.eslintConfig = this.fs.readJSON(
+      this.destinationPath('.eslintrc.json'),
+      {},
+    ) as Linter.Config;
   }
 
   public configuring(): void {

@@ -3,6 +3,7 @@ import { Answers } from 'inquirer';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-type-alias
 type Value = any;
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 const memory: Map<string, Value> = new Map();
 
 export const remember = (answerName: string, answer: Value): void => {
@@ -19,6 +20,7 @@ export const getAll = (answerNames?: string[]): Answers => {
   const obj: Answers = {};
   memory.forEach((value: Value, key: string): void => {
     if (typeof answerNames === 'undefined' || answerNames.includes(key)) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       obj[key] = value;
     }
   });
@@ -51,6 +53,7 @@ export const flatten = (answers: Readonly<Answers>, namePrefix?: string): Answer
     }
     return {
       ...flattened,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       [name]: answers[answerName],
     };
   }, {});

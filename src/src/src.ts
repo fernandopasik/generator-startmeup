@@ -1,12 +1,13 @@
 import Generator from 'yeoman-generator';
 import { dependencies } from '../core';
+import { PackageJson } from '../packagejson/package-json';
 
 export default class SrcGenerator extends Generator {
   private mainPath: string | undefined;
 
   public async initializing(): Promise<void> {
     await dependencies.importAll();
-    const pkg = this.fs.readJSON('package.json');
+    const pkg = this.fs.readJSON('package.json') as PackageJson;
     this.mainPath = pkg?.main;
   }
 

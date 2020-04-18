@@ -18,7 +18,7 @@ export default class CommitLintGenerator extends Generator {
       },
     ]);
 
-    this.confirm = commitLint;
+    this.confirm = commitLint as boolean;
 
     if (this.confirm) {
       dependencies.add('@commitlint/cli', 'devDependencies');

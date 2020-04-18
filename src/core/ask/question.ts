@@ -22,6 +22,7 @@ export const getNames = (questions: Question[]): string[] =>
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const setDefaultValue = (question: Question, defaultValue?: any | any[]): Question => ({
   ...question,
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   default: defaultValue ?? question.default,
 });
 
