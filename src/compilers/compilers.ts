@@ -30,7 +30,7 @@ export default class CompilerGenerator extends Generator {
       },
     ]);
 
-    this.compilers = compilers as boolean;
+    this.compilers = compilers as string[];
   }
 
   public configuring(): void {
