@@ -16,11 +16,7 @@ export default class PrettierGenerator extends Generator {
 
     if (this.confirm) {
       dependencies.add('prettier', 'devDependencies');
-    }
-  }
 
-  public async writing(): Promise<void> {
-    if (this.confirm) {
       const defaultConfig = {
         arrowParens: 'always',
         printWidth: 100,
@@ -29,8 +25,12 @@ export default class PrettierGenerator extends Generator {
         trailingComma: 'all',
       };
 
-      await configs.save('.prettierrc.json', defaultConfig);
+      configs.set('.prettierrc.json', defaultConfig);
     }
+  }
+
+  public async writing(): Promise<void> {
+    await configs.saveAll();
   }
 
   public install(): void {
