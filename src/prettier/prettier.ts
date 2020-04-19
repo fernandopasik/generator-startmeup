@@ -1,6 +1,5 @@
 import Generator from 'yeoman-generator';
-
-import { dependencies, configs, modules } from '../core';
+import { configs, dependencies, modules } from '../core';
 import config from './config';
 
 export default class PrettierGenerator extends Generator {
