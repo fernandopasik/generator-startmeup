@@ -16,16 +16,7 @@ export default class PrettierGenerator extends Generator {
 
     if (this.confirm) {
       dependencies.add('prettier', 'devDependencies');
-
-      const defaultConfig = {
-        arrowParens: 'always',
-        printWidth: 100,
-        proseWrap: 'never',
-        singleQuote: true,
-        trailingComma: 'all',
-      };
-
-      configs.set('.prettierrc.json', defaultConfig);
+      configs.set(config.configFilename, config.configContent);
     }
   }
 
