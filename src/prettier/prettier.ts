@@ -4,20 +4,13 @@ import { dependencies, configs, modules } from '../core';
 import config from './config';
 
 export default class PrettierGenerator extends Generator {
-  private confirm: boolean = true;
-
   public async initializing(): Promise<void> {
     await dependencies.importAll();
     modules.load(config.name, config);
   }
 
   public async prompting(): Promise<void> {
-    this.confirm = await modules.confirm(config.name, config.confirmMessage);
-
-    if (this.confirm) {
-      dependencies.add('prettier', 'devDependencies');
-      configs.set(config.configFilename, config.configContent);
-    }
+    await modules.run(config.name);
   }
 
   public async writing(): Promise<void> {
