@@ -1,7 +1,7 @@
 import { resolveConfig, Options } from 'prettier';
 import currentDir from './current-dir';
 
-let prettierConfig: Options | undefined;
+let prettierConfig: Options | null = null;
 
 const defaultPrettierConfig = {
   arrowParens: 'always',
@@ -12,11 +12,11 @@ const defaultPrettierConfig = {
 };
 
 export const clearPrettierConfig = (): void => {
-  prettierConfig = undefined;
+  prettierConfig = null;
 };
 
 const loadPrettierConfig = async (): Promise<Options> => {
-  if (typeof prettierConfig === 'undefined') {
+  if (prettierConfig === null) {
     prettierConfig = (await resolveConfig(currentDir())) ?? (defaultPrettierConfig as Options);
   }
 
