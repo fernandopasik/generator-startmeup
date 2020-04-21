@@ -16,6 +16,7 @@ export default class StartMeUpGenerator extends Generator {
       'compilers',
       'jest',
       'lint',
+      'lint-staged',
       'hooks',
       'docs',
       'src',

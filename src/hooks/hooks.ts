@@ -1,29 +1,16 @@
 import Generator from 'yeoman-generator';
 import { dependencies, configs } from '../core';
-import { buildConfig as buildLintStagedConfig, LintStagedConfig } from './lint-staged';
 
 interface Hooks {
   [name: string]: string;
 }
 
 export default class HooksGenerator extends Generator {
-  private lintStagedConfig: LintStagedConfig = {};
-
   public async initializing(): Promise<void> {
     await dependencies.importAll();
   }
 
-  public configuring(): void {
-    this.lintStagedConfig = buildLintStagedConfig();
-  }
-
   public async writing(): Promise<void> {
-    if (Object.keys(this.lintStagedConfig).length > 0) {
-      await configs.save('.lintstagedrc.json', this.lintStagedConfig);
-
-      dependencies.add('lint-staged', 'devDependencies');
-    }
-
     const config: { hooks: Hooks } = { hooks: {} };
 
     if (dependencies.has('@commitlint/cli', 'devDependencies')) {
