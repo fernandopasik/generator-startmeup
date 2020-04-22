@@ -28,6 +28,7 @@ export default class LintGenerator extends Generator {
 
       plugins.push('import', 'jsx-a11y', 'react');
       this.eslintConfig.extends.push('airbnb');
+      this.eslintConfig.env = { browser: true };
     } else {
       dependencies.add('eslint-config-airbnb-base', 'devDependencies');
       dependencies.add('eslint-plugin-import', 'devDependencies');
@@ -71,6 +72,7 @@ export default class LintGenerator extends Generator {
       dependencies.add('eslint-plugin-lit', 'devDependencies');
       plugins.push('lit');
       this.eslintConfig.extends.push('plugin:lit/all');
+      this.eslintConfig.env = { browser: true };
     }
 
     if (dependencies.has('jest', 'devDependencies')) {
