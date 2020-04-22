@@ -18,7 +18,10 @@ const run = async (moduleName: string): Promise<void> => {
         addDependencies(name, type);
       });
 
-      setConfig(config.configFilename, config.configContent);
+      setConfig(
+        config.configFilename,
+        typeof config.configContent === 'function' ? config.configContent() : config.configContent,
+      );
     }
   }
 };
