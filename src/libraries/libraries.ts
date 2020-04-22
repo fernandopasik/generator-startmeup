@@ -25,13 +25,13 @@ export default class LibrariesGenerator extends Generator {
     this.libraries = libraries as string[];
 
     if (this.libraries.includes('lit-html')) {
-      dependencies.add('lit-html');
-      dependencies.add('lit-element');
+      dependencies.add('lit-html', 'peerDependencies');
+      dependencies.add('lit-element', 'peerDependencies');
     }
 
     if (this.libraries.includes('react')) {
-      dependencies.add('react');
-      dependencies.add('react-dom');
+      dependencies.add('react', 'peerDependencies');
+      dependencies.add('react-dom', 'peerDependencies');
       dependencies.add('react-test-renderer', 'devDependencies');
     }
   }
