@@ -46,7 +46,7 @@ describe('install', () => {
       it('is cancelled when non installable group provided', () => {
         mocked(get).mockReturnValueOnce([]);
 
-        install('peerDependencies');
+        install('optionalDependencies');
 
         expect(get).toHaveBeenCalledTimes(0);
       });
@@ -140,8 +140,10 @@ describe('install', () => {
 
       it('returning the list for the groupname', () => {
         const dependencies = ['jquery'];
+        const peerDependencies = ['react'];
         const devDependencies = ['yeoman', 'typescript'];
         mocked(get).mockReturnValueOnce(dependencies);
+        mocked(get).mockReturnValueOnce(peerDependencies);
         mocked(get).mockReturnValueOnce(devDependencies);
 
         install();
@@ -154,11 +156,13 @@ describe('install', () => {
     describe('spanws', () => {
       beforeEach(() => {
         mocked(get).mockReturnValueOnce(['jquery']);
+        mocked(get).mockReturnValueOnce(['react']);
         mocked(get).mockReturnValueOnce(['yeoman', 'typescript']);
       });
 
       it('cancelled if no dependencies to install', () => {
         mocked(get).mockReset();
+        mocked(get).mockReturnValueOnce([]);
         mocked(get).mockReturnValueOnce([]);
         mocked(get).mockReturnValueOnce([]);
 
@@ -170,7 +174,7 @@ describe('install', () => {
       it('multiples commands', () => {
         install();
 
-        expect(sync).toHaveBeenCalledTimes(2);
+        expect(sync).toHaveBeenCalledTimes(3);
       });
 
       it('yarn', () => {
@@ -193,14 +197,19 @@ describe('install', () => {
         expect(parameters1[1]).toStrictEqual('');
 
         const [, parameters2 = []] = mocked(sync).mock.calls[1];
-        expect(parameters2[1]).toStrictEqual('-D');
+        expect(parameters2[1]).toStrictEqual('-P');
+
+        const [, parameters3 = []] = mocked(sync).mock.calls[2];
+        expect(parameters3[1]).toStrictEqual('-D');
       });
 
       it('yarn add the list of dependencies for all groups', () => {
         mocked(get).mockReset();
         const dependencies = ['jquery'];
+        const peerDependencies = ['react'];
         const devDependencies = ['typescript', 'eslint'];
         mocked(get).mockReturnValueOnce(dependencies);
+        mocked(get).mockReturnValueOnce(peerDependencies);
         mocked(get).mockReturnValueOnce(devDependencies);
 
         install();
@@ -209,7 +218,10 @@ describe('install', () => {
         expect(parameters1.slice(2)).toStrictEqual(dependencies);
 
         const [, parameters2 = []] = mocked(sync).mock.calls[1];
-        expect(parameters2.slice(2)).toStrictEqual(devDependencies);
+        expect(parameters2.slice(2)).toStrictEqual(peerDependencies);
+
+        const [, parameters3 = []] = mocked(sync).mock.calls[2];
+        expect(parameters3.slice(2)).toStrictEqual(devDependencies);
       });
     });
   });
