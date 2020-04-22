@@ -15,28 +15,20 @@ export interface Parsed {
   license?: string;
 }
 
+const parseAuthor = (authorInfo: string): Person => {
+  const author: Person = {};
+  author.name = authorInfo.replace(/\s?[(<].*/g, '');
+  [, author.email = undefined] = /<([^>]+)>/.exec(authorInfo) ?? [];
+  [, author.url = undefined] = /\(([^)]+)\)/.exec(authorInfo) ?? [];
+
+  return author;
+};
+
 const parse = (pkg: Readonly<PackageJson>): Parsed => {
   const { name, version, description, author, repository, license } = pkg;
 
-  let parsedAuthor: Person | string | undefined;
-
-  if (typeof author === 'string') {
-    parsedAuthor = {};
-    parsedAuthor.name = author.replace(/\s?[(<].*/g, '');
-    [, parsedAuthor.email = undefined] = /<([^>]+)>/.exec(author) ?? [];
-    [, parsedAuthor.url = undefined] = /\(([^)]+)\)/.exec(author) ?? [];
-  } else {
-    parsedAuthor = author;
-  }
-
-  let repoUrl: string | undefined;
-
-  if (typeof repository === 'object') {
-    repoUrl = repository.url;
-  } else {
-    repoUrl = repository;
-  }
-
+  const parsedAuthor = typeof author === 'string' ? parseAuthor(author) : author;
+  const repoUrl = typeof repository === 'object' ? repository.url : repository;
   const isGitRepo = typeof repoUrl !== 'undefined' && repoUrl.includes('github.com');
 
   const parsed = {
