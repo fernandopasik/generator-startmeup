@@ -88,6 +88,7 @@ export const getTSConfigAll = (): TypescriptConfig => {
     compilerOptions: {
       allowJs: true,
       noEmit: true,
+      outDir: '$$ts-jest',
     },
     include,
     exclude,
