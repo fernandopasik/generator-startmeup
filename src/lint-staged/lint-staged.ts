@@ -2,7 +2,7 @@ import Generator from 'yeoman-generator';
 import { configs, dependencies, modules } from '../core';
 import config from './config';
 
-export default class CommitLintGenerator extends Generator {
+export default class LintStagedGenerator extends Generator {
   public async initializing(): Promise<void> {
     await dependencies.importAll();
     modules.load(config.name, config);
