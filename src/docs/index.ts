@@ -29,9 +29,9 @@ module.exports = class extends Generator {
       author: {
         name: this?.answers?.['author.name'] as string,
       },
-      eslint: dependencies.has('eslint', 'devDependencies'),
-      codecov: dependencies.has('codecov', 'devDependencies'),
-      commitlint: dependencies.has('@commitlint/cli', 'devDependencies'),
+      eslint: dependencies.has('eslint', 'dev'),
+      codecov: dependencies.has('codecov', 'dev'),
+      commitlint: dependencies.has('@commitlint/cli', 'dev'),
       circleci: !!this.fs.exists(this.destinationPath('.circleci/config.yml')),
       year: new Date().getFullYear(),
     };

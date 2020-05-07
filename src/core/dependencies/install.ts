@@ -2,9 +2,9 @@ import { sync } from 'cross-spawn';
 import get from './get';
 
 export const groupParameters: Record<string, string> = {
-  dependencies: '',
-  peerDependencies: '-P',
-  devDependencies: '-D',
+  dep: '',
+  peer: '-P',
+  dev: '-D',
 };
 
 const install = (groupName?: string): void => {

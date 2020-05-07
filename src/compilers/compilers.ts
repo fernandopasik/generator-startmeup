@@ -25,7 +25,7 @@ export default class CompilerGenerator extends Generator {
         message: 'Which compiler do you want to use?',
         choices: Object.keys(compilerDependencies),
         default: Object.keys(compilerDependencies).filter((compilerName: string): boolean =>
-          dependencies.has(compilerDependencies[compilerName], 'devDependencies'),
+          dependencies.has(compilerDependencies[compilerName], 'dev'),
         ),
       },
     ]);
@@ -35,25 +35,25 @@ export default class CompilerGenerator extends Generator {
 
   public configuring(): void {
     if (this.compilers.includes('babel')) {
-      dependencies.add('@babel/core', 'devDependencies');
+      dependencies.add('@babel/core', 'dev');
       addPreset('@babel/preset-env');
-      dependencies.add('@babel/preset-env', 'devDependencies');
+      dependencies.add('@babel/preset-env', 'dev');
 
-      if (dependencies.has('react')) {
+      if (dependencies.has('react') || dependencies.has('react', 'peer')) {
         addPreset('@babel/preset-react');
-        dependencies.add('@babel/preset-react', 'devDependencies');
+        dependencies.add('@babel/preset-react', 'dev');
       }
 
       if (this.compilers.includes('typescript')) {
         addPreset('@babel/preset-typescript');
-        dependencies.add('@babel/preset-typescript', 'devDependencies');
+        dependencies.add('@babel/preset-typescript', 'dev');
       } else {
-        dependencies.add('@babel/cli', 'devDependencies');
+        dependencies.add('@babel/cli', 'dev');
       }
     }
 
     if (this.compilers.includes('typescript')) {
-      dependencies.add('typescript', 'devDependencies');
+      dependencies.add('typescript', 'dev');
     }
   }
 

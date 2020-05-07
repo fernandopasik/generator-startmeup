@@ -25,26 +25,26 @@ export default class LibrariesGenerator extends Generator {
     this.libraries = libraries as string[];
 
     if (this.libraries.includes('lit-html')) {
-      dependencies.add('lit-html', 'peerDependencies');
-      dependencies.add('lit-element', 'peerDependencies');
+      dependencies.add('lit-html', 'peer');
+      dependencies.add('lit-element', 'peer');
     }
 
     if (this.libraries.includes('react')) {
-      dependencies.add('react', 'peerDependencies');
-      dependencies.add('react-dom', 'peerDependencies');
-      dependencies.add('react-test-renderer', 'devDependencies');
+      dependencies.add('react', 'peer');
+      dependencies.add('react-dom', 'peer');
+      dependencies.add('react-test-renderer', 'dev');
     }
   }
 
   public configuring(): void {
     if (this.libraries.includes('react')) {
-      if (dependencies.has('@babel/core', 'devDependencies')) {
-        dependencies.add('@babel/preset-react', 'devDependencies');
+      if (dependencies.has('@babel/core', 'dev')) {
+        dependencies.add('@babel/preset-react', 'dev');
       }
 
-      if (dependencies.has('typescript', 'devDependencies')) {
-        dependencies.add('@types/react', 'devDependencies');
-        dependencies.add('@types/react-dom', 'devDependencies');
+      if (dependencies.has('typescript', 'dev')) {
+        dependencies.add('@types/react', 'dev');
+        dependencies.add('@types/react-dom', 'dev');
       }
     }
   }

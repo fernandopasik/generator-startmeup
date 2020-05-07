@@ -24,8 +24,8 @@ describe('import all', () => {
 
     await importAll();
 
-    expect(has('react', 'dependencies')).toBe(true);
-    expect(has('react-dom', 'dependencies')).toBe(true);
+    expect(has('react', 'dep')).toBe(true);
+    expect(has('react-dom', 'dep')).toBe(true);
   });
 
   it('other dependency groups', async () => {
@@ -42,9 +42,9 @@ describe('import all', () => {
     });
     await importAll();
 
-    expect(has('react', 'dependencies')).toBe(true);
-    expect(has('react-dom', 'dependencies')).toBe(true);
-    expect(has('jest', 'devDependencies')).toBe(true);
+    expect(has('react', 'dep')).toBe(true);
+    expect(has('react-dom', 'dep')).toBe(true);
+    expect(has('jest', 'dev')).toBe(true);
   });
 
   it('peerDependencies add devDependencies as well', async () => {
@@ -58,19 +58,19 @@ describe('import all', () => {
     });
     await importAll();
 
-    expect(has('react', 'peerDependencies')).toBe(true);
-    expect(has('react', 'devDependencies')).toBe(true);
-    expect(has('react', 'dependencies')).toBe(false);
-    expect(has('react-dom', 'peerDependencies')).toBe(true);
-    expect(has('react-dom', 'devDependencies')).toBe(true);
-    expect(has('react-dom', 'dependencies')).toBe(false);
+    expect(has('react', 'peer')).toBe(true);
+    expect(has('react', 'dev')).toBe(true);
+    expect(has('react', 'dep')).toBe(false);
+    expect(has('react-dom', 'peer')).toBe(true);
+    expect(has('react-dom', 'dev')).toBe(true);
+    expect(has('react-dom', 'dep')).toBe(false);
   });
 
   it('deals with empty package.json', async () => {
     await importAll();
-    expect(get('dependencies')).toStrictEqual([]);
-    expect(get('devDependencies')).toStrictEqual([]);
-    expect(get('peerDependencies')).toStrictEqual([]);
-    expect(get('optionalDependencies')).toStrictEqual([]);
+    expect(get('dep')).toStrictEqual([]);
+    expect(get('dev')).toStrictEqual([]);
+    expect(get('peer')).toStrictEqual([]);
+    expect(get('optional')).toStrictEqual([]);
   });
 });

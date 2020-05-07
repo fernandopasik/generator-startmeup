@@ -9,22 +9,22 @@ const buildConfig = (): LintStagedConfig => {
   const extensions = ['js'];
   const commands = [];
 
-  if (dependencies.has('eslint', 'devDependencies')) {
+  if (dependencies.has('eslint', 'dev')) {
     commands.push('eslint');
   }
 
-  if (dependencies.has('jest', 'devDependencies')) {
+  if (dependencies.has('jest', 'dev')) {
     commands.push('jest --bail --findRelatedTests');
   }
 
-  if (dependencies.has('react')) {
+  if (dependencies.has('react') || dependencies.has('react', 'peer')) {
     extensions.push('jsx');
   }
 
-  if (dependencies.has('typescript', 'devDependencies')) {
+  if (dependencies.has('typescript', 'dev')) {
     extensions.push('ts');
 
-    if (dependencies.has('react')) {
+    if (dependencies.has('react') || dependencies.has('react', 'peer')) {
       extensions.push('tsx');
     }
   }

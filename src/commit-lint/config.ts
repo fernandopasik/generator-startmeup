@@ -9,11 +9,11 @@ export default {
   mainDependencies: [
     {
       name: '@commitlint/cli',
-      type: 'devDependencies',
+      type: 'dev',
     },
     {
       name: '@commitlint/config-conventional',
-      type: 'devDependencies',
+      type: 'dev',
     },
   ],
   replaceConfig: true,

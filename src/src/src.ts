@@ -18,7 +18,7 @@ export default class SrcGenerator extends Generator {
     ) {
       let extension = 'js';
 
-      if (dependencies.has('typescript', 'devDependencies')) {
+      if (dependencies.has('typescript', 'dev')) {
         extension = 'ts';
       }
 

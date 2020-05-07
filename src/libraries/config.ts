@@ -6,7 +6,7 @@ export default {
   mainDependencies: [
     {
       name: 'prettier',
-      type: 'devDependencies',
+      type: 'dev',
     },
   ],
   name: 'libraries',

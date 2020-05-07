@@ -13,11 +13,11 @@ export default class HooksGenerator extends Generator {
   public async writing(): Promise<void> {
     const config: { hooks: Hooks } = { hooks: {} };
 
-    if (dependencies.has('@commitlint/cli', 'devDependencies')) {
+    if (dependencies.has('@commitlint/cli', 'dev')) {
       config.hooks['commit-msg'] = 'commitlint -E HUSKY_GIT_PARAMS';
     }
 
-    if (dependencies.has('lint-staged', 'devDependencies')) {
+    if (dependencies.has('lint-staged', 'dev')) {
       config.hooks['pre-commit'] = 'lint-staged';
     }
 
@@ -26,7 +26,7 @@ export default class HooksGenerator extends Generator {
     if (Object.keys(config.hooks).length > 0) {
       await configs.save('.huskyrc.json', config);
 
-      dependencies.add('husky', 'devDependencies');
+      dependencies.add('husky', 'dev');
     }
   }
 

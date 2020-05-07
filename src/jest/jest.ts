@@ -20,12 +20,12 @@ export default class JestGenerator extends Generator {
   }
 
   public configuring(): void {
-    dependencies.add('jest', 'devDependencies');
+    dependencies.add('jest', 'dev');
 
-    if (dependencies.has('typescript', 'devDependencies')) {
-      dependencies.add('ts-jest', 'devDependencies');
-    } else if (dependencies.has('@babel/core', 'devDependencies')) {
-      dependencies.add('babel-jest', 'devDependencies');
+    if (dependencies.has('typescript', 'dev')) {
+      dependencies.add('ts-jest', 'dev');
+    } else if (dependencies.has('@babel/core', 'dev')) {
+      dependencies.add('babel-jest', 'dev');
     }
 
     this.jestConfig = buildConfig(this.jestConfig);

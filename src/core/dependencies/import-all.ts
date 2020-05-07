@@ -1,5 +1,5 @@
 import { PackageJson } from '../../packagejson/package-json';
-import { groupNames, GroupNames } from './store';
+import { groupAliases, groupNames, GroupNames } from './store';
 import load from '../configs/load';
 import add from './add';
 
@@ -15,7 +15,7 @@ const importAll = async (): Promise<void> => {
 
     if (typeof deps !== 'undefined') {
       Object.keys(deps).forEach((dependencyName: string) => {
-        add(dependencyName, groupName);
+        add(dependencyName, groupAliases[groupName]);
       });
     }
   });

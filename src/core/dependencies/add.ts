@@ -1,10 +1,10 @@
 import store from './store';
 
-const add = (name: string, groupName: string = 'dependencies'): void => {
+const add = (name: string, groupName: string = 'dep'): void => {
   store[groupName].add(name);
 
-  if (groupName === 'peerDependencies') {
-    add(name, 'devDependencies');
+  if (groupName === 'peer') {
+    add(name, 'dev');
   }
 };
 

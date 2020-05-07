@@ -16,9 +16,20 @@ export type GroupNames =
   | 'optionalDependencies'
   | 'peerDependencies';
 
+interface GroupAliases {
+  [name: string]: string;
+}
+
+export const groupAliases: GroupAliases = {
+  dependencies: 'dep',
+  devDependencies: 'dev',
+  optionalDependencies: 'optional',
+  peerDependencies: 'peer',
+};
+
 // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
 const store: All = groupNames.reduce((acc: All, groupName: string) => {
-  acc[groupName] = new Set();
+  acc[groupAliases[groupName]] = new Set();
   return acc;
 }, {});
 

@@ -8,34 +8,34 @@ describe('remove all', () => {
   });
 
   it('dependencies', () => {
-    add('react', 'dependencies');
-    add('react-dom', 'dependencies');
+    add('react', 'dep');
+    add('react-dom', 'dep');
 
-    expect(has('react', 'dependencies')).toBe(true);
-    expect(has('react-dom', 'dependencies')).toBe(true);
+    expect(has('react', 'dep')).toBe(true);
+    expect(has('react-dom', 'dep')).toBe(true);
 
     clear();
 
-    expect(has('react', 'dependencies')).toBe(false);
-    expect(has('react-dom', 'dependencies')).toBe(false);
+    expect(has('react', 'dep')).toBe(false);
+    expect(has('react-dom', 'dep')).toBe(false);
   });
 
   it('from all groups', () => {
-    add('react', 'dependencies');
-    add('react-dom', 'peerDependencies');
-    add('jquery', 'optionalDependencies');
-    add('jest', 'devDependencies');
+    add('react', 'dep');
+    add('react-dom', 'peer');
+    add('jquery', 'optional');
+    add('jest', 'dev');
 
-    expect(has('react', 'dependencies')).toBe(true);
-    expect(has('jest', 'devDependencies')).toBe(true);
-    expect(has('react-dom', 'peerDependencies')).toBe(true);
-    expect(has('jquery', 'optionalDependencies')).toBe(true);
+    expect(has('react', 'dep')).toBe(true);
+    expect(has('jest', 'dev')).toBe(true);
+    expect(has('react-dom', 'peer')).toBe(true);
+    expect(has('jquery', 'optional')).toBe(true);
 
     clear();
 
-    expect(has('react', 'dependencies')).toBe(false);
-    expect(has('jest', 'devDependencies')).toBe(false);
-    expect(has('react-dom', 'peerDependencies')).toBe(false);
-    expect(has('jquery', 'optionalDependencies')).toBe(false);
+    expect(has('react', 'dep')).toBe(false);
+    expect(has('jest', 'dev')).toBe(false);
+    expect(has('react-dom', 'peer')).toBe(false);
+    expect(has('jquery', 'optional')).toBe(false);
   });
 });

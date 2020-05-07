@@ -20,14 +20,14 @@ describe('install', () => {
       it('before installing', () => {
         mocked(get).mockReturnValueOnce([]);
 
-        install('dependencies');
+        install('dep');
 
         expect(get).toHaveBeenCalledTimes(1);
       });
 
       it('matching the provided group name', () => {
         mocked(get).mockReturnValueOnce([]);
-        const groupName = 'devDependencies';
+        const groupName = 'dev';
 
         install(groupName);
 
@@ -38,7 +38,7 @@ describe('install', () => {
         const dependencies = ['yeoman', 'typescript'];
         mocked(get).mockReturnValueOnce(dependencies);
 
-        install('dependencies');
+        install('dep');
 
         expect(get).toHaveReturnedWith(dependencies);
       });
@@ -46,7 +46,7 @@ describe('install', () => {
       it('is cancelled when non installable group provided', () => {
         mocked(get).mockReturnValueOnce([]);
 
-        install('optionalDependencies');
+        install('optional');
 
         expect(get).toHaveBeenCalledTimes(0);
       });
@@ -61,40 +61,40 @@ describe('install', () => {
         mocked(get).mockReset();
         mocked(get).mockReturnValueOnce([]);
 
-        install('dependencies');
+        install('dep');
 
         expect(sync).toHaveBeenCalledTimes(0);
       });
 
       it('a command', () => {
-        install('dependencies');
+        install('dep');
 
         expect(sync).toHaveBeenCalledTimes(1);
       });
 
       it('yarn', () => {
-        install('dependencies');
+        install('dep');
 
         expect(sync).toHaveBeenCalledWith('yarn', expect.anything(), expect.anything());
       });
 
       it('displays output in screen', () => {
-        install('dependencies');
+        install('dep');
 
         const options = { stdio: 'inherit' };
         expect(sync).toHaveBeenCalledWith(expect.anything(), expect.anything(), options);
       });
 
       it('yarn add', () => {
-        install('dependencies');
+        install('dep');
 
         const [, parameters = []] = mocked(sync).mock.calls[0];
         expect(parameters[0]).toStrictEqual('add');
       });
 
       it('yarn add to the corresponding group', () => {
-        install('devDependencies');
-        install('dependencies');
+        install('dev');
+        install('dep');
 
         const [, parameters1 = []] = mocked(sync).mock.calls[0];
         expect(parameters1[1]).toStrictEqual('-D');
@@ -108,7 +108,7 @@ describe('install', () => {
         const dependencies = ['typescript', 'eslint'];
         mocked(get).mockReturnValueOnce(dependencies);
 
-        install('devDependencies');
+        install('dev');
 
         const [, parameters = []] = mocked(sync).mock.calls[0];
         expect(parameters.slice(2)).toStrictEqual(dependencies);
@@ -141,15 +141,15 @@ describe('install', () => {
       it('returning the list for the groupname', () => {
         const dependencies = ['jquery'];
         const peerDependencies = ['react'];
-        const devDependencies = ['yeoman', 'typescript'];
+        const dev = ['yeoman', 'typescript'];
         mocked(get).mockReturnValueOnce(dependencies);
         mocked(get).mockReturnValueOnce(peerDependencies);
-        mocked(get).mockReturnValueOnce(devDependencies);
+        mocked(get).mockReturnValueOnce(dev);
 
         install();
 
         expect(get).toHaveReturnedWith(dependencies);
-        expect(get).toHaveReturnedWith(devDependencies);
+        expect(get).toHaveReturnedWith(dev);
       });
     });
 
@@ -184,7 +184,7 @@ describe('install', () => {
       });
 
       it('yarn add', () => {
-        install('dependencies');
+        install('dep');
 
         const [, parameters = []] = mocked(sync).mock.calls[0];
         expect(parameters[0]).toStrictEqual('add');
@@ -207,10 +207,10 @@ describe('install', () => {
         mocked(get).mockReset();
         const dependencies = ['jquery'];
         const peerDependencies = ['react'];
-        const devDependencies = ['typescript', 'eslint'];
+        const dev = ['typescript', 'eslint'];
         mocked(get).mockReturnValueOnce(dependencies);
         mocked(get).mockReturnValueOnce(peerDependencies);
-        mocked(get).mockReturnValueOnce(devDependencies);
+        mocked(get).mockReturnValueOnce(dev);
 
         install();
 
@@ -221,7 +221,7 @@ describe('install', () => {
         expect(parameters2.slice(2)).toStrictEqual(peerDependencies);
 
         const [, parameters3 = []] = mocked(sync).mock.calls[2];
-        expect(parameters3.slice(2)).toStrictEqual(devDependencies);
+        expect(parameters3.slice(2)).toStrictEqual(dev);
       });
     });
   });

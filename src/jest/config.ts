@@ -17,20 +17,20 @@ export const generateFilename = (isModuleType: boolean = false): string =>
 export const buildConfig = (
   existingConfig: Readonly<Config.InitialOptions> = {},
 ): Config.InitialOptions => {
-  const hasTypescript = dependencies.has('typescript', 'devDependencies');
-  const hasReact = dependencies.has('react');
+  const hasTypescript = dependencies.has('typescript', 'dev');
+  const hasReact = dependencies.has('react') || dependencies.has('react', 'peer');
   const collectCoverageFrom = [generateCoveragePattern(hasTypescript, hasReact)];
   const transformPattern = generateTransformPattern(hasTypescript, hasReact);
 
   const config: Config.InitialOptions = {
     collectCoverageFrom,
-    testEnvironment: dependencies.has('enzyme', 'devDependencies') ? 'enzyme' : 'node',
+    testEnvironment: dependencies.has('enzyme', 'dev') ? 'enzyme' : 'node',
     ...existingConfig,
   };
 
-  if (dependencies.has('typescript', 'devDependencies')) {
+  if (dependencies.has('typescript', 'dev')) {
     config.transform = { [transformPattern]: 'ts-jest' };
-  } else if (dependencies.has('@babel/core', 'devDependencies')) {
+  } else if (dependencies.has('@babel/core', 'dev')) {
     config.transform = { [transformPattern]: 'babel-jest' };
   }
 

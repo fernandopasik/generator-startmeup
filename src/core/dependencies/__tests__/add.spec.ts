@@ -8,54 +8,54 @@ describe('add', () => {
   });
 
   it('one dependency', () => {
-    expect(has('react', 'dependencies')).toBe(false);
+    expect(has('react', 'dep')).toBe(false);
 
-    add('react', 'dependencies');
+    add('react', 'dep');
 
-    expect(has('react', 'dependencies')).toBe(true);
+    expect(has('react', 'dep')).toBe(true);
   });
 
   it('more than one dependency', () => {
-    add('react', 'dependencies');
-    add('react-dom', 'dependencies');
+    add('react', 'dep');
+    add('react-dom', 'dep');
 
-    expect(has('react', 'dependencies')).toBe(true);
-    expect(has('react-dom', 'dependencies')).toBe(true);
+    expect(has('react', 'dep')).toBe(true);
+    expect(has('react-dom', 'dep')).toBe(true);
   });
 
   it('by default it adds to dependencies when no group provided', () => {
     add('react');
 
-    expect(has('react', 'dependencies')).toBe(true);
-    expect(has('react', 'devDependencies')).toBe(false);
+    expect(has('react', 'dep')).toBe(true);
+    expect(has('react', 'dev')).toBe(false);
   });
 
-  it('to devDependencies', () => {
-    add('jest', 'devDependencies');
+  it('to dev dependencies', () => {
+    add('jest', 'dev');
 
-    expect(has('jest', 'devDependencies')).toBe(true);
-    expect(has('jest', 'dependencies')).toBe(false);
+    expect(has('jest', 'dev')).toBe(true);
+    expect(has('jest', 'dep')).toBe(false);
   });
 
-  it('to peerDependencies', () => {
-    add('react', 'peerDependencies');
+  it('to peer dependencies', () => {
+    add('react', 'peer');
 
-    expect(has('react', 'peerDependencies')).toBe(true);
-    expect(has('react', 'dependencies')).toBe(false);
+    expect(has('react', 'peer')).toBe(true);
+    expect(has('react', 'dep')).toBe(false);
   });
 
-  it('when adding to peerDependencies also keep in devDependencies for development', () => {
-    add('react', 'peerDependencies');
+  it('when adding to peerDependencies also keep in dev dependencies for development', () => {
+    add('react', 'peer');
 
-    expect(has('react', 'peerDependencies')).toBe(true);
-    expect(has('react', 'devDependencies')).toBe(true);
-    expect(has('react', 'dependencies')).toBe(false);
+    expect(has('react', 'peer')).toBe(true);
+    expect(has('react', 'dev')).toBe(true);
+    expect(has('react', 'dep')).toBe(false);
   });
 
-  it('to optionalDependencies', () => {
-    add('react', 'optionalDependencies');
+  it('to optional dependencies', () => {
+    add('react', 'optional');
 
-    expect(has('react', 'optionalDependencies')).toBe(true);
-    expect(has('react', 'dependencies')).toBe(false);
+    expect(has('react', 'optional')).toBe(true);
+    expect(has('react', 'dep')).toBe(false);
   });
 });

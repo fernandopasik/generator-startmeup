@@ -18,22 +18,22 @@ interface TypescriptConfig {
 const getExclude = (): string[] => {
   const exclude: string[] = [];
 
-  if (dependencies.has('jest', 'devDependencies')) {
+  if (dependencies.has('jest', 'dev')) {
     exclude.push('**/__tests__/**', '**/__mocks__/**', '**/*.spec.*');
   }
 
-  if (dependencies.has('jest-puppeteer', 'devDependencies')) {
+  if (dependencies.has('jest-puppeteer', 'dev')) {
     exclude.push('**/*.e2e.*');
   }
 
   if (
-    dependencies.has('@storybook/react', 'devDependencies') ||
-    dependencies.has('@storybook/web-components', 'devDependencies')
+    dependencies.has('@storybook/react', 'dev') ||
+    dependencies.has('@storybook/web-components', 'dev')
   ) {
     exclude.push('**/__stories__/**', '**/*.stories.*');
   }
 
-  if (dependencies.has('flow-bin', 'devDependencies')) {
+  if (dependencies.has('flow-bin', 'dev')) {
     exclude.push('**/*.flow');
   }
 
@@ -47,7 +47,9 @@ const getTSConfig = (): TypescriptConfig => ({
     esModuleInterop: true,
     experimentalDecorators: true,
     inlineSources: true,
-    ...(dependencies.has('react') ? { jsx: ('react' as unknown) as JsxEmit } : {}),
+    ...(dependencies.has('react') || dependencies.has('react', 'peer')
+      ? { jsx: ('react' as unknown) as JsxEmit }
+      : {}),
     lib: ['es2020', 'dom', 'dom.iterable'],
     module: ('ESNext' as unknown) as ModuleKind,
     moduleResolution: ('node' as unknown) as ModuleResolutionKind,
@@ -75,11 +77,11 @@ export const getTSConfigAll = (): TypescriptConfig => {
   const include = ['src/**/*', './*.js'];
   const exclude = [];
 
-  if (dependencies.has('jest-enzyme', 'devDependencies')) {
+  if (dependencies.has('jest-enzyme', 'dev')) {
     include.push('node_modules/jest-enzyme/lib/index.d.ts');
   }
 
-  if (dependencies.has('flow-bin', 'devDependencies')) {
+  if (dependencies.has('flow-bin', 'dev')) {
     exclude.push('**/*.flow');
   }
 

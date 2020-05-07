@@ -9,7 +9,7 @@ export default {
   mainDependencies: [
     {
       name: 'lint-staged',
-      type: 'devDependencies',
+      type: 'dev',
     },
   ],
   replaceConfig: true,

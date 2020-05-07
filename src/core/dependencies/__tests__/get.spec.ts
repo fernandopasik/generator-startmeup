@@ -8,24 +8,24 @@ describe('get', () => {
   });
 
   it('dependencies', () => {
-    add('react', 'dependencies');
-    add('react-dom', 'dependencies');
+    add('react', 'dep');
+    add('react-dom', 'dep');
 
-    expect(get('dependencies')).toStrictEqual(['react', 'react-dom']);
+    expect(get('dep')).toStrictEqual(['react', 'react-dom']);
   });
 
   it('dependencies if no group provided', () => {
-    add('react', 'dependencies');
-    add('react-dom', 'dependencies');
+    add('react', 'dep');
+    add('react-dom', 'dep');
 
     expect(get()).toStrictEqual(['react', 'react-dom']);
   });
 
   it('dependencies from other groups', () => {
-    add('react', 'dependencies');
-    add('jest', 'devDependencies');
-    add('enzyme', 'devDependencies');
+    add('react', 'dep');
+    add('jest', 'dev');
+    add('enzyme', 'dev');
 
-    expect(get('devDependencies')).toStrictEqual(['jest', 'enzyme']);
+    expect(get('dev')).toStrictEqual(['jest', 'enzyme']);
   });
 });

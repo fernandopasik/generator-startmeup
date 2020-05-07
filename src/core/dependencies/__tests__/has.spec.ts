@@ -8,20 +8,20 @@ describe('has', () => {
   });
 
   it('a dependency', () => {
-    add('react', 'dependencies');
+    add('react', 'dep');
 
-    expect(has('react', 'dependencies')).toBe(true);
+    expect(has('react', 'dep')).toBe(true);
   });
 
   it('a dependency from other groups', () => {
-    add('jest', 'devDependencies');
+    add('jest', 'dev');
 
-    expect(has('jest', 'devDependencies')).toBe(true);
-    expect(has('jest', 'dependencies')).toBe(false);
+    expect(has('jest', 'dev')).toBe(true);
+    expect(has('jest', 'dep')).toBe(false);
   });
 
   it('dependencies if no group provided', () => {
-    add('react', 'dependencies');
+    add('react', 'dep');
 
     expect(has('react')).toBe(true);
   });
