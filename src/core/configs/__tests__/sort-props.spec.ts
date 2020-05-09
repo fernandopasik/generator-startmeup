@@ -127,7 +127,7 @@ describe('sort props', () => {
     );
   });
 
-  it('objects in arrays', () => {
+  it('objects in arrays go after primitive values', () => {
     const config = {
       b: null,
       c: ['b', {}, 'a'],
@@ -139,6 +139,58 @@ describe('sort props', () => {
         a: 1,
         b: null,
         c: ['a', 'b', {}],
+      }),
+    );
+  });
+
+  it('objects are sorted in arrays', () => {
+    const config = {
+      b: null,
+      c: [
+        'b',
+        {
+          c: '1',
+          f: '2',
+          e: '3',
+        },
+        'a',
+      ],
+      a: 1,
+    };
+
+    expect(JSON.stringify(sortProps(config))).toStrictEqual(
+      JSON.stringify({
+        a: 1,
+        b: null,
+        c: [
+          'a',
+          'b',
+          {
+            c: '1',
+            e: '3',
+            f: '2',
+          },
+        ],
+      }),
+    );
+  });
+
+  it('array of objects sorted by stringifying them', () => {
+    const config = {
+      c: [
+        { a: 5, b: 2 },
+        { b: 2, a: 1 },
+        { a: 1, b: 3 },
+      ],
+    };
+
+    expect(JSON.stringify(sortProps(config))).toStrictEqual(
+      JSON.stringify({
+        c: [
+          { a: 1, b: 2 },
+          { a: 1, b: 3 },
+          { a: 5, b: 2 },
+        ],
       }),
     );
   });
