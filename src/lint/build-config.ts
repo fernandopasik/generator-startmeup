@@ -95,6 +95,17 @@ const buildConfig = (): Linter.Config => {
     }
   }
 
+  if (
+    dependencies.has('@storybook/react', 'dev') ||
+    dependencies.has('@storybook/web-components', 'dev')
+  ) {
+    config.overrides = config.overrides ?? [];
+    config.overrides.push({
+      files: ['*.stories.*'],
+      rules: { 'import/no-extraneous-dependencies': ['error', { devDependencies: true }] },
+    });
+  }
+
   if (typeof config.plugins !== 'undefined') {
     config.plugins = config.plugins.filter((plugin: string) => !plugins.includes(plugin));
 
