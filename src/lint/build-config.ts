@@ -106,6 +106,15 @@ const buildConfig = (): Linter.Config => {
     });
   }
 
+  if (dependencies.has('puppeteer', 'dev')) {
+    config.overrides = config.overrides ?? [];
+    config.overrides.push({
+      files: ['*.e2e.ts'],
+      globals: { page: true, browser: true, context: true, jestPuppeteer: true },
+      rules: { '@typescript-eslint/prefer-readonly-parameter-types': 'off' },
+    });
+  }
+
   if (typeof config.plugins !== 'undefined') {
     config.plugins = config.plugins.filter((plugin: string) => !plugins.includes(plugin));
 
