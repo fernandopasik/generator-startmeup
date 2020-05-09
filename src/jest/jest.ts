@@ -19,9 +19,11 @@ export default class JestGenerator extends Generator {
     }
   }
 
-  public configuring(): void {
+  public prompting(): void {
     dependencies.add('jest', 'dev');
+  }
 
+  public configuring(): void {
     if (dependencies.has('typescript', 'dev')) {
       dependencies.add('ts-jest', 'dev');
     } else if (dependencies.has('@babel/core', 'dev')) {

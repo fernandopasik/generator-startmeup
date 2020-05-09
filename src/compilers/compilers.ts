@@ -31,11 +31,18 @@ export default class CompilerGenerator extends Generator {
     ]);
 
     this.compilers = compilers as string[];
+
+    if (this.compilers.includes('babel')) {
+      dependencies.add('@babel/core', 'dev');
+    }
+
+    if (this.compilers.includes('typescript')) {
+      dependencies.add('typescript', 'dev');
+    }
   }
 
   public configuring(): void {
     if (this.compilers.includes('babel')) {
-      dependencies.add('@babel/core', 'dev');
       addPreset('@babel/preset-env');
       dependencies.add('@babel/preset-env', 'dev');
 
@@ -50,10 +57,6 @@ export default class CompilerGenerator extends Generator {
       } else {
         dependencies.add('@babel/cli', 'dev');
       }
-    }
-
-    if (this.compilers.includes('typescript')) {
-      dependencies.add('typescript', 'dev');
     }
   }
 
