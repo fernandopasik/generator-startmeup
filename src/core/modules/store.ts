@@ -8,7 +8,7 @@ export interface moduleMainDependency {
 export interface ModuleConfig {
   mainDependencies: moduleMainDependency[];
   configFilename: string;
-  configContent: Config;
+  configContent: Config | (() => Config);
   confirm?: boolean;
   confirmMessage?: string;
   name: string;
