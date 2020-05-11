@@ -60,6 +60,12 @@ const buildConfig = (): Linter.Config => {
     plugins.push('lit');
     config.extends.push('plugin:lit/all');
     config.env = { browser: true };
+    config.rules = {
+      ...config.rules,
+      '@typescript-eslint/no-base-to-string': ['error', { ignoreTaggedTemplateExpressions: true }],
+      '@typescript-eslint/no-inferrable-types': ['error', { ignoreProperties: true }],
+      '@typescript-eslint/unbound-method': 'off',
+    };
   }
 
   if (dependencies.has('jest', 'dev')) {
