@@ -24,9 +24,14 @@ export const buildConfig = (
 
   const config: Config.InitialOptions = {
     collectCoverageFrom,
-    testEnvironment: dependencies.has('enzyme', 'dev') ? 'enzyme' : 'node',
     ...existingConfig,
   };
+
+  if (dependencies.has('enzyme', 'dev')) {
+    config.testEnvironment = 'enzyme';
+  } else if (!dependencies.has('lit-html', 'all')) {
+    config.testEnvironment = 'node';
+  }
 
   if (dependencies.has('typescript', 'dev')) {
     config.transform = { [transformPattern]: 'ts-jest' };
