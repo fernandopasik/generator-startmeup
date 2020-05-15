@@ -7,37 +7,33 @@ describe('load file', () => {
   });
 
   it('returns the imported file', async () => {
-    const file = await load('jest.config.cjs');
+    const file = await load('.commitlintrc.json');
 
     expect(file).toMatchInlineSnapshot(`
       Object {
-        "collectCoverageFrom": Array [
-          "src/**/*.ts",
+        "extends": Array [
+          "@commitlint/config-conventional",
         ],
-        "testEnvironment": "node",
-        "transform": Object {
-          "^.+\\\\.[j|t]s$": "ts-jest",
-        },
       }
     `);
   });
 
   it('sets in cache the imported file', async () => {
     const spy = jest.spyOn(store, 'set');
-    const file = await load('jest.config.cjs');
+    const file = await load('.commitlintrc.json');
 
-    expect(spy).toHaveBeenLastCalledWith('jest.config.cjs', file);
+    expect(spy).toHaveBeenLastCalledWith('.commitlintrc.json', file);
 
     spy.mockRestore();
   });
 
   it('returns the cached version after first time', async () => {
     const spy = jest.spyOn(store, 'get');
-    await load('jest.config.cjs');
-    await load('jest.config.cjs');
+    await load('.commitlintrc.json');
+    await load('.commitlintrc.json');
 
     expect(spy).toHaveBeenCalledTimes(1);
-    expect(spy).toHaveBeenLastCalledWith('jest.config.cjs');
+    expect(spy).toHaveBeenLastCalledWith('.commitlintrc.json');
 
     spy.mockRestore();
   });
