@@ -1,24 +1,22 @@
-import Generator from 'yeoman-generator';
-import { configs, dependencies, modules } from '../core';
+import { Generator, modules } from '../core';
 import config from './config';
 
 export default class LintStagedGenerator extends Generator {
+  public moduleConfig: modules.ModuleConfig = config;
+
   public async initializing(): Promise<void> {
-    await dependencies.importAll();
-    modules.load(config.name, config);
+    await super.initializing();
   }
 
   public async prompting(): Promise<void> {
-    await modules.run(config.name);
+    await super.prompting();
   }
 
   public async writing(): Promise<void> {
-    await configs.saveAll();
+    await super.writing();
   }
 
   public install(): void {
-    if (!(this.options['skip-install'] as boolean)) {
-      dependencies.install();
-    }
+    super.install();
   }
 }
