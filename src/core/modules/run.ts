@@ -1,5 +1,5 @@
 import { add as addDependencies } from '../dependencies';
-import { set as setConfig } from '../configs';
+import { set as setConfig, Config } from '../configs';
 import confirm from './confirm';
 import store, { moduleMainDependency } from './store';
 
@@ -22,10 +22,11 @@ const run = async (moduleName: string): Promise<void> => {
     addDependencies(name, type);
   });
 
-  setConfig(
-    config.configFilename,
-    typeof config.configContent === 'function' ? config.configContent() : config.configContent,
-  );
+  const configContent = (typeof config.configContent === 'function'
+    ? config.configContent()
+    : config.configContent) as Config;
+
+  setConfig(config.configFilename, configContent);
 };
 
 export default run;
