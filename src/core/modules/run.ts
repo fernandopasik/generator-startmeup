@@ -10,7 +10,7 @@ const run = async (moduleName: string): Promise<void> => {
     return;
   }
 
-  if (config.confirm ?? false) {
+  if (config.confirm === true) {
     const confirmed = await confirm(moduleName, config?.confirmMessage);
 
     if (!confirmed) {
