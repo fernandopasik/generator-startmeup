@@ -62,7 +62,6 @@ const buildConfig = (): Linter.Config => {
     config.env = { browser: true };
     config.rules = {
       ...config.rules,
-      '@typescript-eslint/no-base-to-string': ['error', { ignoreTaggedTemplateExpressions: true }],
       '@typescript-eslint/no-inferrable-types': ['error', { ignoreProperties: true }],
       '@typescript-eslint/unbound-method': 'off',
     };
