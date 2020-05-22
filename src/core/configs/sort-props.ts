@@ -1,8 +1,8 @@
 import { Config, ConfigValue } from './store';
 
 const compareSortingValues = (
-  value1: string | number | null | boolean | object | undefined,
-  value2: string | number | null | boolean | object | undefined,
+  value1: string | number | null | boolean | Record<string, unknown> | undefined,
+  value2: string | number | null | boolean | Record<string, unknown> | undefined,
 ): number => {
   const SORT_PREV = -1;
   const SORT_NEXT = 1;
@@ -33,6 +33,7 @@ const sortProps = (json?: Config): Config =>
         compareSortingValues(key1, key2),
       )
       .map(([key, value]: readonly [string, ConfigValue]) => {
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (value === null) {
           return [key, value];
         }

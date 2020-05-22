@@ -44,7 +44,7 @@ const parse = (pkg: Readonly<PackageJson>): Parsed => {
 
   return (omitBy(
     parsed,
-    (item: string | object): boolean => isUndefined(item) || isEqual(item, {}),
+    (item: string | Record<string, string>): boolean => isUndefined(item) || isEqual(item, {}),
   ) as unknown) as Parsed;
 };
 
