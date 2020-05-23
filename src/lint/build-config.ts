@@ -16,6 +16,13 @@ const buildConfig = (): Linter.Config => {
     plugins.push('import', 'jsx-a11y', 'react');
     config.extends.push('airbnb');
     config.env = { browser: true };
+
+    if (dependencies.has('typescript', 'dev')) {
+      config.rules = {
+        ...config.rules,
+        'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
+      };
+    }
   } else {
     dependencies.add('eslint-config-airbnb-base', 'dev');
     dependencies.add('eslint-plugin-import', 'dev');
