@@ -1,4 +1,4 @@
-/* eslint-disable jest/prefer-spy-on, @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable jest/prefer-spy-on, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/naming-convention */
 module.exports = jest.fn(function YeomanGenerator() {
   this.destinationPath = jest.fn();
   this.fs = {
