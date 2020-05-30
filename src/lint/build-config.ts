@@ -122,6 +122,7 @@ const buildConfig = (): Linter.Config => {
     config.overrides = config.overrides ?? [];
     config.overrides.push({
       files: ['*.e2e.ts'],
+      env: { jest: true },
       globals: { page: true, browser: true, context: true, jestPuppeteer: true },
       rules: { '@typescript-eslint/prefer-readonly-parameter-types': 'off' },
     });
