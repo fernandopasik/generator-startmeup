@@ -1,12 +1,12 @@
 import { Config } from '../configs';
 
-export interface moduleMainDependency {
+export interface ModuleMainDependency {
   name: string;
   type: string;
 }
 
 export interface ModuleConfig {
-  mainDependencies: moduleMainDependency[];
+  mainDependencies: ModuleMainDependency[];
   configFilename: string;
   configContent: Config | (() => Config);
   confirm?: boolean;

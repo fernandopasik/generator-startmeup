@@ -1,7 +1,7 @@
 import { add as addDependencies } from '../dependencies';
 import { set as setConfig, Config } from '../configs';
 import confirm from './confirm';
-import store, { moduleMainDependency } from './store';
+import store, { ModuleMainDependency } from './store';
 
 const run = async (moduleName: string): Promise<void> => {
   const config = store.get(moduleName);
@@ -18,7 +18,7 @@ const run = async (moduleName: string): Promise<void> => {
     }
   }
 
-  config.mainDependencies.forEach(({ name, type }: Readonly<moduleMainDependency>) => {
+  config.mainDependencies.forEach(({ name, type }: Readonly<ModuleMainDependency>) => {
     addDependencies(name, type);
   });
 
