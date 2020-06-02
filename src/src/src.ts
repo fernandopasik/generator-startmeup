@@ -8,7 +8,7 @@ export default class SrcGenerator extends Generator {
   public async initializing(): Promise<void> {
     await dependencies.importAll();
     const pkg = this.fs.readJSON('package.json') as PackageJson;
-    this.mainPath = pkg?.main;
+    this.mainPath = pkg.main;
   }
 
   public writing(): void {

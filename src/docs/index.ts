@@ -27,7 +27,7 @@ module.exports = class extends Generator {
       githubUrl: '',
       ...this.answers,
       author: {
-        name: this?.answers?.['author.name'] as string,
+        name: this.answers?.['author.name'] as string,
       },
       eslint: dependencies.has('eslint', 'dev'),
       codecov: dependencies.has('codecov', 'dev'),
