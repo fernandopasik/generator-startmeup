@@ -33,8 +33,7 @@
     "preversion": "yarn verify"
   },
   "resolutions": {
-    "github-username": "^5.0.1",
-    "minimist": "^1.2.5"
+    "github-username": "^5.0.1"
   },
   "dependencies": {
     "@jest/types": "^26.0.1",
