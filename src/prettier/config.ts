@@ -15,6 +15,10 @@ export default {
       name: 'prettier',
       type: 'dev',
     },
+    {
+      name: 'prettier-plugin-packagejson',
+      type: 'dev',
+    },
   ],
   replaceConfig: true,
 };
