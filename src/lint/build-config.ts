@@ -2,8 +2,38 @@
 import { Linter } from 'eslint';
 import { dependencies } from '../core';
 
+export const buildDevImports = (config: Readonly<Linter.Config>): Linter.Config => {
+  const files = [];
+
+  if (
+    dependencies.has('@storybook/react', 'dev') ||
+    dependencies.has('@storybook/web-components', 'dev')
+  ) {
+    files.push('*.stories.*');
+  }
+
+  if (dependencies.has('typescript', 'dev') && dependencies.has('jest', 'dev')) {
+    files.push('*.spec.*');
+  }
+
+  if (dependencies.has('puppeteer', 'dev')) {
+    files.push('*.e2e.*');
+  }
+
+  return {
+    ...config,
+    overrides: [
+      ...(config.overrides ?? []),
+      {
+        files,
+        rules: { 'import/no-extraneous-dependencies': ['error', { devDependencies: true }] },
+      },
+    ],
+  };
+};
+
 const buildConfig = (): Linter.Config => {
-  const config: Linter.Config = {};
+  let config: Linter.Config = {};
   const plugins: string[] = [];
   config.extends = [];
 
@@ -107,17 +137,6 @@ const buildConfig = (): Linter.Config => {
     }
   }
 
-  if (
-    dependencies.has('@storybook/react', 'dev') ||
-    dependencies.has('@storybook/web-components', 'dev')
-  ) {
-    config.overrides = config.overrides ?? [];
-    config.overrides.push({
-      files: ['*.stories.*'],
-      rules: { 'import/no-extraneous-dependencies': ['error', { devDependencies: true }] },
-    });
-  }
-
   if (dependencies.has('puppeteer', 'dev')) {
     config.overrides = config.overrides ?? [];
     config.overrides.push({
@@ -135,6 +154,8 @@ const buildConfig = (): Linter.Config => {
       delete config.plugins;
     }
   }
+
+  config = buildDevImports(config);
 
   return config;
 };
