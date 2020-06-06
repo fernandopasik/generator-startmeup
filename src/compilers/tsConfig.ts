@@ -60,6 +60,7 @@ const getTSConfig = (): TypescriptConfig => ({
     noUnusedLocals: true,
     noUnusedParameters: true,
     outDir: '.',
+    resolveJsonModule: true,
     rootDirs: ['src'],
     sourceMap: true,
     strict: true,
