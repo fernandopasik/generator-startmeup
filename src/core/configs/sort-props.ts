@@ -15,11 +15,19 @@ const compareSortingValues = (
       ? JSON.stringify(value2).toLowerCase()
       : String(value2).toLowerCase();
 
-  if (value1 === 'extends' || (typeof value2 === 'object' && typeof value1 !== 'object')) {
+  if (
+    value1 === 'extends' ||
+    value1 === 'files' ||
+    (typeof value2 === 'object' && typeof value1 !== 'object')
+  ) {
     return SORT_PREV;
   }
 
-  if (value2 === 'extends' || (typeof value1 === 'object' && typeof value2 !== 'object')) {
+  if (
+    value2 === 'extends' ||
+    value2 === 'files' ||
+    (typeof value1 === 'object' && typeof value2 !== 'object')
+  ) {
     return SORT_NEXT;
   }
 
