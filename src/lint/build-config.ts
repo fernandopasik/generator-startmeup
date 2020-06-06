@@ -121,7 +121,7 @@ const buildConfig = (): Linter.Config => {
   if (dependencies.has('puppeteer', 'dev')) {
     config.overrides = config.overrides ?? [];
     config.overrides.push({
-      files: ['*.e2e.ts'],
+      files: ['*.e2e.*'],
       env: { jest: true },
       globals: { page: true, browser: true, context: true, jestPuppeteer: true },
       rules: { '@typescript-eslint/prefer-readonly-parameter-types': 'off' },
