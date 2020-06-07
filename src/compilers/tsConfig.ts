@@ -75,7 +75,7 @@ const getTSConfig = (): TypescriptConfig => ({
 });
 
 export const getTSConfigAll = (): TypescriptConfig => {
-  const include = ['src/**/*', './*.js'];
+  const include = ['**/*'];
   const exclude = [];
 
   if (dependencies.has('jest-enzyme', 'dev')) {
