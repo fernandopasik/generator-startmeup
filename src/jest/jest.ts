@@ -30,10 +30,8 @@ export default class JestGenerator extends Generator {
     }
 
     this.jestConfig = buildConfig(this.jestConfig);
-  }
 
-  public async writing(): Promise<void> {
-    await configs.save('jest.config.js', this.jestConfig);
+    configs.set('jest.config.js', configs.sortProps(this.jestConfig));
   }
 
   public install(): void {
