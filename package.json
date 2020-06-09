@@ -54,7 +54,7 @@
     "@types/cross-spawn": "^6.0.2",
     "@types/eslint": "^6.8.1",
     "@types/inquirer": "^6.5.0",
-    "@types/jest": "^25.2.3",
+    "@types/jest": "^26.0.0",
     "@types/lodash": "^4.14.155",
     "@types/prettier": "^2.0.1",
     "@types/yeoman-assert": "^3.1.1",
