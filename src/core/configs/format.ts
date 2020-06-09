@@ -1,4 +1,6 @@
-import prettier from 'prettier';
+import prettier, { BuiltInParserName } from 'prettier';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import * as prettierPluginPackageJson from 'prettier-plugin-packagejson';
 import loadPrettierConfig from './load-prettier-config';
 import { Config } from './store';
 
@@ -16,8 +18,21 @@ const format = async (json: Readonly<Config>, type: 'json' | 'js' = 'json'): Pro
   const stringifiedJson = stringifyJson(json);
   const content = type === 'js' ? `module.exports = ${stringifiedJson}` : stringifiedJson;
 
-  const parser = type === 'js' ? 'babel' : 'json';
-  return prettier.format(content, { ...prettierConfig, parser });
+  let parser: BuiltInParserName = 'json';
+
+  if (type === 'js') {
+    parser = 'babel';
+  }
+
+  if ('main' in json && 'version' in json) {
+    parser = 'json-stringify';
+  }
+
+  return prettier.format(content, {
+    ...prettierConfig,
+    parser,
+    plugins: [prettierPluginPackageJson],
+  });
 };
 
 export default format;
