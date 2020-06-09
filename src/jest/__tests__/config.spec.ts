@@ -1,4 +1,4 @@
-import { generateCoveragePattern, generateFilename, generateTransformPattern } from '../config';
+import { generateCoveragePattern, generateTransformPattern } from '../config';
 
 describe('jest config', () => {
   describe('generate coverage pattern', () => {
@@ -34,16 +34,6 @@ describe('jest config', () => {
 
     it('ts and react', () => {
       expect(generateTransformPattern(true, true)).toStrictEqual('^.+\\.[j|t]sx?$');
-    });
-  });
-
-  describe('generate filename', () => {
-    it('for non module type package', () => {
-      expect(generateFilename()).toStrictEqual('jest.config.js');
-    });
-
-    it('for module type package', () => {
-      expect(generateFilename(true)).toStrictEqual('jest.config.cjs');
     });
   });
 });
