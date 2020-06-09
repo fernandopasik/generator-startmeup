@@ -16,6 +16,10 @@ export default {
       type: 'dev',
     },
     {
+      name: 'prettier-plugin-organize-imports',
+      type: 'dev',
+    },
+    {
       name: 'prettier-plugin-packagejson',
       type: 'dev',
     },
