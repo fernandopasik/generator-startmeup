@@ -1,7 +1,7 @@
 import { Answers } from 'inquirer';
 import sort from 'sort-package-json';
 import Generator from 'yeoman-generator';
-import { ask } from '../core';
+import { ask, configs } from '../core';
 import compose from './compose';
 import { PackageJson } from './package-json';
 import parse, { Parsed } from './parse';
@@ -14,8 +14,9 @@ export default class PackageJsonGenerator extends Generator {
 
   private answers?: Answers;
 
-  public initializing(): void {
-    this.pkg = this.fs.readJSON('package.json', {}) as PackageJson;
+  public async initializing(): Promise<void> {
+    this.pkg = await configs.load<PackageJson>('package.json');
+
     if (typeof this.pkg !== 'undefined') {
       this.parameters = parse(this.pkg);
     }
@@ -25,7 +26,7 @@ export default class PackageJsonGenerator extends Generator {
     this.answers = await ask(questions, this.parameters as Answers);
   }
 
-  public writing(): void {
+  public configuring(): void {
     const pkg = {
       ...this.pkg,
       ...compose(this.answers as Parsed),
@@ -33,6 +34,6 @@ export default class PackageJsonGenerator extends Generator {
 
     const sortedPkg = sort(pkg);
 
-    this.fs.writeJSON('package.json', sortedPkg);
+    configs.set('package.json', sortedPkg);
   }
 }
