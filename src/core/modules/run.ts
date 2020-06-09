@@ -1,4 +1,4 @@
-import { Config, set as setConfig } from '../configs';
+import { Config, set as setConfig, sortProps } from '../configs';
 import { add as addDependencies } from '../dependencies';
 import confirm from './confirm';
 import store, { ModuleMainDependency } from './store';
@@ -26,7 +26,7 @@ const run = async (moduleName: string): Promise<void> => {
     ? config.configContent()
     : config.configContent) as Config;
 
-  setConfig(config.configFilename, configContent);
+  setConfig(config.configFilename, sortProps(configContent, ['extends', 'files']));
 };
 
 export default run;
