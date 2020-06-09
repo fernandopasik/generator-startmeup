@@ -1,9 +1,9 @@
 import { mocked } from 'ts-jest/utils';
-import clear from '../clear';
-import has from '../has';
-import get from '../get';
-import importAll from '../import-all';
 import load from '../../configs/load';
+import clear from '../clear';
+import get from '../get';
+import has from '../has';
+import importAll from '../import-all';
 
 jest.mock('../../configs/load', () => jest.fn());
 

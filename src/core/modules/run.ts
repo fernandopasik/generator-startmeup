@@ -1,5 +1,5 @@
+import { Config, set as setConfig } from '../configs';
 import { add as addDependencies } from '../dependencies';
-import { set as setConfig, Config } from '../configs';
 import confirm from './confirm';
 import store, { ModuleMainDependency } from './store';
 

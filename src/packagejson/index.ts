@@ -1,13 +1,11 @@
-import Generator from 'yeoman-generator';
-import sort from 'sort-package-json';
 import { Answers } from 'inquirer';
-
-import parse, { Parsed } from './parse';
-import compose from './compose';
-import questions from './questions';
+import sort from 'sort-package-json';
+import Generator from 'yeoman-generator';
 import { ask } from '../core';
-
+import compose from './compose';
 import { PackageJson } from './package-json';
+import parse, { Parsed } from './parse';
+import questions from './questions';
 
 export default class PackageJsonGenerator extends Generator {
   private pkg?: PackageJson;

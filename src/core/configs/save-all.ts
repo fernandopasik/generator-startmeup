@@ -1,5 +1,5 @@
-import store, { Config } from './store';
 import save from './save';
+import store, { Config } from './store';
 
 const saveAll = async (): Promise<void> => {
   await Promise.all(

@@ -1,8 +1,7 @@
-import path from 'path';
 import githubUsername from 'github-username';
-import yeomanGenerator from 'yeoman-generator';
 import { Answers } from 'inquirer';
-
+import path from 'path';
+import yeomanGenerator from 'yeoman-generator';
 import { Question } from '../core';
 
 const {

@@ -1,5 +1,4 @@
 import fs from 'fs';
-
 import currentPath from './current-path';
 import format from './format';
 import store, { Config } from './store';

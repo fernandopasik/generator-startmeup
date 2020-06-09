@@ -1,6 +1,6 @@
 import Generator from 'yeoman-generator';
-import * as dependencies from '../dependencies';
 import * as configs from '../configs';
+import * as dependencies from '../dependencies';
 import * as modules from '../modules';
 
 export default class CoreGenerator extends Generator {

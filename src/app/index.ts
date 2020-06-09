@@ -1,6 +1,5 @@
 import Generator from 'yeoman-generator';
 import yosay from 'yosay';
-
 import { dependencies } from '../core';
 
 export default class StartMeUpGenerator extends Generator {

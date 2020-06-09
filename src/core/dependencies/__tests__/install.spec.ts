@@ -1,7 +1,7 @@
-import { mocked } from 'ts-jest/utils';
 import { sync } from 'cross-spawn';
-import install, { groupParameters } from '../install';
+import { mocked } from 'ts-jest/utils';
 import get from '../get';
+import install, { groupParameters } from '../install';
 
 jest.mock('cross-spawn', () => ({
   sync: jest.fn(),

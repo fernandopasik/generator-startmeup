@@ -1,5 +1,4 @@
 import Generator from 'yeoman-generator';
-
 import { ask, dependencies } from '../core';
 
 const LIBRARIES = ['lit-html', 'react'];

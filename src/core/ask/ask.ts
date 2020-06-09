@@ -1,13 +1,12 @@
 import inquirer, { Answers } from 'inquirer';
-
+import { areUnanswered, flatten as flattenAnswers, get as getAnswers, rememberAll } from './answer';
 import {
   flatten as flattenQuestions,
   getNames,
-  setDefaultValues,
   Question,
+  setDefaultValues,
   SubQuestion,
 } from './question';
-import { flatten as flattenAnswers, get as getAnswers, areUnanswered, rememberAll } from './answer';
 
 const ask = async (
   questions: readonly Readonly<Question>[],

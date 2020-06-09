@@ -1,4 +1,4 @@
-import { resolveConfig, Options } from 'prettier';
+import { Options, resolveConfig } from 'prettier';
 import currentDir from './current-dir';
 
 let prettierConfig: Options | null = null;

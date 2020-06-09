@@ -1,7 +1,6 @@
-import Generator from 'yeoman-generator';
 import { Config } from '@jest/types';
-
-import { dependencies, configs } from '../core';
+import Generator from 'yeoman-generator';
+import { configs, dependencies } from '../core';
 import { buildConfig, generateFilename } from './config';
 
 export default class JestGenerator extends Generator {

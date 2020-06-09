@@ -1,5 +1,5 @@
-import { mocked } from 'ts-jest/utils';
 import { resolveConfig } from 'prettier';
+import { mocked } from 'ts-jest/utils';
 import loadPrettierConfig, { clearPrettierConfig } from '../load-prettier-config';
 
 jest.mock('prettier', () => ({

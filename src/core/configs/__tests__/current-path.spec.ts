@@ -1,6 +1,6 @@
 import { mocked } from 'ts-jest/utils';
-import currentPath from '../current-path';
 import currentDir from '../current-dir';
+import currentPath from '../current-path';
 
 jest.mock('../current-dir', () => jest.fn());
 

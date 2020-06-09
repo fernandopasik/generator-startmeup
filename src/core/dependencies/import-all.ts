@@ -1,7 +1,7 @@
 import { PackageJson } from '../../packagejson/package-json';
-import { groupAliases, groupNames, GroupNames } from './store';
 import load from '../configs/load';
 import add from './add';
+import { groupAliases, groupNames, GroupNames } from './store';
 
 const importAll = async (): Promise<void> => {
   const pkg = await load<PackageJson>('package.json');

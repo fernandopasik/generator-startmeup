@@ -1,13 +1,13 @@
 import {
+  areUnanswered,
   flatten,
+  forget,
   forgetAll,
   get,
   getAll,
   has,
   remember,
   rememberAll,
-  forget,
-  areUnanswered,
 } from '../answer';
 
 describe('answer', () => {

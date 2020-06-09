@@ -1,4 +1,4 @@
-import { currentPath, fileExists, format, loadPrettierConfig, load, save } from '../index';
+import { currentPath, fileExists, format, load, loadPrettierConfig, save } from '../index';
 
 describe('dependencies', () => {
   it('has the right exports', () => {

@@ -1,6 +1,5 @@
-import Generator from 'yeoman-generator';
 import { Answers } from 'inquirer';
-
+import Generator from 'yeoman-generator';
 import { ask, configs, dependencies } from '../core';
 import { PackageJson } from '../packagejson/package-json';
 import parse, { Parsed } from '../packagejson/parse';
