@@ -1,6 +1,5 @@
 import prettier from 'prettier';
 import loadPrettierConfig from './load-prettier-config';
-import sortProps from './sort-props';
 import { Config } from './store';
 
 export const stringifyJson = (json: Readonly<Config>): string => {
@@ -14,8 +13,7 @@ export const stringifyJson = (json: Readonly<Config>): string => {
 const format = async (json: Readonly<Config>, type: 'json' | 'js' = 'json'): Promise<string> => {
   const prettierConfig = await loadPrettierConfig();
 
-  const sortedJson = sortProps(json);
-  const stringifiedJson = stringifyJson(sortedJson);
+  const stringifiedJson = stringifyJson(json);
   const content = type === 'js' ? `module.exports = ${stringifiedJson}` : stringifiedJson;
 
   const parser = type === 'js' ? 'babel' : 'json';
