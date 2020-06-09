@@ -1,7 +1,7 @@
 import { Config } from '@jest/types';
 import Generator from 'yeoman-generator';
 import { configs, dependencies } from '../core';
-import { buildConfig, generateFilename } from './config';
+import { buildConfig } from './config';
 
 export default class JestGenerator extends Generator {
   private jestConfig: Config.InitialOptions = {};
@@ -33,17 +33,7 @@ export default class JestGenerator extends Generator {
   }
 
   public async writing(): Promise<void> {
-    const pkg = (await configs.load('package.json')) ?? {};
-
-    const wrongFilename = generateFilename(pkg.type !== 'module');
-
-    if (configs.fileExists(wrongFilename)) {
-      this.fs.delete(this.destinationPath(wrongFilename));
-    }
-
-    const filename = generateFilename(pkg.type === 'module');
-
-    await configs.save(filename, this.jestConfig);
+    await configs.save('jest.config.js', this.jestConfig);
   }
 
   public install(): void {
