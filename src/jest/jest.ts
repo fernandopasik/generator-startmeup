@@ -9,13 +9,7 @@ export default class JestGenerator extends Generator {
   public async initializing(): Promise<void> {
     await dependencies.importAll();
 
-    if (configs.fileExists('jest.config.cjs')) {
-      this.jestConfig = (await configs.load('jest.config.cjs')) as Config.InitialOptions;
-    }
-
-    if (configs.fileExists('jest.config.js')) {
-      this.jestConfig = (await configs.load('jest.config.js')) as Config.InitialOptions;
-    }
+    this.jestConfig = (await configs.load('jest.config.js')) as Config.InitialOptions;
   }
 
   public prompting(): void {
