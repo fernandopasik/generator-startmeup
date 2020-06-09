@@ -57,16 +57,14 @@ export default class CompilerGenerator extends Generator {
         dependencies.add('@babel/cli', 'dev');
       }
     }
-  }
 
-  public async writing(): Promise<void> {
     if (this.compilers.includes('babel')) {
-      await configs.save('babel.config.js', getBabelConfig());
+      configs.set('babel.config.js', configs.sortProps(getBabelConfig(), ['extends', 'files']));
     }
 
     if (this.compilers.includes('typescript')) {
-      await configs.save('tsconfig.json', getTSConfig());
-      await configs.save('tsconfig.all.json', getTSConfigAll());
+      configs.set('tsconfig.json', configs.sortProps(getTSConfig(), ['extends', 'files']));
+      configs.set('tsconfig.all.json', configs.sortProps(getTSConfigAll(), ['extends', 'files']));
     }
   }
 
