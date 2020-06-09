@@ -122,7 +122,7 @@ describe('sort props', () => {
       a: 1,
     };
 
-    expect(JSON.stringify(sortProps(config))).toStrictEqual(
+    expect(JSON.stringify(sortProps(config, ['extends']))).toStrictEqual(
       JSON.stringify({
         extends: '',
         a: 1,

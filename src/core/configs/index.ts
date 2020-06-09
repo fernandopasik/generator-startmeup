@@ -6,4 +6,5 @@ export { default as loadPrettierConfig } from './load-prettier-config';
 export { default as save } from './save';
 export { default as saveAll } from './save-all';
 export { default as set } from './set';
+export { default as sortProps } from './sort-props';
 export { Config } from './store';

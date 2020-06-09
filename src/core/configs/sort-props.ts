@@ -3,6 +3,7 @@ import { Config, ConfigValue } from './store';
 const compareSortingValues = (
   value1: string | number | null | boolean | Record<string, unknown> | undefined,
   value2: string | number | null | boolean | Record<string, unknown> | undefined,
+  sortFirst?: string[],
 ): number => {
   const SORT_PREV = -1;
   const SORT_NEXT = 1;
@@ -16,16 +17,14 @@ const compareSortingValues = (
       : String(value2).toLowerCase();
 
   if (
-    value1 === 'extends' ||
-    value1 === 'files' ||
+    (typeof value1 === 'string' && Boolean(sortFirst?.includes(value1))) ||
     (typeof value2 === 'object' && typeof value1 !== 'object')
   ) {
     return SORT_PREV;
   }
 
   if (
-    value2 === 'extends' ||
-    value2 === 'files' ||
+    (typeof value2 === 'string' && Boolean(sortFirst?.includes(value2))) ||
     (typeof value1 === 'object' && typeof value2 !== 'object')
   ) {
     return SORT_NEXT;
@@ -34,11 +33,11 @@ const compareSortingValues = (
   return compare1.localeCompare(compare2);
 };
 
-const sortProps = (json?: Config): Config =>
+const sortProps = (json?: Config, sortFirst?: string[]): Config =>
   Object.fromEntries(
     Object.entries(json ?? {})
       .sort(([key1]: readonly [string, ConfigValue], [key2]: readonly [string, ConfigValue]) =>
-        compareSortingValues(key1, key2),
+        compareSortingValues(key1, key2, sortFirst),
       )
       .map(([key, value]: readonly [string, ConfigValue]) => {
         // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
@@ -51,14 +50,16 @@ const sortProps = (json?: Config): Config =>
             key,
             value
               .map((element: Readonly<Config>) =>
-                typeof element === 'object' ? sortProps(element) : element,
+                typeof element === 'object' ? sortProps(element, sortFirst) : element,
               )
-              .sort(compareSortingValues),
+              .sort((value1: ConfigValue, value2: ConfigValue) =>
+                compareSortingValues(value1, value2, sortFirst),
+              ),
           ];
         }
 
         if (typeof value === 'object') {
-          return [key, sortProps(value)];
+          return [key, sortProps(value, sortFirst)];
         }
 
         return [key, value];
