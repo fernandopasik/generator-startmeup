@@ -1,11 +1,10 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import {
   CompilerOptions,
   JsxEmit,
   ModuleKind,
   ModuleResolutionKind,
   ScriptTarget,
-} from 'typescript';
+} from 'typescript'; // eslint-disable-line import/no-extraneous-dependencies
 import { dependencies } from '../core';
 
 interface TypescriptConfig {
