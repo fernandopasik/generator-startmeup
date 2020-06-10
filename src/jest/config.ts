@@ -31,6 +31,7 @@ export const buildConfig = (
   }
 
   if (dependencies.has('typescript', 'dev')) {
+    config.globals = { 'ts-jest': { tsConfig: 'tsconfig.all.json' } };
     config.transform = { [transformPattern]: 'ts-jest' };
   } else if (dependencies.has('@babel/core', 'dev')) {
     config.transform = { [transformPattern]: 'babel-jest' };
