@@ -29,6 +29,9 @@ export const buildConfig = (
     config.testEnvironment = 'enzyme';
   } else if (!hasWebComponents) {
     config.testEnvironment = 'node';
+  }
+
+  if (hasWebComponents) {
     config.transformIgnorePatterns = [
       '/node_modules/(?!(lit-html|lit-element|webcomponents|@open-wc)/).*/',
     ];
