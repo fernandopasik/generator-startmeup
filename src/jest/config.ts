@@ -16,6 +16,7 @@ export const buildConfig = (
 ): Config.InitialOptions => {
   const hasTypescript = dependencies.has('typescript', 'dev');
   const hasReact = dependencies.has('react') || dependencies.has('react', 'peer');
+  const hasWebComponents = dependencies.has('lit-html', 'all');
   const collectCoverageFrom = [generateCoveragePattern(hasTypescript, hasReact)];
   const transformPattern = generateTransformPattern(hasTypescript, hasReact);
 
@@ -26,7 +27,7 @@ export const buildConfig = (
 
   if (dependencies.has('enzyme', 'dev')) {
     config.testEnvironment = 'enzyme';
-  } else if (!dependencies.has('lit-html', 'all')) {
+  } else if (!hasWebComponents) {
     config.testEnvironment = 'node';
     config.transformIgnorePatterns = [
       '/node_modules/(?!(lit-html|lit-element|webcomponents|@open-wc)/).*/',
