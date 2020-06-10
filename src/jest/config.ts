@@ -15,6 +15,7 @@ export const buildConfig = (
   existingConfig: Readonly<Config.InitialOptions> = {},
 ): Config.InitialOptions => {
   const hasTypescript = dependencies.has('typescript', 'dev');
+  const hasBabel = dependencies.has('@babel/core', 'dev');
   const hasReact = dependencies.has('react') || dependencies.has('react', 'peer');
   const hasWebComponents = dependencies.has('lit-html', 'all');
   const collectCoverageFrom = [generateCoveragePattern(hasTypescript, hasReact)];
@@ -37,10 +38,10 @@ export const buildConfig = (
     ];
   }
 
-  if (dependencies.has('typescript', 'dev')) {
+  if (hasTypescript) {
     config.globals = { 'ts-jest': { tsConfig: 'tsconfig.all.json' } };
     config.transform = { [transformPattern]: 'ts-jest' };
-  } else if (dependencies.has('@babel/core', 'dev')) {
+  } else if (hasBabel) {
     config.transform = { [transformPattern]: 'babel-jest' };
   }
 
