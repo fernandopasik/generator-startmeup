@@ -28,6 +28,9 @@ export const buildConfig = (
     config.testEnvironment = 'enzyme';
   } else if (!dependencies.has('lit-html', 'all')) {
     config.testEnvironment = 'node';
+    config.transformIgnorePatterns = [
+      '/node_modules/(?!(lit-html|lit-element|webcomponents|@open-wc)/).*/',
+    ];
   }
 
   if (dependencies.has('typescript', 'dev')) {
