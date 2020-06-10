@@ -17,7 +17,11 @@ export const buildConfig = (
   const hasTypescript = dependencies.has('typescript', 'dev');
   const hasBabel = dependencies.has('@babel/core', 'dev');
   const hasReact = dependencies.has('react') || dependencies.has('react', 'peer');
+  const hasPuppeteer = dependencies.has('puppeteer', 'dev');
   const hasWebComponents = dependencies.has('lit-html', 'all');
+  const hasStorybook =
+    dependencies.has('@storybook/react', 'dev') ||
+    dependencies.has('@storybook/web-components', 'dev');
   const collectCoverageFrom = [generateCoveragePattern(hasTypescript, hasReact)];
   const transformPattern = generateTransformPattern(hasTypescript, hasReact);
 
@@ -36,6 +40,22 @@ export const buildConfig = (
     config.transformIgnorePatterns = [
       '/node_modules/(?!(lit-html|lit-element|webcomponents|@open-wc)/).*/',
     ];
+  }
+
+  if (hasPuppeteer || hasStorybook) {
+    const extensions = [];
+    config.coveragePathIgnorePatterns = ['/node_modules/'];
+
+    if (hasPuppeteer) {
+      extensions.push('e2e');
+    }
+
+    if (hasStorybook) {
+      config.coveragePathIgnorePatterns.push('/__stories__/');
+      extensions.push('stories');
+    }
+
+    config.coveragePathIgnorePatterns.push(`(${extensions.join('|')})\\.[jt]sx?$`);
   }
 
   if (hasTypescript) {
