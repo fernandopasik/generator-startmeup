@@ -1,6 +1,7 @@
 import 'core-js/features/array/flat-map';
 import Generator from 'yeoman-generator';
 import { ask, configs, dependencies } from '../core';
+import { PackageJson } from '../packagejson/package-json';
 import { addPreset, getBabelConfig } from './babelConfig';
 import getTSConfig, { getTSConfigAll } from './tsConfig';
 
@@ -40,7 +41,9 @@ export default class CompilerGenerator extends Generator {
     }
   }
 
-  public configuring(): void {
+  public async configuring(): Promise<void> {
+    const pkg = (await configs.load('package.json')) as PackageJson;
+
     if (this.compilers.includes('babel')) {
       addPreset('@babel/preset-env');
       dependencies.add('@babel/preset-env', 'dev');
@@ -64,7 +67,10 @@ export default class CompilerGenerator extends Generator {
 
     if (this.compilers.includes('typescript')) {
       configs.set('tsconfig.json', configs.sortProps(getTSConfig(), ['extends', 'files']));
-      configs.set('tsconfig.all.json', configs.sortProps(getTSConfigAll(), ['extends', 'files']));
+      configs.set(
+        'tsconfig.all.json',
+        configs.sortProps(getTSConfigAll(pkg.files), ['extends', 'files']),
+      );
     }
   }
 

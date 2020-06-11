@@ -73,9 +73,9 @@ const getTSConfig = (): TypescriptConfig => ({
   exclude: getExclude(),
 });
 
-export const getTSConfigAll = (): TypescriptConfig => {
+export const getTSConfigAll = (excludeFiles: readonly string[] = []): TypescriptConfig => {
   const include = ['**/*'];
-  const exclude = [];
+  const exclude = [...excludeFiles];
 
   if (dependencies.has('jest-enzyme', 'dev')) {
     include.push('node_modules/jest-enzyme/lib/index.d.ts');
