@@ -4,6 +4,11 @@ import path from 'path';
 import yeomanGenerator from 'yeoman-generator';
 import { Question } from '../core';
 
+interface Author {
+  name: string;
+  email: string;
+}
+
 const {
   prototype: { user },
 } = yeomanGenerator;
@@ -38,14 +43,14 @@ const questions: Question[] = [
         type: 'input',
         message: 'What is your email?',
         default: (): string => user.git.email(),
-        when: (props: Readonly<Answers>): boolean => Boolean(props.author.name),
+        when: (props: Readonly<Answers>): boolean => Boolean((props.author as Author).name),
       },
       {
         name: 'url',
         type: 'input',
         message: 'What is your url?',
         default: '',
-        when: (props: Readonly<Answers>): boolean => Boolean(props.author.name),
+        when: (props: Readonly<Answers>): boolean => Boolean((props.author as Author).name),
       },
     ],
   },
@@ -60,7 +65,7 @@ const questions: Question[] = [
     type: 'input',
     message: 'What is your github username?',
     default: async (props: Readonly<Answers>): Promise<string> => {
-      const username = await githubUsername(props.author.email);
+      const username = await githubUsername((props.author as Author).email);
       return username;
     },
     when: (props: Readonly<Answers>): boolean => Boolean(props.github),
