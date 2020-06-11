@@ -1,7 +1,8 @@
 import 'core-js/features/array/flat-map';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import type { PackageJson } from 'type-fest';
 import Generator from 'yeoman-generator';
 import { ask, configs, dependencies } from '../core';
-import { PackageJson } from '../packagejson/package-json';
 import { addPreset, getBabelConfig } from './babelConfig';
 import getTSConfig, { getTSConfigAll } from './tsConfig';
 

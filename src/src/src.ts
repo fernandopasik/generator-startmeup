@@ -1,6 +1,7 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import type { PackageJson } from 'type-fest';
 import Generator from 'yeoman-generator';
 import { configs, dependencies } from '../core';
-import { PackageJson } from '../packagejson/package-json';
 
 export default class SrcGenerator extends Generator {
   public async initializing(): Promise<void> {
@@ -25,8 +26,8 @@ export default class SrcGenerator extends Generator {
       extension += 'x';
     }
 
-    const mainBuiltFile = `${name}.js`;
-    const builtFiles = `/${name}.*`;
+    const mainBuiltFile = `${name as string}.js`;
+    const builtFiles = `/${name as string}.*`;
 
     const packageProps: Record<string, boolean | string | string[]> = {
       sideEffects: false,
@@ -37,7 +38,7 @@ export default class SrcGenerator extends Generator {
     };
 
     if (dependencies.has('typescript', 'dev')) {
-      packageProps.typings = `${name}.d.ts`;
+      packageProps.typings = `${name as string}.d.ts`;
     }
 
     configs.set('package.json', {
@@ -45,7 +46,7 @@ export default class SrcGenerator extends Generator {
       ...packageProps,
     });
 
-    const mainFile = `src/${name}.${extension}`;
+    const mainFile = `src/${name as string}.${extension}`;
     this.fs.write(this.destinationPath(mainFile), '');
   }
 }

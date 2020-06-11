@@ -1,5 +1,12 @@
 import { isEmpty, isEqual, isUndefined, omitBy } from 'lodash';
-import { PackageJson, Person } from './package-json';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import type { PackageJson, ReadonlyDeep } from 'type-fest';
+
+export interface Person {
+  name?: string;
+  email?: string;
+  url?: string;
+}
 
 export interface Parsed {
   name: string;
@@ -24,7 +31,7 @@ const parseAuthor = (authorInfo: string): Person => {
   return author;
 };
 
-const parse = (pkg: Readonly<PackageJson>): Parsed => {
+const parse = (pkg: ReadonlyDeep<PackageJson>): Parsed => {
   const { name, version, description, author, repository, license } = pkg;
 
   const parsedAuthor = typeof author === 'string' ? parseAuthor(author) : author;

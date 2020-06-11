@@ -1,4 +1,5 @@
-import { PackageJson } from '../../packagejson/package-json';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import type { PackageJson } from 'type-fest';
 import load from '../configs/load';
 import add from './add';
 import { groupAliases, groupNames, GroupNames } from './store';

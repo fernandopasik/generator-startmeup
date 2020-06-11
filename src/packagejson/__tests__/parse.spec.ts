@@ -92,18 +92,6 @@ describe('parse package.json and get', () => {
         expect(parsed).toStrictEqual({ ...minimumParsed, author: { name } });
       });
 
-      it('with only email', () => {
-        const email = 'example@email.com';
-        const parsed = parse({ ...minimumPkg, author: { email } });
-        expect(parsed).toStrictEqual({ ...minimumParsed, author: { email } });
-      });
-
-      it('with only url', () => {
-        const url = 'https://example.com';
-        const parsed = parse({ ...minimumPkg, author: { url } });
-        expect(parsed).toStrictEqual({ ...minimumParsed, author: { url } });
-      });
-
       it('with name and email', () => {
         const name = 'Example';
         const email = 'example@email.com';

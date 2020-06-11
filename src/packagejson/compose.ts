@@ -1,5 +1,6 @@
 import { isEmpty, omitBy } from 'lodash';
-import { PackageJson } from './package-json';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import type { PackageJson } from 'type-fest';
 import { Parsed } from './parse';
 
 interface Author {

@@ -1,9 +1,10 @@
 import { Answers } from 'inquirer';
 import sort from 'sort-package-json';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import type { PackageJson } from 'type-fest';
 import Generator from 'yeoman-generator';
 import { ask, configs } from '../core';
 import compose from './compose';
-import { PackageJson } from './package-json';
 import parse, { Parsed } from './parse';
 import questions from './questions';
 
