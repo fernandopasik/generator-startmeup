@@ -32,6 +32,9 @@ export const buildConfig = (
 
   if (dependencies.has('enzyme', 'dev')) {
     config.testEnvironment = 'enzyme';
+    if (hasTypescript) {
+      config.setupFilesAfterEnv = ['jest-enzyme'];
+    }
   } else if (!hasWebComponents) {
     config.testEnvironment = 'node';
   }
