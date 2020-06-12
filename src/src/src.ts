@@ -12,7 +12,7 @@ export default class SrcGenerator extends Generator {
     const pkg = (await configs.load('package.json')) as PackageJson;
     const { main, name } = pkg;
 
-    if (this.fs.exists(this.destinationPath(main as string))) {
+    if (typeof main !== 'undefined' && this.fs.exists(this.destinationPath(main))) {
       return;
     }
 
