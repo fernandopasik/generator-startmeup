@@ -74,7 +74,7 @@ const getTSConfig = (): TypescriptConfig => ({
 });
 
 export const getTSConfigAll = (excludeFiles: readonly string[] = []): TypescriptConfig => {
-  const include = ['**/*'];
+  const include = ['.**/**/*', '**/*'];
   const exclude = [...excludeFiles];
 
   if (dependencies.has('jest-enzyme', 'dev')) {
