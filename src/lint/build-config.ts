@@ -9,7 +9,7 @@ export const buildDevImports = (config: Readonly<Linter.Config>): Linter.Config 
     dependencies.has('@storybook/react', 'dev') ||
     dependencies.has('@storybook/web-components', 'dev')
   ) {
-    files.push('*.stories.*');
+    files.push('*.stories.*', '.storybook/**');
   }
 
   if (dependencies.has('typescript', 'dev') && dependencies.has('jest', 'dev')) {
