@@ -32,7 +32,7 @@ export default class SrcGenerator extends Generator {
       type: 'module',
       main: mainBuiltFile,
       module: mainBuiltFile,
-      files: [builtFiles],
+      files: ['/lib', builtFiles],
     };
 
     if (dependencies.has('typescript', 'dev')) {
