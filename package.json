@@ -28,6 +28,7 @@
     "postchangelog": "prettier --write CHANGELOG.md",
     "check-types": "tsc --noEmit -p tsconfig.all.json",
     "lint": "eslint . --ext ts,js",
+    "prettier": "prettier --write ** ./* ./.??*",
     "start": "yarn build -w",
     "test": "jest",
     "verify": "yarn lint && yarn check-types && yarn test && yarn build",

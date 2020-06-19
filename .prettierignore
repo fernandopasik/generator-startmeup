@@ -1,0 +1,8 @@
+node_modules
+yarn*.*
+.editorconfig
+.gitattributes
+.*ignore
+LICENSE
+coverage/**
+generators/**
