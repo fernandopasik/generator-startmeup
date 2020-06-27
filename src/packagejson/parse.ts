@@ -1,5 +1,4 @@
 import { isEmpty, isEqual, isUndefined, omitBy } from 'lodash';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import type { PackageJson, ReadonlyDeep } from 'type-fest';
 
 export interface Person {

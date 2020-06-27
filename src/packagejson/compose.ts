@@ -1,5 +1,4 @@
 import { isEmpty, omitBy } from 'lodash';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import type { PackageJson } from 'type-fest';
 import { Parsed } from './parse';
 
