@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import sort from 'sort-package-json';
 import type { PackageJson } from 'type-fest';
 import Generator from 'yeoman-generator';
