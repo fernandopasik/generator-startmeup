@@ -45,6 +45,8 @@
     "inquirer": "^7.2.0",
     "lodash": "^4.17.15",
     "prettier": "^2.0.5",
+    "prettier-plugin-organize-imports": "^1.1.0",
+    "prettier-plugin-packagejson": "^2.2.5",
     "sort-package-json": "^1.44.0",
     "yeoman-generator": "^4.11.0",
     "yosay": "^2.0.2"
