@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { Linter } from 'eslint';
+import type { Linter } from 'eslint';
 import { dependencies } from '../core';
 
 export const buildDevImports = (config: Readonly<Linter.Config>): Linter.Config => {
