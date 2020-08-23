@@ -93,8 +93,10 @@ const buildConfig = (): Linter.Config => {
 
   if (dependencies.has('lit-html') || dependencies.has('lit-html', 'peer')) {
     dependencies.add('eslint-plugin-lit', 'dev');
+    dependencies.add('eslint-plugin-wc', 'dev');
     plugins.push('lit');
     config.extends.push('plugin:lit/all');
+    config.extends.push('plugin:wc/best-practice');
     config.env = { browser: true };
     config.rules = {
       ...config.rules,
