@@ -35,7 +35,6 @@
     "preversion": "yarn verify"
   },
   "resolutions": {
-    "conventional-changelog-angular": "^5.0.11",
     "github-username": "^5.0.1"
   },
   "dependencies": {
