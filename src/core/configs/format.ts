@@ -1,6 +1,7 @@
 import prettier, { BuiltInParserName } from 'prettier';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import * as prettierPluginPackageJson from 'prettier-plugin-packagejson';
+import load from './load';
 import loadPrettierConfig from './load-prettier-config';
 import { Config } from './store';
 
@@ -14,9 +15,11 @@ export const stringifyJson = (json: Readonly<Config>): string => {
 
 const format = async (json: Readonly<Config>, type: 'json' | 'js' = 'json'): Promise<string> => {
   const prettierConfig = await loadPrettierConfig();
+  const pkg = await load('package.json');
 
   const stringifiedJson = stringifyJson(json);
-  const content = type === 'js' ? `module.exports = ${stringifiedJson}` : stringifiedJson;
+  const moduleExport = pkg?.type === 'module' ? 'export default' : 'module.exports =';
+  const content = type === 'js' ? `${moduleExport} ${stringifiedJson}` : stringifiedJson;
 
   let parser: BuiltInParserName = 'json';
 
