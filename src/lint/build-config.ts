@@ -155,6 +155,12 @@ const buildConfig = (): Linter.Config => {
     }
   }
 
+  config.rules = {
+    ...config.rules,
+    'max-lines': ['error', { max: 100, skipBlankLines: true, skipComments: true }],
+    'max-lines-per-function': ['error', { max: 20, skipBlankLines: true, skipComments: true }],
+  };
+
   config = buildDevImports(config);
 
   return config;
