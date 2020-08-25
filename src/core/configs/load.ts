@@ -10,7 +10,7 @@ const load = async <T = Config>(filename: string): Promise<T | undefined> => {
     const { default: config } = (await import(currentPath(filename))) as { default: T };
     store.set(filename, config);
     return config;
-  } catch (error) {
+  } catch (error: unknown) {
     return undefined;
   }
 };
