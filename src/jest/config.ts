@@ -1,4 +1,4 @@
-import { Config } from '@jest/types';
+import type { Config } from '@jest/types';
 import { dependencies } from '../core';
 
 export const generateCoveragePattern = (

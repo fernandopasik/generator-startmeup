@@ -1,5 +1,5 @@
 import 'core-js/features/array/flat-map';
-import { Answers, Question as InquirerQuestion } from 'inquirer';
+import type { Answers, Question as InquirerQuestion } from 'inquirer';
 
 interface InquirerQuestions extends InquirerQuestion {
   choices?: string[];

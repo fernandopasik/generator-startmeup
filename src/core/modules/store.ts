@@ -1,4 +1,4 @@
-import { Config } from '../configs';
+import type { Config } from '../configs';
 
 export interface ModuleMainDependency {
   name: string;

@@ -1,7 +1,8 @@
 import fs from 'fs';
 import currentPath from './current-path';
 import format from './format';
-import store, { Config } from './store';
+import type { Config } from './store';
+import store from './store';
 
 const save = async (filename: string, json: Readonly<Config>): Promise<void> => {
   const type = /^.*\.(js|cjs)$/.exec(filename) !== null ? 'js' : 'json';

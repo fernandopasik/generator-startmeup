@@ -1,4 +1,4 @@
-import { Config } from '@jest/types';
+import type { Config } from '@jest/types';
 import Generator from 'yeoman-generator';
 import { configs, dependencies } from '../core';
 import { buildConfig } from './config';

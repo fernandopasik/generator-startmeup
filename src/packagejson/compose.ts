@@ -1,6 +1,6 @@
 import { isEmpty, omitBy } from 'lodash';
 import type { PackageJson } from 'type-fest';
-import { Parsed } from './parse';
+import type { Parsed } from './parse';
 
 interface Author {
   name?: string;

@@ -1,4 +1,5 @@
-import { Generator, modules } from '../core';
+import type { modules } from '../core';
+import { Generator } from '../core';
 import config from './config';
 
 export default class PrettierGenerator extends Generator {

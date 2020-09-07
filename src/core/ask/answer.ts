@@ -1,4 +1,4 @@
-import { Answers } from 'inquirer';
+import type { Answers } from 'inquirer';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-type-alias
 type Value = any;

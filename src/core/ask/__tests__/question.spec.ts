@@ -1,4 +1,5 @@
-import { flatten, getNames, Question, setDefaultValue, setDefaultValues } from '../question';
+import type { Question } from '../question';
+import { flatten, getNames, setDefaultValue, setDefaultValues } from '../question';
 
 describe('question', () => {
   describe('getNames', () => {

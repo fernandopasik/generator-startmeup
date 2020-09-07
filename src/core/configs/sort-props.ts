@@ -1,4 +1,4 @@
-import { Config, ConfigValue } from './store';
+import type { Config, ConfigValue } from './store';
 
 const compareSortingValues = (
   value1: string | number | null | boolean | Record<string, unknown> | undefined,

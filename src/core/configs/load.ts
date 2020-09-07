@@ -1,5 +1,6 @@
 import currentPath from './current-path';
-import store, { Config } from './store';
+import type { Config } from './store';
+import store from './store';
 
 const load = async <T = Config>(filename: string): Promise<T | undefined> => {
   if (store.has(filename)) {

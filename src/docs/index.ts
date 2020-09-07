@@ -1,8 +1,9 @@
-import { Answers } from 'inquirer';
+import type { Answers } from 'inquirer';
 import type { PackageJson } from 'type-fest';
 import Generator from 'yeoman-generator';
 import { ask, configs, dependencies } from '../core';
-import parse, { Parsed } from '../packagejson/parse';
+import type { Parsed } from '../packagejson/parse';
+import parse from '../packagejson/parse';
 import questions from './questions';
 
 module.exports = class extends Generator {

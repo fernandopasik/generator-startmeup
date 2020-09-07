@@ -1,8 +1,8 @@
 import githubUsername from 'github-username';
-import { Answers } from 'inquirer';
+import type { Answers } from 'inquirer';
 import path from 'path';
 import yeomanGenerator from 'yeoman-generator';
-import { Question } from '../core';
+import type { Question } from '../core';
 
 interface Author {
   name: string;

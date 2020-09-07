@@ -1,7 +1,9 @@
-import { Config, set as setConfig, sortProps } from '../configs';
+import type { Config } from '../configs';
+import { set as setConfig, sortProps } from '../configs';
 import { add as addDependencies } from '../dependencies';
 import confirm from './confirm';
-import store, { ModuleMainDependency } from './store';
+import type { ModuleMainDependency } from './store';
+import store from './store';
 
 const run = async (moduleName: string): Promise<void> => {
   const config = store.get(moduleName);

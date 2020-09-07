@@ -1,9 +1,10 @@
-import prettier, { BuiltInParserName } from 'prettier';
+import type { BuiltInParserName } from 'prettier';
+import prettier from 'prettier';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import * as prettierPluginPackageJson from 'prettier-plugin-packagejson';
 import load from './load';
 import loadPrettierConfig from './load-prettier-config';
-import { Config } from './store';
+import type { Config } from './store';
 
 export const stringifyJson = (json: Readonly<Config>): string => {
   const SPACED = 2;

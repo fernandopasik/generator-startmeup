@@ -1,7 +1,8 @@
 import type { PackageJson } from 'type-fest';
 import load from '../configs/load';
 import add from './add';
-import { groupAliases, groupNames, GroupNames } from './store';
+import type { GroupNames } from './store';
+import { groupAliases, groupNames } from './store';
 
 const importAll = async (): Promise<void> => {
   const pkg = await load<PackageJson>('package.json');

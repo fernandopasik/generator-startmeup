@@ -1,5 +1,6 @@
 import { has } from '../dependencies';
-import store, { ModuleMainDependency } from './store';
+import type { ModuleMainDependency } from './store';
+import store from './store';
 
 const isPresent = (moduleName: string): boolean => {
   if (!store.has(moduleName)) {
