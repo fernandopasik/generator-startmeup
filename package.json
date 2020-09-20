@@ -35,7 +35,8 @@
     "preversion": "yarn verify"
   },
   "resolutions": {
-    "github-username": "^5.0.1"
+    "github-username": "^5.0.1",
+    "meow": "^7.1.1"
   },
   "dependencies": {
     "@jest/types": "^26.3.0",
