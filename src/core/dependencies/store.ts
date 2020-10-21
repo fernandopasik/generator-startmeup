@@ -1,7 +1,3 @@
-export interface All {
-  [groupName: string]: Set<string>;
-}
-
 export const groupNames = [
   'dependencies',
   'devDependencies',
@@ -16,11 +12,7 @@ export type GroupNames =
   | 'optionalDependencies'
   | 'peerDependencies';
 
-interface GroupAliases {
-  [name: string]: string;
-}
-
-export const groupAliases: GroupAliases = {
+export const groupAliases: Record<string, string> = {
   dependencies: 'dep',
   devDependencies: 'dev',
   optionalDependencies: 'optional',
@@ -28,9 +20,13 @@ export const groupAliases: GroupAliases = {
 };
 
 // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
-const store: All = groupNames.reduce((acc: All, groupName: string) => {
-  acc[groupAliases[groupName]] = new Set();
-  return acc;
-}, {});
+const store: Record<string, Set<string>> = groupNames.reduce(
+  // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
+  (acc: Record<string, Set<string>>, groupName: string) => {
+    acc[groupAliases[groupName]] = new Set();
+    return acc;
+  },
+  {},
+);
 
 export default store;
