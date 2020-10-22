@@ -1,11 +1,7 @@
 import { dependencies } from '../core';
 
-export interface LintStagedConfig {
-  [matcher: string]: string | string[];
-}
-
-const buildConfig = (): LintStagedConfig => {
-  const config: LintStagedConfig = {};
+const buildConfig = (): Record<string, string | string[]> => {
+  const config: Record<string, string | string[]> = {};
   const extensions = ['js'];
   const commands = [];
 
