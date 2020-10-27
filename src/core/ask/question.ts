@@ -1,4 +1,3 @@
-import 'core-js/features/array/flat-map';
 import type { Answers, Question as InquirerQuestion } from 'inquirer';
 
 interface InquirerQuestions extends InquirerQuestion {

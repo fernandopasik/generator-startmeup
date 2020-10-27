@@ -38,7 +38,6 @@
     "github-username": "^5.0.1"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
     "cross-spawn": "^7.0.3",
     "github-username": "^5.0.1",
     "inquirer": "^7.3.3",
@@ -54,7 +53,6 @@
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "@jest/types": "^26.6.1",
-    "@types/core-js": "^2.5.4",
     "@types/cross-spawn": "^6.0.2",
     "@types/eslint": "^7.2.4",
     "@types/inquirer": "^7.3.1",

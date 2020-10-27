@@ -743,11 +743,6 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
-"@types/core-js@^2.5.4":
-  version "2.5.4"
-  resolved "https://registry.yarnpkg.com/@types/core-js/-/core-js-2.5.4.tgz#fc42ebde7d9cfa7c5f2668f117449b02348e41fd"
-  integrity sha512-Xwy8o12ak+iYgFr/KCVaVK5Sy+jFMiiPAID3+ObvMlBzy26XQJw5xu+a6rlHsrJENXj/AwJOGsJpVohUjAzSKQ==
-
 "@types/cross-spawn@^6.0.2":
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/@types/cross-spawn/-/cross-spawn-6.0.2.tgz#168309de311cd30a2b8ae720de6475c2fbf33ac7"
@@ -2016,7 +2011,7 @@ copy-descriptor@^0.1.0:
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
   integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
 
-core-js@^3.6.1, core-js@^3.6.5:
+core-js@^3.6.1:
   version "3.6.5"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.5.tgz#7395dc273af37fb2e50e9bd3d9fe841285231d1a"
   integrity sha512-vZVEEwZoIsI+vPEuoF9Iqf5H7/M3eeQqWlQnYa8FSKKePuYTf5MWnxb5SDAzCa60b3JBRS5g9b+Dq7b1y/RCrA==

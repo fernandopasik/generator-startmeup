@@ -1,4 +1,3 @@
-import 'core-js/features/array/flat-map';
 import type { PackageJson } from 'type-fest';
 import Generator from 'yeoman-generator';
 import { ask, configs, dependencies } from '../core';
