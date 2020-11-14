@@ -23,5 +23,8 @@ export default {
       type: 'dev',
     },
   ],
+  tasks: {
+    format: 'prettier --write ** ./* ./.??*',
+  },
   replaceConfig: true,
 };

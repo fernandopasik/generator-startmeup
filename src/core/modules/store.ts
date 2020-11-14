@@ -13,6 +13,7 @@ export interface ModuleConfig {
   confirmMessage?: string;
   name: string;
   replaceConfig: boolean;
+  tasks?: Record<string, string>;
 }
 
 const store = new Map<string, ModuleConfig>();
