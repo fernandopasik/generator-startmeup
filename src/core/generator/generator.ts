@@ -19,6 +19,10 @@ export default class CoreGenerator extends Generator {
     }
   }
 
+  public async configuring(): Promise<void> {
+    //
+  }
+
   public async writing(): Promise<void> {
     await configs.saveAll();
   }

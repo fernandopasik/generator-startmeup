@@ -13,6 +13,10 @@ export default class LintStagedGenerator extends Generator {
     await super.prompting();
   }
 
+  public async configuring(): Promise<void> {
+    await super.configuring();
+  }
+
   public async writing(): Promise<void> {
     await super.writing();
   }
