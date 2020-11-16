@@ -20,7 +20,9 @@ export default class CoreGenerator extends Generator {
   }
 
   public async configuring(): Promise<void> {
-    //
+    if (typeof this.moduleConfig !== 'undefined') {
+      await modules.setTasks(this.moduleConfig.name);
+    }
   }
 
   public async writing(): Promise<void> {

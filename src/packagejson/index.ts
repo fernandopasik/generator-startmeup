@@ -1,5 +1,5 @@
 import type { Answers } from 'inquirer';
-import sort from 'sort-package-json';
+import sortPackageJson from 'sort-package-json';
 import type { PackageJson } from 'type-fest';
 import Generator from 'yeoman-generator';
 import { ask, configs } from '../core';
@@ -33,7 +33,7 @@ export default class PackageJsonGenerator extends Generator {
       ...compose(this.answers as Parsed),
     };
 
-    const sortedPkg = sort(pkg);
+    const sortedPkg = sortPackageJson(pkg);
 
     configs.set('package.json', sortedPkg);
   }
