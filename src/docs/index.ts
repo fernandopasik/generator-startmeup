@@ -6,7 +6,7 @@ import type { Parsed } from '../packagejson/parse';
 import parse from '../packagejson/parse';
 import questions from './questions';
 
-module.exports = class extends Generator {
+export default class extends Generator {
   private parameters?: Parsed;
 
   private answers?: Answers;
@@ -54,4 +54,4 @@ module.exports = class extends Generator {
       this.fs.copyTpl(this.templatePath(template), this.destinationPath(`.${template}`), options);
     });
   }
-};
+}
