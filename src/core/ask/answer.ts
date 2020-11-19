@@ -37,7 +37,9 @@ export const get = (answerNames?: string | string[]): Answers => {
 
 export const has = (answerName: string): boolean => memory.has(answerName);
 export const forget = (answerName: string): boolean => memory.delete(answerName);
-export const forgetAll = (): void => memory.clear();
+export const forgetAll = (): void => {
+  memory.clear();
+};
 
 export const areUnanswered = (questionNames: readonly string[]): string[] =>
   questionNames.filter((questionName: string): boolean => !memory.has(questionName));
