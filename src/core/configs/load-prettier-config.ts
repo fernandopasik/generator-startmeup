@@ -7,7 +7,6 @@ let prettierConfig: Options | null = null;
 const defaultPrettierConfig = {
   arrowParens: 'always',
   printWidth: 100,
-  proseWrap: 'never',
   singleQuote: true,
   trailingComma: 'all',
 };
