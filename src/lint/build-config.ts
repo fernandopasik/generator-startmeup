@@ -1,8 +1,11 @@
 import type { Linter } from 'eslint';
 import { dependencies } from '../core';
 
-export const buildDevImports = (config: Readonly<Linter.Config>): Linter.Config => {
-  const files = [];
+export const buildOverrides = (config: Readonly<Linter.Config>): Linter.Config => {
+  const files: string[] = [];
+  const rules: Linter.RulesRecord = {
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+  };
 
   if (
     dependencies.has('@storybook/react', 'dev') ||
@@ -13,6 +16,7 @@ export const buildDevImports = (config: Readonly<Linter.Config>): Linter.Config 
 
   if (dependencies.has('typescript', 'dev') && dependencies.has('jest', 'dev')) {
     files.push('*.spec.*');
+    rules['@typescript-eslint/no-magic-numbers'] = 'off';
   }
 
   if (dependencies.has('puppeteer', 'dev')) {
@@ -25,7 +29,7 @@ export const buildDevImports = (config: Readonly<Linter.Config>): Linter.Config 
       ...(config.overrides ?? []),
       {
         files,
-        rules: { 'import/no-extraneous-dependencies': ['error', { devDependencies: true }] },
+        rules,
       },
     ],
   };
@@ -71,16 +75,6 @@ const buildConfig = (): Linter.Config => {
       'import/extensions': ['error', 'never'],
     };
 
-    if (
-      typeof config.overrides.find((override: Readonly<Linter.ConfigOverride>) =>
-        override.files.includes('*.spec.*'),
-      ) === 'undefined'
-    ) {
-      config.overrides.push({
-        files: ['*.spec.*'],
-        rules: { '@typescript-eslint/no-magic-numbers': 'off' },
-      });
-    }
     config.rules = {
       ...config.rules,
       '@typescript-eslint/no-magic-numbers': ['error', { ignore: [0] }],
@@ -164,7 +158,7 @@ const buildConfig = (): Linter.Config => {
     'max-lines-per-function': ['error', { max: 20, skipBlankLines: true, skipComments: true }],
   };
 
-  config = buildDevImports(config);
+  config = buildOverrides(config);
 
   return config;
 };
