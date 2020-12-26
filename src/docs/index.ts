@@ -33,6 +33,7 @@ export default class extends Generator {
       codecov: dependencies.has('codecov', 'dev'),
       commitlint: dependencies.has('@commitlint/cli', 'dev'),
       circleci: !!this.fs.exists(this.destinationPath('.circleci/config.yml')),
+      prettier: dependencies.has('prettier', 'dev'),
       year: new Date().getFullYear(),
     };
 
