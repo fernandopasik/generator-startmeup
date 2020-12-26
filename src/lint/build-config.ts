@@ -96,7 +96,6 @@ const buildConfig = (): Linter.Config => {
     config.env = { browser: true };
     config.rules = {
       ...config.rules,
-      '@typescript-eslint/no-inferrable-types': ['error', { ignoreProperties: true }],
       '@typescript-eslint/unbound-method': 'off',
       'class-methods-use-this': 'off',
     };
