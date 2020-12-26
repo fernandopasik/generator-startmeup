@@ -1,15 +1,11 @@
 import type { Config } from '@jest/types';
 import { dependencies } from '../core';
 
-export const generateCoveragePattern = (
-  hasTypescript: boolean = false,
-  hasReact: boolean = false,
-): string => `src/**/*.${hasTypescript ? '{j,t}' : 'j'}s${hasReact ? '{,x}' : ''}`;
+export const generateCoveragePattern = (hasTypescript = false, hasReact = false): string =>
+  `src/**/*.${hasTypescript ? '{j,t}' : 'j'}s${hasReact ? '{,x}' : ''}`;
 
-export const generateTransformPattern = (
-  hasTypescript: boolean = false,
-  hasReact: boolean = false,
-): string => `^.+\\.${hasTypescript ? '[j|t]' : 'j'}s${hasReact ? 'x?' : ''}$`;
+export const generateTransformPattern = (hasTypescript = false, hasReact = false): string =>
+  `^.+\\.${hasTypescript ? '[j|t]' : 'j'}s${hasReact ? 'x?' : ''}$`;
 
 export const buildConfig = (
   existingConfig: Readonly<Config.InitialOptions> = {},
