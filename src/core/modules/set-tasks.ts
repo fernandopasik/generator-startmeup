@@ -11,11 +11,14 @@ const setTasks = async (moduleName: string): Promise<void> => {
 
   const pkg = await loadConfig<PackageJson>('package.json');
 
+  const tasks =
+    typeof moduleConfig?.tasks === 'function' ? moduleConfig.tasks() : moduleConfig?.tasks ?? {};
+
   const newPkg = {
     ...pkg,
     scripts: {
       ...(pkg?.scripts ?? {}),
-      ...(moduleConfig?.tasks ?? {}),
+      ...tasks,
     },
   };
 
