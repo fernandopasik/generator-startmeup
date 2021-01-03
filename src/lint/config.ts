@@ -1,4 +1,5 @@
 import buildConfig from './build-config';
+import buildTaks from './build-tasks';
 
 export default {
   configFilename: '.eslintrc.json',
@@ -11,5 +12,6 @@ export default {
       type: 'dev',
     },
   ],
+  tasks: buildTaks,
   replaceConfig: false,
 };
