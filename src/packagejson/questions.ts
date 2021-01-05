@@ -64,10 +64,8 @@ const questions: Question[] = [
     name: 'githubUsername',
     type: 'input',
     message: 'What is your github username?',
-    default: async (props: Readonly<Answers>): Promise<string> => {
-      const username = await githubUsername((props.author as Author).email);
-      return username;
-    },
+    default: async (props: Readonly<Answers>): Promise<string> =>
+      githubUsername((props.author as Author).email),
     when: (props: Readonly<Answers>): boolean => Boolean(props.github),
   },
   {
