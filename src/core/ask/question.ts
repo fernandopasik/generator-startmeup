@@ -21,7 +21,7 @@ export const getNames = (questions: readonly Readonly<Question>[]): string[] =>
 export const setDefaultValue = (
   question: Readonly<Question>,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  defaultValue?: any | any[],
+  defaultValue?: any[] | any,
 ): Question => ({
   ...question,
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment

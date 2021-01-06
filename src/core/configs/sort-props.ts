@@ -1,8 +1,8 @@
 import type { Config, ConfigValue } from './store';
 
 const compareSortingValues = (
-  value1: string | number | null | boolean | Record<string, unknown> | undefined,
-  value2: string | number | null | boolean | Record<string, unknown> | undefined,
+  value1: Record<string, unknown> | boolean | null | number | string | undefined,
+  value2: Record<string, unknown> | boolean | null | number | string | undefined,
   sortFirst?: string[],
 ): number => {
   const SORT_PREV = -1;

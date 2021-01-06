@@ -1,7 +1,7 @@
 import { dependencies } from '../core';
 
-const buildConfig = (): Record<string, string | string[]> => {
-  const config: Record<string, string | string[]> = {};
+const buildConfig = (): Record<string, string[] | string> => {
+  const config: Record<string, string[] | string> = {};
   const extensions = ['js'];
   const commands = [];
 

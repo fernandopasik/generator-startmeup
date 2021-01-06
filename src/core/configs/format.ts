@@ -14,7 +14,7 @@ export const stringifyJson = (json: Readonly<Config>): string => {
   return JSON.stringify(json, null, SPACES);
 };
 
-const format = async (json: Readonly<Config>, type: 'json' | 'js' = 'json'): Promise<string> => {
+const format = async (json: Readonly<Config>, type: 'js' | 'json' = 'json'): Promise<string> => {
   const prettierConfig = await loadPrettierConfig();
   const pkg = await load('package.json');
 

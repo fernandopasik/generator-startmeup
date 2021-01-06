@@ -1,6 +1,6 @@
 interface BabelConfig {
   presets?: string[];
-  plugins?: (string | [string, Record<string, string | number | boolean>])[];
+  plugins?: (string | [string, Record<string, boolean | number | string>])[];
 }
 
 const presets: Set<string> = new Set();

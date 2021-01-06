@@ -25,7 +25,7 @@ export default class SrcGenerator extends Generator {
     const mainBuiltFile = `${name as string}.js`;
     const builtFiles = `/${name as string}.*`;
 
-    const packageProps: Record<string, boolean | string | string[]> = {
+    const packageProps: Record<string, string[] | boolean | string> = {
       sideEffects: false,
       type: 'module',
       main: mainBuiltFile,

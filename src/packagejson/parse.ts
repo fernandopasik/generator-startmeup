@@ -50,7 +50,7 @@ const parse = (pkg: ReadonlyDeep<PackageJson>): Parsed => {
 
   return (omitBy(
     parsed,
-    (item: string | Record<string, string>): boolean => isUndefined(item) || isEqual(item, {}),
+    (item: Record<string, string> | string): boolean => isUndefined(item) || isEqual(item, {}),
   ) as unknown) as Parsed;
 };
 

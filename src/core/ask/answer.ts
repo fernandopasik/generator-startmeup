@@ -27,7 +27,7 @@ export const getAll = (answerNames?: string[]): Answers => {
   return obj;
 };
 
-export const get = (answerNames?: string | string[]): Answers => {
+export const get = (answerNames?: string[] | string): Answers => {
   if (typeof answerNames === 'string') {
     return memory.get(answerNames) as Answers;
   }
