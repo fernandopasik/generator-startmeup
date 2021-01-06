@@ -13,6 +13,8 @@
   "parserOptions": { "project": "./tsconfig.all.json" },
   "rules": {
     "@typescript-eslint/no-magic-numbers": ["error", { "ignore": [0] }],
+    "@typescript-eslint/non-nullable-type-assertion-style": "warn",
+    "@typescript-eslint/sort-type-union-intersection-members": "warn",
     "class-methods-use-this": "off",
     "import/extensions": ["error", "never"],
     "jest/no-hooks": "off",
