@@ -10,6 +10,7 @@ export interface ModuleConfig {
   configFilename: string;
   configContent: Config | (() => Config);
   confirm?: boolean;
+  confirmDefault?: boolean;
   confirmMessage?: string;
   name: string;
   replaceConfig: boolean;
