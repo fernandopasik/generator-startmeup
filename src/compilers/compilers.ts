@@ -1,3 +1,4 @@
+import type { PackageJson } from 'type-fest';
 import Generator from 'yeoman-generator';
 import { ask, configs, dependencies } from '../core';
 import { addPreset, getBabelConfig } from './babelConfig';
@@ -40,7 +41,7 @@ export default class CompilerGenerator extends Generator {
   }
 
   public async configuring(): Promise<void> {
-    const pkg = await configs.load('package.json');
+    const pkg = await configs.load<PackageJson>('package.json');
 
     if (this.compilers.includes('babel')) {
       addPreset('@babel/preset-env');
