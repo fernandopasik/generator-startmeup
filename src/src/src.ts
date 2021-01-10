@@ -9,7 +9,12 @@ export default class SrcGenerator extends Generator {
   }
 
   public async writing(): Promise<void> {
-    const pkg = (await configs.load('package.json')) as PackageJson;
+    const pkg = await configs.load<PackageJson>('package.json');
+
+    if (typeof pkg?.name === 'undefined') {
+      return;
+    }
+
     const { name } = pkg;
 
     let extension = 'js';
@@ -22,8 +27,8 @@ export default class SrcGenerator extends Generator {
       extension += 'x';
     }
 
-    const mainBuiltFile = `${name as string}.js`;
-    const builtFiles = `/${name as string}.*`;
+    const mainBuiltFile = `${name}.js`;
+    const builtFiles = `/${name}.*`;
 
     const packageProps: Record<string, string[] | boolean | string> = {
       sideEffects: false,
@@ -34,7 +39,7 @@ export default class SrcGenerator extends Generator {
     };
 
     if (dependencies.has('typescript', 'dev')) {
-      packageProps.typings = `${name as string}.d.ts`;
+      packageProps.typings = `${name}.d.ts`;
     }
 
     configs.set(
@@ -45,7 +50,7 @@ export default class SrcGenerator extends Generator {
       }),
     );
 
-    const mainFile = `src/${name as string}.${extension}`;
+    const mainFile = `src/${name}.${extension}`;
     if (!this.fs.exists(this.destinationPath(mainFile))) {
       this.fs.write(this.destinationPath(mainFile), '');
     }
