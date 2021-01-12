@@ -4,5 +4,5 @@ yarn*.*
 .gitattributes
 .*ignore
 LICENSE
-coverage/**
-generators/**
+/coverage
+/generators
