@@ -35,6 +35,7 @@
     "preversion": "yarn verify"
   },
   "resolutions": {
+    "axios": "^0.21.1",
     "github-username": "^6.0.0"
   },
   "dependencies": {
