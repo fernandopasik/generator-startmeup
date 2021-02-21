@@ -44,7 +44,7 @@
     "cross-spawn": "^7.0.3",
     "github-username": "^6.0.0",
     "inquirer": "^7.3.3",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "prettier": "^2.2.1",
     "prettier-plugin-organize-imports": "^1.1.1",
     "prettier-plugin-packagejson": "^2.2.9",
