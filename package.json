@@ -37,9 +37,6 @@
     "verify": "yarn lint && yarn check-types && yarn test && yarn build",
     "preversion": "yarn verify"
   },
-  "resolutions": {
-    "github-username": "^6.0.0"
-  },
   "dependencies": {
     "cross-spawn": "^7.0.3",
     "github-username": "^6.0.0",
