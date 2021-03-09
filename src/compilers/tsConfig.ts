@@ -90,6 +90,7 @@ export const getTSConfigAll = (excludeFiles: readonly string[] = []): Typescript
     compilerOptions: {
       allowJs: true,
       noEmit: true,
+      outDir: '$$ts-jest',
     },
     include,
     exclude,
