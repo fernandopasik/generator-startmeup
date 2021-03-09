@@ -128,10 +128,6 @@ const buildConfig = (): Linter.Config => {
     }
 
     config.extends.push('plugin:prettier/recommended');
-
-    if (dependencies.has('typescript', 'dev')) {
-      config.extends.push('prettier/@typescript-eslint');
-    }
   }
 
   if (dependencies.has('puppeteer', 'dev')) {
