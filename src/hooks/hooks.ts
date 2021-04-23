@@ -13,23 +13,19 @@ export default class HooksGenerator extends Generator {
 
   public writing(): void {
     if (dependencies.has('@commitlint/cli', 'dev')) {
-      this.copyHookConfig('commit-msg');
+      this.copyTemplate('commit-msg', '.husky/commit-msg');
     }
 
     if (dependencies.has('lint-staged', 'dev')) {
-      this.copyHookConfig('pre-commit');
+      this.copyTemplate('pre-commit', '.husky/pre-commit');
     }
 
-    this.copyHookConfig('pre-push');
+    this.copyTemplate('pre-push', '.husky/pre-push');
   }
 
   public install(): void {
     if (!(this.options['skip-install'] as boolean)) {
       dependencies.install();
     }
-  }
-
-  private copyHookConfig(name: string): void {
-    this.fs.copyTpl(this.templatePath(name), this.destinationPath(`.husky/${name}`));
   }
 }
