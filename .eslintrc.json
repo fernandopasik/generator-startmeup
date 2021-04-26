@@ -15,6 +15,7 @@
     "@typescript-eslint/non-nullable-type-assertion-style": "warn",
     "class-methods-use-this": "off",
     "import/extensions": ["error", "never"],
+    "no-underscore-dangle": ["error", { "allowAfterThis": true, "enforceInMethodNames": false }],
     "jest/no-hooks": "off",
     "jest/prefer-expect-assertions": "off"
   }
