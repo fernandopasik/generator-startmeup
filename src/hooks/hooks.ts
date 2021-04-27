@@ -1,3 +1,4 @@
+import type { PackageJson } from 'type-fest';
 import Generator from 'yeoman-generator';
 import { dependencies } from '../core';
 
@@ -12,11 +13,13 @@ export default class HooksGenerator extends Generator {
   }
 
   public writing(): void {
-    if (dependencies.has('@commitlint/cli', 'dev')) {
+    const { devDependencies = {} } = this.readDestinationJSON('package.json') as PackageJson;
+
+    if ('@commitlint/cli' in devDependencies) {
       this.copyTemplate('commit-msg', '.husky/commit-msg');
     }
 
-    if (dependencies.has('lint-staged', 'dev')) {
+    if ('lint-staged' in devDependencies) {
       this.copyTemplate('pre-commit', '.husky/pre-commit');
     }
 
