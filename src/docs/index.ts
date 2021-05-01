@@ -32,7 +32,7 @@ export default class extends Generator {
       eslint: dependencies.has('eslint', 'dev'),
       codecov: dependencies.has('codecov', 'dev'),
       commitlint: dependencies.has('@commitlint/cli', 'dev'),
-      circleci: !!this.fs.exists(this.destinationPath('.circleci/config.yml')),
+      circleci: this.existsDestination('.circleci/config.yml'),
       prettier: dependencies.has('prettier', 'dev'),
       year: new Date().getFullYear(),
     };
