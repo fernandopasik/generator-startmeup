@@ -38,13 +38,13 @@ export default class extends Generator {
     };
 
     ['LICENSE', 'README.md'].forEach((template: string): void => {
-      if (!this.fs.exists(this.destinationPath(template))) {
-        this.fs.copyTpl(this.templatePath(template), this.destinationPath(template), options);
+      if (!this.existsDestination(template)) {
+        this.renderTemplate(template, template, options);
       }
     });
 
     ['CONTRIBUTING.md', 'CODE_OF_CONDUCT.md'].forEach((template: string): void => {
-      this.fs.copyTpl(this.templatePath(template), this.destinationPath(template), options);
+      this.renderTemplate(template, template, options);
     });
 
     [
@@ -52,7 +52,7 @@ export default class extends Generator {
       'github/ISSUE_TEMPLATE/bug_report.md',
       'github/ISSUE_TEMPLATE/feature_request.md',
     ].forEach((template: string): void => {
-      this.fs.copyTpl(this.templatePath(template), this.destinationPath(`.${template}`), options);
+      this.renderTemplate(template, `.${template}`, options);
     });
   }
 }
