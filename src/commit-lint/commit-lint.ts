@@ -1,27 +1,35 @@
-import type { modules } from '../core';
-import { Generator } from '../core';
-import config from './config';
+import Generator from 'yeoman-generator';
+
+interface Answers {
+  confirm: boolean;
+}
 
 export default class CommitLintGenerator extends Generator {
-  public moduleConfig: modules.ModuleConfig = config;
-
-  public async initializing(): Promise<void> {
-    await super.initializing();
-  }
+  public answers: Answers = { confirm: true };
 
   public async prompting(): Promise<void> {
-    await super.prompting();
+    this.answers = await this.prompt<Answers>([
+      {
+        type: 'confirm',
+        name: 'confirm',
+        message: 'Do you want to use commit lint with conventional commits format?',
+        default: true,
+      },
+    ]);
   }
 
-  public async configuring(): Promise<void> {
-    await super.configuring();
-  }
+  public configuring(): void {
+    if (!this.answers.confirm) {
+      return;
+    }
 
-  public async writing(): Promise<void> {
-    await super.writing();
-  }
+    // @ts-expect-error not yet in types
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+    this.addDevDependencies({
+      '@commitlint/cli': '^12.0.1',
+      '@commitlint/config-conventional': '^12.0.1',
+    });
 
-  public install(): void {
-    super.install();
+    this.copyTemplate('commitlintrc.json', '.commitlintrc.json');
   }
 }
