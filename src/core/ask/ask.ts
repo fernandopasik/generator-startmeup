@@ -19,15 +19,15 @@ const ask = async (
 
   const questionsToAsk = setDefaultValues(unansweredQuestions, flattenedDefaults);
 
-  const prompted = await inquirer.prompt(questionsToAsk).then(
-    (answers: Readonly<Answers>): Answers => {
+  const prompted = await inquirer
+    .prompt(questionsToAsk)
+    .then((answers: Readonly<Answers>): Answers => {
       rememberAll(flattenAnswers(answers));
       return {
         ...getAnswers(flattenedQuestionNames),
         ...answers,
       } as Answers;
-    },
-  );
+    });
 
   return prompted;
 };

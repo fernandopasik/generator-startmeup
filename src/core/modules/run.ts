@@ -24,9 +24,9 @@ const run = async (moduleName: string): Promise<void> => {
     addDependencies(name, type);
   });
 
-  const configContent = (typeof config.configContent === 'function'
-    ? config.configContent()
-    : config.configContent) as Config;
+  const configContent = (
+    typeof config.configContent === 'function' ? config.configContent() : config.configContent
+  ) as Config;
 
   setConfig(config.configFilename, sortProps(configContent, ['extends', 'files']));
 };

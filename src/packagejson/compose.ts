@@ -49,7 +49,7 @@ const compose = ({
     license,
   };
 
-  return (omitBy(composed, isEmpty) as unknown) as PackageJson;
+  return omitBy(composed, isEmpty) as unknown as PackageJson;
 };
 
 export default compose;

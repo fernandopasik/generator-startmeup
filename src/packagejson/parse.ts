@@ -48,10 +48,10 @@ const parse = (pkg: ReadonlyDeep<PackageJson>): Parsed => {
     license,
   };
 
-  return (omitBy(
+  return omitBy(
     parsed,
     (item: Record<string, string> | string): boolean => isUndefined(item) || isEqual(item, {}),
-  ) as unknown) as Parsed;
+  ) as unknown as Parsed;
 };
 
 export default parse;

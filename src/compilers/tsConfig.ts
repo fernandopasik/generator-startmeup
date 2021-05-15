@@ -47,11 +47,11 @@ const getTSConfig = (): TypescriptConfig => ({
     experimentalDecorators: true,
     inlineSources: true,
     ...(dependencies.has('react') || dependencies.has('react', 'peer')
-      ? { jsx: ('react' as unknown) as JsxEmit }
+      ? { jsx: 'react' as unknown as JsxEmit }
       : {}),
     lib: ['es2020', 'dom', 'dom.iterable'],
-    module: ('ESNext' as unknown) as ModuleKind,
-    moduleResolution: ('node' as unknown) as ModuleResolutionKind,
+    module: 'ESNext' as unknown as ModuleKind,
+    moduleResolution: 'node' as unknown as ModuleResolutionKind,
     noFallthroughCasesInSwitch: true,
     noImplicitAny: true,
     noImplicitReturns: true,
@@ -67,7 +67,7 @@ const getTSConfig = (): TypescriptConfig => ({
     strictFunctionTypes: true,
     strictNullChecks: true,
     strictPropertyInitialization: true,
-    target: ('es2017' as unknown) as ScriptTarget,
+    target: 'es2017' as unknown as ScriptTarget,
   },
   include: ['src/**/*'],
   exclude: getExclude(),
