@@ -50,6 +50,7 @@ export const flatten = (answers: Readonly<Answers>, namePrefix?: string): Answer
     if (typeof answers[answerName] === 'object') {
       return {
         ...flattened,
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         ...flatten(answers[answerName], name),
       };
     }

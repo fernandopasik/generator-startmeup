@@ -53,12 +53,14 @@ const sortProps = (json?: Config, sortFirst?: string[]): Config =>
                 typeof element === 'object' ? sortProps(element, sortFirst) : element,
               )
               .sort((value1: ConfigValue, value2: ConfigValue) =>
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
                 compareSortingValues(value1, value2, sortFirst),
               ),
           ];
         }
 
         if (typeof value === 'object') {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
           return [key, sortProps(value, sortFirst)];
         }
 
