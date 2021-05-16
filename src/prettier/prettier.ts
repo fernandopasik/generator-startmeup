@@ -27,7 +27,7 @@ export default class PrettierGenerator extends Generator {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     this.packageJson.merge({
       scripts: {
-        format: 'prettier --write ** ./* ./.??*',
+        format: 'prettier --no-error-on-unmatched-pattern --write ** ./* ./.??*',
       },
     });
 
