@@ -18,6 +18,24 @@ export default class extends Generator {
     return confirm;
   }
 
+  public getJsExtensions(): string[] {
+    const extensions = ['js'];
+
+    if (this.hasAnyDependency('react')) {
+      extensions.push('jsx');
+    }
+
+    if (this.hasDevDependency('typescript')) {
+      extensions.push('ts');
+
+      if (this.hasAnyDependency('react')) {
+        extensions.push('tsx');
+      }
+    }
+
+    return extensions;
+  }
+
   public hasDependency(name: string): boolean {
     return typeof this.packageJson.getPath(`dependencies.${name}`) !== 'undefined';
   }
