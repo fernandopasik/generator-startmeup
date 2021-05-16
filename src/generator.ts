@@ -29,4 +29,23 @@ export default class extends Generator {
   public hasAnyDependency(name: string): boolean {
     return this.hasDependency(name) || this.hasDevDependency(name);
   }
+
+  protected async _resolvePackageJsonDependencies(
+    dependencies: Record<string, string> | string[] | string,
+  ): Promise<Record<string, string>> {
+    // @ts-expect-error no type
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, no-underscore-dangle
+    const resolved = (await super._resolvePackageJsonDependencies(dependencies)) as Record<
+      string,
+      string
+    >;
+
+    const last = Object.fromEntries(
+      Object.entries(resolved).map(([name, version]: Readonly<string[]>) =>
+        !version.startsWith('^') ? [name, `^${version}`] : [name, version],
+      ),
+    );
+
+    return last;
+  }
 }
