@@ -1,25 +1,16 @@
-import Generator from 'yeoman-generator';
-
-interface Answers {
-  confirm: boolean;
-}
+import Generator from '../generator';
 
 export default class CommitLintGenerator extends Generator {
-  public answers: Answers = { confirm: true };
+  public confirmed = true;
 
   public async prompting(): Promise<void> {
-    this.answers = await this.prompt<Answers>([
-      {
-        type: 'confirm',
-        name: 'confirm',
-        message: 'Do you want to use commit lint with conventional commits format?',
-        default: true,
-      },
-    ]);
+    this.confirmed = await this.confirm(
+      'Do you want to use commit lint with conventional commits format?',
+    );
   }
 
   public configuring(): void {
-    if (!this.answers.confirm) {
+    if (!this.confirmed) {
       return;
     }
 

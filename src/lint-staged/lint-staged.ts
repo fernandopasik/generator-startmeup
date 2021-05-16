@@ -1,27 +1,16 @@
 import type { PackageJson } from 'type-fest';
-import Generator from 'yeoman-generator';
 import { format } from '../core/configs';
-
-interface Answers {
-  confirm: boolean;
-}
+import Generator from '../generator';
 
 export default class LintStagedGenerator extends Generator {
-  public answers: Answers = { confirm: true };
+  public confirmed = true;
 
   public async prompting(): Promise<void> {
-    this.answers = await this.prompt<Answers>([
-      {
-        type: 'confirm',
-        name: 'confirm',
-        message: 'Do you want to use lint-staged for pre-commit hook?',
-        default: true,
-      },
-    ]);
+    this.confirmed = await this.confirm('Do you want to use lint-staged for pre-commit hook?');
   }
 
   public async configuring(): Promise<void> {
-    if (!this.answers.confirm) {
+    if (!this.confirmed) {
       return;
     }
 
