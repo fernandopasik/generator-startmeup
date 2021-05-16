@@ -12,16 +12,12 @@ export default class PrettierGenerator extends Generator {
       return;
     }
 
-    // @ts-expect-error not yet in types
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     this.packageJson.merge({
       scripts: {
         format: 'prettier --no-error-on-unmatched-pattern --write ** ./* ./.??*',
       },
     });
 
-    // @ts-expect-error not yet in types
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     await this.addDevDependencies({
       prettier: '^2.3.0',
       'prettier-plugin-organize-imports': '^2.0.0',

@@ -14,15 +14,9 @@ export default class LintStagedGenerator extends Generator {
       return;
     }
 
-    // @ts-expect-error not yet in types
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     await this.addDevDependencies({ 'lint-staged': '^11.0.0' });
 
-    // @ts-expect-error not yet in types
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     const devDependencies = this.packageJson.get('devDependencies') as PackageJson;
-    // @ts-expect-error not yet in types
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     const dependencies = this.packageJson.get('dependencies') as PackageJson;
 
     const config: Record<string, string[] | string> = {};

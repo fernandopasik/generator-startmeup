@@ -14,8 +14,6 @@ export default class CommitLintGenerator extends Generator {
       return;
     }
 
-    // @ts-expect-error not yet in types
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     await this.addDevDependencies({
       '@commitlint/cli': '^12.0.1',
       '@commitlint/config-conventional': '^12.0.1',
