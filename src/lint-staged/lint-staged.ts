@@ -16,7 +16,7 @@ export default class LintStagedGenerator extends Generator {
 
     // @ts-expect-error not yet in types
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-    this.addDevDependencies({ 'lint-staged': '^11.0.0' });
+    await this.addDevDependencies({ 'lint-staged': '^11.0.0' });
 
     // @ts-expect-error not yet in types
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call

@@ -7,7 +7,7 @@ export default class PrettierGenerator extends Generator {
     this.confirmed = await this.confirm('Do you want to use prettier to format files?');
   }
 
-  public configuring(): void {
+  public async configuring(): Promise<void> {
     if (!this.confirmed) {
       return;
     }
@@ -22,7 +22,7 @@ export default class PrettierGenerator extends Generator {
 
     // @ts-expect-error not yet in types
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-    this.addDevDependencies({
+    await this.addDevDependencies({
       prettier: '^2.3.0',
       'prettier-plugin-organize-imports': '^2.0.0',
       'prettier-plugin-packagejson': '^2.2.11',
