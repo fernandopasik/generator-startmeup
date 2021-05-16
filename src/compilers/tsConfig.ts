@@ -67,7 +67,7 @@ const getTSConfig = (): TypescriptConfig => ({
     strictFunctionTypes: true,
     strictNullChecks: true,
     strictPropertyInitialization: true,
-    target: 'es2017' as unknown as ScriptTarget,
+    target: 'es2019' as unknown as ScriptTarget,
   },
   include: ['src/**/*'],
   exclude: getExclude(),
