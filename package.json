@@ -60,7 +60,7 @@
     "@types/lodash": "^4.14.169",
     "@types/prettier": "^2.2.3",
     "@types/yeoman-assert": "^3.1.1",
-    "@types/yeoman-generator": "^4.11.4",
+    "@types/yeoman-generator": "^5.0.0",
     "@types/yeoman-test": "^4.0.1",
     "@types/yosay": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
