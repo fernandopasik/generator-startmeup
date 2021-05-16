@@ -1,4 +1,3 @@
-import type { PackageJson } from 'type-fest';
 import { format } from '../core/configs';
 import Generator from '../generator';
 
@@ -16,31 +15,28 @@ export default class LintStagedGenerator extends Generator {
 
     await this.addDevDependencies({ 'lint-staged': '^11.0.0' });
 
-    const devDependencies = this.packageJson.get('devDependencies') as PackageJson;
-    const dependencies = this.packageJson.get('dependencies') as PackageJson;
-
     const config: Record<string, string[] | string> = {};
     const jsExtensions = ['js'];
 
-    if ('react' in dependencies || 'react' in devDependencies) {
+    if (this.hasAnyDependency('react')) {
       jsExtensions.push('jsx');
     }
 
-    if ('typescript' in devDependencies) {
+    if (this.hasDevDependency('typescript')) {
       jsExtensions.push('ts');
 
-      if ('react' in dependencies || 'react' in devDependencies) {
+      if (this.hasAnyDependency('react')) {
         jsExtensions.push('tsx');
       }
     }
 
     const jsCommands = [];
 
-    if ('eslint' in devDependencies) {
+    if (this.hasAnyDependency('eslint')) {
       jsCommands.push('eslint');
     }
 
-    if ('jest' in devDependencies) {
+    if (this.hasAnyDependency('jest')) {
       jsCommands.push('jest --bail --findRelatedTests');
     }
 
