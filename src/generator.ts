@@ -17,4 +17,16 @@ export default class extends Generator {
 
     return confirm;
   }
+
+  public hasDependency(name: string): boolean {
+    return typeof this.packageJson.getPath(`dependencies.${name}`) !== 'undefined';
+  }
+
+  public hasDevDependency(name: string): boolean {
+    return typeof this.packageJson.getPath(`devDependencies.${name}`) !== 'undefined';
+  }
+
+  public hasAnyDependency(name: string): boolean {
+    return this.hasDependency(name) || this.hasDevDependency(name);
+  }
 }
