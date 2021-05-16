@@ -16,19 +16,7 @@ export default class LintStagedGenerator extends Generator {
     await this.addDevDependencies(['lint-staged']);
 
     const config: Record<string, string[] | string> = {};
-    const jsExtensions = ['js'];
-
-    if (this.hasAnyDependency('react')) {
-      jsExtensions.push('jsx');
-    }
-
-    if (this.hasDevDependency('typescript')) {
-      jsExtensions.push('ts');
-
-      if (this.hasAnyDependency('react')) {
-        jsExtensions.push('tsx');
-      }
-    }
+    const jsExtensions = this.getJsExtensions();
 
     const jsCommands = [];
 
