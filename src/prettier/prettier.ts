@@ -1,27 +1,45 @@
-import type { modules } from '../core';
-import { Generator } from '../core';
-import config from './config';
+import Generator from 'yeoman-generator';
+
+interface Answers {
+  confirm: boolean;
+}
 
 export default class PrettierGenerator extends Generator {
-  public moduleConfig: modules.ModuleConfig = config;
-
-  public async initializing(): Promise<void> {
-    await super.initializing();
-  }
+  public answers: Answers = { confirm: true };
 
   public async prompting(): Promise<void> {
-    await super.prompting();
+    this.answers = await this.prompt<Answers>([
+      {
+        type: 'confirm',
+        name: 'confirm',
+        message: 'Do you want to use prettier to format files?',
+        default: true,
+      },
+    ]);
   }
 
-  public async configuring(): Promise<void> {
-    await super.configuring();
-  }
+  public configuring(): void {
+    if (!this.answers.confirm) {
+      return;
+    }
 
-  public async writing(): Promise<void> {
-    await super.writing();
-  }
+    // @ts-expect-error not yet in types
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+    this.packageJson.merge({
+      scripts: {
+        format: 'prettier --write ** ./* ./.??*',
+      },
+    });
 
-  public install(): void {
-    super.install();
+    // @ts-expect-error not yet in types
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+    this.addDevDependencies({
+      prettier: '^2.3.0',
+      'prettier-plugin-organize-imports': '^2.0.0',
+      'prettier-plugin-packagejson': '^2.2.11',
+    });
+
+    this.copyTemplate('prettierrc.json', '.prettierrc.json');
+    this.copyTemplate('prettierignore', '.prettierignore');
   }
 }
