@@ -18,11 +18,11 @@ export default class PrettierGenerator extends Generator {
       },
     });
 
-    await this.addDevDependencies({
-      prettier: '^2.3.0',
-      'prettier-plugin-organize-imports': '^2.0.0',
-      'prettier-plugin-packagejson': '^2.2.11',
-    });
+    await this.addDevDependencies([
+      'prettier',
+      'prettier-plugin-organize-imports',
+      'prettier-plugin-packagejson',
+    ]);
 
     this.copyTemplate('prettierrc.json', '.prettierrc.json');
     this.copyTemplate('prettierignore', '.prettierignore');

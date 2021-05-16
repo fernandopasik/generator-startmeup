@@ -10,7 +10,7 @@ export default class HooksGenerator extends Generator {
       },
     });
 
-    await this.addDevDependencies({ husky: '^6.0.0', pinst: '^2.1.6' });
+    await this.addDevDependencies(['husky', 'pinst']);
 
     if (this.hasDevDependency('@commitlint/cli')) {
       this.copyTemplate('commit-msg', '.husky/commit-msg');

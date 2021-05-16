@@ -14,10 +14,7 @@ export default class CommitLintGenerator extends Generator {
       return;
     }
 
-    await this.addDevDependencies({
-      '@commitlint/cli': '^12.0.1',
-      '@commitlint/config-conventional': '^12.0.1',
-    });
+    await this.addDevDependencies(['@commitlint/cli', '@commitlint/config-conventional']);
 
     this.copyTemplate('commitlintrc.json', '.commitlintrc.json');
   }

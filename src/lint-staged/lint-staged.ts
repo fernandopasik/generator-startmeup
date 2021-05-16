@@ -13,7 +13,7 @@ export default class LintStagedGenerator extends Generator {
       return;
     }
 
-    await this.addDevDependencies({ 'lint-staged': '^11.0.0' });
+    await this.addDevDependencies(['lint-staged']);
 
     const config: Record<string, string[] | string> = {};
     const jsExtensions = ['js'];
