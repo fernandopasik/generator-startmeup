@@ -10,7 +10,7 @@
 [badge-deps]: https://david-dm.org/fernandopasik/generator-startmeup/status.svg
 [badge-format]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat
 [badge-sec]: https://snyk.io/test/github/fernandopasik/generator-startmeup/badge.svg?targetFile=package.json
-[badge-version]: https://badge.fury.io/js/generator-startmeup.svg
+[badge-version]: https://badge.fury.io/js/generator-startmeup.svg?logo=npm
 [url-ci]: https://circleci.com/gh/fernandopasik/generator-startmeup 'Build Status'
 [url-cov]: https://codecov.io/gh/fernandopasik/generator-startmeup 'Coverage Status'
 [url-deps-dev]: https://david-dm.org/fernandopasik/generator-startmeup?type=dev 'Dev Dependency Status'
