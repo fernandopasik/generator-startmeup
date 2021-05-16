@@ -33,7 +33,7 @@ export default class extends Generator {
       }
     }
 
-    return extensions;
+    return extensions.sort((a, b) => a.localeCompare(b));
   }
 
   public hasDependency(name: string): boolean {
