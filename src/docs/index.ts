@@ -25,6 +25,7 @@ export default class extends Generator {
   public writing(): void {
     const options = {
       githubUrl: '',
+      githubUsername: '',
       ...this.answers,
       author: {
         name: this.answers?.['author.name'] as string,
