@@ -48,6 +48,7 @@ export default class extends Generator {
     return this.hasDependency(name) || this.hasDevDependency(name);
   }
 
+  // eslint-disable-next-line no-underscore-dangle
   protected async _resolvePackageJsonDependencies(
     dependencies: Record<string, string> | string[] | string,
   ): Promise<Record<string, string>> {
