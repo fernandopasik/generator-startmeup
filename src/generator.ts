@@ -1,3 +1,5 @@
+import prettier from 'prettier';
+import * as prettierPluginPackageJson from 'prettier-plugin-packagejson';
 import Generator from 'yeoman-generator';
 
 interface Answers {
@@ -16,6 +18,16 @@ export default class extends Generator {
     ]);
 
     return confirm;
+  }
+
+  public async formatFile(content: string, parser = 'json'): Promise<string> {
+    const prettierConfig = await prettier.resolveConfig(this.destinationRoot());
+
+    return prettier.format(content, {
+      ...prettierConfig,
+      parser,
+      plugins: [prettierPluginPackageJson],
+    });
   }
 
   public getJsExtensions(): string[] {
