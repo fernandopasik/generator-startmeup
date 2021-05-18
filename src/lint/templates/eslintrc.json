@@ -1,0 +1,83 @@
+{
+  "extends": [
+    // <% if (react) { %>
+    "airbnb",
+    // <% } else { %>
+    "airbnb-base",
+    // <% } %>
+    // <% if (typescript) { %>
+    "plugin:@typescript-eslint/all",
+    "plugin:import/typescript",
+    // <% } %>
+    // <% if (jest) { %>
+    "plugin:jest/all",
+    // <% } %>
+    // <% if (lit) { %>
+    "plugin:lit/all",
+    "plugin:lit-a11y/recommended",
+    "plugin:wc/best-practice",
+    // <% } %>
+    // <% if (prettier) { %>
+    "prettier"
+    // <% } %>
+  ],
+  // <% if (react || lit) { %>
+  "env": { "browser": true },
+  // <% } %>
+  // <% if (jest || puppeteer || storybook) { %>
+  "overrides": [
+    {
+      "files": [
+        // <% if (storybook) { %>
+        ".storybook/**",
+        "*.stories.*",
+        // <% } %>
+        // <% if (puppeteer) { %>
+        "*.e2e.*",
+        // <% } %>
+        // <% if (jest) { %>
+        "*.spec.*"
+        // <% } %>
+      ],
+      "rules": {
+        "@typescript-eslint/no-magic-numbers": "off",
+        "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+        "max-lines": "off",
+        "max-lines-per-function": "off"
+      }
+    },
+    // <% if (puppeteer) { %>
+    {
+      "files": ["*.e2e.*"],
+      "env": { "jest": true },
+      "globals": { "browser": true, "context": true, "jestPuppeteer": true, "page": true }
+    }
+    // <% } %>
+  ],
+  // <% } %>
+  // <% if (typescript) { %>
+  "parserOptions": { "project": "./tsconfig.all.json" },
+  // <% } %>
+  "rules": {
+    // <% if (typescript) { %>
+    "@typescript-eslint/no-magic-numbers": ["error", { "ignore": [0] }],
+    "import/extensions": ["error", "always"],
+    "import/no-unresolved": "off",
+    // <% } %>
+    // <% if (lit) { %>
+    "@typescript-eslint/unbound-method": "off",
+    // <% } %>
+    // <% if (jest) { %>
+    "jest/no-hooks": "off",
+    "jest/prefer-expect-assertions": "off",
+    // <% } %>
+    "max-lines": ["error", { "max": 100, "skipBlankLines": true, "skipComments": true }],
+    "max-lines-per-function": [
+      "error",
+      { "max": 20, "skipBlankLines": true, "skipComments": true }
+    ],
+    // <% if (react && typescript) { %>
+    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
+    // <% } %>
+  }
+}
