@@ -35,7 +35,8 @@ const parse = (pkg: ReadonlyDeep<PackageJson>): Parsed => {
 
   const parsedAuthor = typeof author === 'string' ? parseAuthor(author) : author;
   const repoUrl = typeof repository === 'object' ? repository.url : repository;
-  const isGitRepo = typeof repoUrl !== 'undefined' && repoUrl.includes('github.com');
+  const isGitRepo =
+    typeof repoUrl !== 'undefined' && (repoUrl.includes('github.com') || !repoUrl.includes('://'));
 
   const parsed = {
     name,
