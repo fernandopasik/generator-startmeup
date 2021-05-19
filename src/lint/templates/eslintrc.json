@@ -60,7 +60,7 @@
   // <% } %>
   "rules": {
     // <% if (typescript) { %>
-    "@typescript-eslint/no-magic-numbers": ["error", { "ignore": [0] }],
+    "@typescript-eslint/no-magic-numbers": ["error", { "ignore": [0, 1] }],
     "import/extensions": ["error", "always"],
     "import/no-unresolved": "off",
     // <% } %>

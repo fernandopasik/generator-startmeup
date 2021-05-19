@@ -17,7 +17,7 @@
   ],
   "parserOptions": { "project": "./tsconfig.all.json" },
   "rules": {
-    "@typescript-eslint/no-magic-numbers": ["error", { "ignore": [0] }],
+    "@typescript-eslint/no-magic-numbers": ["error", { "ignore": [0, 1] }],
     "@typescript-eslint/non-nullable-type-assertion-style": "warn",
     "class-methods-use-this": "off",
     "import/extensions": ["error", "never"],
