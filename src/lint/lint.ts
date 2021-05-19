@@ -3,10 +3,11 @@ import Generator from '../generator';
 export default class LintGenerator extends Generator {
   public async configuring(): Promise<void> {
     const extensions = this.getJsExtensions();
+    const onlyJs = extensions.length === 1 && extensions[0] === 'js';
 
     this.packageJson.merge({
       scripts: {
-        lint: `eslint . --ext ${extensions.join(',')}`,
+        lint: `eslint .${onlyJs ? '' : ` --ext ${extensions.join(',')}`}`,
       },
     });
 
