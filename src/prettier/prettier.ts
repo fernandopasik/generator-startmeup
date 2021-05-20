@@ -8,11 +8,13 @@ export default class PrettierGenerator extends Generator {
       },
     });
 
-    await this.addDevDependencies([
-      'prettier',
-      'prettier-plugin-organize-imports',
-      'prettier-plugin-packagejson',
-    ]);
+    const devDependencies = ['prettier', 'prettier-plugin-packagejson'];
+
+    if (this.hasDevDependency('typescript')) {
+      devDependencies.push('prettier-plugin-organize-imports');
+    }
+
+    await this.addDevDependencies(devDependencies);
 
     this.copyTemplate('prettierrc.json', '.prettierrc.json');
     this.copyTemplate('prettierignore', '.prettierignore');
