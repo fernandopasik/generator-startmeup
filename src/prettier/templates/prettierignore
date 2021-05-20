@@ -16,6 +16,7 @@ LICENSE
 Gemfile
 Gemfile.lock
 *.gem
+*.gemspec
 <% } -%>
 <% if(jekyll) { -%>
 _layouts/compress.html
