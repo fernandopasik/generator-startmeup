@@ -16,7 +16,11 @@ export default class PrettierGenerator extends Generator {
 
     await this.addDevDependencies(devDependencies);
 
+    const options = {
+      flow: this.hasDevDependency('flow-bin'),
+    };
+
     this.copyTemplate('prettierrc.json', '.prettierrc.json');
-    this.copyTemplate('prettierignore', '.prettierignore');
+    this.renderTemplate('prettierignore', '.prettierignore', options);
   }
 }
