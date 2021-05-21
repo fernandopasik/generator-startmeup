@@ -1,3 +1,4 @@
+import type { PackageJson } from 'type-fest';
 import Generator from '../generator';
 
 export default class PrettierGenerator extends Generator {
@@ -16,8 +17,11 @@ export default class PrettierGenerator extends Generator {
 
     await this.addDevDependencies(devDependencies);
 
+    const packageFiles = (this.packageJson.get('files') as PackageJson['files']) ?? [];
+
     const options = {
       flow: this.hasDevDependency('flow-bin'),
+      files: packageFiles.map((packageFile) => `${packageFile}\n`).join(''),
     };
 
     this.copyTemplate('prettierrc.json', '.prettierrc.json');

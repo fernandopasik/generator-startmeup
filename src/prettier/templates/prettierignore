@@ -9,3 +9,4 @@ yarn*.*
 .*ignore
 LICENSE
 /coverage
+<%= files -%>
