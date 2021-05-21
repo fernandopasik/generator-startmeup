@@ -8,7 +8,9 @@ yarn*.*
 .gitattributes
 .*ignore
 LICENSE
+<% if(test) { -%>
 /coverage
+<% } -%>
 <%= files -%>
 <% if(jekyll) { -%>
 _layouts/compress.html
