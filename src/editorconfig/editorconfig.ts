@@ -5,7 +5,7 @@ export default class EditorConfigGenerator extends Generator {
     const options = {
       html: this.hasFiles('**/*.html'),
       php: this.hasFiles('**/*.php'),
-      md: this.hasFiles('**/*.md'),
+      md: this.hasFiles('{.,}**/*.md'),
       yaml: this.hasFiles('{.,}**/*.{yaml,yml}'),
       packageJson: this.hasFiles('package.json'),
     };
