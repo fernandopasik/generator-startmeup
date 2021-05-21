@@ -25,6 +25,7 @@ export default class PrettierGenerator extends Generator {
       jekyll:
         this.fs.exists(this.destinationPath('docs/_config.yml')) ||
         this.fs.exists(this.destinationPath('_config.yml')),
+      ruby: this.fs.exists(this.destinationPath('Gemfile')),
       test: this.hasDevDependency('jest'),
     };
 

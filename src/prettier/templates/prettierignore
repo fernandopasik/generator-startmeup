@@ -12,6 +12,11 @@ LICENSE
 /coverage
 <% } -%>
 <%= files -%>
+<% if(ruby) { -%>
+Gemfile
+Gemfile.lock
+*.gem
+<% } -%>
 <% if(jekyll) { -%>
 _layouts/compress.html
 _site
