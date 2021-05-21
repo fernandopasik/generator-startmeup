@@ -7,7 +7,7 @@ export default class StartMeUpGenerator extends Generator {
     this.log(yosay('Welcome to the marvelous StartMeUp generator!'));
 
     const subGenerators = [
-      'init',
+      'git',
       'editorconfig',
       'packagejson',
       'prettier',

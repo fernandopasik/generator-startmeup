@@ -1,6 +1,6 @@
 import Generator from 'yeoman-generator';
 
-export default class InitGenerator extends Generator {
+export default class GitGenerator extends Generator {
   public writing(): void {
     this.fs.copy(this.templatePath('gitattributes'), this.destinationPath('.gitattributes'));
     if (!this.fs.exists(this.destinationPath('.gitignore'))) {
