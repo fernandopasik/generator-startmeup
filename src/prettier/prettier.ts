@@ -20,12 +20,12 @@ export default class PrettierGenerator extends Generator {
     const packageFiles = (this.packageJson.get('files') as PackageJson['files']) ?? [];
 
     const options = {
-      flow: this.hasDevDependency('flow-bin'),
       files: packageFiles.map((packageFile) => `${packageFile}\n`).join(''),
-      test: this.hasDevDependency('jest'),
+      flow: this.hasDevDependency('flow-bin'),
       jekyll:
         this.fs.exists(this.destinationPath('docs/_config.yml')) ||
         this.fs.exists(this.destinationPath('_config.yml')),
+      test: this.hasDevDependency('jest'),
     };
 
     this.copyTemplate('prettierrc.json', '.prettierrc.json');
