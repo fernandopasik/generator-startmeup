@@ -10,3 +10,8 @@ yarn*.*
 LICENSE
 /coverage
 <%= files -%>
+<% if(jekyll) { -%>
+/docs/_layouts/compress.html
+_site
+.jekyll-cache
+<% } -%>
