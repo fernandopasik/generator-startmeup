@@ -1,3 +1,4 @@
+import globby from 'globby';
 import prettier from 'prettier';
 import * as prettierPluginPackageJson from 'prettier-plugin-packagejson';
 import Generator from 'yeoman-generator';
@@ -58,6 +59,10 @@ export default class extends Generator {
 
   public hasAnyDependency(name: string): boolean {
     return this.hasDependency(name) || this.hasDevDependency(name);
+  }
+
+  public hasFiles(pattern: string): boolean {
+    return globby.sync(this.destinationPath(pattern), { dot: true, gitignore: true }).length > 0;
   }
 
   // eslint-disable-next-line no-underscore-dangle

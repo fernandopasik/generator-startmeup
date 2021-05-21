@@ -8,6 +8,7 @@ export default class StartMeUpGenerator extends Generator {
 
     const subGenerators = [
       'init',
+      'editorconfig',
       'packagejson',
       'prettier',
       'commit-lint',
