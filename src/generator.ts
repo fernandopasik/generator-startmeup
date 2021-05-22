@@ -1,7 +1,9 @@
 import globby from 'globby';
 import prettier from 'prettier';
 import * as prettierPluginPackageJson from 'prettier-plugin-packagejson';
+import type { JsonObject } from 'type-fest';
 import Generator from 'yeoman-generator';
+import { sortProps } from './core/configs';
 
 interface Answers {
   confirm: boolean;
@@ -25,7 +27,12 @@ export default class extends Generator {
     const config = this.readDestination(filename);
 
     const cleanConfig = config.replace(/[\s]*\/\//g, '');
-    const formattedConfig = await this.format(cleanConfig, filename);
+    let formattedConfig = await this.format(cleanConfig, filename);
+
+    if (/.json$/.exec(filename)) {
+      const jsonConfig = sortProps(JSON.parse(formattedConfig) as JsonObject, ['extends', 'files']);
+      formattedConfig = await this.format(JSON.stringify(jsonConfig), filename);
+    }
 
     this.writeDestination(filename, formattedConfig);
   }
