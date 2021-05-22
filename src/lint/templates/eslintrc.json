@@ -13,8 +13,8 @@
     "plugin:jest/all",
     // <% } %>
     // <% if (lit) { %>
-    "plugin:lit/all",
     "plugin:lit-a11y/recommended",
+    "plugin:lit/all",
     "plugin:wc/best-practice",
     // <% } %>
     // <% if (prettier) { %>
