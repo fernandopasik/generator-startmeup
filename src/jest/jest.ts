@@ -1,36 +1,63 @@
-import type { Config } from '@jest/types';
-import Generator from 'yeoman-generator';
-import { configs, dependencies } from '../core';
-import { buildConfig } from './config';
+import Generator from '../generator';
 
 export default class JestGenerator extends Generator {
-  private jestConfig: Config.InitialOptions = {};
+  public async configuring(): Promise<void> {
+    this.packageJson.merge({
+      scripts: {
+        test: 'jest',
+      },
+    });
 
-  public async initializing(): Promise<void> {
-    await dependencies.importAll();
-
-    this.jestConfig = (await configs.load<Config.InitialOptions>('jest.config.js')) ?? {};
+    await this.addDevDependencies(['jest']);
   }
 
-  public prompting(): void {
-    dependencies.add('jest', 'dev');
-  }
+  public async writing(): Promise<void> {
+    const options = {
+      axe: this.hasDevDependency('jest-axe'),
+      babel: this.hasDevDependency('@babel/core'),
+      collectExtensions: 'js',
+      lit: this.hasAnyDependency('lit') || this.hasAnyDependency('lit-html'),
+      module: this.packageJson.get('type') === 'module',
+      enzyme: this.hasDevDependency('enzyme'),
+      puppeteer: this.hasDevDependency('puppeteer'),
+      react: this.hasAnyDependency('react'),
+      storybook:
+        this.hasDevDependency('@storybook/react') ||
+        this.hasDevDependency('@storybook/web-components'),
+      transformExtensions: 'js',
+      typescript: this.hasDevDependency('typescript'),
+      transform: '',
+    };
 
-  public configuring(): void {
-    if (dependencies.has('typescript', 'dev')) {
-      dependencies.add('ts-jest', 'dev');
-    } else if (dependencies.has('@babel/core', 'dev')) {
-      dependencies.add('babel-jest', 'dev');
+    if (options.typescript) {
+      await this.addDevDependencies(['@types/jest', 'ts-jest']);
+      options.transform = 'ts-jest';
+      options.collectExtensions = '{j,t}s';
+      options.transformExtensions = '[j|t]s';
     }
 
-    this.jestConfig = buildConfig(this.jestConfig);
-
-    configs.set('jest.config.js', configs.sortProps(this.jestConfig));
-  }
-
-  public install(): void {
-    if (!(this.options['skip-install'] as boolean)) {
-      dependencies.install();
+    if (options.babel) {
+      await this.addDevDependencies(['babel-jest']);
+      options.transform = 'babel-jest';
     }
+
+    if (options.react) {
+      await this.addDevDependencies(['jest-environment-enzyme', 'jest-enzyme']);
+      options.collectExtensions += '{,x}';
+      options.transformExtensions += 'x?';
+    }
+
+    if (options.puppeteer) {
+      await this.addDevDependencies(['@types/jest-environment-puppeteer', 'jest-puppeteer']);
+    }
+
+    this.renderTemplate('jest.config.js', 'jest.config.js', options, { rmWhitespace: true });
+
+    const config = this.readDestination('jest.config.js');
+
+    const configJSON = config.replace(/[\s]*\/\//g, '');
+    const formattedConfig = await this.formatFile(configJSON, 'babel');
+
+    this.writeDestination('jest.config.js', formattedConfig);
   }
 }
