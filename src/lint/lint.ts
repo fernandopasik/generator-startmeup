@@ -68,11 +68,6 @@ export default class LintGenerator extends Generator {
 
     this.renderTemplate('eslintrc.json', '.eslintrc.json', options, { rmWhitespace: true });
 
-    const config = this.readDestination('.eslintrc.json');
-
-    const configJSON = config.replace(/[\s]*\/\//g, '');
-    const formattedConfig = await this.formatFile(configJSON);
-
-    this.writeDestination('.eslintrc.json', formattedConfig);
+    await this.formatFile('.eslintrc.json');
   }
 }

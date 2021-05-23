@@ -21,12 +21,21 @@ export default class extends Generator {
     return confirm;
   }
 
-  public async formatFile(content: string, parser = 'json'): Promise<string> {
+  public async formatFile(filename: string): Promise<void> {
+    const config = this.readDestination(filename);
+
+    const cleanConfig = config.replace(/[\s]*\/\//g, '');
+    const formattedConfig = await this.format(cleanConfig, filename);
+
+    this.writeDestination(filename, formattedConfig);
+  }
+
+  public async format(content: string, filepath: string): Promise<string> {
     const prettierConfig = await prettier.resolveConfig(this.destinationRoot());
 
     return prettier.format(content, {
       ...prettierConfig,
-      parser,
+      filepath,
       plugins: [prettierPluginPackageJson],
     });
   }

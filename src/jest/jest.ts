@@ -53,11 +53,6 @@ export default class JestGenerator extends Generator {
 
     this.renderTemplate('jest.config.js', 'jest.config.js', options, { rmWhitespace: true });
 
-    const config = this.readDestination('jest.config.js');
-
-    const configJSON = config.replace(/[\s]*\/\//g, '');
-    const formattedConfig = await this.formatFile(configJSON, 'babel');
-
-    this.writeDestination('jest.config.js', formattedConfig);
+    await this.formatFile('jest.config.js');
   }
 }
