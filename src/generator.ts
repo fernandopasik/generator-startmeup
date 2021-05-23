@@ -81,6 +81,16 @@ export default class extends Generator {
     return globby.sync(this.destinationPath(pattern), { dot: true, gitignore: true }).length > 0;
   }
 
+  public async addPeerDependencies(
+    dependencies: Record<string, string> | string[] | string,
+  ): Promise<Record<string, string>> {
+    // eslint-disable-next-line no-underscore-dangle
+    const peerDependencies = await this._resolvePackageJsonDependencies(dependencies);
+    this.packageJson.merge({ peerDependencies });
+
+    return peerDependencies;
+  }
+
   // eslint-disable-next-line no-underscore-dangle
   protected async _resolvePackageJsonDependencies(
     dependencies: Record<string, string> | string[] | string,
