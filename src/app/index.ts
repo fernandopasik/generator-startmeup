@@ -20,6 +20,7 @@ export default class StartMeUpGenerator extends Generator {
       'commit-lint',
       'libraries',
       'typescript',
+      'babel',
       'jest',
       'lint',
       'lint-staged',
@@ -32,7 +33,12 @@ export default class StartMeUpGenerator extends Generator {
       typescript: {
         message: 'Are you programming with TypeScript?',
         default: true,
-        skip: this.hasFiles('**/*.ts'),
+        skip: this.hasFiles('src/**/*.ts'),
+      },
+      babel: {
+        message: 'Do you want to compile with Babel?',
+        default: false,
+        skip: this.hasFiles('babel.config.js') || this.hasFiles('**/.babelrc.json'),
       },
     };
 
