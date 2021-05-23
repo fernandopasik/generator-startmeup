@@ -1,8 +1,6 @@
-import type { PackageJson } from 'type-fest';
 import Generator from 'yeoman-generator';
 import { ask, configs, dependencies } from '../core';
 import { addPreset, getBabelConfig } from './babelConfig';
-import getTSConfig, { getTSConfigAll } from './tsConfig';
 
 export default class CompilerGenerator extends Generator {
   private compilers: string[] = [];
@@ -14,7 +12,6 @@ export default class CompilerGenerator extends Generator {
   public async prompting(): Promise<void> {
     const compilerDependencies: Record<string, string> = {
       babel: '@babel/core',
-      typescript: 'typescript',
     };
 
     const { compilers } = await ask([
@@ -34,15 +31,9 @@ export default class CompilerGenerator extends Generator {
     if (this.compilers.includes('babel')) {
       dependencies.add('@babel/core', 'dev');
     }
-
-    if (this.compilers.includes('typescript')) {
-      dependencies.add('typescript', 'dev');
-    }
   }
 
-  public async configuring(): Promise<void> {
-    const pkg = await configs.load<PackageJson>('package.json');
-
+  public configuring(): void {
     if (this.compilers.includes('babel')) {
       addPreset('@babel/preset-env');
       dependencies.add('@babel/preset-env', 'dev');
@@ -62,14 +53,6 @@ export default class CompilerGenerator extends Generator {
 
     if (this.compilers.includes('babel')) {
       configs.set('babel.config.js', configs.sortProps(getBabelConfig(), ['extends', 'files']));
-    }
-
-    if (this.compilers.includes('typescript')) {
-      configs.set('tsconfig.json', configs.sortProps(getTSConfig(), ['extends', 'files']));
-      configs.set(
-        'tsconfig.all.json',
-        configs.sortProps(getTSConfigAll(pkg?.files), ['extends', 'files']),
-      );
     }
   }
 
