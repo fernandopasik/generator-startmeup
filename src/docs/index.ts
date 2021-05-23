@@ -46,13 +46,5 @@ export default class extends Generator {
     ['CONTRIBUTING.md', 'CODE_OF_CONDUCT.md'].forEach((template: string): void => {
       this.renderTemplate(template, template, options);
     });
-
-    [
-      'github/PULL_REQUEST_TEMPLATE.md',
-      'github/ISSUE_TEMPLATE/bug_report.md',
-      'github/ISSUE_TEMPLATE/feature_request.md',
-    ].forEach((template: string): void => {
-      this.renderTemplate(template, `.${template}`, options);
-    });
   }
 }

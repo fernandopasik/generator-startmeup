@@ -13,6 +13,7 @@ export default class StartMeUpGenerator extends Generator {
 
     const subGenerators = [
       'git',
+      'github-templates',
       'editorconfig',
       'packagejson',
       'prettier',
@@ -38,6 +39,11 @@ export default class StartMeUpGenerator extends Generator {
         message: 'Do you want to compile with Babel?',
         default: false,
         skip: this.hasFiles('babel.config.js') || this.hasFiles('**/.babelrc.json'),
+      },
+      'github-templates': {
+        message: 'Are you pushing the repo to github?',
+        default: true,
+        skip: this.hasFiles('.github'),
       },
     };
 
