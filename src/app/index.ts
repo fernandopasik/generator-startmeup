@@ -1,5 +1,4 @@
 import yosay from 'yosay';
-import { dependencies } from '../core';
 import Generator from '../generator';
 
 interface Confirmation {
@@ -57,9 +56,5 @@ export default class StartMeUpGenerator extends Generator {
         }
       }),
     );
-  }
-
-  public install(): void {
-    dependencies.install();
   }
 }
