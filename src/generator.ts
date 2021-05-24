@@ -3,7 +3,7 @@ import prettier from 'prettier';
 import * as prettierPluginPackageJson from 'prettier-plugin-packagejson';
 import type { JsonObject } from 'type-fest';
 import Generator from 'yeoman-generator';
-import { sortProps } from './core/configs';
+import sortProps from './sort-props';
 
 interface Answers {
   confirm: boolean;
