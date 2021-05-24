@@ -2,23 +2,22 @@
 node_modules
 yarn*.*
 .editorconfig
-<% if(flow) { -%>
+<% if (flow) { -%>
 .flowconfig
 <% } -%>
 .gitattributes
 .*ignore
-LICENSE
-<% if(test) { -%>
+<% if (test) { -%>
 /coverage
 <% } -%>
 <%= files -%>
-<% if(ruby) { -%>
+<% if (ruby) { -%>
 Gemfile
 Gemfile.lock
 *.gem
 *.gemspec
 <% } -%>
-<% if(jekyll) { -%>
+<% if (jekyll) { -%>
 _layouts/compress.html
 _site
 .jekyll-cache
