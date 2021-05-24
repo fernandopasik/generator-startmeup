@@ -21,7 +21,8 @@ Ensure the bug or feature has not been reported before searching by [searching](
 <% if (codecov) { -%>
    - [Codecov](https://codecov.io/gh/<%= githubUsername %>/<%= name %>)
 <%_ } -%>
-<% if (commitlint || eslint) { %>
+
+<% if (commitlint || eslint || prettier) { -%>
 ## Styleguides
 
 <%_ } -%>
