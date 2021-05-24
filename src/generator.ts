@@ -69,6 +69,20 @@ export default class extends Generator {
     return extensions.sort((a, b) => a.localeCompare(b));
   }
 
+  public getCssExtensions(): string[] {
+    const extensions = [];
+
+    if (this.hasFiles('**/*.css')) {
+      extensions.push('css');
+    }
+
+    if (this.hasFiles('**/*.scss')) {
+      extensions.push('scss');
+    }
+
+    return extensions.sort((a, b) => a.localeCompare(b));
+  }
+
   public hasDependency(name: string): boolean {
     return typeof this.packageJson.getPath(`dependencies.${name}`) !== 'undefined';
   }
