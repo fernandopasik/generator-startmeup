@@ -6,6 +6,7 @@ Ensure the bug or feature has not been reported before searching by [searching](
 
 ## Submitting changes
 
+<!-- prettier-ignore-start -->
 1. Fork the project
 2. Create a new branch
 3. Commit your proposed changes
@@ -22,3 +23,5 @@ Ensure the bug or feature has not been reported before searching by [searching](
 - [Prettier](https://prettier.io) will catch most styling issues that may exist in your code. You can check the status of your code styling by simply running `yarn prettier`.
 - Git commit messages are checked with [commitlint](https://github.com/marionebl/commitlint) and follow the [conventional commits rules](https://github.com/marionebl/commitlint/tree/master/@commitlint/config-conventional#rules).
 - JavaScript styles are checked with [eslint](https://eslint.org/) and follow the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript).
+
+<!-- prettier-ignore-end -->
