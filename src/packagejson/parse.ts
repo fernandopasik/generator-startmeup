@@ -21,7 +21,7 @@ export interface Parsed {
   license?: string;
 }
 
-const parseAuthor = (authorInfo: string): Person => {
+export const parseAuthor = (authorInfo: string): Person => {
   const author: Person = {};
   author.name = authorInfo.replace(/\s?[(<].*/g, '');
   [, author.email = undefined] = /<([^>]+)>/.exec(authorInfo) ?? [];
