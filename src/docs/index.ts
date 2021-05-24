@@ -1,7 +1,7 @@
 import type { Answers } from 'inquirer';
 import type { PackageJson } from 'type-fest';
-import Generator from 'yeoman-generator';
-import { ask, configs, dependencies } from '../core';
+import { ask, configs } from '../core';
+import Generator from '../generator';
 import type { Parsed } from '../packagejson/parse';
 import parse from '../packagejson/parse';
 import questions from './questions';
@@ -12,8 +12,6 @@ export default class extends Generator {
   private answers?: Answers;
 
   public async initializing(): Promise<void> {
-    await dependencies.importAll();
-
     const pkg = (await configs.load('package.json')) ?? {};
     this.parameters = parse(pkg as PackageJson);
   }
@@ -29,11 +27,11 @@ export default class extends Generator {
       author: {
         name: this.answers?.['author.name'] as string,
       },
-      eslint: dependencies.has('eslint', 'dev'),
-      codecov: dependencies.has('codecov', 'dev'),
-      commitlint: dependencies.has('@commitlint/cli', 'dev'),
+      eslint: this.hasDevDependency('eslint'),
+      codecov: this.hasDevDependency('codecov'),
+      commitlint: this.hasDevDependency('@commitlint/cli'),
       circleci: this.existsDestination('.circleci/config.yml'),
-      prettier: dependencies.has('prettier', 'dev'),
+      prettier: this.hasDevDependency('prettier'),
       year: new Date().getFullYear(),
     };
 
