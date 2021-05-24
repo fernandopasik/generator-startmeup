@@ -35,11 +35,9 @@ export default class extends Generator {
       year: new Date().getFullYear(),
     };
 
-    ['LICENSE', 'README.md'].forEach((template: string): void => {
-      if (!this.existsDestination(template)) {
-        this.renderTemplate(template, template, options);
-      }
-    });
+    if (!this.existsDestination('README.md')) {
+      this.renderTemplate('README.md', 'README.md', options);
+    }
 
     ['CONTRIBUTING.md', 'CODE_OF_CONDUCT.md'].forEach((template: string): void => {
       this.renderTemplate(template, template, options);
