@@ -4,6 +4,6 @@ yarn*.*
 .editorconfig
 .gitattributes
 .*ignore
-LICENSE
+/LICENSE
 /coverage
 /generators
