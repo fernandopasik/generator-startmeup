@@ -1,30 +1,22 @@
-import { format } from '../core/configs';
 import Generator from '../generator';
 
 export default class LintStagedGenerator extends Generator {
   public async configuring(): Promise<void> {
     await this.addDevDependencies(['lint-staged']);
+  }
 
-    const config: Record<string, string[] | string> = {};
-    const jsExtensions = this.getJsExtensions();
+  public async writing(): Promise<void> {
+    const options = {
+      cssExtensions: this.getCssExtensions().join(','),
+      eslint: this.hasDevDependency('eslint'),
+      jest: this.hasDevDependency('jest'),
+      jsExtensions: this.getJsExtensions().join(','),
+      prettier: this.hasDevDependency('prettier'),
+      scss: this.hasFiles('**/*.scss'),
+    };
 
-    const jsCommands = [];
+    this.renderTemplate('lintstagedrc.json', '.lintstagedrc.json', options);
 
-    if (this.hasAnyDependency('eslint')) {
-      jsCommands.push('eslint');
-    }
-
-    if (this.hasAnyDependency('jest')) {
-      jsCommands.push('jest --bail --findRelatedTests');
-    }
-
-    if (jsCommands.length > 0) {
-      const matcher = `*.{${jsExtensions.join(',')}}`;
-      config[matcher] = jsCommands;
-    }
-
-    const formattedConfig = await format(config);
-
-    this.writeDestination('.lintstagedrc.json', formattedConfig);
+    await this.formatFile('.lintstagedrc.json');
   }
 }

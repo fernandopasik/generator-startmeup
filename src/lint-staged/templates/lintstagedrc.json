@@ -1,0 +1,18 @@
+{
+  // <% if (prettier) { %>
+  "*": ["prettier --check"],
+  // <% } %>
+  // <% if (jsExtensions) { %>
+  "*.{<%= jsExtensions %>}": [
+    // <% if (eslint) { %>
+    "eslint",
+    // <% } %>
+    // <% if (jest) { %>
+    "jest --bail --findRelatedTests"
+    // <% } %>
+  ],
+  // <% } %>
+  // <% if (cssExtensions) { %>
+  "*.{<%= cssExtensions %>}": ["stylelint<% if (scss) { %> --syntax=scss<% } %>"]
+  // <% } %>
+}
