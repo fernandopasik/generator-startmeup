@@ -1,13 +1,9 @@
 import sort from 'sort-package-json';
 import type { PackageJson } from 'type-fest';
-import Generator from 'yeoman-generator';
-import { configs, dependencies } from '../core';
+import { configs } from '../core';
+import Generator from '../generator';
 
 export default class SrcGenerator extends Generator {
-  public async initializing(): Promise<void> {
-    await dependencies.importAll();
-  }
-
   public async writing(): Promise<void> {
     const pkg = await configs.load<PackageJson>('package.json');
 
@@ -19,11 +15,11 @@ export default class SrcGenerator extends Generator {
 
     let extension = 'js';
 
-    if (dependencies.has('typescript', 'dev')) {
+    if (this.hasDevDependency('typescript')) {
       extension = 'ts';
     }
 
-    if (dependencies.has('react')) {
+    if (this.hasAnyDependency('react')) {
       extension += 'x';
     }
 
@@ -38,7 +34,7 @@ export default class SrcGenerator extends Generator {
       files: ['/lib', builtFiles],
     };
 
-    if (dependencies.has('typescript', 'dev')) {
+    if (this.hasDevDependency('typescript')) {
       packageProps.typings = `${name}.d.ts`;
     }
 
