@@ -48,7 +48,11 @@ export default class extends Generator {
   }
 
   public getJsExtensions(): string[] {
-    const extensions = ['js'];
+    const extensions = [];
+
+    if (this.hasFiles('**/*.js')) {
+      extensions.push('js');
+    }
 
     if (this.hasAnyDependency('react')) {
       extensions.push('jsx');
