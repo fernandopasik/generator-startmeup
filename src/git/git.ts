@@ -1,4 +1,4 @@
-import Generator from 'yeoman-generator';
+import Generator from '../generator';
 
 export default class GitGenerator extends Generator {
   public writing(): void {
