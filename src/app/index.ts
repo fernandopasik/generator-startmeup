@@ -14,6 +14,7 @@ export default class StartMeUpGenerator extends Generator {
     const subGenerators = [
       'git',
       'github-templates',
+      'license',
       'editorconfig',
       'packagejson',
       'prettier',
