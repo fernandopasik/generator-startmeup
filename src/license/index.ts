@@ -1,1 +1,1 @@
-export { default } from './license';
+export { default, parseYear } from './license';
