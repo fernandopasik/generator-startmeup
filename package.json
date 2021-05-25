@@ -38,7 +38,6 @@
     "preversion": "yarn verify"
   },
   "dependencies": {
-    "cross-spawn": "^7.0.3",
     "github-username": "^6.0.0",
     "globby": "^11.0.3",
     "inquirer": "^8.1.0",
@@ -54,7 +53,6 @@
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
     "@jest/types": "^27.0.1",
-    "@types/cross-spawn": "^6.0.2",
     "@types/eslint": "^7.2.12",
     "@types/inquirer": "^7.3.1",
     "@types/jest": "^26.0.23",
