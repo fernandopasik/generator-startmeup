@@ -15,8 +15,8 @@ export default class PackageJsonGenerator extends Generator {
 
   private answers?: Answers;
 
-  public async initializing(): Promise<void> {
-    this.pkg = await configs.load<PackageJson>('package.json');
+  public initializing(): void {
+    this.pkg = this.packageJson.getAll();
 
     if (typeof this.pkg !== 'undefined') {
       this.parameters = parse(this.pkg);

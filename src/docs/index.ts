@@ -1,6 +1,5 @@
 import type { Answers } from 'inquirer';
-import type { PackageJson } from 'type-fest';
-import { ask, configs } from '../core';
+import { ask } from '../core';
 import Generator from '../generator';
 import type { Parsed } from '../packagejson/parse';
 import parse from '../packagejson/parse';
@@ -11,9 +10,8 @@ export default class extends Generator {
 
   private answers?: Answers;
 
-  public async initializing(): Promise<void> {
-    const pkg = (await configs.load('package.json')) ?? {};
-    this.parameters = parse(pkg as PackageJson);
+  public initializing(): void {
+    this.parameters = parse(this.packageJson.getAll());
   }
 
   public async prompting(): Promise<void> {
