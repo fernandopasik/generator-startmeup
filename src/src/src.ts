@@ -1,16 +1,13 @@
 import type { PackageJson } from 'type-fest';
-import { configs } from '../core';
 import Generator from '../generator';
 
 export default class SrcGenerator extends Generator {
-  public async writing(): Promise<void> {
-    const pkg = await configs.load<PackageJson>('package.json');
+  public writing(): void {
+    const name = this.packageJson.get('name') as PackageJson['name'];
 
-    if (typeof pkg?.name === 'undefined') {
+    if (typeof name === 'undefined') {
       return;
     }
-
-    const { name } = pkg;
 
     let extension = 'js';
 
@@ -43,7 +40,5 @@ export default class SrcGenerator extends Generator {
     if (!this.fs.exists(this.destinationPath(mainFile))) {
       this.fs.write(this.destinationPath(mainFile), '');
     }
-
-    await configs.saveAll();
   }
 }
