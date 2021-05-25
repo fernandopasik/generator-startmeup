@@ -2,7 +2,7 @@ import type { Answers } from 'inquirer';
 import sortPackageJson from 'sort-package-json';
 import type { PackageJson } from 'type-fest';
 import Generator from 'yeoman-generator';
-import { ask, configs } from '../core';
+import { ask } from '../core';
 import compose from './compose';
 import type { Parsed } from './parse';
 import parse from './parse';
@@ -35,6 +35,6 @@ export default class PackageJsonGenerator extends Generator {
 
     const sortedPkg = sortPackageJson(pkg);
 
-    configs.set('package.json', sortedPkg);
+    this.packageJson.merge(sortedPkg);
   }
 }
