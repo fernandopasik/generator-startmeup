@@ -1,4 +1,3 @@
-import sort from 'sort-package-json';
 import type { PackageJson } from 'type-fest';
 import { configs } from '../core';
 import Generator from '../generator';
@@ -38,13 +37,7 @@ export default class SrcGenerator extends Generator {
       packageProps.typings = `${name}.d.ts`;
     }
 
-    configs.set(
-      'package.json',
-      sort({
-        ...pkg,
-        ...packageProps,
-      }),
-    );
+    this.packageJson.merge(packageProps);
 
     const mainFile = `src/${name}.${extension}`;
     if (!this.fs.exists(this.destinationPath(mainFile))) {
