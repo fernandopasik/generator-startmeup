@@ -2,6 +2,8 @@ import yosay from 'yosay';
 import Generator from '../generator';
 
 interface Confirmation {
+  type: string;
+  name: string;
   message: string;
   default: boolean;
   skip: boolean;
@@ -30,38 +32,40 @@ export default class StartMeUpGenerator extends Generator {
       'src',
     ];
 
-    const subGeneratorConfirmations: Record<string, Confirmation> = {
-      typescript: {
+    const subGeneratorConfirmations: Confirmation[] = [
+      {
+        type: 'confirm',
+        name: 'typescript',
         message: 'Are you programming with TypeScript?',
         default: true,
         skip: this.hasFiles('src/**/*.ts'),
       },
-      babel: {
+      {
+        type: 'confirm',
+        name: 'babel',
         message: 'Do you want to compile with Babel?',
         default: false,
         skip: this.hasFiles('babel.config.js') || this.hasFiles('**/.babelrc.json'),
       },
-      'github-templates': {
+      {
+        type: 'confirm',
+        name: 'github-templates',
         message: 'Are you pushing the repo to github?',
         default: true,
         skip: this.hasFiles('.github'),
       },
-    };
+    ];
 
-    await Promise.all(
-      subGenerators.map(async (subGenerator: string): Promise<void> => {
-        const confirmation = subGeneratorConfirmations[subGenerator];
-
-        let run = true;
-
-        if (typeof confirmation !== 'undefined' && !confirmation.skip) {
-          run = await this.confirm(confirmation.message, confirmation.default);
-        }
-
-        if (run) {
-          this.composeWith(`startmeup:${subGenerator}`, { 'skip-install': true });
-        }
-      }),
+    const confirms = await this.prompt<Record<string, boolean>>(
+      subGeneratorConfirmations.filter(
+        (confirmation: Readonly<Confirmation>) => !confirmation.skip,
+      ),
     );
+
+    subGenerators.forEach((subGenerator) => {
+      if (!(subGenerator in confirms) || confirms[subGenerator]) {
+        this.composeWith(`startmeup:${subGenerator}`, { 'skip-install': true });
+      }
+    });
   }
 }
