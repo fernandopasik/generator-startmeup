@@ -2,7 +2,7 @@
 
 ## Reporting Bugs or suggesting features
 
-Ensure the bug or feature has not been reported before searching by [searching](<%= githubUrl %>/issues) first. If no similar issue is found please submit a [new](<%= githubUrl %>/issues/new/choose) one.
+Ensure the bug or feature has not been reported before searching by [searching](https://github.com/<%= githubOrg %>/<%= githubRepo %>/issues) first. If no similar issue is found please submit a [new](https://github.com/<%= githubOrg %>/<%= githubRepo %>/issues/new/choose) one.
 
 ## Submitting changes
 
@@ -15,11 +15,11 @@ Ensure the bug or feature has not been reported before searching by [searching](
 6. Please add a clear description of the problem and solution
 7. Include any related issue number
 8. Please ensure the PR passes the automated checks
-<% if (circleci) { -%>
-   - [Circle CI](https://circleci.com/gh/<%= githubUsername %>/<%= name %>)
+<% if (circleCi) { -%>
+   - [Circle CI](https://circleci.com/gh/<%= githubOrg %>/<%= githubRepo %>)
 <%_ } -%>
-<% if (codecov) { -%>
-   - [Codecov](https://codecov.io/gh/<%= githubUsername %>/<%= name %>)
+<% if (codeCov) { -%>
+   - [Codecov](https://codecov.io/gh/<%= githubOrg %>/<%= githubRepo %>)
 <%_ } -%>
 
 <% if (commitlint || eslint || prettier) { -%>
