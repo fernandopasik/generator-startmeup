@@ -30,12 +30,13 @@ export default class extends Generator {
     let formattedConfig = await this.format(cleanConfig, filename);
 
     if (/.json$/.exec(filename)) {
+      const JSON_SPACING = 2;
       const jsonConfig = sortProps(JSON.parse(formattedConfig) as JsonObject, [
         'extends',
         'files',
         'error',
       ]);
-      formattedConfig = await this.format(JSON.stringify(jsonConfig), filename);
+      formattedConfig = await this.format(JSON.stringify(jsonConfig, null, JSON_SPACING), filename);
     }
 
     this.writeDestination(filename, formattedConfig);
