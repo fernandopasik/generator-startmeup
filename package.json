@@ -28,14 +28,14 @@
     "postchangelog": "prettier --write CHANGELOG.md",
     "check-types": "tsc --noEmit -p tsconfig.all.json",
     "format": "prettier --no-error-on-unmatched-pattern --write ** ./* ./.??*",
-    "postinstall": "husky install",
     "lint": "eslint . --ext js,ts",
-    "prepublishOnly": "pinst --disable",
+    "postinstall": "husky install",
     "postpublish": "pinst --enable",
+    "prepublishOnly": "pinst --disable",
+    "preversion": "yarn verify",
     "start": "yarn build -w",
     "test": "jest",
-    "verify": "yarn lint && yarn check-types && yarn test && yarn build",
-    "preversion": "yarn verify"
+    "verify": "yarn lint && yarn check-types && yarn test && yarn build"
   },
   "dependencies": {
     "git-remote-origin-url": "^3.1.0",
