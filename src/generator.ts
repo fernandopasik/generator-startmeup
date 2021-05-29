@@ -31,12 +31,17 @@ export default class extends Generator {
 
     if (/.json$/.exec(filename)) {
       const JSON_SPACING = 2;
+      let spaces = 0;
+
       const jsonConfig = sortProps(JSON.parse(formattedConfig) as JsonObject, [
         'extends',
         'files',
         'error',
       ]);
-      formattedConfig = await this.format(JSON.stringify(jsonConfig, null, JSON_SPACING), filename);
+      if (Object.keys(jsonConfig).length <= JSON_SPACING) {
+        spaces = JSON_SPACING;
+      }
+      formattedConfig = await this.format(JSON.stringify(jsonConfig, null, spaces), filename);
     }
 
     this.writeDestination(filename, formattedConfig);
