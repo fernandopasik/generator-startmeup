@@ -3,7 +3,7 @@ import parseGithub from 'parse-github-url';
 import type { PackageJson } from 'type-fest';
 import Generator from '../generator';
 import { parseYear } from '../license';
-import { parseAuthor } from '../packagejson/parse';
+import { parseAuthor } from '../packagejson';
 
 export default class ReadmeGenerator extends Generator {
   public async writing(): Promise<void> {

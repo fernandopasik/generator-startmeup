@@ -3,6 +3,7 @@ import parseGithub from 'parse-github-url';
 import path from 'path';
 import type { PackageJson } from 'type-fest';
 import Generator from '../generator';
+import { composeAuthor, parseAuthor } from './author';
 
 interface Answers {
   name: string;
@@ -13,34 +14,8 @@ interface Answers {
   license: string;
 }
 
-interface Person {
-  name?: string;
-  url?: string;
-  email?: string;
-}
-
 const LICENSES = ['MIT', 'UNLICENSED'];
 const [DEFAULT_LICENSE] = LICENSES;
-
-const parseAuthor = (authorInfo: PackageJson.Person): Person => {
-  if (typeof authorInfo !== 'string') {
-    return authorInfo;
-  }
-
-  const author: PackageJson.Person = {
-    name: authorInfo.replace(/\s?[(<].*/g, ''),
-  };
-  [, author.email = undefined] = /<([^>]+)>/.exec(authorInfo) ?? [];
-  [, author.url = undefined] = /\(([^)]+)\)/.exec(authorInfo) ?? [];
-
-  return author;
-};
-
-const composeAuthor = (author: Readonly<Person> = {}): string =>
-  `${author.name ?? ''} <${author.email ?? ''}> (${author.url ?? ''})`
-    .replace(' <>', '')
-    .replace(' ()', '')
-    .trim();
 
 export default class DocsGenerator extends Generator {
   private answers!: Answers;

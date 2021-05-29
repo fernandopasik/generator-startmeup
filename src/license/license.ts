@@ -1,5 +1,5 @@
 import Generator from '../generator';
-import { parseAuthor } from '../packagejson/parse';
+import { parseAuthor } from '../packagejson';
 
 export const parseYear = (license: string): string => {
   const [year = null] = /20\d\d/.exec(license) ?? [];
