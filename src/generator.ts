@@ -26,7 +26,7 @@ export default class extends Generator {
   public async formatFile(filename: string): Promise<void> {
     const config = this.readDestination(filename);
 
-    const cleanConfig = config.replace(/[\s]*\/\//g, '');
+    const cleanConfig = config.replace(/[\s]*\/\/\W/g, '');
     let formattedConfig = await this.format(cleanConfig, filename);
 
     if (/.json$/.exec(filename)) {
