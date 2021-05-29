@@ -27,6 +27,7 @@ export default class ReadmeGenerator extends Generator {
       githubRepo,
       license,
       npm: !((this.packageJson.get('private') as PackageJson['private']) ?? false),
+      npmPackage: name,
       sec: true,
       size: this.hasDevDependency('bundlesize') || this.hasDevDependency('bundlewatch'),
       year: parseYear(licenseFile),
