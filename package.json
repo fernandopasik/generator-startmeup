@@ -5,10 +5,7 @@
   "keywords": [],
   "homepage": "https://github.com/fernandopasik/generator-startmeup",
   "bugs": "https://github.com/fernandopasik/generator-startmeup/issues",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fernandopasik/generator-startmeup.git"
-  },
+  "repository": "fernandopasik/generator-startmeup",
   "license": "MIT",
   "author": "Fernando Pasik <fernando@pasik.com.ar> (https://fernandopasik.com)",
   "contributors": [],
