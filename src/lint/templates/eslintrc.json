@@ -26,6 +26,12 @@
   // <% } %>
   // <% if (jest || puppeteer || storybook) { %>
   "overrides": [
+    // <% if (storybook && typescript) { %>
+    {
+      "files": ["*.stories.*"],
+      "rules": { "import/extensions": "off" }
+    },
+    // <% } %>
     {
       "files": [
         // <% if (storybook) { %>
