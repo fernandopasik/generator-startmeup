@@ -96,23 +96,12 @@ describe('sort props', () => {
   });
 
   it('lowercase and uppercase values', () => {
-    const config = {
-      // eslint-disable-next-line @typescript-eslint/naming-convention
-      B: null,
-      a: 1,
-      // eslint-disable-next-line @typescript-eslint/naming-convention
-      C: '',
-    };
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    const config = { B: null, a: 1, b: '' };
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    const sortedConfig = { a: 1, B: null, b: '' };
 
-    expect(JSON.stringify(sortProps(config))).toStrictEqual(
-      JSON.stringify({
-        a: 1,
-        // eslint-disable-next-line @typescript-eslint/naming-convention
-        B: null,
-        // eslint-disable-next-line @typescript-eslint/naming-convention
-        C: '',
-      }),
-    );
+    expect(JSON.stringify(sortProps(config))).toStrictEqual(JSON.stringify(sortedConfig));
   });
 
   it('extends goes always first', () => {
