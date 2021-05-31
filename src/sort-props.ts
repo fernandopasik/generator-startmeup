@@ -34,7 +34,6 @@ const compareSortingValues = (
 };
 
 const sortProps = (json?: JsonObject, sortFirst?: string[]): JsonObject =>
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   Object.fromEntries(
     Object.entries(json ?? {})
       .sort(
@@ -67,6 +66,6 @@ const sortProps = (json?: JsonObject, sortFirst?: string[]): JsonObject =>
 
         return [key, value];
       }),
-  );
+  ) as JsonObject;
 
 export default sortProps;
