@@ -10,7 +10,7 @@ export default class ReadmeGenerator extends Generator {
     const { name, description, author, license } = this.packageJson.getAll() as PackageJson;
 
     const authorInfo = parseAuthor(author as string);
-    const licenseFile = this.readDestination('LICENSE');
+    const licenseFile = this.existsDestination('LICENSE') ? this.readDestination('LICENSE') : '';
     const gitUrl = await gitRemote();
 
     const { owner: githubOrg, name: githubRepo } = parseGithub(gitUrl) ?? {};
