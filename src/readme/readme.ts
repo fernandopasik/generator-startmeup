@@ -11,7 +11,14 @@ export default class ReadmeGenerator extends Generator {
 
     const authorInfo = parseAuthor(author as string);
     const licenseFile = this.existsDestination('LICENSE') ? this.readDestination('LICENSE') : '';
-    const gitUrl = await gitRemote();
+
+    let gitUrl = '';
+
+    try {
+      gitUrl = await gitRemote();
+    } catch {
+      gitUrl = '';
+    }
 
     const { owner: githubOrg, name: githubRepo } = parseGithub(gitUrl) ?? {};
 

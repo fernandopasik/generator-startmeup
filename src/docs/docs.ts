@@ -4,7 +4,13 @@ import Generator from '../generator';
 
 export default class DocsGenerator extends Generator {
   public async writing(): Promise<void> {
-    const gitUrl = await gitRemote();
+    let gitUrl = '';
+
+    try {
+      gitUrl = await gitRemote();
+    } catch {
+      gitUrl = '';
+    }
 
     const { owner: githubOrg, name: githubRepo } = parseGithub(gitUrl) ?? {};
 
