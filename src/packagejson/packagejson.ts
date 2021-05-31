@@ -22,7 +22,7 @@ export default class DocsGenerator extends Generator {
 
   public async prompting(): Promise<void> {
     const { name, description, author, license } = this.packageJson.getAll() as PackageJson;
-    const { name: authorName, email: authorEmail, url: authorUrl } = parseAuthor(author ?? '');
+    const { name: authorName, email: authorEmail, url: authorUrl } = parseAuthor(author);
 
     this.answers = await this.prompt<Answers>([
       {
