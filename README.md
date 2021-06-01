@@ -21,45 +21,6 @@
 
 Yeoman generator for quickly set up your **dotfiles** and some other minor configurations. It's composed by a collection of subgenerators to do project tasks.
 
-## SubGenerators
-
-### Write or update package.json
-
-- Reads current package.json
-- Parses information and sets parameters from existing package.json properties
-- Asks for data for based on those parameters
-- Composes the new package.json
-- Sorts package.json properties
-- Writes new version of package.json
-
-### Compiler
-
-- Reads current package.json and looks for packages
-- Asks for choosing one
-- Writes configuration files
-- Installs dependencies
-
-### Src folder
-
-1. Read dependencies
-2. Read existing `package.json`
-3. Merge dependencies, devDependencies, peerDependencies
-4. If using typescript then set `index.ts`, else set `index.js`
-5. If using react then set `x` at the end
-6. Write index file
-
-### Prettier
-
-1. Ask if want to use
-2. Add prettier to dev dependencies
-3. Set prettier config file
-
-### Commit Lint
-
-1. Ask if want to use
-2. Add cli and config to dev dependencies
-3. Set config file
-
 ## License
 
 MIT (c) 2014 [Fernando Pasik](https://fernandopasik.com)
