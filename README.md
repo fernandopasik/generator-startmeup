@@ -59,3 +59,7 @@ Yeoman generator for quickly set up your **dotfiles** and some other minor confi
 1. Ask if want to use
 2. Add cli and config to dev dependencies
 3. Set config file
+
+## License
+
+MIT (c) 2014 [Fernando Pasik](https://fernandopasik.com)
