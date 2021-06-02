@@ -3,13 +3,14 @@ import prettier from 'prettier';
 import * as prettierPluginPackageJson from 'prettier-plugin-packagejson';
 import type { JsonObject } from 'type-fest';
 import Generator from 'yeoman-generator';
+import { removeTemplateComments } from './format';
 import sortProps from './sort-props';
 
 export default class extends Generator {
   public async formatFile(filename: string): Promise<void> {
     const config = this.readDestination(filename);
 
-    const cleanConfig = config.replace(/[\s]*\/\/\W/g, '');
+    const cleanConfig = removeTemplateComments(config);
     let formattedConfig = await this.format(cleanConfig, filename);
 
     if (/.json$/.exec(filename)) {
