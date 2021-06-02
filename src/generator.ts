@@ -5,24 +5,7 @@ import type { JsonObject } from 'type-fest';
 import Generator from 'yeoman-generator';
 import sortProps from './sort-props';
 
-interface Answers {
-  confirm: boolean;
-}
-
 export default class extends Generator {
-  public async confirm(message: string, defaultValue = true): Promise<boolean> {
-    const { confirm } = await this.prompt<Answers>([
-      {
-        type: 'confirm',
-        name: 'confirm',
-        message,
-        default: defaultValue,
-      },
-    ]);
-
-    return confirm;
-  }
-
   public async formatFile(filename: string): Promise<void> {
     const config = this.readDestination(filename);
 
