@@ -1,9 +1,7 @@
 import globby from 'globby';
-import prettier from 'prettier';
-import * as prettierPluginPackageJson from 'prettier-plugin-packagejson';
 import type { JsonObject } from 'type-fest';
 import Generator from 'yeoman-generator';
-import { hasExtension, removeTemplateComments } from './format';
+import { hasExtension, prettierFormat, removeTemplateComments } from './format';
 import sortProps from './sort-props';
 
 export default class extends Generator {
@@ -11,7 +9,7 @@ export default class extends Generator {
     const config = this.readDestination(filename);
 
     const cleanConfig = removeTemplateComments(config);
-    let formattedConfig = await this.format(cleanConfig, filename);
+    let formattedConfig = await prettierFormat(cleanConfig, filename, this.destinationRoot());
 
     if (hasExtension(filename, 'json')) {
       const JSON_SPACING = 2;
@@ -25,20 +23,14 @@ export default class extends Generator {
       if (Object.keys(jsonConfig).length <= JSON_SPACING) {
         spaces = JSON_SPACING;
       }
-      formattedConfig = await this.format(JSON.stringify(jsonConfig, null, spaces), filename);
+      formattedConfig = await prettierFormat(
+        JSON.stringify(jsonConfig, null, spaces),
+        filename,
+        this.destinationRoot(),
+      );
     }
 
     this.writeDestination(filename, formattedConfig);
-  }
-
-  public async format(content: string, filepath: string): Promise<string> {
-    const prettierConfig = await prettier.resolveConfig(this.destinationRoot());
-
-    return prettier.format(content, {
-      ...prettierConfig,
-      filepath,
-      plugins: [prettierPluginPackageJson],
-    });
   }
 
   public getJsExtensions(): string[] {
