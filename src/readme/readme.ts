@@ -40,6 +40,6 @@ export default class ReadmeGenerator extends Generator {
       year: parseYear(licenseFile),
     };
 
-    this.renderTemplate('README.md', 'README.md', options);
+    await this.renderTpl('README.md', 'README.md', options);
   }
 }
