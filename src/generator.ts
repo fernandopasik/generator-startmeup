@@ -1,20 +1,12 @@
 import globby from 'globby';
 import Generator from 'yeoman-generator';
-import cleanupTemplate from './utils/cleanup-template';
-import formatJson from './utils/format-json';
-import hasExtension from './utils/has-extension';
-import prettierFormat from './utils/prettier-format';
+import format from './utils/format';
 
 export default class extends Generator {
   public async formatFile(filename: string): Promise<void> {
     const config = this.readDestination(filename);
 
-    const cleanConfig = cleanupTemplate(config);
-    let formattedConfig = await prettierFormat(cleanConfig, filename, this.destinationRoot());
-
-    if (hasExtension(filename, 'json')) {
-      formattedConfig = await formatJson(formattedConfig, filename, this.destinationRoot());
-    }
+    const formattedConfig = await format(config, filename, this.destinationRoot());
 
     this.writeDestination(filename, formattedConfig);
   }
