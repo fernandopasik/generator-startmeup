@@ -12,39 +12,23 @@ export default class extends Generator {
   }
 
   public getJsExtensions(): string[] {
-    const extensions = [];
+    const extensions: Record<string, boolean> = {
+      js: this.hasFiles('**/*.js'),
+      jsx: this.hasAnyDependency('react'),
+      ts: this.hasDevDependency('typescript'),
+      tsx: this.hasDevDependency('typescript') && this.hasAnyDependency('react'),
+    };
 
-    if (this.hasFiles('**/*.js')) {
-      extensions.push('js');
-    }
-
-    if (this.hasAnyDependency('react')) {
-      extensions.push('jsx');
-    }
-
-    if (this.hasDevDependency('typescript')) {
-      extensions.push('ts');
-
-      if (this.hasAnyDependency('react')) {
-        extensions.push('tsx');
-      }
-    }
-
-    return extensions.sort((a, b) => a.localeCompare(b));
+    return Object.keys(extensions).filter((extension) => extensions[extension]);
   }
 
   public getCssExtensions(): string[] {
-    const extensions = [];
+    const extensions: Record<string, boolean> = {
+      css: this.hasFiles('**/*.css'),
+      scss: this.hasFiles('**/*.scss'),
+    };
 
-    if (this.hasFiles('**/*.css')) {
-      extensions.push('css');
-    }
-
-    if (this.hasFiles('**/*.scss')) {
-      extensions.push('scss');
-    }
-
-    return extensions.sort((a, b) => a.localeCompare(b));
+    return Object.keys(extensions).filter((extension) => extensions[extension]);
   }
 
   public hasDependency(name: string): boolean {
