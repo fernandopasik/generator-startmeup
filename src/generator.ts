@@ -2,8 +2,8 @@ import globby from 'globby';
 import type { JsonObject } from 'type-fest';
 import Generator from 'yeoman-generator';
 import cleanupTemplate from './utils/cleanup-template';
-import { prettierFormat } from './utils/format';
 import hasExtension from './utils/has-extension';
+import prettierFormat from './utils/prettier-format';
 import sortProps from './utils/sort-props';
 
 export default class extends Generator {
