@@ -1,4 +1,4 @@
-// <% if (module) { %>
+/// <% if (module) { %>
 export default {
   // <% } else { %>module.exports = {<% } %>
   presets: [
