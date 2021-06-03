@@ -1,10 +1,9 @@
 import globby from 'globby';
-import type { JsonObject } from 'type-fest';
 import Generator from 'yeoman-generator';
 import cleanupTemplate from './utils/cleanup-template';
+import formatJson from './utils/format-json';
 import hasExtension from './utils/has-extension';
 import prettierFormat from './utils/prettier-format';
-import sortProps from './utils/sort-props';
 
 export default class extends Generator {
   public async formatFile(filename: string): Promise<void> {
@@ -14,22 +13,7 @@ export default class extends Generator {
     let formattedConfig = await prettierFormat(cleanConfig, filename, this.destinationRoot());
 
     if (hasExtension(filename, 'json')) {
-      const JSON_SPACING = 2;
-      let spaces = 0;
-
-      const jsonConfig = sortProps(JSON.parse(formattedConfig) as JsonObject, [
-        'extends',
-        'files',
-        'error',
-      ]);
-      if (Object.keys(jsonConfig).length <= JSON_SPACING) {
-        spaces = JSON_SPACING;
-      }
-      formattedConfig = await prettierFormat(
-        JSON.stringify(jsonConfig, null, spaces),
-        filename,
-        this.destinationRoot(),
-      );
+      formattedConfig = await formatJson(formattedConfig, filename, this.destinationRoot());
     }
 
     this.writeDestination(filename, formattedConfig);
