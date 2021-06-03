@@ -1,14 +1,15 @@
 import globby from 'globby';
 import type { JsonObject } from 'type-fest';
 import Generator from 'yeoman-generator';
-import { hasExtension, prettierFormat, removeTemplateComments } from './utils/format';
+import cleanupTemplate from './utils/cleanup-template';
+import { hasExtension, prettierFormat } from './utils/format';
 import sortProps from './utils/sort-props';
 
 export default class extends Generator {
   public async formatFile(filename: string): Promise<void> {
     const config = this.readDestination(filename);
 
-    const cleanConfig = removeTemplateComments(config);
+    const cleanConfig = cleanupTemplate(config);
     let formattedConfig = await prettierFormat(cleanConfig, filename, this.destinationRoot());
 
     if (hasExtension(filename, 'json')) {

@@ -21,6 +21,3 @@ export const prettierFormat = async (
     plugins: [prettierPluginPackageJson],
   });
 };
-
-export const removeTemplateComments = (content = ''): string =>
-  content.replace(/\/\/\//g, '').replace(/[^\S\r\n]*\/\/[^\S\r\n\w]*\n/g, '');
