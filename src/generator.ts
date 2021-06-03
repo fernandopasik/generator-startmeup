@@ -3,11 +3,17 @@ import Generator from 'yeoman-generator';
 import format from './utils/format';
 
 export default class extends Generator {
+  public async renderTpl(
+    ...parameters: Readonly<Parameters<Generator['renderTemplate']>>
+  ): Promise<void> {
+    this.renderTemplate(...parameters);
+
+    await this.formatFile(parameters[1] as string);
+  }
+
   public async formatFile(filename: string): Promise<void> {
     const config = this.readDestination(filename);
-
     const formattedConfig = await format(config, filename, this.destinationRoot());
-
     this.writeDestination(filename, formattedConfig);
   }
 
