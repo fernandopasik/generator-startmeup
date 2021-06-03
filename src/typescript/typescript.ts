@@ -35,10 +35,7 @@ export default class TypescriptGenerator extends Generator {
         this.hasDevDependency('@storybook/web-components'),
     };
 
-    this.renderTemplate('tsconfig.json', 'tsconfig.json', options, { rmWhitespace: true });
-    this.renderTemplate('tsconfig.all.json', 'tsconfig.all.json', options, { rmWhitespace: true });
-
-    await this.formatFile('tsconfig.json');
-    await this.formatFile('tsconfig.all.json');
+    await this.renderTpl('tsconfig.json', 'tsconfig.json', options, { rmWhitespace: true });
+    await this.renderTpl('tsconfig.all.json', 'tsconfig.all.json', options, { rmWhitespace: true });
   }
 }

@@ -51,8 +51,6 @@ export default class JestGenerator extends Generator {
       await this.addDevDependencies(['@types/jest-environment-puppeteer', 'jest-puppeteer']);
     }
 
-    this.renderTemplate('jest.config.js', 'jest.config.js', options, { rmWhitespace: true });
-
-    await this.formatFile('jest.config.js');
+    await this.renderTpl('jest.config.js', 'jest.config.js', options, { rmWhitespace: true });
   }
 }

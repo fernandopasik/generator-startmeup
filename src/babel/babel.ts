@@ -21,8 +21,6 @@ export default class BabelGenerator extends Generator {
       await this.addDevDependencies(['@babel/preset-typescript']);
     }
 
-    this.renderTemplate('babel.config.js', 'babel.config.js', options, { rmWhitespace: true });
-
-    await this.formatFile('babel.config.js');
+    await this.renderTpl('babel.config.js', 'babel.config.js', options, { rmWhitespace: true });
   }
 }

@@ -15,8 +15,6 @@ export default class LintStagedGenerator extends Generator {
       scss: this.hasFiles('**/*.scss'),
     };
 
-    this.renderTemplate('lintstagedrc.json', '.lintstagedrc.json', options);
-
-    await this.formatFile('.lintstagedrc.json');
+    await this.renderTpl('lintstagedrc.json', '.lintstagedrc.json', options);
   }
 }
