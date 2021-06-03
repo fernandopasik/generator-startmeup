@@ -7,10 +7,10 @@ export default class LintStagedGenerator extends Generator {
 
   public async writing(): Promise<void> {
     const options = {
-      cssExtensions: this.getCssExtensions().join(','),
+      cssExtensions: this.getExtensions('css').join(','),
       eslint: this.hasDevDependency('eslint'),
       jest: this.hasDevDependency('jest'),
-      jsExtensions: this.getJsExtensions().join(','),
+      jsExtensions: this.getExtensions().join(','),
       prettier: this.hasDevDependency('prettier'),
       scss: this.hasFiles('**/*.scss'),
     };

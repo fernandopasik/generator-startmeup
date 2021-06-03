@@ -2,7 +2,7 @@ import Generator from '../generator';
 
 export default class LintGenerator extends Generator {
   public async configuring(): Promise<void> {
-    const extensions = this.getJsExtensions();
+    const extensions = this.getExtensions();
     const onlyJs = extensions.length === 1 && extensions[0] === 'js';
 
     this.packageJson.merge({

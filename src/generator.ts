@@ -11,24 +11,21 @@ export default class extends Generator {
     this.writeDestination(filename, formattedConfig);
   }
 
-  public getJsExtensions(): string[] {
-    const extensions: Record<string, boolean> = {
-      js: this.hasFiles('**/*.js'),
-      jsx: this.hasAnyDependency('react'),
-      ts: this.hasDevDependency('typescript'),
-      tsx: this.hasDevDependency('typescript') && this.hasAnyDependency('react'),
+  public getExtensions(group = 'js'): string[] {
+    const extensions: Record<string, Record<string, boolean>> = {
+      css: {
+        css: this.hasFiles('**/*.css'),
+        scss: this.hasFiles('**/*.scss'),
+      },
+      js: {
+        js: this.hasFiles('**/*.js'),
+        jsx: this.hasAnyDependency('react'),
+        ts: this.hasDevDependency('typescript'),
+        tsx: this.hasDevDependency('typescript') && this.hasAnyDependency('react'),
+      },
     };
 
-    return Object.keys(extensions).filter((extension) => extensions[extension]);
-  }
-
-  public getCssExtensions(): string[] {
-    const extensions: Record<string, boolean> = {
-      css: this.hasFiles('**/*.css'),
-      scss: this.hasFiles('**/*.scss'),
-    };
-
-    return Object.keys(extensions).filter((extension) => extensions[extension]);
+    return Object.keys(extensions[group]).filter((extension) => extensions[group][extension]);
   }
 
   public hasDependency(name: string): boolean {
