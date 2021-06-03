@@ -1,11 +1,9 @@
 import prettier from 'prettier';
 import * as prettierPluginPackageJson from 'prettier-plugin-packagejson';
 
-export const hasExtension = (filename: string, extension: string): boolean =>
-  new RegExp(`.${extension}$`).test(filename);
-
 let config: prettier.Options | null = null;
 
+// eslint-disable-next-line import/prefer-default-export
 export const prettierFormat = async (
   content: string,
   filepath: string,

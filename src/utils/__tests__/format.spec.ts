@@ -1,5 +1,5 @@
 import prettier from 'prettier';
-import { hasExtension, prettierFormat } from '../format';
+import { prettierFormat } from '../format';
 
 jest.mock('prettier', () => ({
   resolveConfig: jest.fn().mockResolvedValue({ printWidth: 130 }),
@@ -43,21 +43,6 @@ describe('format', () => {
           expect.objectContaining({ printWidth: 130 }),
         );
       });
-    });
-  });
-
-  describe('hasExtension', () => {
-    it('detects the right extension', () => {
-      expect(hasExtension('asdf.json', 'json')).toBe(true);
-    });
-
-    it('detects the wrong extension', () => {
-      expect(hasExtension('asdf.json', 'js')).toBe(false);
-    });
-
-    it('only detects final extensions', () => {
-      expect(hasExtension('asdf.js.json', 'js')).toBe(false);
-      expect(hasExtension('asdf.spec.js', 'js')).toBe(true);
     });
   });
 });
