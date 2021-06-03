@@ -1,8 +1,8 @@
 import globby from 'globby';
 import type { JsonObject } from 'type-fest';
 import Generator from 'yeoman-generator';
-import { hasExtension, prettierFormat, removeTemplateComments } from './format';
-import sortProps from './sort-props';
+import { hasExtension, prettierFormat, removeTemplateComments } from './utils/format';
+import sortProps from './utils/sort-props';
 
 export default class extends Generator {
   public async formatFile(filename: string): Promise<void> {
