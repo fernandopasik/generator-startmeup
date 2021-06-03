@@ -3,7 +3,7 @@ import prettier from 'prettier';
 import * as prettierPluginPackageJson from 'prettier-plugin-packagejson';
 import type { JsonObject } from 'type-fest';
 import Generator from 'yeoman-generator';
-import { removeTemplateComments } from './format';
+import { hasExtension, removeTemplateComments } from './format';
 import sortProps from './sort-props';
 
 export default class extends Generator {
@@ -13,7 +13,7 @@ export default class extends Generator {
     const cleanConfig = removeTemplateComments(config);
     let formattedConfig = await this.format(cleanConfig, filename);
 
-    if (/.json$/.exec(filename)) {
+    if (hasExtension(filename, 'json')) {
       const JSON_SPACING = 2;
       let spaces = 0;
 
