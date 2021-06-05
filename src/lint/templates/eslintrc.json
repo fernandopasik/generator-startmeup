@@ -29,7 +29,7 @@
     // <% if (storybook && typescript) { %>
     {
       "files": ["*.stories.*"],
-      "rules": { "import/extensions": "off" }
+      "rules": { "import/extensions": ["error", "never"] }
     },
     // <% } %>
     {
@@ -67,8 +67,10 @@
   "rules": {
     // <% if (typescript) { %>
     "@typescript-eslint/no-magic-numbers": ["error", { "ignore": [0, 1] }],
-    "import/extensions": ["error", "always"],
+    "import/extensions": ["error", "<%= react || lit ? 'always' : 'never' %>"],
+    // <% if (react || lit) { %>
     "import/no-unresolved": "off",
+    // <% } %>
     // <% } %>
     // <% if (lit) { %>
     "@typescript-eslint/unbound-method": "off",
