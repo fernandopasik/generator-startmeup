@@ -1,4 +1,3 @@
-import gitRemote from 'git-remote-origin-url';
 import parseGithub from 'parse-github-url';
 import path from 'path';
 import type { PackageJson } from 'type-fest';
@@ -73,7 +72,7 @@ export default class DocsGenerator extends Generator {
     let repository: PackageJson['repository'] = '';
 
     try {
-      const gitUrl = await gitRemote();
+      const gitUrl = (await this.getGitRemote()) ?? '';
       repository = {
         type: 'git',
         url: gitUrl,

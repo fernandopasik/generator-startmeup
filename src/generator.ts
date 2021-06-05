@@ -1,3 +1,4 @@
+import gitRemote from 'git-remote-origin-url';
 import globby from 'globby';
 import Generator from 'yeoman-generator';
 import format from './utils/format';
@@ -32,6 +33,23 @@ export default class extends Generator {
     };
 
     return Object.keys(extensions[group]).filter((extension) => extensions[group][extension]);
+  }
+
+  public async getGitRemote(): Promise<string | undefined> {
+    let gitUrl = this.config.get('gitUrl') as string | undefined;
+
+    if (typeof gitUrl !== 'undefined') {
+      return gitUrl;
+    }
+
+    try {
+      gitUrl = await gitRemote();
+    } catch (e: unknown) {
+      // eslint-disable-next-line no-console
+      console.error(e);
+    }
+
+    return gitUrl;
   }
 
   public hasDependency(name: string): boolean {

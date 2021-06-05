@@ -1,18 +1,10 @@
-import gitRemote from 'git-remote-origin-url';
 import parseGithub from 'parse-github-url';
 import Generator from '../generator';
 
 export default class DocsGenerator extends Generator {
   public async writing(): Promise<void> {
-    let gitUrl = '';
-
-    try {
-      gitUrl = await gitRemote();
-    } catch {
-      gitUrl = '';
-    }
-
-    const { owner: githubOrg, name: githubRepo } = parseGithub(gitUrl) ?? {};
+    const { owner: githubOrg, name: githubRepo } =
+      parseGithub((await this.getGitRemote()) ?? '') ?? {};
 
     const options = {
       circleCi: this.hasFiles('.circleci'),

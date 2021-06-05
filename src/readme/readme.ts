@@ -1,4 +1,3 @@
-import gitRemote from 'git-remote-origin-url';
 import parseGithub from 'parse-github-url';
 import type { PackageJson } from 'type-fest';
 import Generator from '../generator';
@@ -12,15 +11,8 @@ export default class ReadmeGenerator extends Generator {
     const authorInfo = parseAuthor(author as string);
     const licenseFile = this.existsDestination('LICENSE') ? this.readDestination('LICENSE') : '';
 
-    let gitUrl = '';
-
-    try {
-      gitUrl = await gitRemote();
-    } catch {
-      gitUrl = '';
-    }
-
-    const { owner: githubOrg, name: githubRepo } = parseGithub(gitUrl) ?? {};
+    const { owner: githubOrg, name: githubRepo } =
+      parseGithub((await this.getGitRemote()) ?? '') ?? {};
 
     const options = {
       name,
