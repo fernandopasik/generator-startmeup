@@ -1,10 +1,8 @@
-import parseGithub from 'parse-github-url';
 import Generator from '../generator';
 
 export default class DocsGenerator extends Generator {
   public async writing(): Promise<void> {
-    const { owner: githubOrg, name: githubRepo } =
-      parseGithub((await this.getGitRemote()) ?? '') ?? {};
+    const { owner: githubOrg, repo: githubRepo } = (await this.getGitHub()) ?? {};
 
     const options = {
       circleCi: this.hasFiles('.circleci'),

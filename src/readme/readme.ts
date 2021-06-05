@@ -1,4 +1,3 @@
-import parseGithub from 'parse-github-url';
 import type { PackageJson } from 'type-fest';
 import Generator from '../generator';
 import { parseYear } from '../license';
@@ -11,8 +10,7 @@ export default class ReadmeGenerator extends Generator {
     const authorInfo = parseAuthor(author as string);
     const licenseFile = this.existsDestination('LICENSE') ? this.readDestination('LICENSE') : '';
 
-    const { owner: githubOrg, name: githubRepo } =
-      parseGithub((await this.getGitRemote()) ?? '') ?? {};
+    const { owner: githubOrg, repo: githubRepo } = (await this.getGitHub()) ?? {};
 
     const options = {
       name,

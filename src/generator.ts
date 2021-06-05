@@ -1,5 +1,6 @@
 import gitRemote from 'git-remote-origin-url';
 import globby from 'globby';
+import parseGithub from 'parse-github-url';
 import Generator from 'yeoman-generator';
 import format from './utils/format';
 
@@ -35,21 +36,38 @@ export default class extends Generator {
     return Object.keys(extensions[group]).filter((extension) => extensions[group][extension]);
   }
 
-  public async getGitRemote(): Promise<string | undefined> {
-    let gitUrl = this.config.get('gitUrl') as string | undefined;
+  public async getGitRemote(): Promise<string | null> {
+    let gitUrl = this.config.get('gitUrl') as string | null;
 
-    if (typeof gitUrl !== 'undefined') {
+    if (typeof gitUrl === 'string') {
       return gitUrl;
     }
 
     try {
       gitUrl = await gitRemote();
     } catch (e: unknown) {
-      // eslint-disable-next-line no-console
-      console.error(e);
+      gitUrl = null;
     }
 
     return gitUrl;
+  }
+
+  public async getGitHub(): Promise<{ owner: string; repo: string } | null> {
+    let info = null;
+
+    const gitUrl = await this.getGitRemote();
+
+    if (gitUrl !== null) {
+      const githubInfo = parseGithub(gitUrl);
+
+      if (githubInfo?.name !== null && githubInfo?.owner !== null && githubInfo !== null) {
+        const { owner, name } = githubInfo;
+
+        info = { owner, repo: name };
+      }
+    }
+
+    return info;
   }
 
   public hasDependency(name: string): boolean {
