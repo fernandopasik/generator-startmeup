@@ -86,14 +86,40 @@ export default class extends Generator {
     return globby.sync(this.destinationPath(pattern), { dot: true, gitignore: true }).length > 0;
   }
 
+  public async addAnyDependencies(
+    dependencies: Record<string, string> | string[] | string,
+    type = 'dependencies',
+  ): Promise<Record<string, string>> {
+    // eslint-disable-next-line no-underscore-dangle
+    const resolved = await this._resolvePackageJsonDependencies(dependencies);
+    const filtered = Object.fromEntries(
+      Object.entries(resolved).filter(
+        ([name]: Readonly<string[]>) =>
+          typeof this.packageJson.getPath(`${type}.${name}`) === 'undefined',
+      ),
+    );
+
+    this.packageJson.merge({ [type]: filtered });
+
+    return filtered;
+  }
+
   public async addPeerDependencies(
     dependencies: Record<string, string> | string[] | string,
   ): Promise<Record<string, string>> {
-    // eslint-disable-next-line no-underscore-dangle
-    const peerDependencies = await this._resolvePackageJsonDependencies(dependencies);
-    this.packageJson.merge({ peerDependencies });
+    return this.addAnyDependencies(dependencies, 'peerDependencies');
+  }
 
-    return peerDependencies;
+  public async addDependencies(
+    dependencies: Record<string, string> | string[] | string,
+  ): Promise<Record<string, string>> {
+    return this.addAnyDependencies(dependencies);
+  }
+
+  public async addDevDependencies(
+    dependencies: Record<string, string> | string[] | string,
+  ): Promise<Record<string, string>> {
+    return this.addAnyDependencies(dependencies, 'devDependencies');
   }
 
   // eslint-disable-next-line no-underscore-dangle
