@@ -29,6 +29,7 @@ export default class StartMeUpGenerator extends Generator {
       'lint-staged',
       'hooks',
       'readme',
+      'badges',
       'docs',
       'src',
     ];
