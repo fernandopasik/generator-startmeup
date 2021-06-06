@@ -1,3 +1,4 @@
+import type { PackageJson } from 'type-fest';
 import Generator from '../generator';
 
 export default class BadgesGenerator extends Generator {
@@ -39,11 +40,9 @@ export default class BadgesGenerator extends Generator {
 
     const group2: string[] = [];
 
-    if (this.hasDevDependency('all-contributors')) {
-      const { contributors = [] } = this.readDestinationJSON('.all-contributorsrc.json') as {
-        contributors: string[];
-      };
+    const contributors = this.packageJson.get('contributors') as PackageJson['contributors'];
 
+    if (typeof contributors !== 'undefined' && contributors.length > 0) {
       group2.push(
         `[![All Contributors](https://img.shields.io/badge/all_contributors-${contributors.length}-orange.svg?style=flat-square)](#contributors)`,
       );
