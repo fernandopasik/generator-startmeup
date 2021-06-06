@@ -23,7 +23,6 @@ export default class SrcGenerator extends Generator {
     const builtFiles = `/${name}.*`;
 
     const packageProps: Record<string, string[] | boolean | string> = {
-      sideEffects: false,
       type: 'module',
       main: mainBuiltFile,
       module: mainBuiltFile,
@@ -32,6 +31,10 @@ export default class SrcGenerator extends Generator {
 
     if (this.hasDevDependency('typescript')) {
       packageProps.typings = `${name}.d.ts`;
+    }
+
+    if (!this.hasAnyDependency('lit')) {
+      packageProps.sideEffects = false;
     }
 
     this.packageJson.merge(packageProps);
