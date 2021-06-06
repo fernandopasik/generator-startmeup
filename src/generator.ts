@@ -1,3 +1,4 @@
+import axios from 'axios';
 import gitRemote from 'git-remote-origin-url';
 import globby from 'globby';
 import parseGithub from 'parse-github-url';
@@ -68,6 +69,23 @@ export default class extends Generator {
     }
 
     return info;
+  }
+
+  public async getNpmName(): Promise<string | null> {
+    const name = this.packageJson.get('name') as string | undefined;
+
+    let npmName = null;
+
+    if (typeof name !== 'undefined') {
+      try {
+        await axios.get(`https://www.npmjs.com/package/${name}`);
+        npmName = name;
+      } catch {
+        npmName = null;
+      }
+    }
+
+    return npmName;
   }
 
   public hasDependency(name: string): boolean {
