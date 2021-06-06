@@ -10,23 +10,12 @@ export default class ReadmeGenerator extends Generator {
     const authorInfo = parseAuthor(author as string);
     const licenseFile = this.existsDestination('LICENSE') ? this.readDestination('LICENSE') : '';
 
-    const { owner: githubOrg, repo: githubRepo } = (await this.getGitHub()) ?? {};
-
     const options = {
       name,
       description,
-      allContributors: this.hasDevDependency('all-contributors'),
       authorName: authorInfo.name,
       authorUrl: authorInfo.url,
-      circleCi: this.hasFiles('.circleci'),
-      codeCov: this.hasDevDependency('codecov'),
-      githubOrg,
-      githubRepo,
       license,
-      npm: !((this.packageJson.get('private') as PackageJson['private']) ?? false),
-      npmPackage: name,
-      sec: true,
-      size: this.hasDevDependency('bundlesize') || this.hasDevDependency('bundlewatch'),
       year: parseYear(licenseFile),
     };
 
