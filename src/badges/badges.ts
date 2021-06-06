@@ -15,7 +15,7 @@ export default class BadgesGenerator extends Generator {
 
     if (npmPackage !== null && this.hasDevDependency('bundlewatch')) {
       group1.push(
-        `[![Gzip Bundle Size](http://img.badgesize.io/https://unpkg.com/${npmPackage}/${npmPackage}.min.js?compression=gzip)](https://unpkg.com/${npmPackage}/${npmPackage}.min.js 'Gzip Bundle Size')`,
+        `[![Gzip Bundle Size](https://img.badgesize.io/https://unpkg.com/${npmPackage}/${npmPackage}.min.js?compression=gzip)](https://unpkg.com/${npmPackage}/${npmPackage}.min.js 'Gzip Bundle Size')`,
       );
     }
 
