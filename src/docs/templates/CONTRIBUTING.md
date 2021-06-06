@@ -6,7 +6,10 @@ Ensure the bug or feature has not been reported before searching by [searching](
 
 ## Submitting changes
 
+<% if (false) { -%>
+
 <!-- prettier-ignore-start -->
+<%_ } -%>
 1. Fork the project
 2. Create a new branch
 3. Commit your proposed changes
@@ -36,4 +39,7 @@ Ensure the bug or feature has not been reported before searching by [searching](
 - JavaScript styles are checked with [eslint](https://eslint.org/) and follow the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript).
 <%_ } -%>
 
+<% if (false) { -%>
 <!-- prettier-ignore-end -->
+
+<% } %>
