@@ -5,6 +5,10 @@ import { parseAuthor } from '../packagejson';
 
 export default class ReadmeGenerator extends Generator {
   public async writing(): Promise<void> {
+    if (this.existsDestination('README.md')) {
+      return;
+    }
+
     const { name, description, author, license } = this.packageJson.getAll() as PackageJson;
 
     const authorInfo = parseAuthor(author as string);
