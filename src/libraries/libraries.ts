@@ -21,7 +21,7 @@ export default class LibrariesGenerator extends Generator {
 
     if (framework === 'react') {
       await this.addDevDependencies(['react', 'react-dom', 'react-test-renderer']);
-      await this.addPeerDependencies(['react', 'react-dom']);
+      await this.addPeerDependencies(['react']);
     }
   }
 }
