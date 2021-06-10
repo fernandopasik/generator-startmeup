@@ -25,7 +25,7 @@ export default class StartMeUpGenerator extends Generator {
       'typescript',
       'babel',
       'jest',
-      'lint',
+      'eslint',
       'lint-staged',
       'hooks',
       'readme',
