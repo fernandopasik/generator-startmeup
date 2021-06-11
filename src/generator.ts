@@ -71,6 +71,16 @@ export default class extends Generator {
     return info;
   }
 
+  public getFirstCommitYear(): string {
+    return (
+      this.spawnCommandSync(
+        'git log --reverse | sed -n -e "3,3p" | grep -Eo " [1-2][0-9]{3}"',
+        [],
+        { shell: true },
+      ) as { stdout: string }
+    ).stdout.trim();
+  }
+
   public async getNpmName(): Promise<string | null> {
     const name = this.packageJson.get('name') as string | undefined;
 
