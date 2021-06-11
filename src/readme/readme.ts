@@ -1,6 +1,5 @@
 import type { PackageJson } from 'type-fest';
 import Generator from '../generator';
-import { parseYear } from '../license';
 import { parseAuthor } from '../packagejson';
 
 export default class ReadmeGenerator extends Generator {
@@ -12,7 +11,6 @@ export default class ReadmeGenerator extends Generator {
     const { name, description, author, license } = this.packageJson.getAll() as PackageJson;
 
     const authorInfo = parseAuthor(author as string);
-    const licenseFile = this.existsDestination('LICENSE') ? this.readDestination('LICENSE') : '';
 
     const options = {
       name,
@@ -20,7 +18,7 @@ export default class ReadmeGenerator extends Generator {
       authorName: authorInfo.name,
       authorUrl: authorInfo.url,
       license,
-      year: parseYear(licenseFile),
+      year: this.getFirstCommitYear(),
     };
 
     await this.renderTpl('README.md', 'README.md', options);
