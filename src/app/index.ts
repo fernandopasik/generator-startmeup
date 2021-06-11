@@ -40,14 +40,17 @@ export default class StartMeUpGenerator extends Generator {
         name: 'typescript',
         message: 'Are you programming with TypeScript?',
         default: true,
-        skip: this.hasFiles('src/**/*.ts'),
+        skip: this.hasFiles('package.json') || this.hasFiles('src/**/*.ts'),
       },
       {
         type: 'confirm',
         name: 'babel',
         message: 'Do you want to compile with Babel?',
         default: false,
-        skip: this.hasFiles('babel.config.js') || this.hasFiles('**/.babelrc.json'),
+        skip:
+          this.hasFiles('package.json') ||
+          this.hasFiles('babel.config.js') ||
+          this.hasFiles('**/.babelrc.json'),
       },
       {
         type: 'confirm',
