@@ -45,6 +45,7 @@
     "prettier": "^2.3.1",
     "prettier-plugin-organize-imports": "^2.1.0",
     "prettier-plugin-packagejson": "^2.2.11",
+    "shelljs": "^0.8.4",
     "sort-package-json": "^1.50.0",
     "yeoman-generator": "^5.3.0",
     "yosay": "^2.0.2"
@@ -59,6 +60,7 @@
     "@types/lodash": "^4.14.170",
     "@types/parse-github-url": "^1.0.0",
     "@types/prettier": "^2.3.0",
+    "@types/shelljs": "^0.8.8",
     "@types/yeoman-assert": "^3.1.1",
     "@types/yeoman-generator": "^5.0.0",
     "@types/yeoman-test": "^4.0.1",
