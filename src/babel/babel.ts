@@ -7,6 +7,7 @@ export default class BabelGenerator extends Generator {
 
   public async writing(): Promise<void> {
     const options = {
+      module: this.packageJson.get('type') === 'module',
       react: this.hasAnyDependency('react'),
       typescript: this.hasDevDependency('typescript'),
     };
