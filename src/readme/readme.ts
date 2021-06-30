@@ -11,7 +11,7 @@ export default class ReadmeGenerator extends Generator {
 
     const { name, description, author, license } = this.packageJson.getAll() as PackageJson;
 
-    const authorInfo = parseAuthor(author as string);
+    const { name: authorName, url: authorUrl } = parseAuthor(author as string);
 
     const commit = firstCommit();
 
@@ -21,14 +21,7 @@ export default class ReadmeGenerator extends Generator {
       year = String(new Date(commit.date).getFullYear());
     }
 
-    const options = {
-      name,
-      description,
-      authorName: authorInfo.name,
-      authorUrl: authorInfo.url,
-      license,
-      year,
-    };
+    const options = { name, description, authorName, authorUrl, license, year };
 
     await this.renderTpl('README.md', 'README.md', options);
   }
