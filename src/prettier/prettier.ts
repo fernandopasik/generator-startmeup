@@ -16,7 +16,9 @@ export default class PrettierGenerator extends Generator {
     }
 
     await this.addDevDependencies(devDependencies);
+  }
 
+  public writing(): void {
     const packageFiles = (this.packageJson.get('files') as PackageJson['files']) ?? [];
 
     const options = {
