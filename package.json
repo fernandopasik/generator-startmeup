@@ -51,8 +51,8 @@
     "yosay": "^2.0.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^12.1.4",
-    "@commitlint/config-conventional": "^12.1.4",
+    "@commitlint/cli": "^13.0.0",
+    "@commitlint/config-conventional": "^13.0.0",
     "@jest/types": "^27.0.6",
     "@types/eslint": "^7.2.13",
     "@types/inquirer": "^7.3.2",
@@ -91,7 +91,7 @@
     "type-fest": "^1.2.1",
     "typescript": "^4.3.4",
     "yeoman-assert": "^3.1.1",
-    "yeoman-test": "^6.1.0"
+    "yeoman-test": "^6.2.0"
   },
   "engines": {
     "node": ">=12"
