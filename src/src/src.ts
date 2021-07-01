@@ -9,16 +9,6 @@ export default class SrcGenerator extends Generator {
       return;
     }
 
-    let extension = 'js';
-
-    if (this.hasDevDependency('typescript')) {
-      extension = 'ts';
-    }
-
-    if (this.hasAnyDependency('react')) {
-      extension += 'x';
-    }
-
     const mainBuiltFile = `${name}.js`;
     const builtFiles = `/${name}.*`;
 
@@ -39,7 +29,7 @@ export default class SrcGenerator extends Generator {
 
     this.packageJson.merge(packageProps);
 
-    const mainFile = `src/${name}.${extension}`;
+    const mainFile = `src/${name}.${this.getSrcExtension()}`;
     if (!this.fs.exists(this.destinationPath(mainFile))) {
       this.fs.write(this.destinationPath(mainFile), '');
     }

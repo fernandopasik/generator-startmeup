@@ -20,6 +20,20 @@ export default class extends Generator {
     this.writeDestination(filename, formattedConfig);
   }
 
+  public getSrcExtension(): string {
+    let extension = 'js';
+
+    if (this.hasDevDependency('typescript')) {
+      extension = 'ts';
+    }
+
+    if (this.hasAnyDependency('react')) {
+      extension += 'x';
+    }
+
+    return extension;
+  }
+
   public getExtensions(group = 'js'): string[] {
     const extensions: Record<string, Record<string, boolean>> = {
       css: {
