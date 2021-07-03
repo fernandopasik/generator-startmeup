@@ -2,6 +2,22 @@ import type { PackageJson } from 'type-fest';
 import Generator from '../generator';
 
 export default class SrcGenerator extends Generator {
+  private isLibrary = false;
+
+  public async prompting(): Promise<void> {
+    const files = this.packageJson.get('files') as PackageJson['files'];
+
+    const hasLibFolder =
+      this.hasFiles('/lib') && typeof files !== 'undefined' && files.includes('/lib');
+
+    this.isLibrary = await this.prompt<boolean>({
+      name: 'library',
+      type: 'confirm',
+      message: 'Are you writing a library?',
+      default: hasLibFolder,
+    });
+  }
+
   public writing(): void {
     const name = this.packageJson.get('name') as PackageJson['name'];
 
