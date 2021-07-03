@@ -9,6 +9,7 @@
   "license": "MIT",
   "author": "Fernando Pasik <fernando@pasik.com.ar> (https://fernandopasik.com)",
   "contributors": [],
+  "sideEffects": false,
   "main": "generators/app/index.js",
   "typings": "generators/app/index.d.ts",
   "bin": {
