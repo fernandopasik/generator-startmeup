@@ -41,7 +41,7 @@ export default class SrcGenerator extends Generator {
     this.packageJson.merge(packageProps);
 
     const filename = this.isLibrary ? name : 'app';
-    const extension = this.getSrcExtension();
+    const extension = this.hasDevDependency('typescript') ? 'ts' : 'js';
 
     const mainFile = `src/${filename}${hasYeoman ? '/index' : ''}.${extension}`;
 
