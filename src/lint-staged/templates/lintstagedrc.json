@@ -12,7 +12,7 @@
     // <% } %>
   ],
   // <% } %>
-  // <% if (cssExtensions) { %>
+  // <% if (cssExtensions && stylelint) { %>
   "*.{<%= cssExtensions %>}": ["stylelint<% if (scss) { %> --syntax=scss<% } %>"]
   // <% } %>
 }
