@@ -31,6 +31,7 @@ export default class SrcGenerator extends Generator {
       this.isLibrary,
       this.hasDevDependency('typescript'),
       this.hasAnyDependency('lit'),
+      this.hasDependency('yeoman-generator'),
     );
 
     this.packageJson.merge(packageProps);

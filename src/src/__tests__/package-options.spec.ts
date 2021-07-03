@@ -55,6 +55,29 @@ describe('packageOptions', () => {
     });
   });
 
+  describe('when is yeoman generator', () => {
+    it('main file', () => {
+      const name = 'myapp';
+      const { main } = packageOptions(name, false, false, false, true);
+
+      expect(main).toBe('generators/index.js');
+    });
+
+    it('files include dist', () => {
+      const name = 'myapp';
+      const { files } = packageOptions(name, false, false, false, true);
+
+      expect(files).toStrictEqual(['/generators']);
+    });
+
+    it('can have typings', () => {
+      const name = 'myapp';
+      const { typings } = packageOptions(name, false, true, false, true);
+
+      expect(typings).toBe('generators/index.d.ts');
+    });
+  });
+
   it('web components have side effects', () => {
     const name = 'myapp';
     const { sideEffects } = packageOptions(name, true, false, true);
