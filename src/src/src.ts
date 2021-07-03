@@ -45,7 +45,8 @@ export default class SrcGenerator extends Generator {
 
     this.packageJson.merge(packageProps);
 
-    const mainFile = `src/${name}.${this.getSrcExtension()}`;
+    const mainFile = `src/${this.isLibrary ? name : 'app'}.${this.getSrcExtension()}`;
+
     if (!this.fs.exists(this.destinationPath(mainFile))) {
       this.fs.write(this.destinationPath(mainFile), '');
     }
