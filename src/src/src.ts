@@ -1,5 +1,6 @@
 import type { PackageJson } from 'type-fest';
 import Generator from '../generator';
+import packageOptions from './package-options';
 
 export default class SrcGenerator extends Generator {
   private isLibrary = false;
@@ -25,23 +26,12 @@ export default class SrcGenerator extends Generator {
       return;
     }
 
-    const mainBuiltFile = `${name}.js`;
-    const builtFiles = `/${name}.*`;
-
-    const packageProps: Record<string, string[] | boolean | string> = {
-      type: 'module',
-      main: mainBuiltFile,
-      module: mainBuiltFile,
-      files: ['/lib', builtFiles],
-    };
-
-    if (this.hasDevDependency('typescript')) {
-      packageProps.typings = `${name}.d.ts`;
-    }
-
-    if (!this.hasAnyDependency('lit')) {
-      packageProps.sideEffects = false;
-    }
+    const packageProps = packageOptions(
+      name,
+      this.isLibrary,
+      this.hasDevDependency('typescript'),
+      this.hasAnyDependency('lit'),
+    );
 
     this.packageJson.merge(packageProps);
 
