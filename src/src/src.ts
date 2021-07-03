@@ -9,7 +9,7 @@ export default class SrcGenerator extends Generator {
     const files = this.packageJson.get('files') as PackageJson['files'];
 
     const hasLibFolder =
-      this.hasFiles('/lib') && typeof files !== 'undefined' && files.includes('/lib');
+      this.hasFiles('src/lib') || (typeof files !== 'undefined' && files.includes('/lib'));
 
     const { library } = await this.prompt<{ library: boolean }>({
       name: 'library',
