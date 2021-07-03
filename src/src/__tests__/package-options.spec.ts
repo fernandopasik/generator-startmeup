@@ -23,6 +23,13 @@ describe('packageOptions', () => {
 
       expect(files).toStrictEqual(['/lib', `/${name}.*`]);
     });
+
+    it('can have typings', () => {
+      const name = 'myapp';
+      const { typings } = packageOptions(name, true, true);
+
+      expect(typings).toBe(`${name}.d.ts`);
+    });
   });
 
   describe('when not library', () => {
@@ -39,13 +46,13 @@ describe('packageOptions', () => {
 
       expect(files).toStrictEqual(['/dist']);
     });
-  });
 
-  it('can have typings', () => {
-    const name = 'myapp';
-    const { typings } = packageOptions(name, true, true);
+    it('can have typings', () => {
+      const name = 'myapp';
+      const { typings } = packageOptions(name, false, true);
 
-    expect(typings).toBe(`${name}.d.ts`);
+      expect(typings).toBe('dist/app.d.ts');
+    });
   });
 
   it('web components have side effects', () => {

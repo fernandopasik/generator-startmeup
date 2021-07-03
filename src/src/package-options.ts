@@ -15,7 +15,7 @@ const packageOptions = (
   > = { type: 'module', main, module: main, files };
 
   if (hasTypescript) {
-    options.typings = `${appName}.d.ts`;
+    options.typings = isLibrary ? `${appName}.d.ts` : 'dist/app.d.ts';
   }
 
   if (!hasLit) {
