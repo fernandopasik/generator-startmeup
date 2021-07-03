@@ -21,9 +21,13 @@
     "prettier"
     // <% } %>
   ],
-  // <% if (react || lit) { %>
-  "env": { "browser": true },
-  // <% } %>
+  "env": {
+    // <% if (react || lit) { %>
+    "browser": true,
+    // <% } else { %>
+    "node": true
+    // <% } %>
+  },
   // <% if (jest || puppeteer || storybook) { %>
   "overrides": [
     // <% if (storybook && typescript) { %>
