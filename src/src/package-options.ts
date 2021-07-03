@@ -8,7 +8,7 @@ const packageOptions = (
   hasYeoman = false,
 ): Pick<PackageJson, 'files' | 'main' | 'module' | 'sideEffects' | 'type' | 'typings'> => {
   const appFolder = !hasYeoman ? 'dist' : 'generators';
-  const appFile = !hasYeoman ? 'app' : 'index';
+  const appFile = !hasYeoman ? 'app' : 'app/index';
   const main = isLibrary ? `${appName}.js` : `${appFolder}/${appFile}.js`;
   const files = isLibrary ? ['/lib', `/${appName}.*`] : [`/${appFolder}`];
 

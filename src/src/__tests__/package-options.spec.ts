@@ -60,7 +60,7 @@ describe('packageOptions', () => {
       const name = 'myapp';
       const { main } = packageOptions(name, false, false, false, true);
 
-      expect(main).toBe('generators/index.js');
+      expect(main).toBe('generators/app/index.js');
     });
 
     it('files include dist', () => {
@@ -74,7 +74,7 @@ describe('packageOptions', () => {
       const name = 'myapp';
       const { typings } = packageOptions(name, false, true, false, true);
 
-      expect(typings).toBe('generators/index.d.ts');
+      expect(typings).toBe('generators/app/index.d.ts');
     });
   });
 

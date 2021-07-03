@@ -28,17 +28,22 @@ export default class SrcGenerator extends Generator {
       return;
     }
 
+    const hasYeoman = this.hasDependency('yeoman-generator');
+
     const packageProps = packageOptions(
       name,
       this.isLibrary,
       this.hasDevDependency('typescript'),
       this.hasAnyDependency('lit'),
-      this.hasDependency('yeoman-generator'),
+      hasYeoman,
     );
 
     this.packageJson.merge(packageProps);
 
-    const mainFile = `src/${this.isLibrary ? name : 'app'}.${this.getSrcExtension()}`;
+    const filename = this.isLibrary ? name : 'app';
+    const extension = this.getSrcExtension();
+
+    const mainFile = `src/${filename}${hasYeoman ? '/index' : ''}.${extension}`;
 
     if (!this.fs.exists(this.destinationPath(mainFile))) {
       this.fs.write(this.destinationPath(mainFile), '');
