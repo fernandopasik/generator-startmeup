@@ -64,7 +64,7 @@
     "@types/jest": "^26.0.24",
     "@types/lodash": "^4.14.171",
     "@types/parse-github-url": "^1.0.0",
-    "@types/prettier": "^2.3.1",
+    "@types/prettier": "^2.3.2",
     "@types/shelljs": "^0.8.9",
     "@types/yeoman-assert": "^3.1.1",
     "@types/yeoman-generator": "^5.2.1",
@@ -93,7 +93,7 @@
     "prettier-plugin-packagejson": "^2.2.11",
     "replace-in-files-cli": "^1.0.0",
     "ts-jest": "^27.0.3",
-    "type-fest": "^1.2.1",
+    "type-fest": "^1.2.2",
     "typescript": "^4.3.5",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^6.2.0"
