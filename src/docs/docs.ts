@@ -14,7 +14,6 @@ export default class DocsGenerator extends Generator {
       prettier: this.hasDevDependency('prettier'),
     };
 
-    await this.renderTpl('CODE_OF_CONDUCT.md', 'CODE_OF_CONDUCT.md', options);
     await this.renderTpl('CONTRIBUTING.md', 'CONTRIBUTING.md', options);
   }
 }
