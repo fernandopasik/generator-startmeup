@@ -36,6 +36,9 @@
     "test": "jest",
     "verify": "yarn lint && yarn check-types && yarn test && yarn build"
   },
+  "resolutions": {
+    "globby": "^11.0.4"
+  },
   "dependencies": {
     "axios": "^0.21.1",
     "git-remote-origin-url": "^3.1.0",
