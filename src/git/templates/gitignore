@@ -12,12 +12,13 @@ Thumbs.db
 
 # local vscode config
 .vscode
+<% if (package) { -%>
 
 # npm
 node_modules
 npm-debug.log
 yarn-error.log
-
+<% } %>
 # test files
 coverage
 
