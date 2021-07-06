@@ -15,7 +15,6 @@ export default class StartMeUpGenerator extends Generator {
 
     const subGenerators = [
       'git',
-      'github-templates',
       'license',
       'editorconfig',
       'packagejson',
@@ -51,13 +50,6 @@ export default class StartMeUpGenerator extends Generator {
           this.hasDevDependency('@babel/core') ||
           this.hasFiles('babel.config.js') ||
           this.hasFiles('**/.babelrc.json'),
-      },
-      {
-        type: 'confirm',
-        name: 'github-templates',
-        message: 'Are you pushing the repo to github?',
-        default: true,
-        skip: this.hasFiles('.github'),
       },
     ];
 
