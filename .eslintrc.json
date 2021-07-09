@@ -6,6 +6,7 @@
     "plugin:jest/all",
     "prettier"
   ],
+  "env": { "node": true },
   "overrides": [
     {
       "files": ["*.spec.*"],
