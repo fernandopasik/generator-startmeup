@@ -1,4 +1,5 @@
 import type { PackageJson } from 'type-fest';
+import sortProps from '../utils/sort-props';
 
 const packageOptions = (
   appName: string,
@@ -25,7 +26,7 @@ const packageOptions = (
     options.sideEffects = false;
   }
 
-  return options;
+  return sortProps(options);
 };
 
 export default packageOptions;
