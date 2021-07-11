@@ -3,7 +3,11 @@ export default {
   // <% } else { %>module.exports = {<% } %>
   collectCoverageFrom: ['src/**/*.<%= collectExtensions %>'],
   // <% if (storybook || puppeteer) { %>
-  coveragePathIgnorePatterns: ['(e2e|stories)\\.[jt]sx?$', '/__stories__/', '/node_modules/'],
+  coveragePathIgnorePatterns: [
+    '(<% if (puppeteer) { %>e2e|<% } %>stories)\\.[jt]sx?$',
+    '/__stories__/',
+    '/node_modules/',
+  ],
   // <% } %>
   // <% if (typescript) { %>
   globals: { 'ts-jest': { tsconfig: 'tsconfig.all.json' } },
