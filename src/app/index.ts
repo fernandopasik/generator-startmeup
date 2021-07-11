@@ -31,6 +31,7 @@ export default class StartMeUpGenerator extends Generator {
       'badges',
       'docs',
       'src',
+      'rollup',
     ];
 
     const subGeneratorConfirmations: Confirmation[] = [
