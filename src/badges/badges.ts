@@ -10,6 +10,7 @@ export default class BadgesGenerator extends Generator {
     const readme = this.readDestination('README.md');
 
     const { owner: githubOrg, repo: githubRepo } = (await this.getGitHub()) ?? {};
+    const isPrivate = (this.packageJson.get('private') as PackageJson['private']) ?? false;
     const npmPackage = await this.getNpmName();
 
     const group1: string[] = [];
@@ -48,7 +49,7 @@ export default class BadgesGenerator extends Generator {
       );
     }
 
-    if (npmPackage !== null) {
+    if (npmPackage !== null && !isPrivate) {
       group2.push(
         `[![npm version](https://img.shields.io/npm/v/${npmPackage}.svg?logo=npm)](https://www.npmjs.com/package/${npmPackage} 'npm version')`,
       );
