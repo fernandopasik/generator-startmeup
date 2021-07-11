@@ -21,7 +21,7 @@ export default class SrcGenerator extends Generator {
     this.isLibrary = library;
   }
 
-  public writing(): void {
+  public configuring(): void {
     const name = this.packageJson.get('name') as PackageJson['name'];
 
     if (typeof name === 'undefined') {
@@ -39,7 +39,16 @@ export default class SrcGenerator extends Generator {
     );
 
     this.packageJson.merge(packageProps);
+  }
 
+  public writing(): void {
+    const name = this.packageJson.get('name') as PackageJson['name'];
+
+    if (typeof name === 'undefined') {
+      return;
+    }
+
+    const hasYeoman = this.hasDependency('yeoman-generator');
     const filename = this.isLibrary ? name : 'app';
     const extension = this.hasDevDependency('typescript') ? 'ts' : 'js';
 
