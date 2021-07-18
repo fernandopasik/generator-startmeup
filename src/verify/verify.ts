@@ -3,7 +3,7 @@ import Generator from '../generator';
 
 export default class VerifyGenerator extends Generator {
   public async configuring(): Promise<void> {
-    const steps = ['lint', 'check-types', 'test:coverage', 'build', 'size'];
+    const steps = ['lint', 'lit-analyze', 'check-types', 'test:coverage', 'build', 'size'];
     const scripts = (this.packageJson.get('scripts') as PackageJson['scripts']) ?? {};
 
     const existing = steps.filter((step) => scripts[step]);
