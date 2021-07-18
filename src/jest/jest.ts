@@ -2,10 +2,13 @@ import Generator from '../generator';
 
 export default class JestGenerator extends Generator {
   public async configuring(): Promise<void> {
+    const taskEnv = this.hasDevDependency('typescript')
+      ? ''
+      : 'NODE_OPTIONS=--experimental-vm-modules ';
     this.packageJson.merge({
       scripts: {
-        test: 'jest',
-        'test:coverage': 'jest --coverage',
+        test: `${taskEnv}jest`,
+        'test:coverage': `${taskEnv}jest --coverage`,
       },
     });
 
