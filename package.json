@@ -34,7 +34,8 @@
     "preversion": "yarn verify",
     "start": "yarn build -w",
     "test": "jest",
-    "verify": "yarn lint && yarn check-types && yarn test && yarn build"
+    "test:coverage": "jest --coverage",
+    "verify": "yarn lint && yarn check-types && yarn test:coverage && yarn build"
   },
   "resolutions": {
     "globby": "^11.0.4"
