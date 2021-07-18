@@ -5,6 +5,7 @@ export default class JestGenerator extends Generator {
     this.packageJson.merge({
       scripts: {
         test: 'jest',
+        'test:coverage': 'jest --coverage',
       },
     });
 
