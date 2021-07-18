@@ -32,6 +32,7 @@ export default class StartMeUpGenerator extends Generator {
       'docs',
       'src',
       'rollup',
+      'verify',
     ];
 
     const subGeneratorConfirmations: Confirmation[] = [
