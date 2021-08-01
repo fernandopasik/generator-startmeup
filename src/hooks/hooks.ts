@@ -4,7 +4,7 @@ export default class HooksGenerator extends Generator {
   public async configuring(): Promise<void> {
     this.packageJson.merge({
       scripts: {
-        postinstall: 'husky install',
+        prepare: 'husky install',
         prepublishOnly: 'pinst --disable',
         postpublish: 'pinst --enable',
       },
