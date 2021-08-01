@@ -21,5 +21,7 @@ export default class HooksGenerator extends Generator {
     }
 
     this.copyTemplate('pre-push', '.husky/pre-push');
+
+    await this.formatFile('package.json');
   }
 }
