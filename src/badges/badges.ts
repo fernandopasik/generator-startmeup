@@ -59,15 +59,13 @@ export default class BadgesGenerator extends Generator {
       );
     }
 
-    const BADGES_START = '<!-- BADGES - START -->';
-    const BADGES_END = '<!-- BADGES - END -->';
-    const badgesZone = new RegExp(`${BADGES_START}[\\S\\s]*${BADGES_END}`);
+    const badgesZone = /<!-- BADGES - START -->[\\S\\s]*<!-- BADGES - END -->/;
     const group1str = group1.map((badge) => `${badge}\n`).join('');
     const group2str = group2.map((badge) => `${badge}\n`).join('');
 
     const withBadges = readme.replace(
       badgesZone,
-      `${BADGES_START}\n${group1str}\n${group2str}\n${BADGES_END}`,
+      `<!-- BADGES - START -->\n${group1str}\n${group2str}\n<!-- BADGES - END -->`,
     );
 
     this.writeDestination('README.md', withBadges);

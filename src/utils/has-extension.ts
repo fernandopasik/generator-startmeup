@@ -1,4 +1,4 @@
 const hasExtension = (filename: string, extension: string): boolean =>
-  new RegExp(`.${extension}$`).test(filename);
+  filename.endsWith(`.${extension}`);
 
 export default hasExtension;
