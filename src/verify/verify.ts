@@ -6,7 +6,7 @@ export default class VerifyGenerator extends Generator {
     const steps = ['lint', 'lit-analyze', 'check-types', 'test:coverage', 'build', 'size'];
     const scripts = (this.packageJson.get('scripts') as PackageJson['scripts']) ?? {};
 
-    const existing = steps.filter((step) => scripts[step]);
+    const existing = steps.filter((step) => step in scripts);
 
     const verify = existing.map((step) => `yarn ${step}`).join(' && ');
 
