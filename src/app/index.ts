@@ -62,6 +62,7 @@ export default class StartMeUpGenerator extends Generator {
     );
 
     subGenerators.forEach((subGenerator) => {
+      // eslint-disable-next-line security/detect-object-injection
       if (!(subGenerator in confirms) || confirms[subGenerator]) {
         this.composeWith(`startmeup:${subGenerator}`, { 'skip-install': true });
       }
