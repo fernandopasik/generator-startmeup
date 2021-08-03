@@ -54,7 +54,7 @@ export default class SrcGenerator extends Generator {
 
     const mainFile = `src/${filename}${hasYeoman ? '/index' : ''}.${extension}`;
 
-    if (!this.fs.exists(this.destinationPath(mainFile))) {
+    if (!this.hasFiles(mainFile)) {
       this.fs.write(this.destinationPath(mainFile), '');
     }
   }

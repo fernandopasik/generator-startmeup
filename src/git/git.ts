@@ -8,7 +8,7 @@ export default class GitGenerator extends Generator {
       package: this.hasFiles('package.json'),
     };
 
-    if (!this.fs.exists(this.destinationPath('.gitignore'))) {
+    if (!this.hasFiles('.gitignore')) {
       this.renderTemplate('gitignore', '.gitignore', options);
     }
   }
