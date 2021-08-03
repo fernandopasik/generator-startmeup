@@ -4,6 +4,7 @@
     "plugin:@typescript-eslint/all",
     "plugin:import/typescript",
     "plugin:jest/all",
+    "plugin:security/recommended",
     "prettier"
   ],
   "env": { "node": true },
