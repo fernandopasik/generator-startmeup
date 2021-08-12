@@ -23,7 +23,7 @@
     "changelog": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s",
     "postchangelog": "prettier --write CHANGELOG.md",
     "check-types": "tsc --noEmit -p tsconfig.all.json",
-    "format": "prettier --no-error-on-unmatched-pattern --write ** ./* ./.??*",
+    "format": "prettier --write .",
     "lint": "eslint . --ext js,ts",
     "postpublish": "pinst --enable",
     "prepare": "husky install",
