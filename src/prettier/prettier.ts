@@ -5,7 +5,7 @@ export default class PrettierGenerator extends Generator {
   public async configuring(): Promise<void> {
     this.packageJson.merge({
       scripts: {
-        format: 'prettier --no-error-on-unmatched-pattern --write ** ./* ./.??*',
+        format: 'prettier --write .',
       },
     });
 
