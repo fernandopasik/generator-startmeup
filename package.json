@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "prebuild": "del generators",
-    "build": "tsc",
+    "build": "tsc && yarn copy:templates",
     "copy:templates": "cpy '**/templates/**' ../generators/ --cwd=src --parents",
     "prechangelog": "replace-in-files --string='hidden: true' --replacement='hidden: false' node_modules/conventional-changelog-conventionalcommits/writer-opts.js",
     "changelog": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s",
