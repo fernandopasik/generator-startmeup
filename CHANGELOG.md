@@ -1,3 +1,769 @@
+## [0.33.0](https://github.com/fernandopasik/generator-startmeup/compare/v0.32.0...v0.33.0) (2021-08-03)
+
+### Features
+
+- calculate package json options for main and files ([c36bebb](https://github.com/fernandopasik/generator-startmeup/commit/c36bebbc209e36504d6af16c5415985848a6584e))
+- determine if repo is a library and confirm it ([01670fe](https://github.com/fernandopasik/generator-startmeup/commit/01670fea7e43a0a106ef56a2be3f4ae34b62f1fb))
+- flow generator ([fcaa0e0](https://github.com/fernandopasik/generator-startmeup/commit/fcaa0e036069d33fee3f229e31f4722ee8a47476))
+- rollup generator ([71d6a04](https://github.com/fernandopasik/generator-startmeup/commit/71d6a040bcd4364eca02b9243518c966ce3470d2))
+- support src for yeoman generators ([39cdb0d](https://github.com/fernandopasik/generator-startmeup/commit/39cdb0d151ff1b95d73d6fac0d2739cf1ec20597))
+- verify task generator ([0960bfc](https://github.com/fernandopasik/generator-startmeup/commit/0960bfc4e26f966ebab5640d81f87d4918b3870f))
+
+### Bug Fixes
+
+- add test coverage task ([48de83c](https://github.com/fernandopasik/generator-startmeup/commit/48de83c75624c40604805166ddea64603e604a4b))
+- detect library lib path ([5da94f3](https://github.com/fernandopasik/generator-startmeup/commit/5da94f36fbd53aa483e20350e310b86e469f9303))
+- do not add npm badges if package is private ([34171dc](https://github.com/fernandopasik/generator-startmeup/commit/34171dc5b3658fca0178e2a842a0582ede220fbe))
+- format package.json after hooks ([31369b5](https://github.com/fernandopasik/generator-startmeup/commit/31369b545675a32fb3e28148d4a3d843bb00bfb7))
+- library confirmation answer save ([afe04f4](https://github.com/fernandopasik/generator-startmeup/commit/afe04f4f9064154aea6514cee326c5d977db750e))
+- lit-analyze in verify ([4b79965](https://github.com/fernandopasik/generator-startmeup/commit/4b79965fcf13574200d8c5011f68921e0ab0ef4d))
+- main file is app when not a library ([bf61451](https://github.com/fernandopasik/generator-startmeup/commit/bf61451a4f754765d025c05473ff8630057807be))
+- main package file extension ([9b015f8](https://github.com/fernandopasik/generator-startmeup/commit/9b015f89d26823fe256daacd74bff8bcf6dfaec6))
+- node env in eslint config when not browser ([4d33243](https://github.com/fernandopasik/generator-startmeup/commit/4d3324375d062309264ad8f41d9234d5dd8d2766))
+- node esm option for jest in js ([0a12491](https://github.com/fernandopasik/generator-startmeup/commit/0a124912379a1b7d088f8d1a5b93a2210d11816c))
+- only add coverage to e2e when puppeteer present ([d89b461](https://github.com/fernandopasik/generator-startmeup/commit/d89b46127a8424fb93682aa2f00f58858c9d6fbc))
+- only add stylelint when dependency present in lint staged ([11cf49e](https://github.com/fernandopasik/generator-startmeup/commit/11cf49e1cb5ce3b3be15f55710c9f41b6701ac30))
+- remove not needed husky gitignore from hooks generator ([535368d](https://github.com/fernandopasik/generator-startmeup/commit/535368d6f8c31fc45af5b82cda0d1df379d51a9e))
+- skip generator confirmations if dev dependencies already present ([19fe58f](https://github.com/fernandopasik/generator-startmeup/commit/19fe58f6c006112090dff12a9b52aee79c409de8))
+- sort props before merging to package.json ([385146c](https://github.com/fernandopasik/generator-startmeup/commit/385146cc684c4c27944bc528c3d4f7e9b44cfe4e))
+- typings for apps do not use name ([dbd2186](https://github.com/fernandopasik/generator-startmeup/commit/dbd2186aeb313626d593e50a54723c2f825c9b28))
+- use prepare for husky install ([ffe2fdf](https://github.com/fernandopasik/generator-startmeup/commit/ffe2fdfbf4bf3344c89eda28fdd585ea9799fad9))
+- write to package.json in configuring stage ([23c08dd](https://github.com/fernandopasik/generator-startmeup/commit/23c08dd60d58ae38622bee565953a8c53fb30935))
+- yeoman generator main file ([26f6882](https://github.com/fernandopasik/generator-startmeup/commit/26f68824d1d6c81b912490341f45f954a1827164))
+
+### Documentation
+
+- use org code of conduct ([7515145](https://github.com/fernandopasik/generator-startmeup/commit/751514529a4b75a71c35b17f13f9ffbf9c148192))
+
+### Code Refactoring
+
+- calculate package json options for src ([a5247b9](https://github.com/fernandopasik/generator-startmeup/commit/a5247b9835ca75782eb8d72c2118a915378136f7))
+- deprecate code of conduct in generator ([38e5733](https://github.com/fernandopasik/generator-startmeup/commit/38e5733ad136fdff1a2331116a39d997f4c94eeb))
+- deprecate sub generator ([4979799](https://github.com/fernandopasik/generator-startmeup/commit/497979904b249e50668fa1a3c77e97707b0a82ab))
+- deprecate unused method ([42902f0](https://github.com/fernandopasik/generator-startmeup/commit/42902f0b55e83c9a4968ace2e5032e39def54bd3))
+- move method to detect src extension ([489165c](https://github.com/fernandopasik/generator-startmeup/commit/489165cb2643123bcd9e6ee7c50183f51c53249d))
+- only if package ignore npm and yarn ([5e28c24](https://github.com/fernandopasik/generator-startmeup/commit/5e28c249e1692fa062dfc8823e23fd05fe296003))
+- options building for readme ([581f238](https://github.com/fernandopasik/generator-startmeup/commit/581f23870f676211a1ddd084d814a889bbb63110))
+- split writing in prettier generator ([dbe0bd6](https://github.com/fernandopasik/generator-startmeup/commit/dbe0bd67320f07d8095595785afbf76494f3d42a))
+- update code of CODE OF CONDUCT ([7a10c99](https://github.com/fernandopasik/generator-startmeup/commit/7a10c995f7209248290771a333a3992948978453))
+- use org issue templates ([7fee90a](https://github.com/fernandopasik/generator-startmeup/commit/7fee90aed978f09fb12ba63f8bfaca8684400437))
+- use org pull request template ([80eac24](https://github.com/fernandopasik/generator-startmeup/commit/80eac24ba10a5a3a666c6ac378d78174e3824d4c))
+
+### Styles
+
+- add env to config ([038842e](https://github.com/fernandopasik/generator-startmeup/commit/038842e2c9db3989b25170a43d131cbb44feedb6))
+
+### Build System
+
+- add typings to package.json ([2d4ab53](https://github.com/fernandopasik/generator-startmeup/commit/2d4ab53404cd58d1addac532d8561cbe4bb0404f))
+- husky install on prepare ([d312a25](https://github.com/fernandopasik/generator-startmeup/commit/d312a25be1410d8c8990db3f89c2872789fe8c42))
+- mark package as side effect free ([79cbf31](https://github.com/fernandopasik/generator-startmeup/commit/79cbf31dc959e25a1bf0f740b46957d6ebe96c0e))
+- remove not needed husky gitignore ([4587a42](https://github.com/fernandopasik/generator-startmeup/commit/4587a42ba5f419957fc367805719f953e9b502e2))
+- set test coverage task ([a5acd7a](https://github.com/fernandopasik/generator-startmeup/commit/a5acd7a64a39280cb437210f2086ecb58e9a9a3d))
+
+### Miscellaneous Chores
+
+- add a package resolution ([61f9bbc](https://github.com/fernandopasik/generator-startmeup/commit/61f9bbc5ae824c5a67818da67d1e3cbf9ef243b1))
+- update dependencies ([18a3c28](https://github.com/fernandopasik/generator-startmeup/commit/18a3c28dcfdc9754b693fec7d0de97a6430e1f86))
+- update dependencies ([d22a2e6](https://github.com/fernandopasik/generator-startmeup/commit/d22a2e6c9f6b1794913f47f7ee7c26a54d9e2748))
+- update dependencies ([65363cc](https://github.com/fernandopasik/generator-startmeup/commit/65363cc06aefd2ac08670bbd26ef6551b40f1aa4))
+- update dependencies ([3fcfa89](https://github.com/fernandopasik/generator-startmeup/commit/3fcfa89f1fff7ffeb4d7ca5ff6a9fada49732d3d))
+- update dependencies ([74c4fea](https://github.com/fernandopasik/generator-startmeup/commit/74c4fea3b923d340396e34f463ce0820de84a826))
+- update dependencies ([2345097](https://github.com/fernandopasik/generator-startmeup/commit/23450973f597b4042bcf7beaee8c2a744f273ee2))
+
+## [0.32.0](https://github.com/fernandopasik/generator-startmeup/compare/v0.31.0...v0.32.0) (2021-06-29)
+
+### Features
+
+- badges generator ([79a0f36](https://github.com/fernandopasik/generator-startmeup/commit/79a0f360d8fe73cf813fc368e43d3dd78ff396e3))
+- first commit util ([a795f88](https://github.com/fernandopasik/generator-startmeup/commit/a795f8867d02c1b9bec904eb38b92b380674c777))
+- get first commit year ([a22c4d5](https://github.com/fernandopasik/generator-startmeup/commit/a22c4d5a5545a6fa6161efd9a6034897b538dcaf))
+- get npm name ([738390d](https://github.com/fernandopasik/generator-startmeup/commit/738390d72a492b713a7acdb6c3a8534ec864f57e))
+
+### Bug Fixes
+
+- add missing option in babel template ([9abcf15](https://github.com/fernandopasik/generator-startmeup/commit/9abcf15754004fb96e701c647582b6f1d0fc19c1))
+- get contributors number from package.json ([7ac4959](https://github.com/fernandopasik/generator-startmeup/commit/7ac495973d3a03af2285d4e0806b3ae9bc72bf27))
+- https link ([d040cd1](https://github.com/fernandopasik/generator-startmeup/commit/d040cd161f1452d892e8f5e2bae25486a469238a))
+- if README present do not override ([52d872b](https://github.com/fernandopasik/generator-startmeup/commit/52d872b22aa4278312727cec43e68fb0921f416d))
+- immediate template comment ([98b77e8](https://github.com/fernandopasik/generator-startmeup/commit/98b77e806414b81c8f83bfc319c2a85a0f8dc283))
+- only add dependencies when not already present ([da53a63](https://github.com/fernandopasik/generator-startmeup/commit/da53a632b4d843f9c1e4d754713313ce88b77b53))
+- only add size badge if bundlewatch present ([d5a937a](https://github.com/fernandopasik/generator-startmeup/commit/d5a937a55c2784df1eaa6c757ab471c8f5497838))
+- only require js extensions in typescript if app is in browser ([d7f9fb8](https://github.com/fernandopasik/generator-startmeup/commit/d7f9fb84794bdae941cf769c0e09e228cd826bbf))
+- only set sideEffects false when no lit present ([f2524e5](https://github.com/fernandopasik/generator-startmeup/commit/f2524e583cf9e2046e9e874d0451313e92068490))
+- react libs do not need react-dom as peer dependency ([44b6790](https://github.com/fernandopasik/generator-startmeup/commit/44b67907234efb281e420ee5590fa75bfb8f457e))
+- remove unnecessary prettier ignore when rendering ([0413a85](https://github.com/fernandopasik/generator-startmeup/commit/0413a851e37566cbfc772ca1358fc1cb0fc2169b))
+
+### Documentation
+
+- move description below title ([12fa9c6](https://github.com/fernandopasik/generator-startmeup/commit/12fa9c66f979b6b83589107ea7c3470047721e8b))
+- remove prettier ignore in contributing ([980ad1c](https://github.com/fernandopasik/generator-startmeup/commit/980ad1c8ee4b4c0b5e59216eb02ac718ba20833b))
+- remove size badge ([97e01b0](https://github.com/fernandopasik/generator-startmeup/commit/97e01b02464bee463c2a4e638f7f957cc7e28bca))
+- update badges ([3cabfb8](https://github.com/fernandopasik/generator-startmeup/commit/3cabfb8088be3a84a6278b5d8baa91a5965b8dd5))
+
+### Code Refactoring
+
+- add render and format template method ([ed25b77](https://github.com/fernandopasik/generator-startmeup/commit/ed25b7768e9d9c5cb80aeda0415166a75af7acb4))
+- check extensions ([c6f61da](https://github.com/fernandopasik/generator-startmeup/commit/c6f61daaad8d4bf1c91886b79c6a9ea8a520dbcc))
+- clear template comments ([0cbb970](https://github.com/fernandopasik/generator-startmeup/commit/0cbb970e06ea0924523018eee28befb1c4007699))
+- deprecate generator method ([63ae3ef](https://github.com/fernandopasik/generator-startmeup/commit/63ae3ef5888228b33a4f4842f416fd463cf8244e))
+- deprecate unused method ([3e25486](https://github.com/fernandopasik/generator-startmeup/commit/3e25486ffc2912bd7be3affbac9a55df077cc608))
+- do not ask typescript or babel if package.json already set ([0059b92](https://github.com/fernandopasik/generator-startmeup/commit/0059b921e606e57a8d68939d039bd841f805f68c))
+- extension detection ([1035dd0](https://github.com/fernandopasik/generator-startmeup/commit/1035dd05b398c306e59fa9ba8e9b54f201f01a6c))
+- extract cleanup template ([545137a](https://github.com/fernandopasik/generator-startmeup/commit/545137a0cfceb0d1dd49078e677f1fc8a8f7e2ad))
+- extract format json ([cd0decc](https://github.com/fernandopasik/generator-startmeup/commit/cd0decc186bac941f34e3c0308523e782368a456))
+- extract has extension utility ([35de7ca](https://github.com/fernandopasik/generator-startmeup/commit/35de7ca0216dcb05273f937d7e46292292545bec))
+- extract prettier format ([9bd8edb](https://github.com/fernandopasik/generator-startmeup/commit/9bd8edb648bfc16d3d2a92e0ecf0ffe2cfe1feca))
+- extract prettier format method ([73beba7](https://github.com/fernandopasik/generator-startmeup/commit/73beba7bb8dc4040d7db4f479abc24e1f716dc02))
+- format files ([91dfe73](https://github.com/fernandopasik/generator-startmeup/commit/91dfe7330c3782472224f6b58959e369bc361947))
+- get extensions group ([141ce89](https://github.com/fernandopasik/generator-startmeup/commit/141ce892b3c51370b3cc2561a2288b592d7e135c))
+- get git remote ([e27c7ea](https://github.com/fernandopasik/generator-startmeup/commit/e27c7ea2f5d66822586b6b0f8be7b8de7936c79e))
+- get github info ([1ed2660](https://github.com/fernandopasik/generator-startmeup/commit/1ed2660788bd6debb8300d6a57d858e6440f60f6))
+- move generator utils to folder ([6b13cb6](https://github.com/fernandopasik/generator-startmeup/commit/6b13cb6f66c6053833ebcf839b0eb4b7a8e2aaf6))
+- read first commit for license year ([5e93026](https://github.com/fernandopasik/generator-startmeup/commit/5e930264d8be4daccfbbd81402bfb0bc692e8b30))
+- remove badges generation from readme generator ([bebc530](https://github.com/fernandopasik/generator-startmeup/commit/bebc5306cb30966d7adfae172a8a7e6c43dc9996))
+- rename eslint generator ([a5585ad](https://github.com/fernandopasik/generator-startmeup/commit/a5585ad54d7957556cf2e0c1945f94388ede585e))
+- render and format json config ([06fc6f3](https://github.com/fernandopasik/generator-startmeup/commit/06fc6f3efe60cb7be0be36e25e003159c90a0305))
+- render and format markdown files ([0a1dedc](https://github.com/fernandopasik/generator-startmeup/commit/0a1dedc97f9f7860c7a8caf45616d52078dba74c))
+- use clear templates in base generator ([44d2c58](https://github.com/fernandopasik/generator-startmeup/commit/44d2c58e37965fbaa8722a6a92ef300844f2f137))
+- use first commit author for license ([3278b99](https://github.com/fernandopasik/generator-startmeup/commit/3278b9987ebb0c5eb842fc4dfad860dbd57835fc))
+- use first commit for year in readme ([28d9a25](https://github.com/fernandopasik/generator-startmeup/commit/28d9a2573a3d2768b6b79b6774a5e810a72dd326))
+- use first commit year in readme and license ([01d5fad](https://github.com/fernandopasik/generator-startmeup/commit/01d5fada69adef3d5aaabe64ccb637790643b1bd))
+- use render and format in generators ([74bbc48](https://github.com/fernandopasik/generator-startmeup/commit/74bbc4807aa40161288cfebf6b4b69b653a24205))
+
+### Miscellaneous Chores
+
+- update dependencies ([98a5c06](https://github.com/fernandopasik/generator-startmeup/commit/98a5c063fbd421f41fb6eab3e501fb37e46c4250))
+- update dependencies ([a593394](https://github.com/fernandopasik/generator-startmeup/commit/a59339487fd42b4397ac949a9102c88f2d00bc4f))
+- update dependencies ([3c24577](https://github.com/fernandopasik/generator-startmeup/commit/3c24577d9ceab30479a67d05c459d649e8c103f0))
+- update dependencies ([a8d3771](https://github.com/fernandopasik/generator-startmeup/commit/a8d37711ac68284185cd5bdf741d262196f44c77))
+- update dependencies ([637c06c](https://github.com/fernandopasik/generator-startmeup/commit/637c06cde1a31d9490afe58bc1252bed4e71637f))
+
+## [0.31.0](https://github.com/fernandopasik/generator-startmeup/compare/v0.30.0...v0.31.0) (2021-06-02)
+
+### Features
+
+- add depenedency methods to base generator ([665cb5f](https://github.com/fernandopasik/generator-startmeup/commit/665cb5f8da1453e98806e0e33896b2fb3cf22433))
+- add jekyll build files to prettier ignore ([cfa8405](https://github.com/fernandopasik/generator-startmeup/commit/cfa840516dea2dc95196665e85b968aa7c8ae972))
+- add license generator to list ([737f8ff](https://github.com/fernandopasik/generator-startmeup/commit/737f8ffed8c7b79fb3d371da401c718a94bbf45a))
+- add package files to prettier ignore ([0675371](https://github.com/fernandopasik/generator-startmeup/commit/0675371e9fa960f6bdd9b8f4a737f67b3cddad3b))
+- add peer dependencies ([c945f1a](https://github.com/fernandopasik/generator-startmeup/commit/c945f1ae542f03a1f64762eb490c712276e1e1af))
+- add prettier to contributing guideline ([12620d9](https://github.com/fernandopasik/generator-startmeup/commit/12620d98340b4711b6d32ef6121a9a5bbfb0446b))
+- add readme generator to all run ([2f75135](https://github.com/fernandopasik/generator-startmeup/commit/2f75135092f4bf985517666267b4951985621619))
+- babel generator ([336deb8](https://github.com/fernandopasik/generator-startmeup/commit/336deb8a5d1a299416fae4ddf8e3788f6df82a3b))
+- badges in readme generator ([83263fe](https://github.com/fernandopasik/generator-startmeup/commit/83263fefc607fea2c6a1a0a364764457e81306e8))
+- calculate css extensions ([63c4ef7](https://github.com/fernandopasik/generator-startmeup/commit/63c4ef7ff582c95e3427f7faaae8b3488d9ffdc1))
+- calculate js extensions method ([a502fd6](https://github.com/fernandopasik/generator-startmeup/commit/a502fd61912a81b095b58a5ee73619c58b8ab165))
+- configure lint task with lint generator ([ed77c33](https://github.com/fernandopasik/generator-startmeup/commit/ed77c3398a24656ac91e767da73da35d09bedc61))
+- confirm module default value ([26e1d7c](https://github.com/fernandopasik/generator-startmeup/commit/26e1d7cbb49b9254daba73462ffa643ce55ea151))
+- extract and improve editorconfig generator ([991bfe4](https://github.com/fernandopasik/generator-startmeup/commit/991bfe4abcc9ed0f19f5d0b3fb35ca247c983e2b))
+- if testing framework present do not format coverage folder ([8c09f43](https://github.com/fernandopasik/generator-startmeup/commit/8c09f4322fe07ec9129b6838e1027d96b54c5e19))
+- ignore flowconfig in prettier ([1a121d6](https://github.com/fernandopasik/generator-startmeup/commit/1a121d6815c29a84c467361fb8d6994510ca615f))
+- ignore ruby files in prettier ([4629cf5](https://github.com/fernandopasik/generator-startmeup/commit/4629cf59b425d557ac2e92d8fae810b64da33522))
+- license generator ([a624579](https://github.com/fernandopasik/generator-startmeup/commit/a6245793dc8d2252da75bf9a11dddce55131b593))
+- make module tasks dynamic ([6e02c62](https://github.com/fernandopasik/generator-startmeup/commit/6e02c62028eca60f24e0c6e04c089aceb55b1393))
+- method for formatting files ([2e28218](https://github.com/fernandopasik/generator-startmeup/commit/2e28218755fe57fe1c8e1faa9ab38b6818c208ec))
+- new base generator with confirm method ([ff28010](https://github.com/fernandopasik/generator-startmeup/commit/ff28010f2901a74741564bc2b9a2b40ec6b1e3ac))
+- readme generator ([cc8b626](https://github.com/fernandopasik/generator-startmeup/commit/cc8b62686b6b79a3e0bc088086ef69b83e0d0874))
+- run generators with optional confirmation ([a416415](https://github.com/fernandopasik/generator-startmeup/commit/a416415df0d9d1879c98aa075cdf982d29c099c1))
+- typescript generator ([7491e33](https://github.com/fernandopasik/generator-startmeup/commit/7491e33b97b05a3919476876d6e331f56a9b98aa))
+- update format task in generator ([aa4ff50](https://github.com/fernandopasik/generator-startmeup/commit/aa4ff502578653dc99c9922ee98426ca1e256a0c))
+- update hooks generator to new husky ([f46ca8f](https://github.com/fernandopasik/generator-startmeup/commit/f46ca8f85e96e0732e2b777f3440a75e15024351))
+- use yeoman native package management ([4a2b78b](https://github.com/fernandopasik/generator-startmeup/commit/4a2b78bc1ec4b7196a7176eff7b065c799aad9d5))
+
+### Bug Fixes
+
+- addDevDependencies is async ([4c3834b](https://github.com/fernandopasik/generator-startmeup/commit/4c3834b36af333cf1eaead33a9d05b2b1f749d1d))
+- check folders with and without dot ([993a28c](https://github.com/fernandopasik/generator-startmeup/commit/993a28c6a24df59b6c1f378772b5db72216a701d))
+- cleanup ts expect error ([d51593f](https://github.com/fernandopasik/generator-startmeup/commit/d51593f88dc9d60c57b33258f694a0b1bf84af07))
+- compress file can be in docs or in root ([42df9bf](https://github.com/fernandopasik/generator-startmeup/commit/42df9bfc840708b6f510382b7701184faf89c392))
+- confirm some generators in all run ([1e5ef15](https://github.com/fernandopasik/generator-startmeup/commit/1e5ef1592ca2ad02f1ad9b870fb8296a25871cae))
+- contributing style guides if prettier ([36ecf9d](https://github.com/fernandopasik/generator-startmeup/commit/36ecf9dc28e2c6433ddc0882b0dd6114632dcbe6))
+- detect other storybook plugins ([8b51887](https://github.com/fernandopasik/generator-startmeup/commit/8b51887e8e9d26dac79dc85c9f0e584ce4c2d22a))
+- empty author parsing ([b8c5cee](https://github.com/fernandopasik/generator-startmeup/commit/b8c5cee15b0896a9e4b17cc3727d339e172d9582))
+- eslint prettier config update ([8bb74ea](https://github.com/fernandopasik/generator-startmeup/commit/8bb74ea1bc55c9d50687999050a0f81dcd284251))
+- generators work with no license present ([39ed9a6](https://github.com/fernandopasik/generator-startmeup/commit/39ed9a65d8648aa0ee51d2844bca15033d85ac84))
+- github repo detect ([2ddc7b5](https://github.com/fernandopasik/generator-startmeup/commit/2ddc7b5a42b19729f2f2eab4c90329a71d269a7c))
+- github username fallback ([9e3e3fe](https://github.com/fernandopasik/generator-startmeup/commit/9e3e3fe7fab5874fa8bc9a92d13566c39faa6f52))
+- increase max lines ([ad8e3fd](https://github.com/fernandopasik/generator-startmeup/commit/ad8e3fd4245b81ab4a847e218de045c50c4e5d5e))
+- jekyll can be in docs and in root folder ([b56e042](https://github.com/fernandopasik/generator-startmeup/commit/b56e042340e96f92ba049258caa1263d0e5e6e9b))
+- json spacing for stringify ([bf5d148](https://github.com/fernandopasik/generator-startmeup/commit/bf5d1481d5a20fc0173e7aff050060ad09403b41))
+- json spacing in small files ([42be843](https://github.com/fernandopasik/generator-startmeup/commit/42be8434649241b9803328833776125799c59954))
+- lint task skip extensions for only js files ([b19de93](https://github.com/fernandopasik/generator-startmeup/commit/b19de93a0e3aa95a67e5280fa0c361bf4cfc2618))
+- no files prop in package.json ([64e7802](https://github.com/fernandopasik/generator-startmeup/commit/64e78026cf7c753607385bd39734c7acfd182443))
+- no repo initialized yet ([f2eae8d](https://github.com/fernandopasik/generator-startmeup/commit/f2eae8d7e9d925a9db0e0436f9d2724b8095a9b3))
+- npm package variable in readme ([bfb2d20](https://github.com/fernandopasik/generator-startmeup/commit/bfb2d20b965e677f6e84e8b8ef35c0a6e4fd7ee8))
+- only add sort imports if typescript present ([45b0377](https://github.com/fernandopasik/generator-startmeup/commit/45b03779b867cbbdc4bfde0e5fd686b6ae0f2c22))
+- only include js extensions if files present ([1f40702](https://github.com/fernandopasik/generator-startmeup/commit/1f40702a7bc476759104cd0fd869f25f2f0c769d))
+- only ingnore root LICENSE in prettier ([476212d](https://github.com/fernandopasik/generator-startmeup/commit/476212d5c4edb0abd89f618cff8ed3ae1633ff58))
+- remove deprecated lint rule for web components ([b6e417d](https://github.com/fernandopasik/generator-startmeup/commit/b6e417df0ed3e3a8a4031383d3dac70907b4326c))
+- replace comments in templates ([99818a0](https://github.com/fernandopasik/generator-startmeup/commit/99818a0bb910c618f721e77aff2574ca588dc8ff))
+- resolve dependencies to caret plus version ([9a5183b](https://github.com/fernandopasik/generator-startmeup/commit/9a5183b93a466888b2ede07499111959fd3daabc))
+- return sorted extensions ([4621829](https://github.com/fernandopasik/generator-startmeup/commit/4621829b4defe4fa8c7084b209e31407e621f3c1))
+- revert ts-jest outdir fix ([31640ff](https://github.com/fernandopasik/generator-startmeup/commit/31640ff828ec80a30bd49bee9f793120982a8803))
+- search for markdown in dot directories ([2aff098](https://github.com/fernandopasik/generator-startmeup/commit/2aff0981e7f0647316a35945e26917f45be51166))
+- skip extensions in storybook stories imports ([b696739](https://github.com/fernandopasik/generator-startmeup/commit/b6967395e58275f3afa216bcfee676fa08f34c57))
+- sort error first when formatting config ([6369bda](https://github.com/fernandopasik/generator-startmeup/commit/6369bda6c36e9bc7f83abf20f5033a4ae1e0a1c0))
+- sort json props when formatting ([65b39e9](https://github.com/fernandopasik/generator-startmeup/commit/65b39e946008d684af29007d6c5d3817b7268a45))
+- use module mapper in jest with typescript ([4501bbf](https://github.com/fernandopasik/generator-startmeup/commit/4501bbf3895802623098d300a67c32b5874e4651))
+- yaml alternative extension in editor config ([a44991d](https://github.com/fernandopasik/generator-startmeup/commit/a44991d07990793dbc22b2d5b62aff8f0b972bde))
+
+### Continuous Integration
+
+- add dependabot config ([f08d458](https://github.com/fernandopasik/generator-startmeup/commit/f08d458a009b86a8b98271db103bbb636b001b81))
+
+### Build System
+
+- **deps:** bump node-notifier from 8.0.0 to 8.0.1 ([#8](https://github.com/fernandopasik/generator-startmeup/issues/8)) ([4d9c1a7](https://github.com/fernandopasik/generator-startmeup/commit/4d9c1a73449b3d0957a0732806b05f1726fb9615))
+- refactor patterns in ignore files ([4d5fee9](https://github.com/fernandopasik/generator-startmeup/commit/4d5fee9f345d977b658571596a5e57f50ea85c12))
+- remove unnecessary package resolution ([20a683d](https://github.com/fernandopasik/generator-startmeup/commit/20a683dafc58eaf4c5946c55b28104e81b798660))
+- remove unneeded dependency resolution ([6625b2d](https://github.com/fernandopasik/generator-startmeup/commit/6625b2d976a41c8f68d6fb569fb0914d52ad5a09))
+- target es2019 in ts config ([501d121](https://github.com/fernandopasik/generator-startmeup/commit/501d1219a58d8eaece18220c611098a1b9bfa0f6))
+- update axios due to security issues ([54d9439](https://github.com/fernandopasik/generator-startmeup/commit/54d9439720ff435b1868f9db80d22e326b2931e9))
+- update dependencies ([e6e5485](https://github.com/fernandopasik/generator-startmeup/commit/e6e5485b8cf5b5ac3b2e515e07209c2b9cf633a4))
+- update dependencies ([3f6b6cc](https://github.com/fernandopasik/generator-startmeup/commit/3f6b6ccc83bdc92779f9d5d8371e63e1321329f8))
+- update dependencies ([7740928](https://github.com/fernandopasik/generator-startmeup/commit/77409285cd150e9aad51fc25d4fdff7b7dc4e20b))
+- update dependencies ([1c1e00d](https://github.com/fernandopasik/generator-startmeup/commit/1c1e00d84bd0814818cde48375fc4e9846173b62))
+- update dependencies ([5fe0396](https://github.com/fernandopasik/generator-startmeup/commit/5fe03962ce33d8b83d558a17071ab72fd8f65128))
+- update dependencies ([7090e22](https://github.com/fernandopasik/generator-startmeup/commit/7090e225b01dd740b872de198f88caaf4fb25c00))
+- update editorconfig ([5f41b80](https://github.com/fernandopasik/generator-startmeup/commit/5f41b800cc28d5037944d76ce776e9a5d43b5c71))
+- update husky ([e6a3dc6](https://github.com/fernandopasik/generator-startmeup/commit/e6a3dc67415a97241f94779ff727e8c0e61a1714))
+- update lodash due to security issues ([e68519b](https://github.com/fernandopasik/generator-startmeup/commit/e68519ba86f244e2c0d0e64f5aaf8f197c3828c8))
+- update yeoman generator ([9c63207](https://github.com/fernandopasik/generator-startmeup/commit/9c6320702a38e8cbbad101437739b5749000ab78))
+- use short github repository in package.json ([e638e0c](https://github.com/fernandopasik/generator-startmeup/commit/e638e0caf032329ac065328bbb4b5ebe2a29f04a))
+
+### Code Refactoring
+
+- add dependencies without specific version ([babdc0f](https://github.com/fernandopasik/generator-startmeup/commit/babdc0f9de1822218dc6be87be549f2685744b1a))
+- add lint rule for web components ([fe573a0](https://github.com/fernandopasik/generator-startmeup/commit/fe573a0e67d26563b265bad023aa27144d0e9de4))
+- add missing type ([e4d277b](https://github.com/fernandopasik/generator-startmeup/commit/e4d277b56ab7907afb999f338ef315cd7fcb0dd1))
+- avoid casting type ([5e452df](https://github.com/fernandopasik/generator-startmeup/commit/5e452df5a3e41df8ff9f8d327fb43242400ac37f))
+- avoid casting type ([b8c7052](https://github.com/fernandopasik/generator-startmeup/commit/b8c705229eca4ab4d87ca7f6791ee23d34b13de4))
+- build lint overrides ([aba9340](https://github.com/fernandopasik/generator-startmeup/commit/aba934044f7bc4760b538bdacf14794748ba0abd))
+- calculate extensions for lint staged ([27284f2](https://github.com/fernandopasik/generator-startmeup/commit/27284f255f9ad23c74460ecf91dac9df741a83ff))
+- default github username can be empty ([a3d72a4](https://github.com/fernandopasik/generator-startmeup/commit/a3d72a4f70abe7a269331e59e01b00bdc651485c))
+- delete old compilers generator ([3257e0d](https://github.com/fernandopasik/generator-startmeup/commit/3257e0dca1f0bf03466ae2911e5367076eadcc7a))
+- delete typescript from compilers generator ([4cd6bff](https://github.com/fernandopasik/generator-startmeup/commit/4cd6bffe6c9729556da38a516284e537e5775cc6))
+- deprecate old base generator ([c6ca896](https://github.com/fernandopasik/generator-startmeup/commit/c6ca8967586349cd6add4897c942becb11ad417b))
+- deprecate old dependencies management ([9a87e36](https://github.com/fernandopasik/generator-startmeup/commit/9a87e3640696dd801b97ad2e12ab5bfd1d3d66b1))
+- deprecate ts-jest fix ([6d60e16](https://github.com/fernandopasik/generator-startmeup/commit/6d60e1607a9c86c1e856d56e42dd67b56ffa1899))
+- docs generator options ([79d948f](https://github.com/fernandopasik/generator-startmeup/commit/79d948f3d6961802608bdb43ab3427b96fb204aa))
+- export modules directly ([8015e6f](https://github.com/fernandopasik/generator-startmeup/commit/8015e6fca6abb0cb91095a4947e8be04cac7e052))
+- export util function ([3828207](https://github.com/fernandopasik/generator-startmeup/commit/3828207f498e5f9238c9d53b5df8c997cef5a355))
+- extract github templates generator ([2d01291](https://github.com/fernandopasik/generator-startmeup/commit/2d01291e6d6a50a78da965475cba572ce5f90930))
+- extract parse license year ([c37186f](https://github.com/fernandopasik/generator-startmeup/commit/c37186f0cb21082dbcbd6e9a0cc7199276415387))
+- extract sort props ([512aa49](https://github.com/fernandopasik/generator-startmeup/commit/512aa49ec38b395a00d528e99361416b6ba22177))
+- format files ([a9506ab](https://github.com/fernandopasik/generator-startmeup/commit/a9506ab5d510c6f6f883b4e2a0038be26f9ffff6))
+- jest generator ([84313bd](https://github.com/fernandopasik/generator-startmeup/commit/84313bdc4e3b3efef1b5038b6bdc668cdf85c58d))
+- libraries generator ([03f0268](https://github.com/fernandopasik/generator-startmeup/commit/03f02684408ed92148fd72a467b8bb27d24eecc3))
+- lint staged generator ([70bcd88](https://github.com/fernandopasik/generator-startmeup/commit/70bcd886fc74a0468d6748166587072b39c8326e))
+- merge changes to package json through storage ([2b3ef9c](https://github.com/fernandopasik/generator-startmeup/commit/2b3ef9c36b035e2ad84ca0258e55347139359962))
+- merge changes to package json through storage ([acb070a](https://github.com/fernandopasik/generator-startmeup/commit/acb070a279302d9776a4e8c4499cf2108e600e8b))
+- migrate generator to native yeoman methods ([10a2025](https://github.com/fernandopasik/generator-startmeup/commit/10a202505ecdaefb45e1644185dfbca5160d765a))
+- migrate generator to native yeoman methods ([cdd1222](https://github.com/fernandopasik/generator-startmeup/commit/cdd1222f9adf028c014b271fdd19a2771ceafce0))
+- migrate generator to native yeoman methods ([b15005b](https://github.com/fernandopasik/generator-startmeup/commit/b15005bc79a280e03a211919b04a375f820a8110))
+- migrate lint generator ([28e8b4d](https://github.com/fernandopasik/generator-startmeup/commit/28e8b4d37c4f625ff1e30350fb2bc4228a708c6d))
+- package json generator ([b493769](https://github.com/fernandopasik/generator-startmeup/commit/b49376936b492a596069091e1ce37a17ec1cc3f1))
+- read package.json for reading dependencies ([a277b20](https://github.com/fernandopasik/generator-startmeup/commit/a277b20daf1f3c72e072ff0946c0481a919ce6e9))
+- remove commented lines ([055dd40](https://github.com/fernandopasik/generator-startmeup/commit/055dd403034e5fbdbfaa039dbf83d5c9f9c42e25))
+- remove confirmation from sub generators ([51dee68](https://github.com/fernandopasik/generator-startmeup/commit/51dee6813abc9fb24a2feffdabc444ad658624b0))
+- remove core method in app generator ([2fe09ec](https://github.com/fernandopasik/generator-startmeup/commit/2fe09ec75491dad0850f2294e5969bec6a159197))
+- remove last parts of old core implementation ([d93bd01](https://github.com/fernandopasik/generator-startmeup/commit/d93bd01d5c7677009efe5488ff2e4207c9aa5e37))
+- remove license from docs generator ([07c3dd9](https://github.com/fernandopasik/generator-startmeup/commit/07c3dd986ababbf0037465e2d90e53ce8ca879c6))
+- remove old config management ([5062fa6](https://github.com/fernandopasik/generator-startmeup/commit/5062fa6cfb18712f3516fe876b6d13be8afb8f2e))
+- remove php in editorconfig ([0f8ab70](https://github.com/fernandopasik/generator-startmeup/commit/0f8ab70379fbd6b32a7cf30e14b740efa6c42ebc))
+- remove readme from docs generator ([ef21267](https://github.com/fernandopasik/generator-startmeup/commit/ef2126773c43d06d3afb06e41129f6446bc4fa85))
+- remove unused dependencies ([7941f01](https://github.com/fernandopasik/generator-startmeup/commit/7941f01f4edab939ba60b861d6f57e2e43732940))
+- rename git generator ([122db74](https://github.com/fernandopasik/generator-startmeup/commit/122db7497238baaad4007ee555ec1ffca4be53ee))
+- replace core dependency methods ([aec5496](https://github.com/fernandopasik/generator-startmeup/commit/aec5496db5921fa59baecf0228244376f816622d))
+- simplify async opeartion ([89ece50](https://github.com/fernandopasik/generator-startmeup/commit/89ece50156550396a5866ffa71bf497e16e06df6))
+- use arrow function when possible ([3eaa82d](https://github.com/fernandopasik/generator-startmeup/commit/3eaa82dcdee85519e002d88113675fbb4ff34682))
+- use base generator ([98e931c](https://github.com/fernandopasik/generator-startmeup/commit/98e931c7fbcd53838a6d45209bc3d4fe21d75a9d))
+- use base generator with confirm method ([6a3366e](https://github.com/fernandopasik/generator-startmeup/commit/6a3366e651d0c892ec2806d7fba7435e814d0655))
+- use built in method for copying template ([b1d3c8c](https://github.com/fernandopasik/generator-startmeup/commit/b1d3c8c678adf54d166b930c73109fec9b880415))
+- use default package json storage ([d3038c0](https://github.com/fernandopasik/generator-startmeup/commit/d3038c0ffb5caacbaca07122b4a16cdb48d495a9))
+- use native methods for dependencies ([9e1fee1](https://github.com/fernandopasik/generator-startmeup/commit/9e1fee167227eab1fa982f45ba70d4eb3b8caaee))
+- use native methods for reading package.json ([6085661](https://github.com/fernandopasik/generator-startmeup/commit/6085661e15e1a130c9e1fbfe6774655d016e378f))
+- use native yeoman methods ([ef2c4a0](https://github.com/fernandopasik/generator-startmeup/commit/ef2c4a0c905434a621a0e056d5612485b913d05b))
+- use new dependency methods in generators ([17cc798](https://github.com/fernandopasik/generator-startmeup/commit/17cc7986556afc4e4f9b2738ab9f63b80167e9c3))
+- use shorter method for checking file existence ([f7cf97b](https://github.com/fernandopasik/generator-startmeup/commit/f7cf97ba34c897a7cb75589596e3e8671bec3e92))
+
+### Miscellaneous Chores
+
+- json templates with comments in vscode ([ce1fe5c](https://github.com/fernandopasik/generator-startmeup/commit/ce1fe5c0269acde1c9e1130759aadf08ef05e301))
+- remove not used dependency ([f288cee](https://github.com/fernandopasik/generator-startmeup/commit/f288cee85d5a59eed0ac2540d3725139ee5a79ad))
+- update dependencies ([20601f0](https://github.com/fernandopasik/generator-startmeup/commit/20601f00ef49aff840a6c44c034cd2b3cdd3f5ec))
+- update dependencies ([b65359a](https://github.com/fernandopasik/generator-startmeup/commit/b65359aff3aa90dccce87266f638638907dd64b9))
+- update dependencies ([c4c23f9](https://github.com/fernandopasik/generator-startmeup/commit/c4c23f9259a20d202e3efda75aa2f2b4d03c6d14))
+- update dependencies ([a9279a1](https://github.com/fernandopasik/generator-startmeup/commit/a9279a16c3fa4348bc6500c0f3488b57c50ef5cb))
+- update dependencies ([b850456](https://github.com/fernandopasik/generator-startmeup/commit/b850456990456131a5da74ff481354eae9a4093d))
+- update dependencies ([77073ba](https://github.com/fernandopasik/generator-startmeup/commit/77073ba874855f08b5976a1ec29724518a496481))
+- update dependencies ([d176f0a](https://github.com/fernandopasik/generator-startmeup/commit/d176f0af4a39e0a4695bdb20877bcd06ed8c4942))
+- update dependencies ([cc45ecc](https://github.com/fernandopasik/generator-startmeup/commit/cc45eccc551f3629afb3044ef18900610d1f106b))
+- update dependencies ([94f9770](https://github.com/fernandopasik/generator-startmeup/commit/94f9770e47937901c303e5bee0283313eee009b8))
+- update jest ([7f7ad86](https://github.com/fernandopasik/generator-startmeup/commit/7f7ad8645d3d6296e3662939f12b7f02e91f7214))
+- update ts-jest ([b14bc8b](https://github.com/fernandopasik/generator-startmeup/commit/b14bc8b53b87dbfa230ff9d8ffd1e9c70c5b3b24))
+- update types ([d924365](https://github.com/fernandopasik/generator-startmeup/commit/d924365fcd36d23c08133edc1d7b01e5c6c7052f))
+- update yeoman generator lib ([0c1e73f](https://github.com/fernandopasik/generator-startmeup/commit/0c1e73f2d6094d8bdca81a2da43f6a234f16c54c))
+- update yeoman libs ([df856dd](https://github.com/fernandopasik/generator-startmeup/commit/df856dde6f92a293ef98f6ee8bf40e84d998febe))
+
+### Tests
+
+- refactor test for lowercase and uppercase prop sort ([9cb8e6f](https://github.com/fernandopasik/generator-startmeup/commit/9cb8e6f9a5daa3487c052f0c3ca3e180dda6fc13))
+- update config ([edd975d](https://github.com/fernandopasik/generator-startmeup/commit/edd975de46e215af6274cea00c083d3357aeac77))
+
+### Documentation
+
+- add license to README ([7945774](https://github.com/fernandopasik/generator-startmeup/commit/7945774c1526c42d2c39ded60a88ffa6b0ccfdfc))
+- add npm logo to badge ([8229a55](https://github.com/fernandopasik/generator-startmeup/commit/8229a55145fa8d16f949433f48d7d80de0212018))
+- fix shield url ([6c156ad](https://github.com/fernandopasik/generator-startmeup/commit/6c156adbf15854b18657c4ff2fcf5efc32e864a8))
+- remove old documentation from README ([179d960](https://github.com/fernandopasik/generator-startmeup/commit/179d960e1daf7ce617bcd44a1aa5b74873a6bc8d))
+
+### Styles
+
+- add missing newline ([e170d04](https://github.com/fernandopasik/generator-startmeup/commit/e170d0466b9eb56419df8172ebfa3d4f1fd4143d))
+- deprecate fixed rule in all config ([4458e64](https://github.com/fernandopasik/generator-startmeup/commit/4458e647e34389c2b9e96317d7ad64e57cfb5f7c))
+- deprecate rule ([135919a](https://github.com/fernandopasik/generator-startmeup/commit/135919a87ab08c714bd2912be1665d004240064f))
+- deprecate unused rule ([70435ad](https://github.com/fernandopasik/generator-startmeup/commit/70435adad74fb8e0a479aa35261c267ae6338f31))
+- disable rule in tests ([b1646c5](https://github.com/fernandopasik/generator-startmeup/commit/b1646c594d0d75155de96e0bd86af37d2864a98a))
+- fix eslint config update ([df85253](https://github.com/fernandopasik/generator-startmeup/commit/df852536a7ff76753c9bc4019504e13d849db92d))
+- format if statements in template ([b01104a](https://github.com/fernandopasik/generator-startmeup/commit/b01104a793aae25ced18b51decbebaa87b8ecbb9))
+- ignore dangle underscore in generator private methods ([993af1c](https://github.com/fernandopasik/generator-startmeup/commit/993af1c1b2afd0c039ebdab1c9f509c9f1405908))
+- ignore DS_Store in prettier ([e9ebec0](https://github.com/fernandopasik/generator-startmeup/commit/e9ebec0c1b40a9bdac5a001615bdcdf413324112))
+- ignore gemspec files in prettier ([f615aa7](https://github.com/fernandopasik/generator-startmeup/commit/f615aa721934ada9bdee035e3bd034682fa9b8ff))
+- ignore list styles in doc ([a40798c](https://github.com/fernandopasik/generator-startmeup/commit/a40798c305f05690f4fdbf88bef47b995216527b))
+- ignore magic number 1 ([23bbace](https://github.com/fernandopasik/generator-startmeup/commit/23bbace29545c81ad949d7848ecc87eb5fd32b74))
+- ignore root LICENSE ([f998e80](https://github.com/fernandopasik/generator-startmeup/commit/f998e803598fbef92fd807799ab13127821c46c3))
+- ignore unmatched files on format ([db0a578](https://github.com/fernandopasik/generator-startmeup/commit/db0a578d1b184cfe32f284ce4180e4b7f03b6c18))
+- remove annotation from inferred types ([2b7557f](https://github.com/fernandopasik/generator-startmeup/commit/2b7557f1b1aee5c061f2c0d80582cd121d389530))
+- remove unneeded rule ([3cdc803](https://github.com/fernandopasik/generator-startmeup/commit/3cdc803752ca74a6a3b65a4766edcfc1629eda54))
+- replace rule for ignore line ([692c180](https://github.com/fernandopasik/generator-startmeup/commit/692c1803cea69efcbf5c9ddf95dcd44e395bdc6e))
+- rollback eslint import update due to regression ([a4bcfc4](https://github.com/fernandopasik/generator-startmeup/commit/a4bcfc4567f30b52b93b7fd56d3b8d5f2cd0d4d4))
+- run prettier on precommit hook ([908488f](https://github.com/fernandopasik/generator-startmeup/commit/908488f7f5743dcfc1e51a46319750179dfbebc2))
+- sort properties ([4f99885](https://github.com/fernandopasik/generator-startmeup/commit/4f998853659e91a194d1c09cf08748fb2bb2f12b))
+- sort properties in config ([7aa5737](https://github.com/fernandopasik/generator-startmeup/commit/7aa5737843ee520e1b20688ed9c40cf9a1fec4dc))
+- sort props in config ([5f92d7a](https://github.com/fernandopasik/generator-startmeup/commit/5f92d7af54fa8e2d949f3a2506b1525ad5864647))
+- sort task extensions ([b14891f](https://github.com/fernandopasik/generator-startmeup/commit/b14891f60d37eb0397b1f9eaa67495b790c4da3c))
+- sort union type members ([db84f54](https://github.com/fernandopasik/generator-startmeup/commit/db84f544f8924684536973dec4177dcb26a935e8))
+- sort union type members ([d61a709](https://github.com/fernandopasik/generator-startmeup/commit/d61a7094e96d80c6e7dd235819bb0eaaf1bcc32b))
+- temporary ignore rules ([883e09b](https://github.com/fernandopasik/generator-startmeup/commit/883e09ba5c193870010f2a4659aa130751cb571a))
+- update prettier on files ([dba07eb](https://github.com/fernandopasik/generator-startmeup/commit/dba07ebcec232812c4f78d9709ccc8d7c15c9bef))
+- use type instead of disable rule ([f10ff48](https://github.com/fernandopasik/generator-startmeup/commit/f10ff483cb4a5602ca4bc7c951d69085a9322032))
+
+## [0.30.0](https://github.com/fernandopasik/generator-startmeup/compare/v0.29.0...v0.30.0) (2020-12-11)
+
+### Features
+
+- add lit a11y eslint plugin for web-components ([f73eebd](https://github.com/fernandopasik/generator-startmeup/commit/f73eebdb45e86cd26052d6a4f94c30244e7e3ff7))
+- add tasks to module config ([7cdbde6](https://github.com/fernandopasik/generator-startmeup/commit/7cdbde6763974731aa05fd69586851a58780c067))
+- set configuring method in core generator ([c7e8148](https://github.com/fernandopasik/generator-startmeup/commit/c7e81480ed4c577514259e1a48427a906f2926b3))
+- set module tasks to package.json ([7d77351](https://github.com/fernandopasik/generator-startmeup/commit/7d77351686a1780518eab0c6d1b7644fbedc3483))
+
+### Bug Fixes
+
+- make void function not return ([dd2134f](https://github.com/fernandopasik/generator-startmeup/commit/dd2134f97f03f56ce48034d3de0f0521e1f96e59))
+- remove deprecated prettier config option ([ce17d96](https://github.com/fernandopasik/generator-startmeup/commit/ce17d9605133bbbd9a696e46152e898c9a9bf6f1))
+- update ts-jest tsconfig parameter name ([39eeee7](https://github.com/fernandopasik/generator-startmeup/commit/39eeee7fcce2a77087af05c795d80452d5fd41ba))
+
+### Tests
+
+- update ts-jest tsconfig parameter name ([f826306](https://github.com/fernandopasik/generator-startmeup/commit/f82630639d04a9173637d9281796efcc669b1752))
+
+### Styles
+
+- deprecate prettier prose wrap format ([336cd67](https://github.com/fernandopasik/generator-startmeup/commit/336cd672847ac7e586299117cb316a5e57078bbb))
+
+### Code Refactoring
+
+- replace cjs export ([873796d](https://github.com/fernandopasik/generator-startmeup/commit/873796debf123231683f816ae069ce4fafdf736d))
+- use Record for dependencies store ([7451e4d](https://github.com/fernandopasik/generator-startmeup/commit/7451e4d373b04d7da94b70d1440fd0517b89375e))
+- use Record for lint staged config ([e35bd01](https://github.com/fernandopasik/generator-startmeup/commit/e35bd01972dadb1c789e5eecd8e4a8c4bfe611a8))
+
+### Documentation
+
+- add code style badge ([5010175](https://github.com/fernandopasik/generator-startmeup/commit/5010175fe2e4645001b867cd50d55f7feb5c832f))
+- sort links in README ([18dfcbf](https://github.com/fernandopasik/generator-startmeup/commit/18dfcbf9c6103c3eeab90d51f0adcfdb0b7ad8c1))
+
+### Build System
+
+- deprecate pre node 12 polyfill ([d45dd9b](https://github.com/fernandopasik/generator-startmeup/commit/d45dd9b0be124f173caaa3599988b6af029009f6))
+- fix husky not installing hooks in ci ([c52d6c7](https://github.com/fernandopasik/generator-startmeup/commit/c52d6c78815c3b86d8903f2e5095dfa01714911f))
+- move type to dev dependencies ([d55ca92](https://github.com/fernandopasik/generator-startmeup/commit/d55ca92a476a7deb6ee078428079315b7904cb93))
+- rename task ([09579ed](https://github.com/fernandopasik/generator-startmeup/commit/09579edb0bf6d60745308b2cf92aed732bfee290))
+- set node support >= 12 ([d98aac2](https://github.com/fernandopasik/generator-startmeup/commit/d98aac2d2a3f017338422af0fe69e07ae93ad2c3))
+- update dependencies ([4d3fe8e](https://github.com/fernandopasik/generator-startmeup/commit/4d3fe8ea4f9cbc839d8ef02e5b01b472eaf7af4e))
+- update dependencies ([c244b81](https://github.com/fernandopasik/generator-startmeup/commit/c244b810cbc80c7a70f2753a37f5e7eea5417625))
+- update dependencies ([9aaecab](https://github.com/fernandopasik/generator-startmeup/commit/9aaecabefae74e10664d4281f69be3b3135f50c2))
+- update dependencies ([a11674e](https://github.com/fernandopasik/generator-startmeup/commit/a11674edbfd43b129762f2bf69082654324ed31f))
+
+## [0.29.0](https://github.com/fernandopasik/generator-startmeup/compare/v0.28.1...v0.29.0) (2020-09-20)
+
+### Features
+
+- add max lines and max lines per function eslint rules ([d592dcf](https://github.com/fernandopasik/generator-startmeup/commit/d592dcfe3920d374de4e0e0c079ac434b7a05db4))
+- add wc eslint plugin for config ([762b65e](https://github.com/fernandopasik/generator-startmeup/commit/762b65e43215206e9228f21bf2b7d344b2995980))
+- save js configs with ES modules ([178c5a0](https://github.com/fernandopasik/generator-startmeup/commit/178c5a0db2f3f674aa9408d279295cacacc940ea))
+
+### Bug Fixes
+
+- missing catched error type ([63a0afc](https://github.com/fernandopasik/generator-startmeup/commit/63a0afc9bea2a3e502300f89346d765a128ce1bd))
+
+### Styles
+
+- separate type imports ([f504ad5](https://github.com/fernandopasik/generator-startmeup/commit/f504ad582ecbdc67ee641e9d1d7572783150adb4))
+
+### Build System
+
+- dependency resolution because of vulnerability ([045e7ae](https://github.com/fernandopasik/generator-startmeup/commit/045e7aeec425d085bce639776c420b7f213e62f5))
+- remove unnecessary dependency resolution ([b5c3bca](https://github.com/fernandopasik/generator-startmeup/commit/b5c3bcaabaae1b0d35ec68d96bf118af81be3044))
+- update dependencies ([4feadf0](https://github.com/fernandopasik/generator-startmeup/commit/4feadf03cd0c9323c3cd1a040c25d60f0a47f8b9))
+- update dependencies ([f396cab](https://github.com/fernandopasik/generator-startmeup/commit/f396cabcf1002ae498b4ec17cba24b94b5ff9903))
+- update dependencies ([8c5b18f](https://github.com/fernandopasik/generator-startmeup/commit/8c5b18f6fdb8f6343fdb21fc26e5f8c36a730b4e))
+- update dependencies ([7ca1c18](https://github.com/fernandopasik/generator-startmeup/commit/7ca1c18e4d1700bd5d0ee5d2180f98701248d7b5))
+- update dependencies ([2a55752](https://github.com/fernandopasik/generator-startmeup/commit/2a55752ef217d4d66f93a0fa8d1548c305d5cee6))
+
+### [0.28.1](https://github.com/fernandopasik/generator-startmeup/compare/v0.28.0...v0.28.1) (2020-08-02)
+
+### Miscellaneous Chores
+
+- update dependencies ([b947b19](https://github.com/fernandopasik/generator-startmeup/commit/b947b191b434db43b78830229efecfb9c39a65ae))
+
+## [0.28.0](https://github.com/fernandopasik/generator-startmeup/compare/v0.27.1...v0.28.0) (2020-07-21)
+
+### Bug Fixes
+
+- add jest types when typescript present ([2ceb3c7](https://github.com/fernandopasik/generator-startmeup/commit/2ceb3c7aa981f6525bab9f2e611a0ff6b0ac178b))
+- add lib folder to files ([19b0e40](https://github.com/fernandopasik/generator-startmeup/commit/19b0e405b8a0a6b7dc91dec2b1f422664640ef40))
+- add prettier plugins to dependencies too ([1e8c2ea](https://github.com/fernandopasik/generator-startmeup/commit/1e8c2eae60c4f29eae7a4d10d235a0ec8cfde9d5))
+- adding module props in src subgen ([3019d14](https://github.com/fernandopasik/generator-startmeup/commit/3019d145e4d60858afd1923cdc3f83af12f27ef3))
+- check for package main file when property exists ([6b0e820](https://github.com/fernandopasik/generator-startmeup/commit/6b0e820e75bd6194866d57ed7eb56a7d6a44bf8d))
+- include folders starting with dot in tsconfig.all ([4c2e857](https://github.com/fernandopasik/generator-startmeup/commit/4c2e857a989cf5c75333583f1a7c4cf34a58e204))
+- storybook config also uses dev dendencies in lint config ([87a7ba0](https://github.com/fernandopasik/generator-startmeup/commit/87a7ba0f031d78eaec1b2428c651de62745e5485))
+
+### Build System
+
+- update tsconfigs ([dba9d36](https://github.com/fernandopasik/generator-startmeup/commit/dba9d36a82a52a178c54eb107e70c475f6f5bf88))
+
+### Code Refactoring
+
+- deprecate package.json custom type ([682e128](https://github.com/fernandopasik/generator-startmeup/commit/682e128fb62d0551724bfbac8703f07ed34ea444))
+- update code of conduct to latest version ([118dd15](https://github.com/fernandopasik/generator-startmeup/commit/118dd15e24b8d3b8e7f18747eafe9d026c4cac76))
+
+### Documentation
+
+- update contributing guide ([4f5f378](https://github.com/fernandopasik/generator-startmeup/commit/4f5f378a0176a9439b081f47099ec74e6ea1434b))
+
+### Tests
+
+- deprecate mock ([a9616a1](https://github.com/fernandopasik/generator-startmeup/commit/a9616a1f23b6b36aace25efa08b1f4fa555fac48))
+- update config ([8a29d3e](https://github.com/fernandopasik/generator-startmeup/commit/8a29d3ebc78b841882c31c7c72a732674b40c9a2))
+
+### Styles
+
+- remove ignores for types imported from dev dependencies ([7694219](https://github.com/fernandopasik/generator-startmeup/commit/7694219ede017eaaf178a900bfef5bc42f374bd3))
+- remove unneeded eslint disable ([4d0a6de](https://github.com/fernandopasik/generator-startmeup/commit/4d0a6de6ba85445abe941f4fa5b4a13d4bb3b4cb))
+- run prettier on changelog ([22e1d24](https://github.com/fernandopasik/generator-startmeup/commit/22e1d24bf3e801929c2fb924d17d1773812f608d))
+- task for runing prettier on all files ([6a2fea5](https://github.com/fernandopasik/generator-startmeup/commit/6a2fea55a4f9d7f25a832e080c3f3056348a1de0))
+- use import type when only importing a type ([953ecaf](https://github.com/fernandopasik/generator-startmeup/commit/953ecafb449810cd1c2e32f520c987e1ba69962d))
+
+### Miscellaneous Chores
+
+- run prettier on changelog after update ([6256bd9](https://github.com/fernandopasik/generator-startmeup/commit/6256bd9a077415724b30580a15e7ee55e3f36dbc))
+- update dependencies ([c3e9f2f](https://github.com/fernandopasik/generator-startmeup/commit/c3e9f2f35a0e854036b70db82614b21f4ce0639c))
+- update dependencies ([62bad58](https://github.com/fernandopasik/generator-startmeup/commit/62bad586dae5a51af5cbec39f75adc45ac94821a))
+- update dependencies ([3da68d6](https://github.com/fernandopasik/generator-startmeup/commit/3da68d678c83087778ee0e73e66663ba9b798914))
+- update dependencies ([7b655f3](https://github.com/fernandopasik/generator-startmeup/commit/7b655f330d0df532f0bc4c5c27aae34a00e82598))
+- update dependencies ([4f0158c](https://github.com/fernandopasik/generator-startmeup/commit/4f0158c9462aadada0e8ca5d03f59fcb816e807d))
+- update dependencies ([5ca9505](https://github.com/fernandopasik/generator-startmeup/commit/5ca95052c2f6f624b661da95b40db1c261c42ee4))
+- update dependencies ([32b0dae](https://github.com/fernandopasik/generator-startmeup/commit/32b0daec47e13f7389b1834954cdea1a7edbba65))
+- update types ([30bcf04](https://github.com/fernandopasik/generator-startmeup/commit/30bcf0404e6ff568bf878dc3ec74849bb3900974))
+
+### [0.27.1](https://github.com/fernandopasik/generator-startmeup/compare/v0.27.0...v0.27.1) (2020-06-12)
+
+### Bug Fixes
+
+- add jest-enzyme types to jest config ([d60b9ad](https://github.com/fernandopasik/generator-startmeup/commit/d60b9ad492896c74e808fffd0b780b6beadfe4e1))
+
+### Tests
+
+- add missing tsconfig in jest config ([352dcca](https://github.com/fernandopasik/generator-startmeup/commit/352dcca0a1df1f1d780962595bea84f9978c8b11))
+
+### Styles
+
+- fix eslint warnings on any type ([8afaed6](https://github.com/fernandopasik/generator-startmeup/commit/8afaed6d17227128950209a0a8fb37a64e1b02b4))
+
+### Code Refactoring
+
+- use type library for package.json ([ade4a33](https://github.com/fernandopasik/generator-startmeup/commit/ade4a3317c1494778eadf004ad25438b2c1a438d))
+
+## [0.27.0](https://github.com/fernandopasik/generator-startmeup/compare/v0.26.0...v0.27.0) (2020-06-11)
+
+### Features
+
+- set package json options for main files ([34950c8](https://github.com/fernandopasik/generator-startmeup/commit/34950c8218c8234ea20b7d24eb377c6ad1297247))
+
+### Bug Fixes
+
+- exclude built files in tsconfig.all ([adb20a2](https://github.com/fernandopasik/generator-startmeup/commit/adb20a2e89e36cc8ca9e52194f7e4be39f42e04f))
+
+### Miscellaneous Chores
+
+- update dependencies ([909f369](https://github.com/fernandopasik/generator-startmeup/commit/909f369e5b122a9dd468ff51527e8a4644ce0b3b))
+
+## [0.26.0](https://github.com/fernandopasik/generator-startmeup/compare/v0.25.3...v0.26.0) (2020-06-10)
+
+### Features
+
+- configure jest for puppeteer and storybook ([277ced1](https://github.com/fernandopasik/generator-startmeup/commit/277ced1c29b32782a40bd0c53567cee94aabe974))
+
+### Bug Fixes
+
+- do not sort on format ([4dc6f7e](https://github.com/fernandopasik/generator-startmeup/commit/4dc6f7e6e670db16bc438e84dfbafa7c1e086f41))
+- ignore libs in jest config for web components ([e783aa9](https://github.com/fernandopasik/generator-startmeup/commit/e783aa96ba7a1efab8d3a9baae48577cb6543335))
+- ignore patterns for web components in jest config ([a9a8d25](https://github.com/fernandopasik/generator-startmeup/commit/a9a8d254a5e4473ea70b522b523a08d81f0d61ec))
+- remove rule for e2e tests ([4f43a34](https://github.com/fernandopasik/generator-startmeup/commit/4f43a34b15bdbf1aebdfd269b551163d7fc4d928))
+- set and sort compilers configs ([e0ec5ca](https://github.com/fernandopasik/generator-startmeup/commit/e0ec5ca197ac7454c75cfe3031b1b4673934d42f))
+- sort when setting configs ([ea07435](https://github.com/fernandopasik/generator-startmeup/commit/ea074359a32c27658591a7bb2190d0fba6946069))
+- ts-jest needs config for jest ([72ff615](https://github.com/fernandopasik/generator-startmeup/commit/72ff61575ffad969ab07afd34507d5867d1e6343))
+- when formatting package.json use plugin ([7658c49](https://github.com/fernandopasik/generator-startmeup/commit/7658c499f84c707ca63edcdb0fe8ffc9ee5d483e))
+
+### Code Refactoring
+
+- deprecate cjs jest config generation ([e449e26](https://github.com/fernandopasik/generator-startmeup/commit/e449e2690e0499a05780631e5cb525dba17f598b))
+- deprecate deleting cjs jest config ([b0aa31a](https://github.com/fernandopasik/generator-startmeup/commit/b0aa31a7bc45c66f0182cfbd1c61654c7ce77ef3))
+- deprecate loading cjs jest config ([fcf0baf](https://github.com/fernandopasik/generator-startmeup/commit/fcf0baf5ec7513a4c03093dd38a35cec12e37dac))
+- detect babel and ts for jest config ([e15ca4f](https://github.com/fernandopasik/generator-startmeup/commit/e15ca4fe3e1ed35093ed1d6f60314804ad800834))
+- detect lit html in jest config ([9c4c6b2](https://github.com/fernandopasik/generator-startmeup/commit/9c4c6b26c9bdd550d6c00d3397fc3fe4ca6c7bca))
+- sort and set jest config ([6b55175](https://github.com/fernandopasik/generator-startmeup/commit/6b55175fe5ec75e141b7c5e093cfaa38b2d63669))
+- sort props first ([57f34d4](https://github.com/fernandopasik/generator-startmeup/commit/57f34d4691fc9a5675fb573624348440f5156fa8))
+- use core tools to load package.json ([edee151](https://github.com/fernandopasik/generator-startmeup/commit/edee1516deb165d75501fce80ab6fb5ee6ac53cd))
+
+### Miscellaneous Chores
+
+- update dependencies ([1c03470](https://github.com/fernandopasik/generator-startmeup/commit/1c03470967e14e59095c56a7cb6fe9fae530a450))
+
+### [0.25.3](https://github.com/fernandopasik/generator-startmeup/compare/v0.25.2...v0.25.3) (2020-06-09)
+
+### Features
+
+- install plugin to sort imports in prettier ([65bda40](https://github.com/fernandopasik/generator-startmeup/commit/65bda40e9fd6ef8059ecfcb52c73cdbf0f312efc))
+
+### Styles
+
+- add plugin to sort imports ([1d1a3e3](https://github.com/fernandopasik/generator-startmeup/commit/1d1a3e309435dd100b38bc296dde153d7379a4f4))
+- sort imports ([cf68a9a](https://github.com/fernandopasik/generator-startmeup/commit/cf68a9ac392bb91a6a3143fbaf7637274b44b52b))
+
+### Miscellaneous Chores
+
+- update dependencies ([2ea2405](https://github.com/fernandopasik/generator-startmeup/commit/2ea240502b44bfcd5abc28a879b1d1ba2fdcd4f3))
+
+### [0.25.2](https://github.com/fernandopasik/generator-startmeup/compare/v0.25.1...v0.25.2) (2020-06-09)
+
+### Bug Fixes
+
+- empty pkg breaking src sub generator ([0f816e1](https://github.com/fernandopasik/generator-startmeup/commit/0f816e1a8ed850a5347e3faf2528323baa0866a4))
+
+### Build System
+
+- exclude generators folder for tsconfig.all ([b708bda](https://github.com/fernandopasik/generator-startmeup/commit/b708bdac2e49da09eb952f279bbc9714b3dbbe1b))
+- include all files in tsconfig.all ([e21a4fa](https://github.com/fernandopasik/generator-startmeup/commit/e21a4fa22ac9230a25ca23cc0604bf9c18400622))
+
+### Miscellaneous Chores
+
+- update dependencies ([a097c7b](https://github.com/fernandopasik/generator-startmeup/commit/a097c7be7a8e644db24660fb827b07a735cd8917))
+
+### Styles
+
+- ignore rule for line in file ([be90fd9](https://github.com/fernandopasik/generator-startmeup/commit/be90fd91813568132b9b41fabc2bc1cba7461982))
+
+### [0.25.1](https://github.com/fernandopasik/generator-startmeup/compare/v0.25.0...v0.25.1) (2020-06-06)
+
+### Features
+
+- load json modules in typescript ([163002a](https://github.com/fernandopasik/generator-startmeup/commit/163002a48803e3515f6a9e8168534b8a846811bd))
+
+### Bug Fixes
+
+- e2e files can be ts or js ([b69b3a4](https://github.com/fernandopasik/generator-startmeup/commit/b69b3a4f1567993aea34f1098ab4d6832182c6bd))
+- group together dev imports overrides ([8073628](https://github.com/fernandopasik/generator-startmeup/commit/80736281862fb0a254bd8e37cf8af38973d3a6e8))
+- sort files first in configs ([f541619](https://github.com/fernandopasik/generator-startmeup/commit/f5416195da949560441d434df59a5a304f9a713d))
+
+### Miscellaneous Chores
+
+- update dependencies ([e1e48e6](https://github.com/fernandopasik/generator-startmeup/commit/e1e48e6a175fe6c65740456be4fc9426768d03ef))
+
+## [0.25.0](https://github.com/fernandopasik/generator-startmeup/compare/v0.24.1...v0.25.0) (2020-06-05)
+
+### Features
+
+- install prettier with plugin for package.json ([4e2d318](https://github.com/fernandopasik/generator-startmeup/commit/4e2d318c72526c2c66ec0bc9dd44b704f471cd9f))
+
+### Bug Fixes
+
+- jest e2e tests eslint rules need env ([e362755](https://github.com/fernandopasik/generator-startmeup/commit/e362755cb27feaadeb49640a853473ce3e381560))
+- lint tsx files if react and typescript ([2d18661](https://github.com/fernandopasik/generator-startmeup/commit/2d18661dccbf0855fc89b89a129a2b006f587c8a))
+
+### Styles
+
+- fix optional chain lint errors ([8158c06](https://github.com/fernandopasik/generator-startmeup/commit/8158c0634e25dcbdcf2fab452aca312ec77ba0d3))
+- ignore rule in some tests ([cca6e75](https://github.com/fernandopasik/generator-startmeup/commit/cca6e75132ce895580ce734933cae426a5430cff))
+- interfaces are capitalised ([e4035d7](https://github.com/fernandopasik/generator-startmeup/commit/e4035d7a597675ae8589c715f44b83aeb3ae7e88))
+
+### Miscellaneous Chores
+
+- check types in verify task ([42b48f0](https://github.com/fernandopasik/generator-startmeup/commit/42b48f03021cc240b58b2046cad5d13ddbf3df01))
+- remove unused resolution ([35c6b62](https://github.com/fernandopasik/generator-startmeup/commit/35c6b62e3ab032f809e0db3c1aca9cd986db4f6d))
+- update dependencies ([149d294](https://github.com/fernandopasik/generator-startmeup/commit/149d29415c9ab8417b2cd319dd757ff238c8a47a))
+- update dependencies ([513268b](https://github.com/fernandopasik/generator-startmeup/commit/513268b820b6e95de5f137526d5294c3659c9cfc))
+- update dependencies ([f9e91c8](https://github.com/fernandopasik/generator-startmeup/commit/f9e91c8a7945155d5f9694019f3ec6f487e52398))
+- update eslint ([31120a2](https://github.com/fernandopasik/generator-startmeup/commit/31120a222758680714cfcc8d2ca53e20b9feb7c2))
+- use prettier plugin for package.json ([dd46073](https://github.com/fernandopasik/generator-startmeup/commit/dd4607304858b91fd3cb8f9cbf093198895cc8c1))
+
+### [0.24.1](https://github.com/fernandopasik/generator-startmeup/compare/v0.24.0...v0.24.1) (2020-05-22)
+
+### Tests
+
+- use different config file to test ([4298631](https://github.com/fernandopasik/generator-startmeup/commit/42986317d0387f96b5c7ce0c5dffc959dc2a8603))
+
+### Styles
+
+- remove deprecated rule option ([efb1bc3](https://github.com/fernandopasik/generator-startmeup/commit/efb1bc3358600b2fab34432395b37857332e3043))
+
+### Code Refactoring
+
+- avoid object type use ([79d45d2](https://github.com/fernandopasik/generator-startmeup/commit/79d45d2d05e495f001acc3e27cc7122614a4accf))
+- config set in module ([0f4f5c8](https://github.com/fernandopasik/generator-startmeup/commit/0f4f5c8edfb9823c8ce7f56d313d09ffc8637229))
+- migrate hooks to core generator ([6083d1b](https://github.com/fernandopasik/generator-startmeup/commit/6083d1ba1c6c273b7b81270f8b21d4e126584390))
+- remove falsy condition ([8d27f8e](https://github.com/fernandopasik/generator-startmeup/commit/8d27f8e20549df00320387ea819cc4292208a73b))
+- use core generator methods ([c1904cf](https://github.com/fernandopasik/generator-startmeup/commit/c1904cf6d2411ad71d836e7566c8230ea7e936c9))
+
+### Miscellaneous Chores
+
+- update dependencies ([5f3d8c8](https://github.com/fernandopasik/generator-startmeup/commit/5f3d8c8d58b6f55d77cb1977b4c28015621824e4))
+- update dependencies ([9dc325c](https://github.com/fernandopasik/generator-startmeup/commit/9dc325c14fa14841bda20ee90b696cee82eb5de6))
+- update dependencies ([417e6d0](https://github.com/fernandopasik/generator-startmeup/commit/417e6d0593d261d8b0ddd9f0b85852639219f97f))
+- update types ([e45d2f7](https://github.com/fernandopasik/generator-startmeup/commit/e45d2f78479870fdd62ed479d1c327db13a847bb))
+- use the right jest config extension ([4335592](https://github.com/fernandopasik/generator-startmeup/commit/4335592f9c0f6a12bcb76a3bb47a1550c8a2dc3b))
+
+## [0.24.0](https://github.com/fernandopasik/generator-startmeup/compare/v0.23.2...v0.24.0) (2020-05-14)
+
+### Features
+
+- add license to readme ([42824a8](https://github.com/fernandopasik/generator-startmeup/commit/42824a8d3c58d9e99ae3019585b566bfa7d00e92))
+- add module name ([27b9e7a](https://github.com/fernandopasik/generator-startmeup/commit/27b9e7a37c185d2ac68c2b723fc71ee5b90495e5))
+- add questions to module config ([4aeae39](https://github.com/fernandopasik/generator-startmeup/commit/4aeae390f3b78e22408312146c2314a59c04c1d2))
+- have a default confirm message if none present in module config ([f44dc2d](https://github.com/fernandopasik/generator-startmeup/commit/f44dc2d0810be267bfe6c0d386ea1991587bd060))
+- ignore local vscode configs ([3f15a79](https://github.com/fernandopasik/generator-startmeup/commit/3f15a796cceb0cf9b0de843b874c27e2fc0222a4))
+- libraries module config ([dce13df](https://github.com/fernandopasik/generator-startmeup/commit/dce13df83d6912c5c7f2d4c7ff2e9a07b31ba1a1))
+- module interface ([765419a](https://github.com/fernandopasik/generator-startmeup/commit/765419ab18bb7c4b9d9697b2313e2bbdc3c4b652))
+- modules confirm method ([a497da0](https://github.com/fernandopasik/generator-startmeup/commit/a497da0380ddc2a44bc317a3255b46ffe6835f55))
+- run module method ([f1c866f](https://github.com/fernandopasik/generator-startmeup/commit/f1c866fd912ee689384dc18d3f09b21d26cbbd2f))
+- save all config files in store ([4bae453](https://github.com/fernandopasik/generator-startmeup/commit/4bae453d8ba71984e4adca06b9ec95e48ece5930))
+- set config file ([1b52576](https://github.com/fernandopasik/generator-startmeup/commit/1b52576bc33e83c5ce65d418cf70b0fdcbf024ca))
+- support e2e tests in lint module ([a3e5c78](https://github.com/fernandopasik/generator-startmeup/commit/a3e5c78ca33ed816492f5784c57c258f6341a92d))
+- support storybook in lint module ([a51d479](https://github.com/fernandopasik/generator-startmeup/commit/a51d479bab0c15f509fdaab906783d158b920878))
+
+### Bug Fixes
+
+- add eslint rule when typescript present ([d4f0bf8](https://github.com/fernandopasik/generator-startmeup/commit/d4f0bf80dd851aba989d6e6263b30c031ea1019d))
+- add libraries as peer dependencies ([35e04b5](https://github.com/fernandopasik/generator-startmeup/commit/35e04b57b8f5d471e6fa97108e07d48b76957ba9))
+- build configs with functions ([aaf6460](https://github.com/fernandopasik/generator-startmeup/commit/aaf6460cafd95ee495e8da830b45b221c5a78c5f))
+- config can be a function type ([1f7c5f1](https://github.com/fernandopasik/generator-startmeup/commit/1f7c5f11136281311c0aef1e7411a80c750a0691))
+- detect type based on filename ([50737b2](https://github.com/fernandopasik/generator-startmeup/commit/50737b256900723f9eb8dff5d2c54bc04a59514f))
+- do not ignore node_modules when building typescript ([759fb6b](https://github.com/fernandopasik/generator-startmeup/commit/759fb6b54b39df43328376286ea5aff4fd85aa31))
+- eslint env browser if lit-html or react present ([4e9e617](https://github.com/fernandopasik/generator-startmeup/commit/4e9e6173d4161b661b78af068fb835a0b08152c4))
+- eslint rules for web components ([30b4b92](https://github.com/fernandopasik/generator-startmeup/commit/30b4b9272654776f8dafe448d5d19436b20745bd))
+- if not confirmed return to stop it ([42f3067](https://github.com/fernandopasik/generator-startmeup/commit/42f306779cc1a51c2476e08519ad5a05fcf2627a))
+- install peer dependencies ([ac7fe8c](https://github.com/fernandopasik/generator-startmeup/commit/ac7fe8cc589d965c34b31620c3d9a5c43fdde148))
+- match config file type ([3df7978](https://github.com/fernandopasik/generator-startmeup/commit/3df79781f23d39b9be93ce56d428f531dbc47a06))
+- prettier is also dev dependency ([f472aaa](https://github.com/fernandopasik/generator-startmeup/commit/f472aaa94b0301b9174672de82c9f1f91299066a))
+- revert package update ([bb69ea7](https://github.com/fernandopasik/generator-startmeup/commit/bb69ea72554a1298852e3e3b32439f8c5bb4b777))
+- set principal dependencies when prompting ([40be237](https://github.com/fernandopasik/generator-startmeup/commit/40be237eba7b01d61167dbb1d01004948fa6f51b))
+- sort objects in arrays and array of objects ([29ddfa0](https://github.com/fernandopasik/generator-startmeup/commit/29ddfa06e74f884b1b0896a70e9e2927e54ff5e6))
+- test environment for web components ([b84005c](https://github.com/fernandopasik/generator-startmeup/commit/b84005cd6f0116e906ed4b64bf43b2f957bb7206))
+- ts-jest outdir fix ([48b29bc](https://github.com/fernandopasik/generator-startmeup/commit/48b29bc471bced84bb7d288f3f3320df11f5db10))
+- update eslint override type ([99ff9e0](https://github.com/fernandopasik/generator-startmeup/commit/99ff9e0be90d1b1370489be2d99c588ce80e423c))
+- wrong type cast ([4900093](https://github.com/fernandopasik/generator-startmeup/commit/49000938755eb8929613a77843c26d61bf241f19))
+
+### Documentation
+
+- update npm version badge ([696f705](https://github.com/fernandopasik/generator-startmeup/commit/696f705d463e0226edb0a1bd2cfded1902ac5ebb))
+
+### Build System
+
+- target node 10 minimum ([8051721](https://github.com/fernandopasik/generator-startmeup/commit/8051721b3723f816da2bac483ea89cc5141893f7))
+
+### Code Refactoring
+
+- config for lint module ([eb6106a](https://github.com/fernandopasik/generator-startmeup/commit/eb6106ad869fd8d426cef001d971d48e591b90f5))
+- core generator ([44e7c1f](https://github.com/fernandopasik/generator-startmeup/commit/44e7c1ff95db4740cec1824ad16bbbd600511ad5))
+- deprecate file ([2602054](https://github.com/fernandopasik/generator-startmeup/commit/260205421df65468123537d1425a4b4c609d2d21))
+- deprecate initial config in load method ([02fc52e](https://github.com/fernandopasik/generator-startmeup/commit/02fc52ef23d2617465083186bf4fabf888c57a4e))
+- deprecate unused questions in prettier module ([e7b96a2](https://github.com/fernandopasik/generator-startmeup/commit/e7b96a2965b5c31fc544bccd09e9d3e3b1319bc0))
+- expand formatting for different spacing ([1d83e08](https://github.com/fernandopasik/generator-startmeup/commit/1d83e0804551b3a846beac4b83894450362f9fbd))
+- extract lint-staged module ([eb566b6](https://github.com/fernandopasik/generator-startmeup/commit/eb566b6a19d9079b64d199ed96d45b3449f15412))
+- lint staged class name ([2c35231](https://github.com/fernandopasik/generator-startmeup/commit/2c352314abb90382aeabe9d34d2e2bbb3f7007e2))
+- load config files ([aa758fa](https://github.com/fernandopasik/generator-startmeup/commit/aa758fa1dd49b15a3ec5bab4ac3c1a6c6f0cb7cd))
+- migrate commitlint module ([8a9f777](https://github.com/fernandopasik/generator-startmeup/commit/8a9f77717d7e85dcf0679b923ded9dd589f73b70))
+- parse author and repo url ([7330424](https://github.com/fernandopasik/generator-startmeup/commit/7330424e4c28416fc18f35bdd1b910a29034ec51))
+- prettier config load ([c3a55f4](https://github.com/fernandopasik/generator-startmeup/commit/c3a55f48f0a0ee2dbf2929c54cdfb63a9efebc39))
+- split format method ([e657a02](https://github.com/fernandopasik/generator-startmeup/commit/e657a020d6882bd208eeccef090ac3d5e7cce7c1))
+- use config content from prettier config ([28fc44e](https://github.com/fernandopasik/generator-startmeup/commit/28fc44ebd2033ac973b560be68f28ad47e362fa2))
+- use default generator in lint module ([6215a71](https://github.com/fernandopasik/generator-startmeup/commit/6215a71b0d0ce94cd4aecede4ae539687ae16393))
+- use module loading in docs module ([e67b3de](https://github.com/fernandopasik/generator-startmeup/commit/e67b3debf63d415a349a024cd654dba701a89341))
+- use module run for prettier ([6cb2952](https://github.com/fernandopasik/generator-startmeup/commit/6cb2952614b6f6760539ce805392eeb33670c05f))
+- use modules ([7bc08a5](https://github.com/fernandopasik/generator-startmeup/commit/7bc08a5752441e65e1814ce59abd6eab9bd42f68))
+- use modules confirm in prettier sub module ([f7f5390](https://github.com/fernandopasik/generator-startmeup/commit/f7f5390bd10227aad48fb0a16c810d9970e01584))
+- use new config features in prettier module ([12ec6fd](https://github.com/fernandopasik/generator-startmeup/commit/12ec6fd94169cdf171eba73b1d0b9ac53961b08c))
+- use short name for dependency groups ([d39ed8b](https://github.com/fernandopasik/generator-startmeup/commit/d39ed8b655badc2475c825c5eecf14db77f64338))
+
+### Styles
+
+- add warnings to eslint rules ([1a1c04b](https://github.com/fernandopasik/generator-startmeup/commit/1a1c04b6a7c8bb0ef41f1baf392580535c32d2e6))
+- deprecate old eslint warnings ([918e736](https://github.com/fernandopasik/generator-startmeup/commit/918e736f00636eb95dfbbe362c0d0a99c38df6f7))
+- fix eslint warning ([b814ec0](https://github.com/fernandopasik/generator-startmeup/commit/b814ec02da5527aed8159b060c4c71042b989a7a))
+- remove env browser in config ([5a104ff](https://github.com/fernandopasik/generator-startmeup/commit/5a104ff206d4000fafc69adb8554132c8d04e460))
+- remove eslint ignore due to fixed rule ([23a8f60](https://github.com/fernandopasik/generator-startmeup/commit/23a8f60623c2a9e14b52eb32fe133c4b755cb57b))
+- resolve eslint warnings ([d0fcd86](https://github.com/fernandopasik/generator-startmeup/commit/d0fcd86aaf99811e22ba15c673c4f9b8b4e1454b))
+- resolve eslint warnings ([e32e440](https://github.com/fernandopasik/generator-startmeup/commit/e32e44073ea8b2e8e0686d3ca9b57664f1dd13e4))
+- run prettier on readme ([97bf693](https://github.com/fernandopasik/generator-startmeup/commit/97bf693df5e7997c5b1b1c48cda6271302bd2235))
+- sort imports ([424bc2c](https://github.com/fernandopasik/generator-startmeup/commit/424bc2c8cac2f4e88b295f2acc5404fb1e4dd7f4))
+- sort props in config ([f2251a0](https://github.com/fernandopasik/generator-startmeup/commit/f2251a09c6395ed51b4331e9ae3ec5dfbcc48327))
+- switch rule to warn for now ([cf10a3e](https://github.com/fernandopasik/generator-startmeup/commit/cf10a3eacb9c96924674244bb529ca7b838df67b))
+
+### Tests
+
+- add missing outdir for ts-jest ([54e557c](https://github.com/fernandopasik/generator-startmeup/commit/54e557cb9e553ac9097f35c070caa7e59de54d9a))
+- fix dynamic imports ([a5d354e](https://github.com/fernandopasik/generator-startmeup/commit/a5d354e1fc5957de91fd985834c7d80e7b6ffee6))
+
+### Miscellaneous Chores
+
+- update dependencies ([b8f352c](https://github.com/fernandopasik/generator-startmeup/commit/b8f352cd9ca8a6e4b84445295a7dea4a61cb8d7b))
+- update dependencies ([5857f10](https://github.com/fernandopasik/generator-startmeup/commit/5857f100d840259e1a71a730e891257cb46f56d9))
+- update dependencies ([85de7ff](https://github.com/fernandopasik/generator-startmeup/commit/85de7ff988ef750ba0462bd4bb542c2fbe0f305c))
+- update dependencies ([ce5accd](https://github.com/fernandopasik/generator-startmeup/commit/ce5accd30995a585dce5af078d655b61b631dd7b))
+- update dependencies ([d284a62](https://github.com/fernandopasik/generator-startmeup/commit/d284a62bafec406fb4326b8e09b78452f5ed747a))
+- update dependencies ([5f6a206](https://github.com/fernandopasik/generator-startmeup/commit/5f6a20619c2464489d33ffae2fc4c87a223b4b7c))
+- update dependencies ([352e71b](https://github.com/fernandopasik/generator-startmeup/commit/352e71be34e64f03a956cd2bbc8f7dced0ebd758))
+- update dependencies ([dd5b1fc](https://github.com/fernandopasik/generator-startmeup/commit/dd5b1fca2f44fcc7e8dd3bc7bf1d2433c48ddc49))
+- update dependencies ([da77e3e](https://github.com/fernandopasik/generator-startmeup/commit/da77e3ed564eee839b9085c9582475400e6d8566))
+- update dependencies ([05a4c4e](https://github.com/fernandopasik/generator-startmeup/commit/05a4c4e34bf4957c8a51942e1635942b30de105a))
+- update dependencies ([2abd393](https://github.com/fernandopasik/generator-startmeup/commit/2abd393f6c1927352f7960db6610d3907bd4aaa6))
+
+### [0.23.2](https://github.com/fernandopasik/generator-startmeup/compare/v0.23.1...v0.23.2) (2020-03-26)
+
+### Bug Fixes
+
+- package security update ([8ee5f8b](https://github.com/fernandopasik/generator-startmeup/commit/8ee5f8b1164656ff44cda8b91393cbf3f81afacd))
+
+### Miscellaneous Chores
+
+- update dependencies ([a8b3e4b](https://github.com/fernandopasik/generator-startmeup/commit/a8b3e4b0ee51cc3f7135c653e4bdd9e096990a10))
+
+### Documentation
+
+- add changelog ([04cdfa3](https://github.com/fernandopasik/generator-startmeup/commit/04cdfa3722c441aa48fe9bbcd6c91b86aeb8f52f))
+
 ### [0.23.1](https://github.com/fernandopasik/generator-startmeup/compare/v0.23.0...v0.23.1) (2020-03-25)
 
 ### Bug Fixes
