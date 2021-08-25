@@ -1,5 +1,5 @@
 import prettier from 'prettier';
-import * as prettierPluginPackageJson from 'prettier-plugin-packagejson';
+import prettierPluginPkg from 'prettier-plugin-pkg';
 
 let config: prettier.Options | null = null;
 
@@ -11,7 +11,7 @@ const prettierFormat = async (content: string, filepath: string, root: string): 
   return prettier.format(content, {
     ...config,
     filepath,
-    plugins: [prettierPluginPackageJson],
+    plugins: [prettierPluginPkg],
   });
 };
 

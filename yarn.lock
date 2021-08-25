@@ -3822,6 +3822,7 @@ fsevents@^2.3.2:
     prettier: ^2.3.2
     prettier-plugin-organize-imports: ^2.3.3
     prettier-plugin-packagejson: ^2.2.11
+    prettier-plugin-pkg: ^0.10.0
     replace-in-files-cli: ^1.0.0
     shelljs: ^0.8.4
     sort-package-json: ^1.50.0
@@ -6668,6 +6669,15 @@ fsevents@^2.3.2:
   peerDependencies:
     prettier: ">= 1.16.0"
   checksum: e30cdd34c56b75301924a83ea8dddfd99ee968338858aa4ccccb7ede9226bfa9b5e6121d5e3e289765406053fbd5e3aaf966d06a4b8dd46f98ca2eabffcdb08a
+  languageName: node
+  linkType: hard
+
+"prettier-plugin-pkg@npm:^0.10.0":
+  version: 0.10.0
+  resolution: "prettier-plugin-pkg@npm:0.10.0"
+  peerDependencies:
+    prettier: ^2.0.5
+  checksum: 7ffd675a2977b5af6b7398a3960a24b65a80e2f435123206d13be363739659254c9f7a79da9a621c72d9fe330152182638549e6ee377b284d9a8a624a1981823
   languageName: node
   linkType: hard
 
