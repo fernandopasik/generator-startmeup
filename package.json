@@ -2,30 +2,32 @@
   "name": "generator-startmeup",
   "version": "0.33.0",
   "description": "StartMeUp Yeoman Generator for starting a project with dotfiles and some common tools",
-  "keywords": [],
+  "repository": "fernandopasik/generator-startmeup",
   "homepage": "https://github.com/fernandopasik/generator-startmeup",
   "bugs": "https://github.com/fernandopasik/generator-startmeup/issues",
-  "repository": "fernandopasik/generator-startmeup",
-  "license": "MIT",
   "author": "Fernando Pasik <fernando@pasik.com.ar> (https://fernandopasik.com)",
   "contributors": [],
-  "sideEffects": false,
+  "license": "MIT",
+  "engines": {
+    "node": ">=12"
+  },
   "main": "generators/app/index.js",
   "typings": "generators/app/index.d.ts",
   "files": [
     "/generators"
   ],
+  "keywords": [],
   "scripts": {
-    "prebuild": "del generators",
     "build": "tsc && yarn copy:templates",
-    "copy:templates": "cpy '**/templates/**' ../generators/ --cwd=src --parents",
     "changelog": "yarn changelog:config && yarn changelog:write && yarn format",
     "changelog:config": "replace-in-files --string='hidden: true' --replacement='hidden: false' node_modules/conventional-changelog-conventionalcommits/writer-opts.js",
     "changelog:write": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -r 0",
     "check-types": "tsc --noEmit -p tsconfig.all.json",
+    "copy:templates": "cpy '**/templates/**' ../generators/ --cwd=src --parents",
     "format": "prettier --write .",
     "lint": "eslint . --ext js,ts",
     "postpublish": "pinst --enable",
+    "prebuild": "del generators",
     "prepare": "husky install",
     "prepublishOnly": "pinst --disable",
     "preversion": "yarn verify",
@@ -33,9 +35,6 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "verify": "yarn lint && yarn check-types && yarn test:coverage && yarn build"
-  },
-  "resolutions": {
-    "globby": "^11.0.4"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -94,7 +93,8 @@
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^6.2.0"
   },
-  "engines": {
-    "node": ">=12"
-  }
+  "resolutions": {
+    "globby": "^11.0.4"
+  },
+  "sideEffects": false
 }
