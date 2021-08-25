@@ -3,6 +3,10 @@ import Generator from '../generator';
 
 export default class PrettierGenerator extends Generator {
   public async configuring(): Promise<void> {
+    if (!this.hasFiles('package.json')) {
+      return;
+    }
+
     this.packageJson.merge({
       scripts: {
         format: 'prettier --write .',
