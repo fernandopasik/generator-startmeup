@@ -13,11 +13,7 @@ export default class PrettierGenerator extends Generator {
       },
     });
 
-    const devDependencies = ['prettier', 'prettier-plugin-pkg'];
-
-    if (this.hasFiles('*.sh')) {
-      devDependencies.push('prettier-plugin-sh');
-    }
+    const devDependencies = ['prettier', 'prettier-plugin-pkg', 'prettier-plugin-sh'];
 
     if (this.hasDevDependency('typescript')) {
       devDependencies.push('prettier-plugin-organize-imports');
