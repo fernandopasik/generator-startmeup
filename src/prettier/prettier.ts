@@ -10,6 +10,7 @@ export default class PrettierGenerator extends Generator {
     this.packageJson.merge({
       scripts: {
         format: 'prettier --write .',
+        'format:check': 'prettier --check .',
       },
     });
 
