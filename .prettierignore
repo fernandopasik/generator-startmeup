@@ -1,3 +1,4 @@
+.husky/_
 node_modules
 yarn*.*
 /LICENSE
