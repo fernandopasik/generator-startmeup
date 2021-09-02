@@ -1,3 +1,6 @@
+<% if (husky) { -%>
+.husky/_
+<% } -%>
 node_modules
 yarn-error.log
 yarn.lock
