@@ -3856,6 +3856,7 @@ fsevents@^2.3.2:
     prettier: ^2.3.2
     prettier-plugin-organize-imports: ^2.3.3
     prettier-plugin-pkg: ^0.10.0
+    prettier-plugin-sh: ^0.7.1
     replace-in-files-cli: ^1.0.0
     shelljs: ^0.8.4
     sort-package-json: ^1.50.0
@@ -6091,6 +6092,13 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
+"mvdan-sh@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "mvdan-sh@npm:0.5.0"
+  checksum: b662308861c8d77076513d7f154ec2e340b28f34bedcf413450381255408dd6749b92b51b56946945cf016887789decfe7e89f3b201a71e3d908f59bd9e77474
+  languageName: node
+  linkType: hard
+
 "natural-compare@npm:^1.4.0":
   version: 1.4.0
   resolution: "natural-compare@npm:1.4.0"
@@ -6748,6 +6756,17 @@ fsevents@^2.3.2:
   peerDependencies:
     prettier: ^2.0.5
   checksum: 7ffd675a2977b5af6b7398a3960a24b65a80e2f435123206d13be363739659254c9f7a79da9a621c72d9fe330152182638549e6ee377b284d9a8a624a1981823
+  languageName: node
+  linkType: hard
+
+"prettier-plugin-sh@npm:^0.7.1":
+  version: 0.7.1
+  resolution: "prettier-plugin-sh@npm:0.7.1"
+  dependencies:
+    mvdan-sh: ^0.5.0
+  peerDependencies:
+    prettier: ^2.0.5
+  checksum: 861d66010cef9d354e96b1d980328dbf538f26b5c888697c2f2982e9d5b99db8df00c787293d9017b483acdcf6b226e9c86ea17b612d1c1c995a85255cc3a480
   languageName: node
   linkType: hard
 
