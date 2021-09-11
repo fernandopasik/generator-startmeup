@@ -11,6 +11,14 @@ export default class RollupGenerator extends Generator {
       return;
     }
 
+    if (
+      !this.hasAnyDependency('lit') &&
+      !this.hasAnyDependency('lit-html') &&
+      !this.hasAnyDependency('react')
+    ) {
+      return;
+    }
+
     const build = (this.packageJson.getPath('scripts.build') as string | undefined) ?? '';
 
     if (!build.includes('rollup')) {
