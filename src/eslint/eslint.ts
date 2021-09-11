@@ -32,6 +32,10 @@ export default class LintGenerator extends Generator {
       typescript: this.hasDevDependency('typescript'),
     };
 
+    if (!options.browser) {
+      await this.addDevDependencies(['eslint-plugin-security']);
+    }
+
     if (options.react) {
       await this.addDevDependencies([
         'eslint-config-airbnb',

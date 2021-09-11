@@ -15,6 +15,11 @@
     // <% if (lit) { %>
     "plugin:lit-a11y/recommended",
     "plugin:lit/all",
+    // <% } %>
+    // <% if (!browser) { %>
+    "plugin:security/recommended",
+    // <% } %>
+    // <% if (lit) { %>
     "plugin:wc/best-practice",
     // <% } %>
     // <% if (prettier) { %>
