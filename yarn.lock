@@ -3863,7 +3863,7 @@ fsevents@^2.3.2:
     eslint-plugin-jest: ^24.4.2
     eslint-plugin-prettier: ^4.0.0
     eslint-plugin-security: ^1.4.0
-    git-remote-origin-url: ^4.0.0
+    git-remote-origin-url: ^3.1.0
     github-username: ^6.0.0
     globby: ^11.0.4
     husky: ^7.0.2
@@ -3999,12 +3999,12 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"git-remote-origin-url@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "git-remote-origin-url@npm:4.0.0"
+"git-remote-origin-url@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "git-remote-origin-url@npm:3.1.0"
   dependencies:
     gitconfiglocal: ^2.1.0
-  checksum: b667babf07c24e1e74d2cbb4f1cd996f8ccb0140e9958fa43eb65f2882117f902cf398e02744e5804ab2e8d72919133823b03ca18b3fae8b9c3932e6ec7526ba
+  checksum: 32d5e1cb4f1fc7a3ac5b8a1d3f71ea1aa2020eeb6ed5bf0722d704a97cfeaf3681d861f89cd181508f4e3e943e0d0b750e008d99e9db5b65f4a2be223e2ea490
   languageName: node
   linkType: hard
 
