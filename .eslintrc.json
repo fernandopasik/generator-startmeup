@@ -13,7 +13,8 @@
       "files": ["*.spec.*"],
       "rules": {
         "@typescript-eslint/no-magic-numbers": "off",
-        "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+        "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+        "max-lines": "off"
       }
     }
   ],
@@ -22,6 +23,7 @@
     "@typescript-eslint/no-magic-numbers": ["error", { "ignore": [0, 1] }],
     "import/extensions": ["error", "never"],
     "jest/no-hooks": "off",
-    "jest/prefer-expect-assertions": "off"
+    "jest/prefer-expect-assertions": "off",
+    "max-lines": ["error", { "max": 130, "skipBlankLines": true, "skipComments": true }]
   }
 }
