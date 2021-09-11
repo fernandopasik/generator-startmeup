@@ -22,7 +22,7 @@
     // <% } %>
   ],
   "env": {
-    // <% if (react || lit) { %>
+    // <% if (browser) { %>
     "browser": true,
     // <% } else { %>
     "node": true

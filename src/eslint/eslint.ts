@@ -17,6 +17,10 @@ export default class LintGenerator extends Generator {
   public async writing(): Promise<void> {
     const options = {
       babel: this.hasDevDependency('@babel/core'),
+      browser:
+        this.hasAnyDependency('react') ||
+        this.hasAnyDependency('lit') ||
+        this.hasAnyDependency('lit-html'),
       jest: this.hasDevDependency('jest'),
       lit: this.hasAnyDependency('lit') || this.hasAnyDependency('lit-html'),
       prettier: this.hasDevDependency('prettier'),
