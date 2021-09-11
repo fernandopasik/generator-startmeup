@@ -23,7 +23,7 @@ export default class LintGenerator extends Generator {
         this.hasAnyDependency('lit-html'),
       jest: this.hasDevDependency('jest'),
       lit: this.hasAnyDependency('lit') || this.hasAnyDependency('lit-html'),
-      prettier: this.hasDevDependency('prettier'),
+      prettier: this.hasAnyDependency('prettier'),
       puppeteer: this.hasDevDependency('puppeteer'),
       react: this.hasAnyDependency('react'),
       storybook:
