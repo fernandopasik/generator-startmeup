@@ -14,7 +14,7 @@ jobs:
           node-version: '14'
           check-latest: true
           cache: 'yarn'
-      - run: yarn install --frozen-lockfile
+      - run: yarn --immutable
   pre-build:
     name: ${{ matrix.name }}
     strategy:
@@ -37,7 +37,7 @@ jobs:
           node-version: '14'
           check-latest: true
           cache: 'yarn'
-      - run: yarn install --frozen-lockfile
+      - run: yarn --immutable
       - run: ${{ matrix.task }}
   build:
     name: Build
@@ -50,5 +50,5 @@ jobs:
           node-version: '14'
           check-latest: true
           cache: 'yarn'
-      - run: yarn install --frozen-lockfile
+      - run: yarn --immutable
       - run: yarn build
