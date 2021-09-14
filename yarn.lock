@@ -1196,13 +1196,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/inquirer@npm:^8.1.1":
-  version: 8.1.1
-  resolution: "@types/inquirer@npm:8.1.1"
+"@types/inquirer@npm:^8.1.2":
+  version: 8.1.2
+  resolution: "@types/inquirer@npm:8.1.2"
   dependencies:
     "@types/through": "*"
     rxjs: ^7.2.0
-  checksum: 166ddc3d30c6370c767ebe76efacf196480e22d28c848ebf389271fa01b08b69974e1ca836334d75cb7637b0808c5e909d5e504dc4407cea7af0621cebf4c116
+  checksum: 973728132759bbd158331938e9ae8bfca1fd75ebb77a6d77b749df108a8c7b463b6a242df016eaa240fe47f2252ae2e3fb0bf7530f6eeffbed9b9b373e61620d
   languageName: node
   linkType: hard
 
@@ -1231,13 +1231,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^27.0.1":
-  version: 27.0.1
-  resolution: "@types/jest@npm:27.0.1"
+"@types/jest@npm:^27.0.2":
+  version: 27.0.2
+  resolution: "@types/jest@npm:27.0.2"
   dependencies:
     jest-diff: ^27.0.0
     pretty-format: ^27.0.0
-  checksum: 972aaae341b83eb608970c93295282f1f9edc056dc8123635456cbaced822702673118d60279c7b889300e7c9a0726c3674d701115915e2e1967db09542389c2
+  checksum: 814ad5f5d2f277849f47e52906da4b745758e555630fc8cb46a071bde648eefeffb1b35710c530a8cea7fc4ea7c1d813812c120484bf7902ab6c5e473cdd49c9
   languageName: node
   linkType: hard
 
@@ -3838,8 +3838,8 @@ fsevents@^2.3.2:
     "@commitlint/config-conventional": ^13.1.0
     "@jest/types": ^27.1.1
     "@types/eslint": ^7.28.0
-    "@types/inquirer": ^8.1.1
-    "@types/jest": ^27.0.1
+    "@types/inquirer": ^8.1.2
+    "@types/jest": ^27.0.2
     "@types/lodash": ^4.14.173
     "@types/parse-github-url": ^1.0.0
     "@types/prettier": ^2.3.2
@@ -3869,13 +3869,13 @@ fsevents@^2.3.2:
     husky: ^7.0.2
     inquirer: ^8.1.5
     jest: ^27.2.1
-    jest-junit: ^12.2.0
+    jest-junit: ^12.3.0
     lint-staged: ^11.1.2
     lodash: ^4.17.21
     parse-github-url: ^1.0.2
     pinst: ^2.1.6
     prettier: ^2.4.1
-    prettier-plugin-organize-imports: ^2.3.3
+    prettier-plugin-organize-imports: ^2.3.4
     prettier-plugin-pkg: ^0.10.0
     prettier-plugin-sh: ^0.7.1
     replace-in-files-cli: ^1.0.0
@@ -5096,15 +5096,15 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"jest-junit@npm:^12.2.0":
-  version: 12.2.0
-  resolution: "jest-junit@npm:12.2.0"
+"jest-junit@npm:^12.3.0":
+  version: 12.3.0
+  resolution: "jest-junit@npm:12.3.0"
   dependencies:
     mkdirp: ^1.0.4
     strip-ansi: ^5.2.0
     uuid: ^8.3.2
     xml: ^1.0.1
-  checksum: 6a666b017eac77fd549a64ec68fda858d078e016405318684361392eac4c4d189a42f8dd9d9d1266ceab2245b1d9c7c63ea76827cd6429705ccdc1675b049d7d
+  checksum: b1527eecba967b5f4f021117a14cb5c7cf6b5d99cd0efb50078198ec22a751afde0559db3fd9ff5485959d238787109277fdc8c591d566e270ae742748443407
   languageName: node
   linkType: hard
 
@@ -6783,13 +6783,13 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"prettier-plugin-organize-imports@npm:^2.3.3":
-  version: 2.3.3
-  resolution: "prettier-plugin-organize-imports@npm:2.3.3"
+"prettier-plugin-organize-imports@npm:^2.3.4":
+  version: 2.3.4
+  resolution: "prettier-plugin-organize-imports@npm:2.3.4"
   peerDependencies:
     prettier: ">=2.0"
     typescript: ">=2.9"
-  checksum: 81a49744f3897e4724646b7dfdf3bd4f434f2ed2ddbe34c5b171179e255bda5fa23270f2d78fd1d52ede8fe084d3278c35fb8088a64d8818dd9e08e6ab6890b7
+  checksum: 2298fcae0f16fd1a095cc3a33ba5d51b679b291518d404ad5eaca56fdcfbd55d35e26c5adffcb8664bfb45c2339b551b385cf03f48888c46d0348843d96024e1
   languageName: node
   linkType: hard
 
