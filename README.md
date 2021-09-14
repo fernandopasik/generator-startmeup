@@ -4,7 +4,7 @@ Yeoman generator for quickly set up your **dotfiles** and some other minor confi
 
 <!-- BADGES - START -->
 
-[![Build Status](https://circleci.com/gh/fernandopasik/generator-startmeup.svg?style=svg)](https://circleci.com/gh/fernandopasik/generator-startmeup 'Build Status')
+[![Build Status](https://github.com/fernandopasik/generator-startmeup/actions/workflows/main.yml/badge.svg)](https://github.com/fernandopasik/generator-startmeup/actions/workflows/main.yml 'Build Status')
 [![Coverage Status](https://codecov.io/gh/fernandopasik/generator-startmeup/branch/master/graph/badge.svg)](https://codecov.io/gh/fernandopasik/generator-startmeup 'Coverage Status')
 [![Known Vulnerabilities](https://snyk.io/test/github/fernandopasik/generator-startmeup/badge.svg?targetFile=package.json)](https://snyk.io/test/github/fernandopasik/generator-startmeup?targetFile=package.json 'Known Vulnerabilities')
 
