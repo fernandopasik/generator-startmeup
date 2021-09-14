@@ -27,7 +27,7 @@ jobs:
           - name: Check Typescript Types
             task: yarn check-types
           - name: Unit Tests
-            task: yarn test:coverage
+            task: yarn test:ci && yarn codecov
     runs-on: ubuntu-latest
     needs: [install]
     steps:
@@ -39,6 +39,9 @@ jobs:
           cache: 'yarn'
       - run: yarn --immutable
       - run: ${{ matrix.task }}
+        env:
+          JEST_JUNIT_OUTPUT_DIR: 'reports/junit'
+          JEST_JUNIT_OUTPUT_NAME: 'js-test-results.xml'
   build:
     name: Build
     runs-on: ubuntu-latest

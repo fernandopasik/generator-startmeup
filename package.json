@@ -34,6 +34,7 @@
     "preversion": "yarn verify",
     "start": "yarn build -w",
     "test": "jest",
+    "test:ci": "jest --coverage --runInBand --ci --reporters=default --reporters=jest-junit",
     "test:coverage": "jest --coverage",
     "verify": "yarn lint && yarn check-types && yarn test:coverage && yarn build"
   },
