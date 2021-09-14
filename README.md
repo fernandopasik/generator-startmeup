@@ -1,6 +1,6 @@
 # StartMeUp Generator
 
-Yeoman generator for quickly set up your **dotfiles** and some other minor configurations. It's composed by a collection of subgenerators to do project tasks.
+Yeoman generator for quickly set up your **dotfiles** and some other minor configurations. It's composed by a collection of sub-generators to do project tasks.
 
 <!-- BADGES - START -->
 
