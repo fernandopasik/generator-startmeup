@@ -28,6 +28,12 @@ export default class BadgesGenerator extends Generator {
         );
       }
 
+      if (this.hasFiles('.github/workflows/main.yml')) {
+        group1.push(
+          `[![Build Status](https://github.com/${githubOrg}/${githubRepo}/actions/workflows/main.yml/badge.svg)](https://github.com/${githubOrg}/${githubRepo}/actions/workflows/main.yml 'Build Status')`,
+        );
+      }
+
       if (this.hasDevDependency('codecov')) {
         group1.push(
           `[![Coverage Status](https://codecov.io/gh/${githubOrg}/${githubRepo}/branch/master/graph/badge.svg)](https://codecov.io/gh/${githubOrg}/${githubRepo} 'Coverage Status')`,
