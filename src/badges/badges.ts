@@ -1,5 +1,6 @@
 import type { PackageJson } from 'type-fest';
 import Generator from '../generator';
+import gitMainBranch from '../utils/git-main-branch';
 
 export default class BadgesGenerator extends Generator {
   public async writing(): Promise<void> {
@@ -12,6 +13,7 @@ export default class BadgesGenerator extends Generator {
     const { owner: githubOrg, repo: githubRepo } = (await this.getGitHub()) ?? {};
     const isPrivate = (this.packageJson.get('private') as PackageJson['private']) ?? false;
     const npmPackage = await this.getNpmName();
+    const mainBranch = gitMainBranch();
 
     const group1: string[] = [];
 
@@ -36,7 +38,7 @@ export default class BadgesGenerator extends Generator {
 
       if (this.hasDevDependency('codecov')) {
         group1.push(
-          `[![Coverage Status](https://codecov.io/gh/${githubOrg}/${githubRepo}/branch/master/graph/badge.svg)](https://codecov.io/gh/${githubOrg}/${githubRepo} 'Coverage Status')`,
+          `[![Coverage Status](https://codecov.io/gh/${githubOrg}/${githubRepo}/branch/${mainBranch}/graph/badge.svg)](https://codecov.io/gh/${githubOrg}/${githubRepo} 'Coverage Status')`,
         );
       }
 
