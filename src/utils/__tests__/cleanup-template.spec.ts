@@ -2,8 +2,8 @@ import cleanupTemplate from '../cleanup-template';
 
 describe('removeTemplateComments', () => {
   it('handle empty content', () => {
-    expect(cleanupTemplate()).toStrictEqual('');
-    expect(cleanupTemplate('')).toStrictEqual('');
+    expect(cleanupTemplate()).toBe('');
+    expect(cleanupTemplate('')).toBe('');
   });
 
   it('removes the remaining empty comments', () => {
