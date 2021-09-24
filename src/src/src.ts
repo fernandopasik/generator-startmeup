@@ -33,7 +33,7 @@ export default class SrcGenerator extends Generator {
     const packageProps = packageOptions(
       name,
       this.isLibrary,
-      this.hasDevDependency('typescript'),
+      this.hasAnyDependency('typescript'),
       this.hasAnyDependency('lit'),
       hasYeoman,
     );
@@ -50,7 +50,7 @@ export default class SrcGenerator extends Generator {
 
     const hasYeoman = this.hasDependency('yeoman-generator');
     const filename = this.isLibrary ? name : 'app';
-    const extension = this.hasDevDependency('typescript') ? 'ts' : 'js';
+    const extension = this.hasAnyDependency('typescript') ? 'ts' : 'js';
 
     const mainFile = `src/${filename}${hasYeoman ? '/index' : ''}.${extension}`;
 

@@ -29,7 +29,7 @@ export default class LintGenerator extends Generator {
       storybook:
         this.hasDevDependency('@storybook/react') ||
         this.hasDevDependency('@storybook/web-components'),
-      typescript: this.hasDevDependency('typescript'),
+      typescript: this.hasAnyDependency('typescript'),
     };
 
     if (!options.browser) {

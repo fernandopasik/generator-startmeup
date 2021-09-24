@@ -16,7 +16,7 @@ export default class PrettierGenerator extends Generator {
 
     const devDependencies = ['prettier', 'prettier-plugin-pkg', 'prettier-plugin-sh'];
 
-    if (this.hasDevDependency('typescript')) {
+    if (this.hasAnyDependency('typescript')) {
       devDependencies.push('prettier-plugin-organize-imports');
     }
 

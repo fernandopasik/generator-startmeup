@@ -29,8 +29,8 @@ export default class extends Generator {
       js: {
         js: this.hasFiles('**/*.js'),
         jsx: this.hasAnyDependency('react'),
-        ts: this.hasDevDependency('typescript'),
-        tsx: this.hasDevDependency('typescript') && this.hasAnyDependency('react'),
+        ts: this.hasAnyDependency('typescript'),
+        tsx: this.hasAnyDependency('typescript') && this.hasAnyDependency('react'),
       },
     };
 

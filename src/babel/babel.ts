@@ -9,7 +9,7 @@ export default class BabelGenerator extends Generator {
     const options = {
       module: this.packageJson.get('type') === 'module',
       react: this.hasAnyDependency('react'),
-      typescript: this.hasDevDependency('typescript'),
+      typescript: this.hasAnyDependency('typescript'),
     };
 
     await this.addDevDependencies(['@babel/preset-env', '@babel/plugin-proposal-decorators']);

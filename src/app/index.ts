@@ -41,7 +41,7 @@ export default class StartMeUpGenerator extends Generator {
         name: 'typescript',
         message: 'Are you programming with TypeScript?',
         default: true,
-        skip: this.hasDevDependency('typescript') || this.hasFiles('src/**/*.ts'),
+        skip: this.hasAnyDependency('typescript') || this.hasFiles('src/**/*.ts'),
       },
       {
         type: 'confirm',
