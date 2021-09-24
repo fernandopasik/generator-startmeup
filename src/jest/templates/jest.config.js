@@ -10,8 +10,9 @@ export default {
   ],
   // <% } %>
   // <% if (typescript) { %>
-  globals: { 'ts-jest': { tsconfig: 'tsconfig.all.json' } },
+  globals: { 'ts-jest': { tsconfig: 'tsconfig.all.json', useESM: true } },
   moduleNameMapper: { '(.*)\\.js': '$1' },
+  preset: 'ts-jest/presets/js-with-ts-esm',
   // <% } %>
   // <% if (axe || enzyme) { %>
   setupFilesAfterEnv: [
