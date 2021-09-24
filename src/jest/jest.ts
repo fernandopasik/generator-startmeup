@@ -2,7 +2,7 @@ import Generator from '../generator';
 
 export default class JestGenerator extends Generator {
   public async configuring(): Promise<void> {
-    const taskEnv = this.hasDevDependency('typescript')
+    const taskEnv = this.hasAnyDependency('typescript')
       ? ''
       : 'NODE_OPTIONS=--experimental-vm-modules ';
     this.packageJson.merge({
@@ -29,7 +29,7 @@ export default class JestGenerator extends Generator {
         this.hasDevDependency('@storybook/react') ||
         this.hasDevDependency('@storybook/web-components'),
       transformExtensions: 'js',
-      typescript: this.hasDevDependency('typescript'),
+      typescript: this.hasAnyDependency('typescript'),
       transform: '',
     };
 
