@@ -10,7 +10,9 @@ export default class TypescriptGenerator extends Generator {
       },
     });
 
-    await this.addDevDependencies(['typescript']);
+    if (!this.hasAnyDependency('typescript')) {
+      await this.addDevDependencies(['typescript']);
+    }
   }
 
   public async writing(): Promise<void> {
