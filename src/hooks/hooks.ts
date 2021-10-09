@@ -1,16 +1,26 @@
+import type { PackageJson } from 'type-fest';
 import Generator from '../generator';
 
 export default class HooksGenerator extends Generator {
   public async configuring(): Promise<void> {
-    this.packageJson.merge({
-      scripts: {
-        prepare: 'husky install',
-        prepublishOnly: 'pinst --disable',
-        postpublish: 'pinst --enable',
-      },
-    });
+    const isPrivate = Boolean(this.packageJson.get('private') as PackageJson['private']);
 
-    await this.addDevDependencies(['husky', 'pinst']);
+    const scripts: PackageJson['scripts'] = {
+      prepare: 'husky install',
+    };
+
+    if (!isPrivate) {
+      scripts.prepublishOnly = 'pinst --disable';
+      scripts.postpublish = 'pinst --enable';
+    }
+
+    this.packageJson.merge({ scripts });
+
+    await this.addDevDependencies(['husky']);
+
+    if (!isPrivate) {
+      await this.addDevDependencies(['pinst']);
+    }
 
     if (this.hasDevDependency('@commitlint/cli')) {
       this.copyTemplate('commit-msg', '.husky/commit-msg');
