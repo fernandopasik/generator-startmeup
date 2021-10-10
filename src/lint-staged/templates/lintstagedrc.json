@@ -2,8 +2,8 @@
   // <% if (prettier) { %>
   "*": ["prettier --check"],
   // <% } %>
-  // <% if (jsExtensions) { %>
-  "*.{<%= jsExtensions %>}": [
+  // <% if (jsTarget) { %>
+  "<%= jsTarget %>": [
     // <% if (eslint) { %>
     "eslint",
     // <% } %>
@@ -12,7 +12,7 @@
     // <% } %>
   ],
   // <% } %>
-  // <% if (cssExtensions && stylelint) { %>
-  "*.{<%= cssExtensions %>}": ["stylelint<% if (scss) { %> --syntax=scss<% } %>"]
+  // <% if (cssTarget && stylelint) { %>
+  "<%= cssTarget %>": ["stylelint<% if (scss) { %> --syntax=scss<% } %>"]
   // <% } %>
 }
