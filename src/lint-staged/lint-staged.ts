@@ -19,7 +19,7 @@ export default class LintStagedGenerator extends Generator {
       eslint: this.hasDevDependency('eslint'),
       jest: this.hasDevDependency('jest'),
       jsTarget: getExtensionsTarget(this.getExtensions()),
-      prettier: this.hasDevDependency('prettier'),
+      prettier: this.hasAnyDependency('prettier'),
       scss: this.hasFiles('**/*.scss'),
       stylelint: this.hasDevDependency('stylelint'),
     };
