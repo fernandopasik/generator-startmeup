@@ -2,6 +2,10 @@ import Generator from '../generator';
 
 export default class JestGenerator extends Generator {
   public async configuring(): Promise<void> {
+    if (!this.hasFiles('*.{js,jsx,ts,tsx}')) {
+      return;
+    }
+
     const taskEnv = this.hasAnyDependency('typescript')
       ? ''
       : 'NODE_OPTIONS=--experimental-vm-modules ';
@@ -16,6 +20,10 @@ export default class JestGenerator extends Generator {
   }
 
   public async writing(): Promise<void> {
+    if (!this.hasFiles('*.{js,jsx,ts,tsx}')) {
+      return;
+    }
+
     const options = {
       axe: this.hasDevDependency('jest-axe'),
       babel: this.hasDevDependency('@babel/core'),

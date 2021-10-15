@@ -2,6 +2,10 @@ import Generator from '../generator';
 
 export default class LintGenerator extends Generator {
   public async configuring(): Promise<void> {
+    if (!this.hasFiles('*.{js,jsx,ts,tsx}')) {
+      return;
+    }
+
     const extensions = this.getExtensions();
     const onlyJs = extensions.length === 1 && extensions[0] === 'js';
 
@@ -15,6 +19,10 @@ export default class LintGenerator extends Generator {
   }
 
   public async writing(): Promise<void> {
+    if (!this.hasFiles('*.{js,jsx,ts,tsx}')) {
+      return;
+    }
+
     const options = {
       babel: this.hasDevDependency('@babel/core'),
       browser:
