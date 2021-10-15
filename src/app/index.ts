@@ -23,6 +23,7 @@ export default class StartMeUpGenerator extends Generator {
       'libraries',
       'typescript',
       'babel',
+      'src',
       'jest',
       'eslint',
       'lint-staged',
@@ -30,7 +31,6 @@ export default class StartMeUpGenerator extends Generator {
       'readme',
       'badges',
       'docs',
-      'src',
       'rollup',
       'verify',
     ];
