@@ -1,6 +1,9 @@
 <% if (husky) { -%>
 .husky/_
 <% } -%>
+<% if (yarn) { -%>
+.yarn
+<% } -%>
 <% if (flow) { -%>
 .flowconfig
 <% } -%>

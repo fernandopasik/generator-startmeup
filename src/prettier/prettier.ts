@@ -33,6 +33,7 @@ export default class PrettierGenerator extends Generator {
       jekyll: this.hasFiles('docs/_config.yml') || this.hasFiles('_config.yml'),
       ruby: this.hasFiles('Gemfile'),
       test: this.hasDevDependency('jest'),
+      yarn: this.hasFiles('.yarn'),
     };
 
     this.copyTemplate('prettierrc.json', '.prettierrc.json');
