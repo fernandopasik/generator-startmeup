@@ -1,4 +1,5 @@
 .husky/_
+.yarn
 /LICENSE
 /coverage
 /generators
