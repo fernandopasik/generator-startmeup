@@ -43,7 +43,6 @@ export default class JestGenerator extends Generator {
 
     if (options.typescript) {
       await this.addDevDependencies(['@types/jest', 'ts-jest']);
-      options.transform = 'ts-jest';
       options.collectExtensions = '{j,t}s';
       options.transformExtensions = '[j|t]s';
     }
