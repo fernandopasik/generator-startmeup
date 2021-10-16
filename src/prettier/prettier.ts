@@ -31,7 +31,6 @@ export default class PrettierGenerator extends Generator {
       flow: this.hasDevDependency('flow-bin'),
       husky: this.hasFiles('.husky'),
       jekyll: this.hasFiles('docs/_config.yml') || this.hasFiles('_config.yml'),
-      ruby: this.hasFiles('Gemfile'),
       test: this.hasDevDependency('jest'),
       yarn: this.hasFiles('.yarn'),
     };
