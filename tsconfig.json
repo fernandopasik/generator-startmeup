@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "declaration": true,
     "declarationMap": true,
     "esModuleInterop": true,
@@ -8,6 +9,7 @@
     "lib": ["dom", "dom.iterable", "es2021"],
     "module": "commonjs",
     "moduleResolution": "node",
+    "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
@@ -25,6 +27,6 @@
     "strictPropertyInitialization": true,
     "target": "es2019"
   },
-  "exclude": ["**/__mocks__/**", "**/__tests__/**", "**/*.spec.*"],
-  "include": ["src/**/*"]
+  "exclude": ["/generators"],
+  "include": [".**/**/*", "**/*"]
 }
