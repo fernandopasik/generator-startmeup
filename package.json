@@ -97,7 +97,7 @@
     "yeoman-test": "^6.2.0"
   },
   "resolutions": {
-    "globby": "^11.0.4"
+    "fast-glob": "^3.2.7"
   },
   "sideEffects": false
 }
