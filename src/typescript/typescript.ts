@@ -5,8 +5,8 @@ export default class TypescriptGenerator extends Generator {
   public async configuring(): Promise<void> {
     this.packageJson.merge({
       scripts: {
-        'check-types': 'tsc --noEmit -p tsconfig.all.json',
-        build: 'tsc',
+        'check-types': 'tsc --noEmit',
+        build: 'tsc -p tsconfig.build.json',
       },
     });
 
@@ -38,6 +38,8 @@ export default class TypescriptGenerator extends Generator {
     };
 
     await this.renderTpl('tsconfig.json', 'tsconfig.json', options, { rmWhitespace: true });
-    await this.renderTpl('tsconfig.all.json', 'tsconfig.all.json', options, { rmWhitespace: true });
+    await this.renderTpl('tsconfig.build.json', 'tsconfig.build.json', options, {
+      rmWhitespace: true,
+    });
   }
 }

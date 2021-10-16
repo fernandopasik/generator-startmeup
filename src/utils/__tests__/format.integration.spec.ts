@@ -63,7 +63,7 @@ describe('format (integration)', () => {
     "import/extensions": ["never", "error"],
     "@typescript-eslint/no-magic-numbers": ["error", { "ignore": [1,0] }],
   },
-  "parserOptions": { "project": "./tsconfig.all.json" },
+  "parserOptions": { "project": "./tsconfig.json" },
   "overrides": [
     //
     { "files": ["*.stories.*"], "rules": {} },
@@ -82,7 +82,7 @@ describe('format (integration)', () => {
     { \\"files\\": [\\"*.spec.*\\"], \\"rules\\": {} },
     { \\"files\\": [\\"*.stories.*\\"], \\"rules\\": {} }
   ],
-  \\"parserOptions\\": { \\"project\\": \\"./tsconfig.all.json\\" },
+  \\"parserOptions\\": { \\"project\\": \\"./tsconfig.json\\" },
   \\"rules\\": {
     \\"@typescript-eslint/no-magic-numbers\\": [\\"error\\", { \\"ignore\\": [0, 1] }],
     \\"import/extensions\\": [\\"error\\", \\"never\\"],

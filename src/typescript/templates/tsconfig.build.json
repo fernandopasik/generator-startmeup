@@ -1,0 +1,22 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "allowJs": false, "noEmit": false },
+  "exclude": [
+    // <% if (jest) { %>
+    "**/__mocks__/**",
+    "**/__tests__/**",
+    "**/*.spec.*",
+    // <% } %>
+    // <% if (storybook) { %>
+    "**/__stories__/**",
+    "**/*.stories.*",
+    // <% } %>
+    // <% if (flow) { %>
+    "**/*.flow",
+    // <% } %>
+    // <% if (puppeteer) { %>
+    "**/*.e2e.*"
+    // <% } %>
+  ],
+  "include": ["src/**/*"]
+}

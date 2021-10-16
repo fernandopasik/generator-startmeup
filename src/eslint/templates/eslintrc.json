@@ -71,7 +71,7 @@
   ],
   // <% } %>
   // <% if (typescript) { %>
-  "parserOptions": { "project": "./tsconfig.all.json" },
+  "parserOptions": { "project": "./tsconfig.json" },
   // <% } %>
   "rules": {
     // <% if (typescript) { %>

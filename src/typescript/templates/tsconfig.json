@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "declaration": true,
     "declarationMap": true,
     "esModuleInterop": true,
@@ -11,6 +12,7 @@
     "lib": ["dom", "dom.iterable", "es2021"],
     "module": "<%= module %>",
     "moduleResolution": "node",
+    "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
@@ -29,21 +31,13 @@
     "target": "es2019"
   },
   "exclude": [
-    // <% if (jest) { %>
-    "**/__mocks__/**",
-    "**/__tests__/**",
-    "**/*.spec.*",
-    // <% } %>
-    // <% if (storybook) { %>
-    "**/__stories__/**",
-    "**/*.stories.*",
-    // <% } %>
-    // <% if (flow) { %>
-    "**/*.flow",
-    // <% } %>
-    // <% if (puppeteer) { %>
-    "**/*.e2e.*"
-    // <% } %>
+    ///<%- excludeFiles -%>
   ],
-  "include": ["src/**/*"]
+  "include": [
+    ".**/**/*",
+    "**/*",
+    // <% if (jestEnzyme) { %>
+    "node_modules/jest-enzyme/lib/index.d.ts"
+    // <% } %>
+  ]
 }
