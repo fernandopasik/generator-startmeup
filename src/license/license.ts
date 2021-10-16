@@ -1,5 +1,5 @@
-import Generator from '../generator';
-import firstCommit from '../utils/first-commit';
+import Generator from '../generator.js';
+import firstCommit from '../utils/first-commit.js';
 
 export default class LicenseGenerator extends Generator {
   public configuring(): void {

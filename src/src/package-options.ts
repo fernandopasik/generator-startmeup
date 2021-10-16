@@ -1,5 +1,5 @@
 import type { PackageJson } from 'type-fest';
-import sortProps from '../utils/sort-props';
+import sortProps from '../utils/sort-props.js';
 
 const packageOptions = (
   appName: string,

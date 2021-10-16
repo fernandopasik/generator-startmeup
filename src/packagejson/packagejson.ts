@@ -1,8 +1,8 @@
 import parseGithub from 'parse-github-url';
 import path from 'path';
 import type { PackageJson } from 'type-fest';
-import Generator from '../generator';
-import { composeAuthor, parseAuthor } from './author';
+import Generator from '../generator.js';
+import { composeAuthor, parseAuthor } from './author.js';
 
 interface Answers {
   name: string;

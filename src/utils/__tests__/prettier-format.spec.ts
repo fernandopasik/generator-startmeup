@@ -1,5 +1,5 @@
 import prettier from 'prettier';
-import prettierFormat from '../prettier-format';
+import prettierFormat from '../prettier-format.js';
 
 jest.mock('prettier', () => ({
   resolveConfig: jest.fn().mockResolvedValue({ printWidth: 130 }),

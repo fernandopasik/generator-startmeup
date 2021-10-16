@@ -1,4 +1,4 @@
-import Generator from '../generator';
+import Generator from '../generator.js';
 
 const FRAMEWORKS = ['none', 'lit', 'react'];
 

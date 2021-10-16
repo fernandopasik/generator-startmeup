@@ -1,4 +1,4 @@
-import sortProps from '../sort-props';
+import sortProps from '../sort-props.js';
 
 describe('sort props', () => {
   it('undefined config', () => {

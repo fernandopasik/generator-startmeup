@@ -1,1 +1,1 @@
-export { default } from './prettier';
+export { default } from './prettier.js';

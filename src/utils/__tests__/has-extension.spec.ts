@@ -1,4 +1,4 @@
-import hasExtension from '../has-extension';
+import hasExtension from '../has-extension.js';
 
 describe('hasExtension', () => {
   it('detects the right extension', () => {

@@ -1,6 +1,6 @@
 import type { PackageJson } from 'type-fest';
-import Generator from '../generator';
-import gitMainBranch from '../utils/git-main-branch';
+import Generator from '../generator.js';
+import gitMainBranch from '../utils/git-main-branch.js';
 
 export default class BadgesGenerator extends Generator {
   public async writing(): Promise<void> {

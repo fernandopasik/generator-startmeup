@@ -1,1 +1,1 @@
-export { default } from './libraries';
+export { default } from './libraries.js';

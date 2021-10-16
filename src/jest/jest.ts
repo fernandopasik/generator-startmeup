@@ -1,4 +1,4 @@
-import Generator from '../generator';
+import Generator from '../generator.js';
 
 export default class JestGenerator extends Generator {
   public async configuring(): Promise<void> {

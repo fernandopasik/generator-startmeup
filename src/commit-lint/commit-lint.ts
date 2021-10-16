@@ -1,4 +1,4 @@
-import Generator from '../generator';
+import Generator from '../generator.js';
 
 export default class CommitLintGenerator extends Generator {
   public async configuring(): Promise<void> {

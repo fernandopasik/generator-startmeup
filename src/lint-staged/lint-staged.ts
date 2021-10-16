@@ -1,4 +1,4 @@
-import Generator from '../generator';
+import Generator from '../generator.js';
 
 export default class LintStagedGenerator extends Generator {
   public async configuring(): Promise<void> {

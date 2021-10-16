@@ -1,5 +1,5 @@
 import shell from 'shelljs';
-import gitMainBranch from '../git-main-branch';
+import gitMainBranch from '../git-main-branch.js';
 
 describe('first commit', () => {
   it('uses git log', () => {

@@ -1,1 +1,1 @@
-export { default } from './rollup';
+export { default } from './rollup.js';

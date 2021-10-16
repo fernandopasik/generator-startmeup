@@ -1,5 +1,5 @@
 import type { PackageJson } from 'type-fest';
-import Generator from '../generator';
+import Generator from '../generator.js';
 
 export default class FlowGenerator extends Generator {
   public async configuring(): Promise<void> {

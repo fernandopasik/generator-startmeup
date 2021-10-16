@@ -1,5 +1,5 @@
 import yosay from 'yosay';
-import Generator from '../generator';
+import Generator from '../generator.js';
 
 interface Confirmation {
   type: string;

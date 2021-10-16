@@ -3,7 +3,7 @@ import gitRemote from 'git-remote-origin-url';
 import globby from 'globby';
 import parseGithub from 'parse-github-url';
 import Generator from 'yeoman-generator';
-import format from './utils/format';
+import format from './utils/format.js';
 
 export default class extends Generator {
   public async renderTpl(

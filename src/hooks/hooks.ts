@@ -1,5 +1,5 @@
 import type { PackageJson } from 'type-fest';
-import Generator from '../generator';
+import Generator from '../generator.js';
 
 export default class HooksGenerator extends Generator {
   public async configuring(): Promise<void> {

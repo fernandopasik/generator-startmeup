@@ -1,7 +1,7 @@
 import type { PackageJson } from 'type-fest';
-import Generator from '../generator';
-import { parseAuthor } from '../packagejson';
-import firstCommit from '../utils/first-commit';
+import Generator from '../generator.js';
+import { parseAuthor } from '../packagejson/index.js';
+import firstCommit from '../utils/first-commit.js';
 
 export default class ReadmeGenerator extends Generator {
   public async writing(): Promise<void> {

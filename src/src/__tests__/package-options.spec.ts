@@ -1,4 +1,4 @@
-import packageOptions from '../package-options';
+import packageOptions from '../package-options.js';
 
 describe('packageOptions', () => {
   it('by default type is module', () => {
