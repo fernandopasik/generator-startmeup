@@ -74,4 +74,18 @@ foo: 'bar' // this should not stay
 
     expect(cleanupTemplate(content)).toBe(sanitized);
   });
+
+  it('removes the remaining sh empty comments', () => {
+    const content = `
+  #
+# valid comment
+#
+ls -la
+`;
+    const sanitized = `
+# valid comment
+ls -la
+`;
+    expect(cleanupTemplate(content)).toBe(sanitized);
+  });
 });
