@@ -1,4 +1,8 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+#<% if (yarn) { %>
 yarn lint-staged
+#<% } else { %>
+npm exec lint-staged
+#<% } %>

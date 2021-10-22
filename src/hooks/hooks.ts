@@ -22,15 +22,19 @@ export default class HooksGenerator extends Generator {
       await this.addDevDependencies(['pinst']);
     }
 
+    const options = {
+      yarn: this.hasFiles('./yarn.lock'),
+    };
+
     if (this.hasDevDependency('@commitlint/cli')) {
-      this.copyTemplate('commit-msg', '.husky/commit-msg');
+      await this.renderTpl('commit-msg', '.husky/commit-msg', options);
     }
 
     if (this.hasDevDependency('lint-staged')) {
-      this.copyTemplate('pre-commit', '.husky/pre-commit');
+      await this.renderTpl('pre-commit', '.husky/pre-commit', options);
     }
 
-    this.copyTemplate('pre-push', '.husky/pre-push');
+    await this.renderTpl('pre-push', '.husky/pre-push', options);
 
     await this.formatFile('package.json');
   }
