@@ -25,6 +25,7 @@
     "import/no-unresolved": "off",
     "jest/no-hooks": "off",
     "jest/prefer-expect-assertions": "off",
-    "max-lines": ["error", { "max": 130, "skipBlankLines": true, "skipComments": true }]
+    "max-lines": ["error", { "max": 130, "skipBlankLines": true, "skipComments": true }],
+    "no-restricted-exports": "off"
   }
 }
