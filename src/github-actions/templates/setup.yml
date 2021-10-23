@@ -1,0 +1,15 @@
+name: Setup
+description: Setups latest Node LTS and installs dependencies
+
+runs:
+  using: composite
+  steps:
+    - name: Setup Node
+      uses: actions/setup-node@v2
+      with:
+        cache: <% if (yarn) { %>yarn<% } else { %>npm<% } %>
+        check-latest: true
+        node-version: 16
+    - name: Install Dependencies
+      run: <% if (yarn > 1) { %>yarn --immutable<% } else if (yarn === 1) { %>yarn install --frozen-lockfile<% } else { %>npm ci<% } %>
+      shell: bash

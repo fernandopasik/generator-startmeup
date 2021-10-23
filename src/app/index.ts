@@ -33,6 +33,7 @@ export default class StartMeUpGenerator extends Generator {
       'docs',
       'rollup',
       'verify',
+      'github-actions',
     ];
 
     const subGeneratorConfirmations: Confirmation[] = [
