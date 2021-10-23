@@ -10,7 +10,8 @@ export default class GithubActionsGenerator extends Generator {
     const scripts = (this.packageJson.get('scripts') as PackageJson['scripts']) ?? {};
 
     const options = {
-      yarn: this.hasFiles('./yarn.lock'),
+      // eslint-disable-next-line no-nested-ternary, @typescript-eslint/no-magic-numbers
+      yarn: this.hasFiles('./yarn.lock') ? (this.hasFiles('./.yarn') ? 2 : 1) : 0,
       checkFormat: 'format:check' in scripts,
       lint: 'lint' in scripts,
       checkTypes: 'check-types' in scripts,
