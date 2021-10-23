@@ -20,10 +20,6 @@ export default class GithubActionsGenerator extends Generator {
       checkSize: 'size' in scripts,
     };
 
-    if (options.unitTests) {
-      await this.addDevDependencies('codedov');
-    }
-
     if (options.unitTests || options.e2eTests) {
       await this.addDevDependencies('jest-junit');
     }
