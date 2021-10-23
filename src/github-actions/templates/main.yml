@@ -116,13 +116,13 @@ jobs:
         uses: ./.github/actions/setup
       - name: Build
         run: <% if (yarn) { %>yarn<% } else { %>npm run<% } %> build
+      #<% } %>
+      #<% if (checkSize) { %>
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v2
         with:
           name: bundle
           path: hello-web-components.min.*
-  #<% } %>
-  #<% if (checkSize) { %>
   size:
     name: Check Size
     runs-on: ubuntu-latest
