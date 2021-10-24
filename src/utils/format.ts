@@ -6,7 +6,13 @@ import prettierFormat from './prettier-format.js';
 const format = async (content: string, filepath: string, root: string): Promise<string> => {
   const sanitized = cleanupTemplate(content);
 
-  let formatted = await prettierFormat(sanitized, filepath, root);
+  let formatted = '';
+
+  try {
+    formatted = await prettierFormat(sanitized, filepath, root);
+  } catch {
+    formatted = content;
+  }
 
   if (hasExtension(filepath, 'json')) {
     formatted = await formatJson(formatted, filepath, root);
