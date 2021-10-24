@@ -16,8 +16,9 @@ export default class VerifyGenerator extends Generator {
     const scripts = (this.packageJson.get('scripts') as PackageJson['scripts']) ?? {};
 
     const existing = steps.filter((step) => step in scripts);
+    const runner = this.hasFiles('./yarn.lock') ? 'yarn' : 'npm run';
 
-    const verify = existing.map((step) => `yarn ${step}`).join(' && ');
+    const verify = existing.map((step) => `${runner} ${step}`).join(' && ');
 
     this.packageJson.setPath('scripts.verify', verify);
 
