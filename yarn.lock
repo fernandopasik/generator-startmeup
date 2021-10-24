@@ -1384,6 +1384,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/mvdan-sh@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@types/mvdan-sh@npm:0.5.1"
+  checksum: 1af1729b6b7667dd3392bde47346ab4b2fa98f4fe3d7a07a55e605a88f5555cfcf25ed8eca0b90b3f082e353f7c40bdc4d74ede39eeb3f6b0036bba836221341
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:*":
   version: 16.4.12
   resolution: "@types/node@npm:16.4.12"
@@ -4024,6 +4031,7 @@ fsevents@^2.3.2:
     "@types/inquirer": ^8.1.3
     "@types/jest": ^27.0.2
     "@types/lodash": ^4.14.176
+    "@types/mvdan-sh": ^0.5.1
     "@types/parse-github-url": ^1.0.0
     "@types/prettier": ^2.4.1
     "@types/shelljs": ^0.8.9
