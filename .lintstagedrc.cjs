@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type, @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access */
 const fs = require('fs');
 
 const lintTSConfig = 'tsconfig.lint.json';
@@ -10,6 +11,7 @@ const generateTSConfig = (stagedFilenames) => {
 };
 
 const deleteTSConfig = (stagedFilenames) => {
+  // eslint-disable-next-line no-param-reassign
   stagedFilenames.length = 0;
   if (fs.existsSync(lintTSConfig)) {
     fs.unlinkSync(lintTSConfig);
