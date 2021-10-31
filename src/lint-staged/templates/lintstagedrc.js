@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type, @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access */
-// <% if (typescript) { %>
-/// <% if (module) { %>
+/// <% if (typescript) { %><% if (module) { -%>
 import fs from 'fs';
 // <% } else { %>const fs = require('fs');<% } %>
 
