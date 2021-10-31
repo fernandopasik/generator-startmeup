@@ -1,5 +1,7 @@
 // <% if (typescript) { %>
-const fs = require('fs');
+/// <% if (module) { %>
+import fs from 'fs';
+// <% } else { %>const fs = require('fs');<% } %>
 
 const lintTSConfig = 'tsconfig.lint.json';
 
@@ -19,7 +21,9 @@ const deleteTSConfig = (stagedFilenames) => {
 };
 // <% } %>
 
-module.exports = {
+/// <% if (module) { %>
+export default {
+  // <% } else { %>module.exports = {<% } %>
   // <% if (prettier) { %>
   '*': ['prettier --check'],
   // <% } %>

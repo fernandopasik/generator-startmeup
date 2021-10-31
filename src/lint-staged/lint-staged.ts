@@ -19,6 +19,7 @@ export default class LintStagedGenerator extends Generator {
       eslint: this.hasDevDependency('eslint'),
       jest: this.hasDevDependency('jest'),
       jsTarget: getExtensionsTarget(this.getExtensions()),
+      module: this.packageJson.get('type') === 'module',
       prettier: this.hasAnyDependency('prettier'),
       scss: this.hasFiles('**/*.scss'),
       stylelint: this.hasDevDependency('stylelint'),
@@ -26,7 +27,11 @@ export default class LintStagedGenerator extends Generator {
     };
 
     if (options.typescript) {
-      await this.renderTpl('lintstagedrc.cjs', '.lintstagedrc.cjs', options);
+      await this.renderTpl(
+        'lintstagedrc.js',
+        options.module ? '.lintstagedrc.js' : '.lintstagedrc.cjs',
+        options,
+      );
     } else {
       await this.renderTpl('lintstagedrc.json', '.lintstagedrc.json', options);
     }
