@@ -25,6 +25,10 @@ export default class LintStagedGenerator extends Generator {
       typescript: this.hasAnyDependency('typescript'),
     };
 
-    await this.renderTpl('lintstagedrc.cjs', '.lintstagedrc.cjs', options);
+    if (options.typescript) {
+      await this.renderTpl('lintstagedrc.cjs', '.lintstagedrc.cjs', options);
+    } else {
+      await this.renderTpl('lintstagedrc.json', '.lintstagedrc.json', options);
+    }
   }
 }
