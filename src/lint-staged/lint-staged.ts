@@ -32,8 +32,10 @@ export default class LintStagedGenerator extends Generator {
         options.module ? '.lintstagedrc.js' : '.lintstagedrc.cjs',
         options,
       );
+      this.fs.delete('.lintstagedrc.json');
     } else {
       await this.renderTpl('lintstagedrc.json', '.lintstagedrc.json', options);
+      this.fs.delete(['.lintstagedrc.js', '.lintstagedrc.cjs']);
     }
   }
 }
