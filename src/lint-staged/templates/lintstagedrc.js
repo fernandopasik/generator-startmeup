@@ -13,6 +13,7 @@ const generateTSConfig = (stagedFilenames) => {
 };
 
 const deleteTSConfig = (stagedFilenames) => {
+  // eslint-disable-next-line no-param-reassign
   stagedFilenames.length = 0;
   if (fs.existsSync(lintTSConfig)) {
     fs.unlinkSync(lintTSConfig);
