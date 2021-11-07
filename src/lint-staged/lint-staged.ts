@@ -22,8 +22,9 @@ export default class LintStagedGenerator extends Generator {
       prettier: this.hasAnyDependency('prettier'),
       scss: this.hasFiles('**/*.scss'),
       stylelint: this.hasDevDependency('stylelint'),
+      typescript: this.hasAnyDependency('typescript'),
     };
 
-    await this.renderTpl('lintstagedrc.json', '.lintstagedrc.json', options);
+    await this.renderTpl('lintstagedrc.cjs', '.lintstagedrc.cjs', options);
   }
 }
