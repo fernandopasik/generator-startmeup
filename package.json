@@ -73,7 +73,6 @@
     "@types/yosay": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "@typescript-eslint/parser": "^5.5.0",
-    "codecov": "^3.8.3",
     "conventional-changelog-cli": "^2.1.1",
     "conventional-changelog-conventionalcommits": "^4.6.1",
     "cpy-cli": "^3.1.1",
