@@ -2,6 +2,7 @@ import axios from 'axios';
 import gitRemote from 'git-remote-origin-url';
 import globby from 'globby';
 import parseGithub from 'parse-github-url';
+import type { ReadonlyDeep } from 'type-fest';
 import Generator from 'yeoman-generator';
 import format from './utils/format.js';
 
@@ -106,7 +107,7 @@ export default class extends Generator {
   }
 
   public async addAnyDependencies(
-    dependencies: Record<string, string> | string[] | string,
+    dependencies: ReadonlyDeep<Record<string, string> | string[] | string>,
     type = 'dependencies',
   ): Promise<Record<string, string>> {
     // eslint-disable-next-line no-underscore-dangle
@@ -124,26 +125,26 @@ export default class extends Generator {
   }
 
   public async addPeerDependencies(
-    dependencies: Record<string, string> | string[] | string,
+    dependencies: ReadonlyDeep<Record<string, string> | string[] | string>,
   ): Promise<Record<string, string>> {
     return this.addAnyDependencies(dependencies, 'peerDependencies');
   }
 
   public async addDependencies(
-    dependencies: Record<string, string> | string[] | string,
+    dependencies: ReadonlyDeep<Record<string, string> | string[] | string>,
   ): Promise<Record<string, string>> {
     return this.addAnyDependencies(dependencies);
   }
 
   public async addDevDependencies(
-    dependencies: Record<string, string> | string[] | string,
+    dependencies: ReadonlyDeep<Record<string, string> | string[] | string>,
   ): Promise<Record<string, string>> {
     return this.addAnyDependencies(dependencies, 'devDependencies');
   }
 
   // eslint-disable-next-line no-underscore-dangle
   protected async _resolvePackageJsonDependencies(
-    dependencies: Record<string, string> | string[] | string,
+    dependencies: ReadonlyDeep<Record<string, string> | string[] | string>,
   ): Promise<Record<string, string>> {
     // @ts-expect-error no type
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call, no-underscore-dangle
