@@ -6,7 +6,7 @@ interface Person {
   email?: string;
 }
 
-export const parseAuthor = (authorInfo?: PackageJson.Person): Person => {
+export const parseAuthor = (authorInfo?: Readonly<PackageJson.Person>): Person => {
   if (typeof authorInfo === 'undefined') {
     return {};
   }
