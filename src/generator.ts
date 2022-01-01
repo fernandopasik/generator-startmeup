@@ -7,9 +7,8 @@ import Generator from 'yeoman-generator';
 import format from './utils/format.js';
 
 export default class extends Generator {
-  public async renderTpl(
-    ...parameters: Readonly<Parameters<Generator['renderTemplate']>>
-  ): Promise<void> {
+  // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
+  public async renderTpl(...parameters: Parameters<Generator['renderTemplate']>): Promise<void> {
     this.renderTemplate(...parameters);
 
     await this.formatFile(parameters[1] as string);

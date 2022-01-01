@@ -4,7 +4,8 @@ import prettierFormat from '../prettier-format.js';
 import sortProps from '../sort-props.js';
 
 jest.mock('../prettier-format.js', () => jest.fn((content: string) => content));
-jest.mock('../sort-props.js', () => jest.fn((json: Readonly<JsonObject>): JsonObject => json));
+// eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
+jest.mock('../sort-props.js', () => jest.fn((json: JsonObject): JsonObject => json));
 
 describe('formatJson', () => {
   describe('sorts properties', () => {
