@@ -3,7 +3,7 @@ import type { JsonObject, JsonValue } from 'type-fest';
 const compareSortingValues = (
   value1: JsonValue,
   value2: JsonValue,
-  sortFirst?: string[],
+  sortFirst?: readonly string[],
 ): number => {
   const SORT_PREV = -1;
   const SORT_NEXT = 1;
@@ -33,7 +33,7 @@ const compareSortingValues = (
   return compare1.localeCompare(compare2);
 };
 
-const sortProps = (json?: JsonObject, sortFirst?: string[]): JsonObject =>
+const sortProps = (json?: JsonObject, sortFirst?: readonly string[]): JsonObject =>
   Object.fromEntries(
     Object.entries(json ?? {})
       .sort(
