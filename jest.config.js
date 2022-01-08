@@ -4,5 +4,4 @@ module.exports = {
   moduleNameMapper: { '(.*)\\.js': '$1' },
   preset: 'ts-jest/presets/js-with-ts-esm',
   testEnvironment: 'node',
-  transform: { '^.+\\.[j|t]s$': 'ts-jest' },
 };
