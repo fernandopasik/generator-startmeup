@@ -7,6 +7,7 @@ export default class GithubActionsGenerator extends Generator {
       return;
     }
 
+    const name = (this.packageJson.get('name') as PackageJson['name']) ?? '';
     const scripts = (this.packageJson.get('scripts') as PackageJson['scripts']) ?? {};
 
     const options = {
@@ -19,6 +20,7 @@ export default class GithubActionsGenerator extends Generator {
       e2eTests: 'test:e2e' in scripts,
       build: 'build' in scripts,
       checkSize: 'size' in scripts,
+      name,
     };
 
     if (options.unitTests || options.e2eTests) {

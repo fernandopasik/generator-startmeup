@@ -137,7 +137,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: bundle
-          path: hello-web-components.min.*
+          path: <%= name %>.min.*
   size:
     name: Check Size
     runs-on: ubuntu-latest
