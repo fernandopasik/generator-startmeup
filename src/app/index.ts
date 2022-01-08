@@ -1,4 +1,3 @@
-import yosay from 'yosay';
 import Generator from '../generator.js';
 
 interface Confirmation {
@@ -11,7 +10,7 @@ interface Confirmation {
 
 export default class StartMeUpGenerator extends Generator {
   public async initializing(): Promise<void> {
-    this.log(yosay('Welcome to the marvelous StartMeUp generator!'));
+    this.log('Welcome to the marvelous StartMeUp generator!');
 
     const subGenerators = [
       'git',
