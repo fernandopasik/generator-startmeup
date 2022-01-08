@@ -38,7 +38,7 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Lint
-        run: <% if (yarn) { %>yarn<% } else { %>npm run<% } %> lint --format junit -o reports/lint-results.xml
+        run: <% if (yarn) { %>yarn lint<% } else { %>npm run lint --<% } %> --format junit -o reports/lint-results.xml
       - name: Upload Report
         uses: actions/upload-artifact@v2
         if: always()
@@ -70,7 +70,7 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Unit Tests
-        run: <% if (yarn) { %>yarn<% } else { %>npm run<% } %> test:coverage --ci --reporters=default --reporters=jest-junit
+        run: <% if (yarn) { %>yarn test:coverage<% } else { %>npm run test:coverage --<% } %> --ci --reporters=default --reporters=jest-junit
         env:
           JEST_JUNIT_OUTPUT_FILE: 'reports/unit-test-results.xml'
       - name: Upload Report to Codecov
@@ -94,7 +94,7 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: E2E Tests
-        run: <% if (yarn) { %>yarn<% } else { %>npm run<% } %> test:e2e --ci --reporters=default --reporters=jest-junit
+        run: <% if (yarn) { %>yarn test:e2e<% } else { %>npm run test:e2e --<% } %> --ci --reporters=default --reporters=jest-junit
         env:
           JEST_JUNIT_OUTPUT_FILE: 'reports/e2e-test-results.xml'
       - name: Upload Report
