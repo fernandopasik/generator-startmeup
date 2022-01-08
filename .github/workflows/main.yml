@@ -35,7 +35,7 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Lint
-        run: npm run lint --format junit -o reports/lint-results.xml
+        run: npm run lint -- --format junit -o reports/lint-results.xml
       - name: Upload Report
         uses: actions/upload-artifact@v2
         if: always()
