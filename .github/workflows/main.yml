@@ -63,7 +63,7 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Unit Tests
-        run: npm run test:coverage --ci --reporters=default --reporters=jest-junit
+        run: npm run test:coverage -- --ci --reporters=default --reporters=jest-junit
         env:
           JEST_JUNIT_OUTPUT_FILE: 'reports/unit-test-results.xml'
       - name: Upload Report to Codecov
