@@ -18,8 +18,8 @@
   ],
   "keywords": [],
   "scripts": {
-    "build": "tsc -p tsconfig.build.json && yarn copy:templates",
-    "changelog": "yarn changelog:config && yarn changelog:write && yarn format",
+    "build": "tsc -p tsconfig.build.json && npm run copy:templates",
+    "changelog": "npm run changelog:config && npm run changelog:write && npm run format",
     "changelog:config": "replace-in-files --string='hidden: true' --replacement='hidden: false' node_modules/conventional-changelog-conventionalcommits/writer-opts.js",
     "changelog:write": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -r 0",
     "check-types": "tsc --noEmit",
@@ -31,12 +31,12 @@
     "prebuild": "del generators",
     "prepare": "husky install",
     "prepublishOnly": "pinst --disable",
-    "preversion": "yarn verify",
-    "start": "yarn build -w",
+    "preversion": "npm run verify",
+    "start": "npm run build -w",
     "test": "jest",
     "test:ci": "jest --coverage --runInBand --ci --reporters=default --reporters=jest-junit",
     "test:coverage": "jest --coverage",
-    "verify": "yarn format:check && yarn lint && yarn check-types && yarn test:coverage && yarn build"
+    "verify": "npm run format:check && npm run lint && npm run check-types && npm run test:coverage && npm run build"
   },
   "dependencies": {
     "axios": "^0.26.0",
@@ -96,8 +96,8 @@
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^6.3.0"
   },
-  "resolutions": {
-    "fast-glob": "^3.2.7"
-  },
-  "sideEffects": false
+  "sideEffects": false,
+  "overrides": {
+    "fast-glob": "3.2.11"
+  }
 }

@@ -13,17 +13,6 @@ Thumbs.db
 # npm
 node_modules
 npm-debug.log
-yarn-error.log
-
-# yarn >= 2
-.yarn/*
-!.yarn/cache
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
-# .pnp.*
 
 # test files
 /coverage
