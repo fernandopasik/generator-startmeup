@@ -95,8 +95,5 @@
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^6.3.0"
   },
-  "sideEffects": false,
-  "overrides": {
-    "fast-glob": "3.2.11"
-  }
+  "sideEffects": false
 }
