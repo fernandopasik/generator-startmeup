@@ -13,7 +13,7 @@ runs:
     - name: Install Dependencies
       run: <% if (yarn > 1) { %>yarn --immutable<% } else if (yarn === 1) { %>yarn install --frozen-lockfile<% } else { %>npm ci<% } %>
       shell: bash
-    #<% if (e2eTests) { %>
+    #<% if (jekyll) { %>
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
