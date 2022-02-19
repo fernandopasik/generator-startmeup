@@ -26,7 +26,7 @@ export default class LintStagedGenerator extends Generator {
       typescript: this.hasAnyDependency('typescript'),
     };
 
-    if (options.typescript) {
+    if (options.typescript && typeof this.packageJson.get('workspaces') !== 'undefined') {
       await this.renderTpl(
         'lintstagedrc.js',
         options.module ? '.lintstagedrc.js' : '.lintstagedrc.cjs',
