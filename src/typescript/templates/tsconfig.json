@@ -35,11 +35,5 @@
   "exclude": [
     ///<%- excludeFiles -%>
   ],
-  "include": [
-    ".**/**/*",
-    "**/*",
-    // <% if (jestEnzyme) { %>
-    "node_modules/jest-enzyme/lib/index.d.ts"
-    // <% } %>
-  ]
+  "include": [".**/**/*", "**/*"]
 }
