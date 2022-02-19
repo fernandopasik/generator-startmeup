@@ -30,7 +30,6 @@ export default class JestGenerator extends Generator {
       collectExtensions: 'js',
       lit: this.hasAnyDependency('lit') || this.hasAnyDependency('lit-html'),
       module: this.packageJson.get('type') === 'module',
-      enzyme: this.hasDevDependency('enzyme'),
       puppeteer: this.hasDevDependency('puppeteer'),
       react: this.hasAnyDependency('react'),
       storybook:
@@ -53,7 +52,6 @@ export default class JestGenerator extends Generator {
     }
 
     if (options.react) {
-      await this.addDevDependencies(['jest-environment-enzyme', 'jest-enzyme']);
       options.collectExtensions += '{,x}';
       options.transformExtensions += 'x?';
     }

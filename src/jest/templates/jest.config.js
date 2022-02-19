@@ -14,17 +14,14 @@ export default {
   moduleNameMapper: { '(.*)\\.js': '$1' },
   preset: 'ts-jest/presets/js-with-ts-esm',
   // <% } %>
-  // <% if (axe || enzyme) { %>
+  // <% if (axe) { %>
   setupFilesAfterEnv: [
-    // <% if (enzyme) { %>
-    'jest-enzyme',
-    // <% } %>
     // <% if (axe) { %>
     'jest-axe/extend-expect',
     // <% } %>
   ],
   // <% } %>
-  testEnvironment: '<% if (enzyme) { %>enzyme<% } else if (lit) { %>jsdom<% } else { %>node<% } %>',
+  testEnvironment: '<% if (lit) { %>jsdom<% } else { %>node<% } %>',
   // <% if (transform) { %>
   transform: { '^.+\\.<%= transformExtensions %>$': '<%= transform %>' },
   // <% } %>
