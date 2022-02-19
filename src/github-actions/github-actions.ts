@@ -3,7 +3,7 @@ import Generator from '../generator.js';
 
 export default class GithubActionsGenerator extends Generator {
   public async writing(): Promise<void> {
-    if (!this.hasFiles('package.json')) {
+    if (!this.isNpmPackage()) {
       return;
     }
 

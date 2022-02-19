@@ -7,7 +7,7 @@ export default class EditorConfigGenerator extends Generator {
       php: this.hasFiles('**/*.php'),
       md: this.hasFiles('**/*.md'),
       yaml: this.hasFiles('**/*.{yaml,yml}'),
-      packageJson: this.hasFiles('package.json'),
+      packageJson: this.isNpmPackage(),
     };
 
     this.renderTemplate('editorconfig', '.editorconfig', options);

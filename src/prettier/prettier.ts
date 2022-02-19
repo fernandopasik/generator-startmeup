@@ -3,7 +3,7 @@ import Generator from '../generator.js';
 
 export default class PrettierGenerator extends Generator {
   public async configuring(): Promise<void> {
-    if (!this.hasFiles('package.json')) {
+    if (!this.isNpmPackage()) {
       return;
     }
 

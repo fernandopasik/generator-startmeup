@@ -5,7 +5,7 @@ export default class GitGenerator extends Generator {
     this.renderTemplate('gitattributes', '.gitattributes');
 
     const options = {
-      package: this.hasFiles('package.json'),
+      package: this.isNpmPackage(),
     };
 
     if (!this.hasFiles('.gitignore')) {
