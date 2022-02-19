@@ -109,6 +109,12 @@ export default class extends Generator {
     return globby.sync(this.destinationPath(pattern), { dot: true, gitignore: true }).length > 0;
   }
 
+  public fileIncludes(filepath: string, searchString: string): boolean {
+    const fileContent = this.fs.read(filepath);
+
+    return fileContent.includes(searchString);
+  }
+
   public async addAnyDependencies(
     dependencies: ReadonlyDeep<Record<string, string> | string[] | string>,
     type = 'dependencies',
