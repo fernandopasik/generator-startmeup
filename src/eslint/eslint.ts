@@ -82,6 +82,10 @@ export default class LintGenerator extends Generator {
       await this.addDevDependencies(['eslint-config-prettier', 'eslint-plugin-prettier']);
     }
 
+    if (options.storybook) {
+      await this.addDevDependencies(['eslint-plugin-storybook']);
+    }
+
     await this.renderTpl('eslintrc.json', '.eslintrc.json', options, { rmWhitespace: true });
   }
 }

@@ -19,6 +19,10 @@
     // <% if (!browser) { %>
     "plugin:security/recommended",
     // <% } %>
+    // <% if (storybook) { %>
+    "plugin:storybook/csf",
+    "plugin:storybook/recommended",
+    // <% } %>
     // <% if (lit) { %>
     "plugin:wc/best-practice",
     // <% } %>
@@ -94,7 +98,10 @@
       { "max": 20, "skipBlankLines": true, "skipComments": true }
     ],
     // <% if (react && typescript) { %>
-    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
+    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
+    // <% } %>
+    // <% if (storybook) { %>
+    "storybook/prefer-pascal-case": "off"
     // <% } %>
   }
 }
