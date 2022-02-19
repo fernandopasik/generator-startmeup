@@ -19,6 +19,9 @@
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    // <% if (lit) { %>
+    "plugins": [{ "name": "ts-lit-plugin", "strict": true }],
+    // <% } %>
     "resolveJsonModule": true,
     "rootDirs": ["src"],
     "sourceMap": true,

@@ -28,6 +28,7 @@ export default class TypescriptGenerator extends Generator {
       flow: this.hasDevDependency('flow-bin'),
       jest: this.hasDevDependency('jest'),
       jestEnzyme: this.hasDevDependency('jest-enzyme'),
+      lit: this.hasAnyDependency('lit'),
       module: this.packageJson.get('type') === 'module' ? 'ESNext' : 'commonjs',
       outDir: packageFiles.includes('/lib') ? '.' : packageFiles[0]?.replace(/^\//g, ''),
       puppeteer: this.hasDevDependency('puppeteer'),
