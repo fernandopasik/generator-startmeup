@@ -39,6 +39,9 @@ export default {
         preset: 'jest-puppeteer',
         testEnvironment: 'jest-environment-puppeteer',
         testMatch: ['**/?(*.)+(e2e).[jt]s?(x)'],
+        // <% if (typescript) { %>
+        transform: { '^.+\\.[j|t]s$': 'ts-jest' },
+        // <% } %>
       }
     : {}),
   // <% } %>
