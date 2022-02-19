@@ -89,6 +89,10 @@ export default class extends Generator {
     return npmName;
   }
 
+  public isNpmPackage(): boolean {
+    return typeof this.packageJson.get('name') !== 'undefined';
+  }
+
   public hasDependency(name: string): boolean {
     return typeof this.packageJson.getPath(`dependencies.${name}`) !== 'undefined';
   }
