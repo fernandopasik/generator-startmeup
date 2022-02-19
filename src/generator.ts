@@ -2,7 +2,7 @@ import axios from 'axios';
 import gitRemote from 'git-remote-origin-url';
 import globby from 'globby';
 import parseGithub from 'parse-github-url';
-import type { ReadonlyDeep } from 'type-fest';
+import type { PackageJson, ReadonlyDeep } from 'type-fest';
 import Generator from 'yeoman-generator';
 import format from './utils/format.js';
 
@@ -73,7 +73,7 @@ export default class extends Generator {
   }
 
   public async getNpmName(): Promise<string | null> {
-    const name = this.packageJson.get('name') as string | undefined;
+    const name = this.packageJson.get('name') as PackageJson['name'];
 
     let npmName = null;
 
