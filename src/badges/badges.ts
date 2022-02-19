@@ -36,7 +36,7 @@ export default class BadgesGenerator extends Generator {
         );
       }
 
-      if (this.hasDevDependency('codecov')) {
+      if (this.fileIncludes('.github/workflows/main.yml', 'codecov')) {
         group1.push(
           `[![Coverage Status](https://codecov.io/gh/${githubOrg}/${githubRepo}/branch/${mainBranch}/graph/badge.svg)](https://codecov.io/gh/${githubOrg}/${githubRepo} 'Coverage Status')`,
         );

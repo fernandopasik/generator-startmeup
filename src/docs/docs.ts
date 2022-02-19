@@ -6,7 +6,7 @@ export default class DocsGenerator extends Generator {
 
     const options = {
       circleCi: this.hasFiles('.circleci'),
-      codeCov: this.hasDevDependency('codecov'),
+      codeCov: this.fileIncludes('.github/workflows/main.yml', 'codecov'),
       commitlint: this.hasDevDependency('@commitlint/cli'),
       eslint: this.hasDevDependency('eslint'),
       githubOrg,
