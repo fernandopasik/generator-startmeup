@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import axios from 'axios';
 import gitRemote from 'git-remote-origin-url';
 import globby from 'globby';
