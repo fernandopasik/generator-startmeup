@@ -49,6 +49,7 @@ export default class StartMeUpGenerator extends Generator {
         message: 'Do you want to compile with Babel?',
         default: false,
         skip:
+          this.hasDevDependency('typescript') ||
           this.hasDevDependency('@babel/core') ||
           this.hasFiles('babel.config.js') ||
           this.hasFiles('**/.babelrc.json'),
