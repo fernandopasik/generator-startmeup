@@ -12,6 +12,8 @@ export default class StartMeUpGenerator extends Generator {
   public async initializing(): Promise<void> {
     this.log('Welcome to the marvelous StartMeUp generator!');
 
+    this.config.set('all', true);
+
     const subGenerators = [
       'git',
       'license',
