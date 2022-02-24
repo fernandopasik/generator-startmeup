@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup
         uses: ./.github/actions/setup
   #<% if (checkFormat) { %>
@@ -21,7 +21,7 @@ jobs:
     needs: install
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup
         uses: ./.github/actions/setup
       - name: Check Format
@@ -34,7 +34,7 @@ jobs:
     needs: install
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup
         uses: ./.github/actions/setup
       - name: Lint
@@ -53,7 +53,7 @@ jobs:
     needs: install
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup
         uses: ./.github/actions/setup
       - name: Check Typescript Types
@@ -66,7 +66,7 @@ jobs:
     needs: install
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup
         uses: ./.github/actions/setup
       - name: Unit Tests
@@ -90,7 +90,7 @@ jobs:
     needs: install
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup
         uses: ./.github/actions/setup
       - name: E2E Tests
@@ -126,7 +126,7 @@ jobs:
       #<% } %>
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup
         uses: ./.github/actions/setup
       - name: Build
@@ -144,7 +144,7 @@ jobs:
     needs: build
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup
         uses: ./.github/actions/setup
       - name: Download Build Artifact
