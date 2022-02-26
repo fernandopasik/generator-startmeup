@@ -40,7 +40,7 @@ jobs:
       - name: Lint
         run: <% if (yarn) { %>yarn lint<% } else { %>npm run lint --<% } %> --format junit -o reports/lint-results.xml
       - name: Upload Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: lint-results
@@ -77,7 +77,7 @@ jobs:
         uses: codecov/codecov-action@v2
         if: always()
       - name: Upload Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: unit-test-results
@@ -98,7 +98,7 @@ jobs:
         env:
           JEST_JUNIT_OUTPUT_FILE: 'reports/e2e-test-results.xml'
       - name: Upload Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: e2e-test-results
@@ -134,7 +134,7 @@ jobs:
       #<% } %>
       #<% if (checkSize) { %>
       - name: Upload Build Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: bundle
           path: <%= name %>.min.*
@@ -148,7 +148,7 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Download Build Artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: bundle
       - name: Check Size
