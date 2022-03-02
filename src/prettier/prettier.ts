@@ -10,6 +10,7 @@ export default class PrettierGenerator extends Generator {
     this.packageJson.merge({
       scripts: {
         format: 'prettier --write .',
+        // eslint-disable-next-line @typescript-eslint/naming-convention
         'format:check': 'prettier --check .',
       },
     });
