@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 /// <% if (module) { %>
 export default {
   // <% } else { %>module.exports = {<% } %>
