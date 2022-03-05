@@ -111,6 +111,11 @@ export default class extends Generator {
   }
 
   public fileIncludes(filepath: string, searchString: string): boolean {
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
+    if (!this.fs.exists(filepath)) {
+      return false;
+    }
+
     const fileContent = this.fs.read(filepath);
 
     return fileContent.includes(searchString);
