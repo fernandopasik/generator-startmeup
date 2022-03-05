@@ -12,8 +12,6 @@ export default class StartMeUpGenerator extends Generator {
   public async initializing(): Promise<void> {
     this.log('Welcome to the marvelous StartMeUp generator!');
 
-    this.config.set('all', true);
-
     const subGenerators = [
       'git',
       'license',
@@ -68,7 +66,7 @@ export default class StartMeUpGenerator extends Generator {
       // eslint-disable-next-line security/detect-object-injection
       if (!(subGenerator in confirms) || confirms[subGenerator]) {
         // eslint-disable-next-line @typescript-eslint/naming-convention
-        this.composeWith(`startmeup:${subGenerator}`, { 'skip-install': true });
+        this.composeWith(`startmeup:${subGenerator}`, { 'skip-install': true, all: 'true' });
       }
     });
   }
