@@ -37,6 +37,7 @@ export default class SrcGenerator extends Generator {
     const packageProps = packageOptions(
       name,
       this.isLibrary,
+      this.packageJson.get('type') === 'module',
       this.hasAnyDependency('typescript'),
       this.hasAnyDependency('lit'),
       hasYeoman,

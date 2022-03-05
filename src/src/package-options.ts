@@ -4,6 +4,7 @@ import sortProps from '../utils/sort-props.js';
 const packageOptions = (
   appName: string,
   isLibrary = true,
+  isModule = true,
   hasTypescript = false,
   hasLit = false,
   hasYeoman = false,
@@ -16,7 +17,14 @@ const packageOptions = (
   const options: Pick<
     PackageJson,
     'files' | 'main' | 'module' | 'sideEffects' | 'type' | 'typings'
-  > = { type: 'module', main, module: main, files };
+  > = { main, files };
+
+  if (isModule) {
+    options.type = 'module';
+    options.module = main;
+  } else {
+    options.type = 'commonjs';
+  }
 
   if (hasTypescript) {
     options.typings = isLibrary ? `${appName}.d.ts` : `${appFolder}/${appFile}.d.ts`;
