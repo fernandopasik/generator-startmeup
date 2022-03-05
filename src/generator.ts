@@ -130,7 +130,8 @@ export default class extends Generator {
     const filtered = Object.fromEntries(
       Object.entries(resolved).filter(
         ([name]: Readonly<string[]>) =>
-          typeof this.packageJson.getPath(`${type}.${name}`) === 'undefined',
+          typeof this.packageJson.getPath(`${type}.${name}`) === 'undefined' &&
+          typeof this.packageJson.getPath(`dependencies.${name}`) === 'undefined',
       ),
     );
 
