@@ -6,11 +6,11 @@ import { composeAuthor, parseAuthor } from './author.js';
 
 interface Answers {
   name: string;
-  description: string;
-  authorName: string;
-  authorEmail: string;
-  authorUrl: string;
-  license: string;
+  description?: string;
+  authorName?: string;
+  authorEmail?: string;
+  authorUrl?: string;
+  license?: string;
 }
 
 const LICENSES = ['MIT', 'UNLICENSED'];
@@ -27,6 +27,14 @@ export default class DocsGenerator extends Generator {
       license,
     } = this.packageJson.getAll() as PackageJson;
     const { name: authorName, email: authorEmail, url: authorUrl } = parseAuthor(author);
+
+    if (
+      typeof this.option('all') !== 'undefined' &&
+      typeof this.packageJson.get('name') !== 'undefined'
+    ) {
+      this.answers = { name, description, authorName, authorEmail, authorUrl, license };
+      return;
+    }
 
     this.answers = await this.prompt<Answers>([
       {
