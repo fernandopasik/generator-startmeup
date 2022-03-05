@@ -5,8 +5,8 @@ const FRAMEWORKS = ['none', 'lit', 'react'];
 export default class LibrariesGenerator extends Generator {
   public async prompting(): Promise<void> {
     if (
-      (this.config.get('all') as boolean) &&
-      typeof this.packageJson.get('peerDependencies') !== 'undefined'
+      typeof this.option('all') !== 'undefined' &&
+      typeof this.packageJson.get('name') !== 'undefined'
     ) {
       return;
     }
