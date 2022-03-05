@@ -7,11 +7,11 @@ export default class DocsGenerator extends Generator {
     const options = {
       circleCi: this.hasFiles('.circleci'),
       codeCov: this.fileIncludes('.github/workflows/main.yml', 'codecov'),
-      commitlint: this.hasDevDependency('@commitlint/cli'),
-      eslint: this.hasDevDependency('eslint'),
+      commitlint: this.hasAnyDependency('@commitlint/cli'),
+      eslint: this.hasAnyDependency('eslint'),
       githubOrg,
       githubRepo,
-      prettier: this.hasDevDependency('prettier'),
+      prettier: this.hasAnyDependency('prettier'),
     };
 
     await this.renderTpl('CONTRIBUTING.md', 'CONTRIBUTING.md', options);
