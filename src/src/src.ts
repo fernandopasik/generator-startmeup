@@ -11,14 +11,18 @@ export default class SrcGenerator extends Generator {
     const hasLibFolder =
       this.hasFiles('src/lib') || (typeof files !== 'undefined' && files.includes('/lib'));
 
-    const { library } = await this.prompt<{ library: boolean }>({
-      name: 'library',
-      type: 'confirm',
-      message: 'Are you writing a library?',
-      default: hasLibFolder,
-    });
+    this.isLibrary = hasLibFolder;
 
-    this.isLibrary = library;
+    if (typeof files === 'undefined') {
+      const { library } = await this.prompt<{ library: boolean }>({
+        name: 'library',
+        type: 'confirm',
+        message: 'Are you writing a library?',
+        default: hasLibFolder,
+      });
+
+      this.isLibrary = library;
+    }
   }
 
   public configuring(): void {
