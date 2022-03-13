@@ -28,7 +28,7 @@ export default class StartMeUpGenerator extends Generator {
     ];
 
     if (typeof this.packageJson.get('name') === 'undefined') {
-      const typescript: boolean = await this.prompt({
+      const { typescript } = await this.prompt<{ typescript: boolean }>({
         type: 'confirm',
         name: 'typescript',
         message: 'Are you programming with TypeScript?',
@@ -41,7 +41,7 @@ export default class StartMeUpGenerator extends Generator {
     }
 
     if (!subGenerators.includes('typescript')) {
-      const babel: boolean = await this.prompt({
+      const { babel } = await this.prompt<{ babel: boolean }>({
         type: 'confirm',
         name: 'babel',
         message: 'Do you want to compile with Babel?',

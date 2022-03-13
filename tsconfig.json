@@ -6,7 +6,7 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "inlineSources": true,
-    "lib": ["dom", "dom.iterable", "es2021"],
+    "lib": ["es2021"],
     "module": "commonjs",
     "moduleResolution": "node",
     "noEmit": true,
