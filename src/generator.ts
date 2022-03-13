@@ -8,7 +8,6 @@ import Generator from 'yeoman-generator';
 import format from './utils/format.js';
 
 export default class extends Generator {
-  // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
   public async renderTpl(...parameters: Parameters<Generator['renderTemplate']>): Promise<void> {
     this.renderTemplate(...parameters);
 

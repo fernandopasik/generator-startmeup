@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/prefer-readonly-parameter-types */
 import type { JsonObject, JsonValue } from 'type-fest';
 
 const compareSortingValues = (
