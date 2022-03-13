@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 module.exports = {
   collectCoverageFrom: ['src/**/*.{j,t}s', '!src/**/templates/**'],
   globals: { 'ts-jest': { useESM: true } },

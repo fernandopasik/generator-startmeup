@@ -20,6 +20,7 @@
   ],
   "parserOptions": { "project": "./tsconfig.json" },
   "rules": {
+    "@typescript-eslint/naming-convention": "off",
     "@typescript-eslint/no-magic-numbers": ["error", { "ignore": [0, 1] }],
     "import/extensions": ["error", "always"],
     "import/no-unresolved": "off",

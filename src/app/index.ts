@@ -56,7 +56,6 @@ export default class StartMeUpGenerator extends Generator {
     }
 
     subGenerators.forEach((subGenerator) => {
-      // eslint-disable-next-line @typescript-eslint/naming-convention
       this.composeWith(`startmeup:${subGenerator}`, { 'skip-install': true, all: 'true' });
     });
   }

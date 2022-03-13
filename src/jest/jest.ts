@@ -12,7 +12,6 @@ export default class JestGenerator extends Generator {
     this.packageJson.merge({
       scripts: {
         test: `${taskEnv}jest`,
-        // eslint-disable-next-line @typescript-eslint/naming-convention
         'test:coverage': `${taskEnv}jest --coverage`,
       },
     });

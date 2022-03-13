@@ -96,9 +96,7 @@ describe('sort props', () => {
   });
 
   it('lowercase and uppercase values', () => {
-    // eslint-disable-next-line @typescript-eslint/naming-convention
     const config = { B: null, a: 1, b: '' };
-    // eslint-disable-next-line @typescript-eslint/naming-convention
     const sortedConfig = { a: 1, B: null, b: '' };
 
     expect(JSON.stringify(sortProps(config))).toStrictEqual(JSON.stringify(sortedConfig));

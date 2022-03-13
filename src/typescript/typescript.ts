@@ -5,7 +5,6 @@ export default class TypescriptGenerator extends Generator {
   public async configuring(): Promise<void> {
     this.packageJson.merge({
       scripts: {
-        // eslint-disable-next-line @typescript-eslint/naming-convention
         'check-types': 'tsc --noEmit',
         build: 'tsc -p tsconfig.build.json',
       },
