@@ -13,7 +13,7 @@ const firstCommit = (): Commit | null => {
   const COMMIT_PARAMS = 3;
   const lines = logFirstCommit().split('\n');
 
-  if (lines.filter((line) => Boolean(line)).length < COMMIT_PARAMS) {
+  if (lines.filter(Boolean).length < COMMIT_PARAMS) {
     return null;
   }
 
