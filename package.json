@@ -1,6 +1,6 @@
 {
   "name": "generator-startmeup",
-  "version": "0.36.0",
+  "version": "0.36.1",
   "type": "commonjs",
   "description": "StartMeUp Yeoman Generator for starting a project with dotfiles and some common tools",
   "repository": "fernandopasik/generator-startmeup",
