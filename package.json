@@ -47,10 +47,10 @@
     "inquirer": "^8.2.4",
     "lodash": "^4.17.21",
     "parse-github-url": "^1.0.2",
-    "prettier": "^2.6.2",
-    "prettier-plugin-organize-imports": "^2.3.4",
-    "prettier-plugin-pkg": "^0.13.0",
-    "prettier-plugin-sh": "^0.10.1",
+    "prettier": "^2.7.1",
+    "prettier-plugin-organize-imports": "^3.0.0",
+    "prettier-plugin-pkg": "^0.13.2",
+    "prettier-plugin-sh": "^0.11.0",
     "shelljs": "^0.8.5",
     "sort-package-json": "^1.57.0",
     "yeoman-generator": "^5.6.1"
@@ -65,7 +65,7 @@
     "@types/lodash": "^4.14.182",
     "@types/mvdan-sh": "^0.5.1",
     "@types/parse-github-url": "^1.0.0",
-    "@types/prettier": "^2.6.0",
+    "@types/prettier": "^2.6.3",
     "@types/shelljs": "^0.8.11",
     "@types/web": "^0.0.63",
     "@types/yeoman-assert": "^3.1.1",
@@ -94,8 +94,8 @@
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^6.3.0"
   },
-  "sideEffects": false,
   "overrides": {
     "fast-glob": "3.2.11"
-  }
+  },
+  "sideEffects": false
 }
