@@ -11,10 +11,7 @@ jest.mock('../prettier-format.js');
 
 describe('format', () => {
   beforeEach(() => {
-    (cleanupTemplate as jest.MockedFunction<typeof cleanupTemplate>).mockClear();
-    (formatJson as jest.MockedFunction<typeof formatJson>).mockClear();
-    (hasExtension as jest.MockedFunction<typeof hasExtension>).mockClear();
-    (prettierFormat as jest.MockedFunction<typeof prettierFormat>).mockClear();
+    jest.clearAllMocks();
   });
 
   it('cleans up to template code', async () => {
