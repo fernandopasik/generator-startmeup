@@ -7,11 +7,11 @@ jest.mock('../prettier-format.js', () => jest.fn((content: string) => content));
 jest.mock('../sort-props.js', () => jest.fn((json: JsonObject): JsonObject => json));
 
 describe('formatJson', () => {
-  describe('sorts properties', () => {
-    beforeEach(() => {
-      (sortProps as jest.MockedFunction<typeof sortProps>).mockClear();
-    });
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
 
+  describe('sorts properties', () => {
     it('once', async () => {
       await formatJson('{}', '', '');
       expect(sortProps).toHaveBeenCalledTimes(1);
@@ -30,9 +30,6 @@ describe('formatJson', () => {
   });
 
   describe('runs prettier format', () => {
-    beforeEach(() => {
-      (prettierFormat as jest.MockedFunction<typeof prettierFormat>).mockClear();
-    });
     it('with filepath', async () => {
       const filepath = 'example.json';
       await formatJson('{}', filepath, '');
