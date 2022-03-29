@@ -1,3 +1,4 @@
+import { jest } from '@jest/globals';
 import shell from 'shelljs';
 import gitMainBranch from '../git-main-branch.js';
 

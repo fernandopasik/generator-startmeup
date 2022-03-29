@@ -1,3 +1,4 @@
+import { jest } from '@jest/globals';
 import cleanupTemplate from '../cleanup-template.js';
 import formatJson from '../format-json.js';
 import format from '../format.js';
