@@ -14,13 +14,6 @@ describe('prettierFormat', () => {
       await prettierFormat('', 'example.js', root);
       expect(prettier.resolveConfig).toHaveBeenCalledWith(root);
     });
-
-    it('only one time', async () => {
-      await prettierFormat('', 'example.js', '/');
-      expect(prettier.resolveConfig).toHaveBeenCalledTimes(1);
-      await prettierFormat('', 'example.js', '/');
-      expect(prettier.resolveConfig).toHaveBeenCalledTimes(1);
-    });
   });
 
   it('formats the file content', async () => {
