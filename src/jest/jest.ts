@@ -2,7 +2,7 @@ import Generator from '../generator.js';
 
 export default class JestGenerator extends Generator {
   public async configuring(): Promise<void> {
-    if (!this.hasFiles('*.{js,jsx,ts,tsx}')) {
+    if (!this.hasFiles('**/*.{js,jsx,ts,tsx}')) {
       return;
     }
 
@@ -20,7 +20,7 @@ export default class JestGenerator extends Generator {
   }
 
   public async writing(): Promise<void> {
-    if (!this.hasFiles('*.{js,jsx,ts,tsx}')) {
+    if (!this.hasFiles('**/*.{js,jsx,ts,tsx}')) {
       return;
     }
 
