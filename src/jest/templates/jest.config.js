@@ -10,7 +10,6 @@ export default {
   ],
   // <% } %>
   // <% if (typescript) { %>
-  globals: { 'ts-jest': { useESM: true } },
   moduleNameMapper: { '(.*)\\.js': '$1' },
   preset: 'ts-jest/presets/js-with-ts-esm',
   // <% } %>
