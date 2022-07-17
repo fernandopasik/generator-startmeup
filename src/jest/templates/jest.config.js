@@ -1,4 +1,5 @@
 /// <% if (module) { %>
+/* eslint-disable @typescript-eslint/naming-convention */
 export default {
   // <% } else { %>module.exports = {<% } %>
   collectCoverageFrom: ['src/**/*.<%= collectExtensions %>'],
