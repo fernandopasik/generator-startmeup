@@ -8,7 +8,7 @@
     "eslint",
     // <% } %>
     // <% if (jest) { %>
-    "jest --bail --findRelatedTests"
+    "jest --bail --findRelatedTests --passWithNoTests"
     // <% } %>
   ],
   // <% } %>
