@@ -11,7 +11,7 @@ export default {
   ],
   // <% } %>
   // <% if (typescript) { %>
-  moduleNameMapper: { '(.*)\\.js': '$1' },
+  moduleNameMapper: { '^(\\.{1,2}/.*)\\.js$': '$1' },
   preset: 'ts-jest/presets/js-with-ts-esm',
   // <% } %>
   // <% if (axe) { %>
