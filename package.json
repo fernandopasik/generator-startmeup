@@ -40,11 +40,11 @@
     "verify": "npm run format:check && npm run lint && npm run check-types && npm run test:coverage && npm run build"
   },
   "dependencies": {
-    "axios": "^0.27.2",
+    "axios": "^1.2.0",
     "git-remote-origin-url": "^3.1.0",
     "github-username": "^7.0.0",
     "globby": "^11.0.4",
-    "inquirer": "^9.0.0",
+    "inquirer": "^9.1.4",
     "lodash": "^4.17.21",
     "parse-github-url": "^1.0.2",
     "prettier": "^2.8.0",
@@ -52,8 +52,8 @@
     "prettier-plugin-pkg": "^0.17.1",
     "prettier-plugin-sh": "^0.12.8",
     "shelljs": "^0.8.5",
-    "sort-package-json": "^1.57.0",
-    "yeoman-generator": "^5.6.1"
+    "sort-package-json": "^2.1.0",
+    "yeoman-generator": "^5.7.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
