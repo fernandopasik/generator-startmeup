@@ -21,9 +21,9 @@ describe('format (integration)', () => {
     const result = await format(content, 'example.json', '/');
 
     expect(result).toMatchInlineSnapshot(`
-"{ \\"foo\\": \\"bar\\", \\"foo2\\": [0, 1, 3], \\"foo3\\": \\"bar3\\" }
-"
-`);
+      "{ "foo": "bar", "foo2": [0, 1, 3], "foo3": "bar3" }
+      "
+    `);
   });
 
   it('js file', async () => {
@@ -38,12 +38,12 @@ describe('format (integration)', () => {
     const result = await format(content, 'example.js', '/');
 
     expect(result).toMatchInlineSnapshot(`
-"module.exports = {
-  testEnvironment: \\"node\\",
-  collectCoverageFrom: [\\"src/**/*.{j,t}s\\"],
-};
-"
-`);
+      "module.exports = {
+        testEnvironment: "node",
+        collectCoverageFrom: ["src/**/*.{j,t}s"],
+      };
+      "
+    `);
   });
 
   it('eslint config', async () => {
@@ -76,24 +76,24 @@ describe('format (integration)', () => {
     const result = await format(content, 'example.json', '/');
 
     expect(result).toMatchInlineSnapshot(`
-"{
-  \\"extends\\": [\\"airbnb-base\\", \\"plugin:jest/all\\", \\"prettier\\"],
-  \\"overrides\\": [
-    { \\"files\\": [\\"*.spec.*\\"], \\"rules\\": {} },
-    { \\"files\\": [\\"*.stories.*\\"], \\"rules\\": {} }
-  ],
-  \\"parserOptions\\": { \\"project\\": \\"./tsconfig.json\\" },
-  \\"rules\\": {
-    \\"@typescript-eslint/no-magic-numbers\\": [\\"error\\", { \\"ignore\\": [0, 1] }],
-    \\"import/extensions\\": [\\"error\\", \\"never\\"],
-    \\"jest/no-hooks\\": \\"off\\",
-    \\"max-lines\\": [
-      \\"error\\",
-      { \\"max\\": 130, \\"skipBlankLines\\": true, \\"skipComments\\": true }
-    ]
-  }
-}
-"
-`);
+      "{
+        "extends": ["airbnb-base", "plugin:jest/all", "prettier"],
+        "overrides": [
+          { "files": ["*.spec.*"], "rules": {} },
+          { "files": ["*.stories.*"], "rules": {} }
+        ],
+        "parserOptions": { "project": "./tsconfig.json" },
+        "rules": {
+          "@typescript-eslint/no-magic-numbers": ["error", { "ignore": [0, 1] }],
+          "import/extensions": ["error", "never"],
+          "jest/no-hooks": "off",
+          "max-lines": [
+            "error",
+            { "max": 130, "skipBlankLines": true, "skipComments": true }
+          ]
+        }
+      }
+      "
+    `);
   });
 });
