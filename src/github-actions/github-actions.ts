@@ -27,7 +27,6 @@ export default class GithubActionsGenerator extends Generator {
       await this.addDevDependencies('jest-junit');
     }
 
-    await this.renderTpl('setup.yml', '.github/actions/setup/action.yml', options);
     await this.renderTpl('main.yml', '.github/workflows/main.yml', options);
 
     if (options.lint || options.unitTests || options.e2eTests) {
