@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup
+      - name: Setup Node
         uses: fernandopasik/actions/setup-node@main
   #<% if (checkFormat) { %>
   check-format:
@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup
+      - name: Setup Node
         uses: fernandopasik/actions/setup-node@main
       - name: Check Format
         run: <% if (yarn) { %>yarn<% } else { %>npm run<% } %> format:check
@@ -35,7 +35,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup
+      - name: Setup Node
         uses: fernandopasik/actions/setup-node@main
       - name: Lint
         run: <% if (yarn) { %>yarn lint<% } else { %>npm run lint --<% } %> --format junit -o reports/lint-results.xml
@@ -54,7 +54,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup
+      - name: Setup Node
         uses: fernandopasik/actions/setup-node@main
       - name: Check Typescript Types
         run: <% if (yarn) { %>yarn<% } else { %>npm run<% } %> check-types
@@ -67,7 +67,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup
+      - name: Setup Node
         uses: fernandopasik/actions/setup-node@main
       - name: Unit Tests
         run: <% if (yarn) { %>yarn test:coverage<% } else { %>npm run test:coverage --<% } %> --ci --reporters=default --reporters=jest-junit
@@ -91,7 +91,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup
+      - name: Setup Node
         uses: fernandopasik/actions/setup-node@main
       - name: E2E Tests
         run: <% if (yarn) { %>yarn test:e2e<% } else { %>npm run test:e2e --<% } %> --ci --reporters=default --reporters=jest-junit
@@ -127,7 +127,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup
+      - name: Setup Node
         uses: fernandopasik/actions/setup-node@main
       - name: Build
         run: <% if (yarn) { %>yarn<% } else { %>npm run<% } %> build
@@ -145,7 +145,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup
+      - name: Setup Node
         uses: fernandopasik/actions/setup-node@main
       - name: Download Build Artifact
         uses: actions/download-artifact@v3
