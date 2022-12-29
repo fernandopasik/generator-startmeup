@@ -128,7 +128,7 @@ export default class extends Generator {
     const resolved = await this._resolvePackageJsonDependencies(dependencies);
     const filtered = Object.fromEntries(
       Object.entries(resolved).filter(
-        ([name]: Readonly<string[]>) =>
+        ([name]: string[]) =>
           typeof this.packageJson.getPath(`${type}.${name}`) === 'undefined' &&
           typeof this.packageJson.getPath(`dependencies.${name}`) === 'undefined',
       ),
@@ -169,7 +169,7 @@ export default class extends Generator {
     >;
 
     const last = Object.fromEntries(
-      Object.entries(resolved).map(([name, version]: Readonly<string[]>) =>
+      Object.entries(resolved).map(([name, version]: string[]) =>
         !version.startsWith('^') ? [name, `^${version}`] : [name, version],
       ),
     );

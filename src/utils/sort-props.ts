@@ -51,7 +51,7 @@ const sortProps = (json?: JsonObject, sortFirst?: readonly string[]): JsonObject
           return [
             key,
             value
-              .map((element: Readonly<JsonValue>) =>
+              .map((element: JsonValue) =>
                 typeof element === 'object' ? sortProps(element as JsonObject, sortFirst) : element,
               )
               .sort((value1: JsonValue, value2: JsonValue) =>
