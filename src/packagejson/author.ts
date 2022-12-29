@@ -6,7 +6,7 @@ interface Person {
   email?: string;
 }
 
-export const parseAuthor = (authorInfo?: Readonly<PackageJson.Person>): Person => {
+export const parseAuthor = (authorInfo?: PackageJson.Person): Person => {
   if (typeof authorInfo === 'undefined') {
     return {};
   }
@@ -24,7 +24,7 @@ export const parseAuthor = (authorInfo?: Readonly<PackageJson.Person>): Person =
   return author;
 };
 
-export const composeAuthor = (author: Readonly<Person> = {}): string =>
+export const composeAuthor = (author: Person = {}): string =>
   `${author.name ?? ''} <${author.email ?? ''}> (${author.url ?? ''})`
     .replace(' <>', '')
     .replace(' ()', '')
