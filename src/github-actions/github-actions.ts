@@ -13,7 +13,6 @@ export default class GithubActionsGenerator extends Generator {
     const options = {
       yarn: this.hasFiles('./yarn.lock') ? (this.hasFiles('./.yarn') ? 2 : 1) : 0,
       checkFormat: 'format:check' in scripts,
-      jekyll: this.hasFiles('docs/_config.yml') || this.hasFiles('_config.yml'),
       lint: 'lint' in scripts,
       checkTypes: 'check-types' in scripts,
       unitTests: 'test:coverage' in scripts,
