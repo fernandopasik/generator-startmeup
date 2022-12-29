@@ -1,4 +1,3 @@
-import { jest } from '@jest/globals';
 import type { JsonObject } from 'type-fest';
 import formatJson from '../format-json.js';
 import prettierFormat from '../prettier-format.js';

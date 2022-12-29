@@ -1,4 +1,3 @@
-import { jest } from '@jest/globals';
 import shell from 'shelljs';
 import firstCommit from '../first-commit.js';
 

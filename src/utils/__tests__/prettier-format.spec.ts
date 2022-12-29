@@ -1,4 +1,3 @@
-import { jest } from '@jest/globals';
 import prettier from 'prettier';
 import prettierFormat from '../prettier-format.js';
 
