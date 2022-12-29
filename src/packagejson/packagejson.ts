@@ -60,14 +60,14 @@ export default class DocsGenerator extends Generator {
         type: 'input',
         message: 'What is your email?',
         default: (): string => authorEmail ?? this.user.git.email(),
-        when: (props: Readonly<Answers>): boolean => Boolean(props.authorName),
+        when: (props: Answers): boolean => Boolean(props.authorName),
       },
       {
         name: 'authorUrl',
         type: 'input',
         message: 'What is your url?',
         default: authorUrl,
-        when: (props: Readonly<Answers>): boolean => Boolean(props.authorName),
+        when: (props: Answers): boolean => Boolean(props.authorName),
       },
       {
         name: 'license',
