@@ -67,6 +67,14 @@ export default class BadgesGenerator extends Generator {
       );
     }
 
+    const gemName = this.packageJson.get('name');
+
+    if (this.hasFiles('*.gemspec')) {
+      group2.push(
+        `[![ruby gem version](https://img.shields.io/gem/v/${gemName}?logo=rubygems)](https://rubygems.org/gems/${gemName} 'ruby gem version')`,
+      );
+    }
+
     const badgesZone = /<!-- BADGES - START -->[\S\s]*?<!-- BADGES - END -->/;
     const group1str = group1.map((badge) => `${badge}\n`).join('');
     const group2str = group2.map((badge) => `${badge}\n`).join('');
