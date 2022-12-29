@@ -17,3 +17,7 @@
 _site
 .jekyll-cache
 <% } -%>
+<% if (ansible) { -%>
+/galaxy
+/venv
+<% } -%>

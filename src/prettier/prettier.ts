@@ -27,6 +27,7 @@ export default class PrettierGenerator extends Generator {
     const packageFiles = (this.packageJson.get('files') as PackageJson['files']) ?? [];
 
     const options = {
+      ansible: this.hasFiles('ansible.cfg'),
       files: packageFiles.map((packageFile) => `${packageFile}\n`).join(''),
       flow: this.hasDevDependency('flow-bin'),
       husky: this.hasFiles('.husky'),
