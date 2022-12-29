@@ -80,6 +80,7 @@
   "rules": {
     // <% if (typescript) { %>
     "@typescript-eslint/no-magic-numbers": ["error", { "ignore": [0, 1] }],
+    "@typescript-eslint/prefer-readonly-parameter-types": "off",
     "import/extensions": ["error", "<%= react || lit ? 'always' : 'never' %>"],
     // <% if (react || lit) { %>
     "import/no-unresolved": "off",
