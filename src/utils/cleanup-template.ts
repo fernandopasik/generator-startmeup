@@ -1,6 +1,6 @@
 const cleanupTemplate = (content = ''): string =>
   content
-    .replaceAll(/\/\/\//g, '')
+    .replaceAll('///', '')
     .replaceAll(/[^\S\r\n]*\/\/[^\S\r\n\w]*\n/g, '')
     .replaceAll(/[^\S\r\n]*#[^\S\r\n\w]*\n/g, '');
 
