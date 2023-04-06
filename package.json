@@ -80,7 +80,7 @@
     "cpy-cli": "^4.2.0",
     "del-cli": "^5.0.0",
     "eslint": "^8.38.0",
-    "eslint-config-canonical": "^37.0.3",
+    "eslint-config-canonical": "^39.1.4",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-security": "^1.7.1",
     "husky": "^8.0.3",

@@ -10,10 +10,17 @@
         "@typescript-eslint/consistent-type-definitions": "off",
         "@typescript-eslint/return-await": "off",
         "canonical/prefer-inline-type-import": "off",
+        "prettier/prettier": ["error", { "printWidth": 100 }],
         "typescript-sort-keys/interface": "off"
       }
     },
-    { "extends": ["canonical/prettier"], "files": ["*.js"] },
+    {
+      "extends": ["canonical/prettier"],
+      "files": ["*.js"],
+      "rules": {
+        "prettier/prettier": ["error", { "printWidth": 100 }]
+      }
+    },
     { "extends": ["canonical/json", "canonical/prettier"], "files": ["*.json"] },
     { "extends": ["canonical/yaml", "canonical/prettier"], "files": ["*.yaml", "*.yml"] }
   ],
@@ -33,6 +40,7 @@
     "node/no-process-env": "off",
     "node/no-sync": "off",
     "padding-line-between-statements": "off",
+    "prettier/prettier": ["error", { "printWidth": 100 }],
     "require-atomic-updates": "off",
     "require-unicode-regexp": "off",
     "spaced-comment": "off",
