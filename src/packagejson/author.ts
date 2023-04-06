@@ -16,7 +16,7 @@ export const parseAuthor = (authorInfo?: PackageJson.Person): Person => {
   }
 
   const author: PackageJson.Person = {
-    name: authorInfo.replace(/\s?[(<].*/g, ''),
+    name: authorInfo.replaceAll(/\s?[(<].*/g, ''),
   };
   [, author.email = undefined] = /<([^>]+)>/.exec(authorInfo) ?? [];
   [, author.url = undefined] = /\(([^)]+)\)/.exec(authorInfo) ?? [];
