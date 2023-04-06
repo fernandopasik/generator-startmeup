@@ -90,7 +90,7 @@
     "pinst": "^3.0.0",
     "replace-in-files-cli": "^2.0.0",
     "ts-jest": "^29.1.0",
-    "type-fest": "3.3.0",
+    "type-fest": "^3.8.0",
     "typescript": "^5.0.4",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^7.4.0"

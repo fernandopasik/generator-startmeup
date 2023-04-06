@@ -58,7 +58,7 @@ const sortProps = (json?: JsonObject, sortFirst?: string[]): JsonObject =>
         }
 
         if (typeof value === 'object') {
-          return [key, sortProps(value, sortFirst)];
+          return [key, sortProps(value as JsonObject, sortFirst)];
         }
 
         return [key, value];
