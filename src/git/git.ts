@@ -6,6 +6,7 @@ export default class GitGenerator extends Generator {
 
     const options = {
       package: this.isNpmPackage(),
+      packageManager: this.getPackageManager(),
     };
 
     if (!this.hasFiles('.gitignore')) {
