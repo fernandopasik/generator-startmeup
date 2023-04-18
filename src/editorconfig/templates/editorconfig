@@ -11,23 +11,23 @@ indent_size = 2
 indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
-
 <% if(gitconfig) { -%>
+
 [.gitconfig]
 indent_style = tab
-
 <% } -%>
 <% if(html) { -%>
+
 [*.html]
 indent_style = tab
-
 <% } -%>
 <% if(php) { -%>
+
 [*.php]
 indent_style = tab
-
 <% } -%>
 <% if(md) { -%>
+
 [*.md]
 trim_trailing_whitespace = false
 <% } -%>
