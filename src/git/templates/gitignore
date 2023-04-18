@@ -24,14 +24,15 @@ lerna-debug.log*
 <% if (packageManager === 'pnpm') { -%>
 package-lock.json
 yarn.lock
-<% } else if (packageManager === 'yarn') { %>
+<% } else if (packageManager === 'yarn') { -%>
 package-lock.json
 pnpm-lock.yaml
-<% } else if (packageManager === 'npm') { %>
+<% } else if (packageManager === 'npm') { -%>
 pnpm-lock.yaml
 yarn.lock
-<% } %>
-<% } %>
+<% } -%>
+<% } -%>
+
 # test files
 coverage
 
