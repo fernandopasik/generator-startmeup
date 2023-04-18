@@ -9,8 +9,6 @@ export default class GitGenerator extends Generator {
       packageManager: this.getPackageManager(),
     };
 
-    if (!this.hasFiles('.gitignore')) {
-      this.renderTemplate('gitignore', '.gitignore', options);
-    }
+    this.renderTemplate('gitignore', '.gitignore', options);
   }
 }
