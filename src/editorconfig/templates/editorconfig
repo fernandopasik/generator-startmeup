@@ -30,10 +30,4 @@ indent_style = tab
 <% if(md) { -%>
 [*.md]
 trim_trailing_whitespace = false
-
-<% } -%>
-<% if(yaml) { -%>
-[*.{yaml,yml}]
-indent_size = 2
-indent_style = space
 <% } -%>
