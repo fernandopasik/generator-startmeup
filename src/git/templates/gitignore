@@ -37,4 +37,4 @@ yarn.lock
 /coverage
 
 # build and temp folders
-<%- restGitIgnore %>
+<%= restGitIgnore %>
