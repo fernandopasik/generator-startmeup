@@ -7,6 +7,8 @@ import type { PackageJson } from 'type-fest';
 import Generator from 'yeoman-generator';
 import format from './utils/format.js';
 
+export type PackageManager = 'npm' | 'pnpm' | 'yarn';
+
 export default class extends Generator {
   public async renderTpl(...parameters: Parameters<Generator['renderTemplate']>): Promise<void> {
     this.renderTemplate(...parameters);
@@ -87,6 +89,18 @@ export default class extends Generator {
     }
 
     return npmName;
+  }
+
+  public getPackageManager(): PackageManager | null {
+    if (this.hasFiles('pnpm-lock.yaml')) {
+      return 'pnpm';
+    } else if (this.hasFiles('yarn.lock')) {
+      return 'yarn';
+    } else if (this.hasFiles('package-lock.json')) {
+      return 'npm';
+    }
+
+    return null;
   }
 
   public isNpmPackage(): boolean {
