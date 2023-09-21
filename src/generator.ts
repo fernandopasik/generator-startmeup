@@ -1,11 +1,14 @@
 /* eslint-disable max-lines */
 import axios from 'axios';
-import gitRemote from 'git-remote-origin-url';
+import gitconfiglocal from 'gitconfiglocal';
 import globby from 'globby';
+import { promisify } from 'node:util';
 import parseGithub from 'parse-github-url';
 import type { PackageJson } from 'type-fest';
 import Generator from 'yeoman-generator';
 import format from './utils/format.js';
+
+const getGitConfig = promisify(gitconfiglocal);
 
 export type PackageManager = 'npm' | 'pnpm' | 'yarn';
 
@@ -48,7 +51,8 @@ export default class extends Generator {
     }
 
     try {
-      gitUrl = await gitRemote();
+      const gitConfig = await getGitConfig(process.cwd());
+      gitUrl = gitConfig?.remote?.['origin']?.url;
     } catch (e: unknown) {
       gitUrl = null;
     }
@@ -59,7 +63,8 @@ export default class extends Generator {
   public async getGitHub(): Promise<{ owner: string; repo: string } | null> {
     let info = null;
 
-    const gitUrl = await this.getGitRemote();
+    const gitConfig = await getGitConfig(process.cwd());
+    const gitUrl = gitConfig?.remote?.['origin']?.url;
 
     if (gitUrl !== null) {
       const githubInfo = parseGithub(gitUrl);
