@@ -1,6 +1,6 @@
 import type { PackageJson } from 'type-fest';
 import Generator from '../generator.js';
-import { parseAuthor } from '../packagejson/index.js';
+import { parseAuthor } from '../packagejson/author.js';
 import firstCommit from '../utils/first-commit.js';
 
 export default class ReadmeGenerator extends Generator {
