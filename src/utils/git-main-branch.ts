@@ -1,10 +1,8 @@
-import shell from 'shelljs';
+import { exec } from 'shelljs';
 
 const gitMainBranch = (): string =>
-  shell
-    .exec('git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@"', {
-      silent: true,
-    })
-    .stdout.trim();
+  exec('git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@"', {
+    silent: true,
+  }).stdout.trim();
 
 export default gitMainBranch;

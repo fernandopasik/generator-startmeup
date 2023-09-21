@@ -1,4 +1,4 @@
-import shell from 'shelljs';
+import { exec } from 'shelljs';
 
 interface Commit {
   hash: string;
@@ -7,7 +7,7 @@ interface Commit {
 }
 
 export const logFirstCommit = (): string =>
-  shell.exec('git log --reverse | sed -n -e "1,3p"', { silent: true }).stdout.trim();
+  exec('git log --reverse | sed -n -e "1,3p"', { silent: true }).stdout.trim();
 
 const firstCommit = (): Commit | null => {
   const COMMIT_PARAMS = 3;
