@@ -69,7 +69,7 @@
     "@types/parse-github-url": "^1.0.0",
     "@types/prettier": "^3.0.0",
     "@types/shelljs": "^0.8.12",
-    "@types/web": "0.0.69",
+    "@types/web": "0.0.115",
     "@types/yeoman-assert": "^3.1.1",
     "@types/yeoman-generator": "^5.2.11",
     "@types/yeoman-test": "^4.0.3",
