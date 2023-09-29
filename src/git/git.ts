@@ -12,6 +12,10 @@ export default class GitGenerator extends Generator {
       package: this.isNpmPackage(),
       packageManager: this.getPackageManager(),
       restGitIgnore,
+      tests:
+        this.hasFiles('**/*.test.*') ||
+        this.hasFiles('**/*.spec.*') ||
+        this.hasFiles('**/__tests__/**'),
     };
 
     this.renderTemplate('gitignore', '.gitignore', options);

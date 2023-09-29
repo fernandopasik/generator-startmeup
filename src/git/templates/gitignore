@@ -32,9 +32,11 @@ pnpm-lock.yaml
 yarn.lock
 <% } -%>
 <% } -%>
+<% if (tests) { -%>
 
 # test files
 /coverage
+<% } -%>
 
 # build and temp folders
 <%= restGitIgnore %>
