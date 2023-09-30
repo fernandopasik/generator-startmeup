@@ -6,18 +6,17 @@ const packageOptions = (
   isLibrary = true,
   isModule = true,
   hasTypescript = false,
-  hasLit = false,
   hasYeoman = false,
-): Pick<PackageJson, 'files' | 'main' | 'module' | 'sideEffects' | 'type' | 'typings'> => {
+): Pick<PackageJson, 'files' | 'main' | 'module' | 'type' | 'typings'> => {
   const appFolder = !hasYeoman ? 'dist' : 'generators';
   const appFile = !hasYeoman ? 'app' : 'app/index';
   const main = isLibrary ? `${appName}.js` : `${appFolder}/${appFile}.js`;
   const files = isLibrary ? ['/lib', `/${appName}.*`] : [`/${appFolder}`];
 
-  const options: Pick<
-    PackageJson,
-    'files' | 'main' | 'module' | 'sideEffects' | 'type' | 'typings'
-  > = { main, files };
+  const options: Pick<PackageJson, 'files' | 'main' | 'module' | 'type' | 'typings'> = {
+    main,
+    files,
+  };
 
   if (isModule) {
     options.type = 'module';
@@ -28,10 +27,6 @@ const packageOptions = (
 
   if (hasTypescript) {
     options.typings = isLibrary ? `${appName}.d.ts` : `${appFolder}/${appFile}.d.ts`;
-  }
-
-  if (!hasLit) {
-    options.sideEffects = false;
   }
 
   return sortProps(options);
