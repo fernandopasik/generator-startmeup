@@ -13,7 +13,7 @@ export default class LicenseGenerator extends Generator {
         year,
       };
 
-      this.renderTemplate('LICENSE', 'LICENSE', options);
+      this.renderTpl('LICENSE', 'LICENSE', options);
     }
   }
 }

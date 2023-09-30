@@ -11,6 +11,6 @@ export default class EditorConfigGenerator extends Generator {
       packageJson: this.isNpmPackage(),
     };
 
-    this.renderTemplate('editorconfig', '.editorconfig', options);
+    this.renderTpl('editorconfig', '.editorconfig', options);
   }
 }
