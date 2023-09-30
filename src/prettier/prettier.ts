@@ -32,7 +32,7 @@ export default class PrettierGenerator extends Generator {
       ansible: this.hasFiles('ansible.cfg'),
       files: packageFiles.map((packageFile) => `${packageFile}\n`).join(''),
       flow: this.hasDevDependency('flow-bin'),
-      husky: this.hasFiles('.husky'),
+      husky: this.hasDevDependency('husky'),
       jekyll: this.hasFiles('docs/_config.yml') || this.hasFiles('_config.yml'),
       test: this.hasDevDependency('jest'),
       yarn: this.hasFiles('.yarn'),
