@@ -92,6 +92,6 @@
     "type-fest": "^4.3.3",
     "typescript": "^5.2.2",
     "yeoman-assert": "^3.1.1",
-    "yeoman-test": "^7.4.0"
+    "yeoman-test": "^8.0.0"
   }
 }
