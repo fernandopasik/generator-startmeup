@@ -70,7 +70,6 @@
     "@types/shelljs": "^0.8.13",
     "@types/yeoman-assert": "^3.1.2",
     "@types/yeoman-generator": "^5.2.12",
-    "@types/yeoman-test": "^4.0.4",
     "@types/yosay": "^2.0.1",
     "@typescript-eslint/eslint-plugin": "^6.7.5",
     "@typescript-eslint/parser": "^6.7.5",
