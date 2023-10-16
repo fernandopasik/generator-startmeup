@@ -131,7 +131,7 @@ export default class extends Generator {
 
     const fileContent = this.fs.read(filepath);
 
-    return fileContent.includes(searchString);
+    return fileContent?.includes(searchString) ?? false;
   }
 
   public async addAnyDependencies(
