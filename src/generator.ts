@@ -1,7 +1,7 @@
 /* eslint-disable max-lines */
 import axios from 'axios';
 import gitRemote from 'git-remote-origin-url';
-import globby from 'globby';
+import { globbySync } from 'globby';
 import parseGithub from 'parse-github-url';
 import type { PackageJson } from 'type-fest';
 import Generator from 'yeoman-generator';
@@ -120,7 +120,7 @@ export default class extends Generator {
   }
 
   public hasFiles(pattern: string): boolean {
-    return globby.sync(this.destinationPath(pattern), { dot: true, gitignore: true }).length > 0;
+    return globbySync(this.destinationPath(pattern), { dot: true, gitignore: true }).length > 0;
   }
 
   public fileIncludes(filepath: string, searchString: string): boolean {
