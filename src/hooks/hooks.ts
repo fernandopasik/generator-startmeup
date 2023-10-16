@@ -4,12 +4,13 @@ import Generator from '../generator.js';
 export default class HooksGenerator extends Generator {
   public async configuring(): Promise<void> {
     const isPrivate = Boolean(this.packageJson.get('private') as PackageJson['private']);
+    const shouldAddPinst = !isPrivate && this.hasFiles('.yarn');
 
     const scripts: Record<string, string> = {
       prepare: 'husky install',
     };
 
-    if (!isPrivate) {
+    if (shouldAddPinst) {
       scripts.prepublishOnly = 'pinst --disable';
       scripts.postpublish = 'pinst --enable';
     }
@@ -18,7 +19,7 @@ export default class HooksGenerator extends Generator {
 
     await this.addDevDependencies(['husky']);
 
-    if (!isPrivate) {
+    if (shouldAddPinst) {
       await this.addDevDependencies(['pinst']);
     }
 
