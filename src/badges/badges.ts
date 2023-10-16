@@ -79,7 +79,7 @@ export default class BadgesGenerator extends Generator {
     const group1str = group1.map((badge) => `${badge}\n`).join('');
     const group2str = group2.map((badge) => `${badge}\n`).join('');
 
-    const withBadges = readme.replace(
+    const withBadges = readme?.replace(
       badgesZone,
       `<!-- BADGES - START -->\n${group1str}\n${group2str}\n<!-- BADGES - END -->`,
     );
