@@ -17,7 +17,7 @@ export default class extends Generator {
   }
 
   public async formatFile(filename: string): Promise<void> {
-    const config = this.readDestination(filename);
+    const config = this.readDestination(filename, { defaults: '' }) as string;
     const formattedConfig = await format(config, filename, this.destinationRoot());
     this.writeDestination(filename, formattedConfig);
   }

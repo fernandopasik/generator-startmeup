@@ -8,7 +8,7 @@ export default class BadgesGenerator extends Generator {
       return;
     }
 
-    const readme = this.readDestination('README.md');
+    const readme = this.readDestination('README.md', { defaults: '' }) as string;
 
     const { owner: githubOrg, repo: githubRepo } = (await this.getGitHub()) ?? {};
     const isPrivate = (this.packageJson.get('private') as PackageJson['private']) ?? false;
