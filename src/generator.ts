@@ -175,7 +175,6 @@ export default class extends Generator {
   protected async _resolvePackageJsonDependencies(
     dependencies: Record<string, string> | string[] | string,
   ): Promise<Record<string, string>> {
-    // @ts-expect-error no type
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call, no-underscore-dangle
     const resolved = (await super._resolvePackageJsonDependencies(dependencies)) as Record<
       string,
