@@ -1,8 +1,7 @@
 /* eslint-disable max-lines */
 import axios from 'axios';
-import { globSync } from 'fast-glob';
 import gitRemote from 'git-remote-origin-url';
-import { readFileSync } from 'node:fs';
+import globby from 'globby';
 import parseGithub from 'parse-github-url';
 import type { PackageJson } from 'type-fest';
 import Generator from 'yeoman-generator';
@@ -121,17 +120,7 @@ export default class extends Generator {
   }
 
   public hasFiles(pattern: string): boolean {
-    const defaultIgnores = ['**/node_modules', '**/.git'];
-    const gitIgnoreFile = readFileSync('.gitignore');
-    const gitIgnorePaths = gitIgnoreFile
-      .toString('utf8')
-      .split('\n')
-      .filter((line) => !line.startsWith('#') && line !== '')
-      .map((item) => (item.startsWith('/') ? item.slice(1) : item))
-      .map((item) => this.destinationPath(item));
-    const ignorePaths = [...defaultIgnores, ...gitIgnorePaths];
-    const paths = globSync(this.destinationPath(pattern), { dot: true, ignore: ignorePaths });
-    return paths.length > 0;
+    return globby.sync(this.destinationPath(pattern), { dot: true, gitignore: true }).length > 0;
   }
 
   public fileIncludes(filepath: string, searchString: string): boolean {
