@@ -71,8 +71,8 @@
     "@types/yeoman-assert": "^3.1.2",
     "@types/yeoman-generator": "^5.2.12",
     "@types/yosay": "^2.0.1",
-    "@typescript-eslint/eslint-plugin": "^6.7.5",
-    "@typescript-eslint/parser": "^6.7.5",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
     "conventional-changelog-cli": "^4.1.0",
     "conventional-changelog-conventionalcommits": "^7.0.2",
     "cpy-cli": "^5.0.0",
@@ -91,6 +91,6 @@
     "type-fest": "^4.4.0",
     "typescript": "^5.2.2",
     "yeoman-assert": "^3.1.1",
-    "yeoman-test": "^8.0.0"
+    "yeoman-test": "^8.1.0"
   }
 }
