@@ -5,7 +5,7 @@ export default class HooksGenerator extends Generator {
   public async configuring(): Promise<void> {
     const isPrivate = Boolean(this.packageJson.get('private') as PackageJson['private']);
 
-    const scripts: PackageJson['scripts'] = {
+    const scripts: Record<string, string> = {
       prepare: 'husky install',
     };
 
