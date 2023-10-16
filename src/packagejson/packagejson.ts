@@ -53,13 +53,13 @@ export default class DocsGenerator extends Generator {
         name: 'authorName',
         type: 'input',
         message: 'What is your name?',
-        default: (): string => authorName ?? this.user.git.name(),
+        default: async (): Promise<string> => authorName ?? (await this.git.name()) ?? '',
       },
       {
         name: 'authorEmail',
         type: 'input',
         message: 'What is your email?',
-        default: (): string => authorEmail ?? this.user.git.email(),
+        default: async (): Promise<string> => authorEmail ?? (await this.git.email()) ?? '',
         when: (props: Answers): boolean => Boolean(props.authorName),
       },
       {
@@ -80,16 +80,15 @@ export default class DocsGenerator extends Generator {
   }
 
   public async configuring(): Promise<void> {
-    const { name, description, authorName, authorEmail, authorUrl, license } = this.answers;
+    const { authorName, authorEmail, authorUrl, ...mainProps } = this.answers;
 
-    let repository: PackageJson['repository'] = '';
+    const { name } = mainProps;
+
+    let repository = '';
 
     try {
       const gitUrl = (await this.getGitRemote()) ?? '';
-      repository = {
-        type: 'git',
-        url: gitUrl,
-      };
+      repository = gitUrl;
       const { owner: githubOrg, name: githubRepo } = parseGithub(gitUrl) ?? {};
 
       if (
@@ -101,18 +100,16 @@ export default class DocsGenerator extends Generator {
         repository = `${githubOrg}/${githubRepo}`;
       }
     } catch {
-      repository = `${await this.user.github.username()}/${name}`;
+      repository = `${await this.github.username()}/${name}`;
     }
 
     const packageJson = {
-      name,
-      description,
+      ...mainProps,
       author: composeAuthor({
         name: authorName,
         email: authorEmail,
         url: authorUrl,
       }),
-      license,
       repository,
     };
 
