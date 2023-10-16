@@ -172,7 +172,7 @@ export default class extends Generator {
   }
 
   // eslint-disable-next-line no-underscore-dangle
-  protected async _resolvePackageJsonDependencies(
+  public async _resolvePackageJsonDependencies(
     dependencies: Record<string, string> | string[] | string,
   ): Promise<Record<string, string>> {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call, no-underscore-dangle
