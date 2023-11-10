@@ -41,7 +41,7 @@
     "axios": "^1.5.1",
     "git-remote-origin-url": "^4.0.0",
     "github-username": "^8.0.0",
-    "globby": "^13.2.2",
+    "globby": "^14.0.0",
     "inquirer": "^9.2.11",
     "lodash": "^4.17.21",
     "parse-github-url": "^1.0.2",
