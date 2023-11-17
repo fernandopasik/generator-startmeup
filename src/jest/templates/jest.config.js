@@ -1,7 +1,9 @@
 /// <% if (module) { %>
 /* eslint-disable @typescript-eslint/naming-convention */
+// <% if (puppeteer) { %>
 const { npm_lifecycle_event } = process.env;
 
+// <% } %>
 export default {
   // <% } else { %>module.exports = {<% } %>
   collectCoverageFrom: ['src/**/*.<%= collectExtensions %>'],
