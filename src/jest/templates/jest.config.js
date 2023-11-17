@@ -1,6 +1,7 @@
 /// <% if (module) { %>
 /* eslint-disable @typescript-eslint/naming-convention */
 // <% if (puppeteer) { %>
+// eslint-disable-next-line n/no-process-env
 const { npm_lifecycle_event } = process.env;
 
 // <% } %>
