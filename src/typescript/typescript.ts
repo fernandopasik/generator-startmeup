@@ -23,6 +23,10 @@ export default class TypescriptGenerator extends Generator {
       exclude.push('**/*.flow');
     }
 
+    if (this.hasDevDependency('jest')) {
+      exclude.push('coverage');
+    }
+
     const options = {
       excludeFiles: exclude.map((file) => `"${file}"`).join(','),
       flow: this.hasDevDependency('flow-bin'),
