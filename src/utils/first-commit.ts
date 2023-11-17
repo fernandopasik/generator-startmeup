@@ -18,7 +18,7 @@ const firstCommit = (): Commit | null => {
     return null;
   }
 
-  const [line1, line2, line3] = lines;
+  const [line1, line2, line3] = lines as [string, string, string];
 
   return {
     hash: line1.replace('commit ', ''),
