@@ -1,4 +1,4 @@
-import type { PackageJson } from 'type-fest';
+import { type PackageJson } from 'type-fest';
 import Generator from '../generator.js';
 import { parseAuthor } from '../packagejson/author.js';
 import firstCommit from '../utils/first-commit.js';

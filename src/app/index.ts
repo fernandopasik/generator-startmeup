@@ -1,4 +1,4 @@
-import type { ComposeOptions } from 'yeoman-generator';
+import { type ComposeOptions } from 'yeoman-generator';
 import Generator from '../generator.js';
 
 export default class StartMeUpGenerator extends Generator {
