@@ -10,8 +10,8 @@ export default class TypescriptGenerator extends Generator {
       },
     });
 
-    if (!this.hasAnyDependency('typescript')) {
-      await this.addDevDependencies(['typescript']);
+    if (!this.hasAnyDependency('typescript') || !this.hasDevDependency('@tsconfig/strictest')) {
+      await this.addDevDependencies(['typescript', '@tsconfig/strictest']);
     }
   }
 

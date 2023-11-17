@@ -1,9 +1,9 @@
 {
+  "extends": "@tsconfig/strictest/tsconfig.json",
   "compilerOptions": {
     "allowJs": true,
     "declaration": true,
     "declarationMap": true,
-    "esModuleInterop": true,
     "experimentalDecorators": true,
     "inlineSources": true,
     // <% if (react) { %>
@@ -13,17 +13,12 @@
     "module": "<%= module %>",
     "moduleResolution": "node",
     "noEmit": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     // <% if (lit) { %>
     "plugins": [{ "name": "ts-lit-plugin", "strict": true }],
     // <% } %>
     "resolveJsonModule": true,
     "rootDirs": ["src"],
     "sourceMap": true,
-    "strict": true,
     "target": "es2019"
   },
   "exclude": [
