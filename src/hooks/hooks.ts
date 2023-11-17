@@ -11,8 +11,8 @@ export default class HooksGenerator extends Generator {
     };
 
     if (shouldAddPinst) {
-      scripts.prepublishOnly = 'pinst --disable';
-      scripts.postpublish = 'pinst --enable';
+      scripts['prepublishOnly'] = 'pinst --disable';
+      scripts['postpublish'] = 'pinst --enable';
     }
 
     this.packageJson.merge({ scripts });
