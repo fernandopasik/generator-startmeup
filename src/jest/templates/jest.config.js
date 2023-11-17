@@ -1,5 +1,7 @@
 /// <% if (module) { %>
 /* eslint-disable @typescript-eslint/naming-convention */
+const { npm_lifecycle_event } = process.env;
+
 export default {
   // <% } else { %>module.exports = {<% } %>
   collectCoverageFrom: ['src/**/*.<%= collectExtensions %>'],
@@ -31,7 +33,7 @@ export default {
   ],
   // <% } %>
   // <% if (puppeteer) { %>
-  ...(process.env.npm_lifecycle_event === 'test:e2e'
+  ...(npm_lifecycle_event === 'test:e2e'
     ? {
         preset: 'jest-puppeteer',
         testEnvironment: 'jest-environment-puppeteer',
