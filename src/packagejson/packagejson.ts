@@ -32,7 +32,16 @@ export default class PackageJsonGenerator extends Generator {
       typeof this.option('all') !== 'undefined' &&
       typeof this.packageJson.get('name') !== 'undefined'
     ) {
-      this.answers = { name, description, authorName, authorEmail, authorUrl, license };
+      this.answers = Object.fromEntries(
+        [
+          ['name', name],
+          ['description', description],
+          ['authorName', authorName],
+          ['authorEmail', authorEmail],
+          ['authorUrl', authorUrl],
+          ['license', license],
+        ].filter((option) => Boolean(option[1])),
+      );
       return;
     }
 
@@ -103,13 +112,17 @@ export default class PackageJsonGenerator extends Generator {
       repository = `${await this.github.username()}/${name}`;
     }
 
+    const authorProps = Object.fromEntries(
+      [
+        ['name', authorName],
+        ['email', authorEmail],
+        ['url', authorUrl],
+      ].filter((option) => Boolean(option[1])),
+    );
+
     const packageJson = {
       ...mainProps,
-      author: composeAuthor({
-        name: authorName,
-        email: authorEmail,
-        url: authorUrl,
-      }),
+      author: composeAuthor(authorProps),
       repository,
     };
 
