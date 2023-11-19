@@ -16,7 +16,7 @@ interface Answers {
 const LICENSES = ['MIT', 'UNLICENSED'];
 const [DEFAULT_LICENSE] = LICENSES;
 
-export default class DocsGenerator extends Generator {
+export default class PackageJsonGenerator extends Generator {
   private answers!: Answers;
 
   public async prompting(): Promise<void> {
