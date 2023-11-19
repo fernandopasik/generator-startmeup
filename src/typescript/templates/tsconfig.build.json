@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "compilerOptions": { "allowJs": false, "noEmit": false, "outDir": "<%= outDir %>" },
+  "compilerOptions": { "noEmit": false, "outDir": "<%= outDir %>" },
   "exclude": [
     // <% if (jest) { %>
     "**/__mocks__/**",
