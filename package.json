@@ -53,14 +53,14 @@
     "yeoman-generator": "^7.1.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18.4.2",
-    "@commitlint/config-conventional": "^18.4.2",
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
     "@jest/types": "^29.6.3",
     "@tsconfig/strictest": "^2.0.2",
     "@types/eslint": "^8.44.7",
     "@types/gitconfiglocal": "^2.0.3",
     "@types/inquirer": "^9.0.7",
-    "@types/jest": "^29.5.9",
+    "@types/jest": "^29.5.10",
     "@types/mvdan-sh": "^0.10.9",
     "@types/parse-github-url": "^1.0.3",
     "@types/prettier": "^3.0.0",
@@ -83,7 +83,7 @@
     "lint-staged": "^15.1.0",
     "replace-in-files-cli": "^2.2.0",
     "ts-jest": "^29.1.1",
-    "type-fest": "^4.8.1",
+    "type-fest": "^4.8.2",
     "typescript": "^5.3.2",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^8.2.0"
