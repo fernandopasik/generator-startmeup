@@ -1,5 +1,10 @@
 {
-  "extends": ["canonical", "canonical/jest", "canonical/node", "plugin:security/recommended"],
+  "extends": [
+    "canonical",
+    "canonical/jest",
+    "canonical/node",
+    "plugin:security/recommended-legacy"
+  ],
   "env": { "node": true },
   "overrides": [
     {
