@@ -1,4 +1,4 @@
-import { type ComposeOptions } from 'yeoman-generator';
+import { type GetGeneratorOptions } from '@yeoman/types';
 import Generator from '../generator.js';
 
 export default class StartMeUpGenerator extends Generator {
@@ -56,11 +56,11 @@ export default class StartMeUpGenerator extends Generator {
       subGenerators = subGenerators.filter((subGenerator) => subGenerator !== 'babel');
     }
 
-    subGenerators.forEach((subGenerator) => {
-      this.composeWith(`startmeup:${subGenerator}`, {
-        'skip-install': true,
-        all: 'true',
-      } as ComposeOptions);
-    });
+    subGenerators = subGenerators.map((subGenerator) => `startmeup:${subGenerator}`);
+
+    await this.composeWith(subGenerators, {
+      'skip-install': true,
+      all: 'true',
+    } as Partial<GetGeneratorOptions>);
   }
 }
