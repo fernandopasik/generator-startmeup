@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Node
         uses: fernandopasik/actions/setup-node@main
   #<% if (checkFormat) { %>
@@ -21,7 +21,7 @@ jobs:
     needs: install
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Node
         uses: fernandopasik/actions/setup-node@main
       - name: Check Format
@@ -34,7 +34,7 @@ jobs:
     needs: install
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Node
         uses: fernandopasik/actions/setup-node@main
       - name: Lint
@@ -53,7 +53,7 @@ jobs:
     needs: install
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Node
         uses: fernandopasik/actions/setup-node@main
       - name: Check Typescript Types
@@ -66,7 +66,7 @@ jobs:
     needs: install
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Node
         uses: fernandopasik/actions/setup-node@main
       - name: Unit Tests
@@ -90,7 +90,7 @@ jobs:
     needs: install
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Node
         uses: fernandopasik/actions/setup-node@main
       - name: E2E Tests
@@ -126,7 +126,7 @@ jobs:
       #<% } %>
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Node
         uses: fernandopasik/actions/setup-node@main
       - name: Build
@@ -144,7 +144,7 @@ jobs:
     needs: build
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Node
         uses: fernandopasik/actions/setup-node@main
       - name: Download Build Artifact
