@@ -17,7 +17,7 @@
     "plugin:lit/all",
     // <% } %>
     // <% if (!browser) { %>
-    "plugin:security/recommended",
+    "plugin:security/recommended-legacy",
     // <% } %>
     // <% if (storybook) { %>
     "plugin:storybook/csf",
