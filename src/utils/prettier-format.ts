@@ -8,6 +8,8 @@ const prettierFormat = async (content: string, filepath: string, root: string): 
   return format(content, {
     ...config,
     filepath,
+    // TODO: remove when resolveConfig works
+    singleQuote: true,
     plugins: [prettierPluginPkg, prettierPluginSh],
   });
 };
