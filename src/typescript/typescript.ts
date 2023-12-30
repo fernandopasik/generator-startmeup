@@ -34,7 +34,7 @@ export default class TypescriptGenerator extends Generator {
     }
 
     if (hasCoverage) {
-      exclude.push('/coverage');
+      exclude.push('coverage');
     }
 
     const options = {
