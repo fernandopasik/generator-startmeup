@@ -26,7 +26,8 @@ export default class TypescriptGenerator extends Generator {
     const hasTests = Boolean(packageScripts.test);
     const hasCoverage = JSON.stringify(packageScripts).includes('coverage');
 
-    const exclude = [...packageFiles];
+    const excludedFiles = packageFiles.map((packageFile) => packageFile.replace(/^\//, ''));
+    const exclude = [...excludedFiles];
 
     if (this.hasDevDependency('flow-bin')) {
       exclude.push('**/*.flow');
@@ -43,7 +44,7 @@ export default class TypescriptGenerator extends Generator {
       jest: this.hasDevDependency('jest'),
       lit: this.hasAnyDependency('lit'),
       module: this.packageJson.get('type') === 'module' ? 'ESNext' : 'commonjs',
-      outDir: packageFiles.includes('/lib') ? '.' : packageFiles[0]?.replace(/^\//g, ''),
+      outDir: excludedFiles.includes('lib') ? '.' : excludedFiles[0],
       puppeteer: this.hasDevDependency('puppeteer'),
       react: this.hasAnyDependency('react'),
       storybook:
