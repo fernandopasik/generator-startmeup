@@ -38,7 +38,10 @@ export default class TypescriptGenerator extends Generator {
     }
 
     const options = {
-      excludeFiles: exclude.map((file) => `"${file}"`).join(','),
+      excludeFiles: exclude
+        .sort()
+        .map((file) => `"${file}"`)
+        .join(','),
       flow: this.hasDevDependency('flow-bin'),
       hasTests,
       jest: this.hasDevDependency('jest'),
