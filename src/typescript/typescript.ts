@@ -35,6 +35,7 @@ export default class TypescriptGenerator extends Generator {
     const options = {
       excludeFiles: exclude.map((file) => `"${file}"`).join(','),
       flow: this.hasDevDependency('flow-bin'),
+      hasTests,
       jest: this.hasDevDependency('jest'),
       lit: this.hasAnyDependency('lit'),
       module: this.packageJson.get('type') === 'module' ? 'ESNext' : 'commonjs',
@@ -44,7 +45,6 @@ export default class TypescriptGenerator extends Generator {
       storybook:
         this.hasDevDependency('@storybook/react') ||
         this.hasDevDependency('@storybook/web-components'),
-      tests: hasTests,
     };
 
     await this.renderTpl('tsconfig.json', 'tsconfig.json', options, { rmWhitespace: true });
