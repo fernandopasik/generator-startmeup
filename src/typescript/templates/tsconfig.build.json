@@ -5,7 +5,10 @@
     // <% if (jest) { %>
     "**/__mocks__/**",
     "**/__tests__/**",
+    // <% } %>
+    // <% if (hasTests) { %>
     "**/*.spec.*",
+    "**/*.test.*",
     // <% } %>
     // <% if (storybook) { %>
     "**/__stories__/**",
