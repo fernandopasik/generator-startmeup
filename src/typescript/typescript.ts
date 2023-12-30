@@ -20,7 +20,7 @@ export default class TypescriptGenerator extends Generator {
     const packageScripts = (this.packageJson.get('scripts') as PackageJson['scripts']) ?? {};
 
     const hasTests = Boolean(packageScripts.test);
-    const hasCoverage = JSON.stringify(packageScripts).includes('/coverage');
+    const hasCoverage = JSON.stringify(packageScripts).includes('coverage');
 
     const exclude = [...packageFiles];
 
@@ -29,7 +29,7 @@ export default class TypescriptGenerator extends Generator {
     }
 
     if (hasCoverage) {
-      exclude.push('coverage');
+      exclude.push('/coverage');
     }
 
     const options = {
