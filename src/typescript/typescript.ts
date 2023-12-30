@@ -18,6 +18,9 @@ export default class TypescriptGenerator extends Generator {
   public async writing(): Promise<void> {
     const packageFiles = (this.packageJson.get('files') as PackageJson['files']) ?? [];
     const packageScripts = (this.packageJson.get('scripts') as PackageJson['scripts']) ?? {};
+
+    const hasTests = Boolean(packageScripts.test);
+
     const exclude = [...packageFiles];
 
     if (this.hasDevDependency('flow-bin')) {
@@ -27,8 +30,6 @@ export default class TypescriptGenerator extends Generator {
     if (this.hasDevDependency('jest')) {
       exclude.push('coverage');
     }
-
-    const hasTests = Boolean(packageScripts.test);
 
     const options = {
       excludeFiles: exclude.map((file) => `"${file}"`).join(','),
