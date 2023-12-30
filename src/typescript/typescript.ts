@@ -3,10 +3,14 @@ import Generator from '../generator.js';
 
 export default class TypescriptGenerator extends Generator {
   public async configuring(): Promise<void> {
+    const build = `tsc -p tsconfig.build.json${
+      this.hasAnyDependency('rollup') ? ' && rollup -c' : ''
+    }`;
+
     this.packageJson.merge({
       scripts: {
         'check-types': 'tsc --noEmit',
-        build: 'tsc -p tsconfig.build.json',
+        build,
       },
     });
 
