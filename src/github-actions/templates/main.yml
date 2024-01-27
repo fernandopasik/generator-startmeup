@@ -39,12 +39,22 @@ jobs:
         uses: fernandopasik/actions/setup-node@main
       - name: Lint
         run: <% if (yarn) { %>yarn lint<% } else { %>npm run lint --<% } %> --format junit -o reports/lint-results.xml
+      #<% if (!isPrivate) { %>
       - name: Upload Report
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: lint-results
           path: reports/lint-results.xml
+      #<% } else { %>
+      - name: Publish Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Lint Report
+          path: reports/lint-results.xml
+          reporter: java-junit
+      #<% } %>
   #<% } %>
   #<% if (checkTypes) { %>
   check-types:
@@ -76,12 +86,22 @@ jobs:
       - name: Upload Report to Codecov
         uses: codecov/codecov-action@v3
         if: always()
+      #<% if (!isPrivate) { %>
       - name: Upload Report
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: unit-test-results
           path: reports/unit-test-results.xml
+      #<% } else { %>
+      - name: Publish Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Unit Tests Report
+          path: reports/unit-test-results.xml
+          reporter: jest-junit
+      #<% } %>
   #<% } %>
   #<% if (e2eTests) { %>
   e2e-test:
@@ -97,12 +117,22 @@ jobs:
         run: <% if (yarn) { %>yarn test:e2e<% } else { %>npm run test:e2e --<% } %> --ci --reporters=default --reporters=jest-junit
         env:
           JEST_JUNIT_OUTPUT_FILE: 'reports/e2e-test-results.xml'
+      #<% if (!isPrivate) { %>
       - name: Upload Report
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: e2e-test-results
           path: reports/e2e-test-results.xml
+      #<% } else { %>
+      - name: Publish Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: E2E Tests Report
+          path: reports/e2e-test-results.xml
+          reporter: jest-junit
+      #<% } %>
   #<% } %>
   #<% if (build) { %>
   build:
