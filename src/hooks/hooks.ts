@@ -7,7 +7,7 @@ export default class HooksGenerator extends Generator {
     const shouldAddPinst = !isPrivate && this.hasFiles('.yarn');
 
     const scripts: Record<string, string> = {
-      prepare: 'husky install',
+      prepare: 'husky',
     };
 
     if (shouldAddPinst) {
