@@ -1,9 +1,10 @@
-import { format, resolveConfig } from 'prettier';
+import { format, resolveConfig, resolveConfigFile } from 'prettier';
 import prettierFormat from '../prettier-format.js';
 
 jest.mock('prettier', () => ({
   format: jest.fn(),
   resolveConfig: jest.fn(),
+  resolveConfigFile: jest.fn(),
 }));
 
 describe('prettierFormat', () => {
@@ -15,7 +16,7 @@ describe('prettierFormat', () => {
     it('with the provided root path', async () => {
       const root = '/my-test';
       await prettierFormat('', 'example.js', root);
-      expect(resolveConfig).toHaveBeenCalledWith(root);
+      expect(resolveConfigFile).toHaveBeenCalledWith(`${root}/example.js`);
     });
 
     it('formats the file content', async () => {
@@ -33,6 +34,9 @@ describe('prettierFormat', () => {
     });
 
     it('the resolved config', async () => {
+      (resolveConfigFile as jest.MockedFunction<typeof resolveConfigFile>).mockResolvedValueOnce(
+        '.prettierrc.json',
+      );
       (resolveConfig as jest.MockedFunction<typeof resolveConfig>).mockResolvedValueOnce({
         printWidth: 130,
       });

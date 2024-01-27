@@ -1,17 +1,11 @@
-import { format, resolveConfig } from 'prettier';
-import prettierPluginPkg from 'prettier-plugin-pkg';
-import prettierPluginSh from 'prettier-plugin-sh';
+import path from 'node:path';
+import { format, resolveConfig, resolveConfigFile } from 'prettier';
 
 const prettierFormat = async (content: string, filepath: string, root: string): Promise<string> => {
-  const config = await resolveConfig(root);
+  const configFile = await resolveConfigFile(path.join(root, filepath));
+  const config = configFile ? await resolveConfig(configFile) : {};
 
-  return format(content, {
-    ...config,
-    filepath,
-    // TODO: remove when resolveConfig works
-    singleQuote: true,
-    plugins: [prettierPluginPkg, prettierPluginSh],
-  });
+  return format(content, { ...config, filepath });
 };
 
 export default prettierFormat;
