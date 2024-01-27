@@ -29,7 +29,7 @@
     "format:check": "prettier --check .",
     "lint": "eslint . --ext js,ts",
     "prebuild": "del generators",
-    "prepare": "husky install",
+    "prepare": "husky",
     "preversion": "npm run verify",
     "start": "npm run build -w",
     "test": "jest",
