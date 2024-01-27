@@ -1,4 +1,5 @@
 {
   "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-pkg", "prettier-plugin-sh"],
-  "singleQuote": true
+  "singleQuote": true,
+  "overrides": [{ "files": ["tsconfig.json"], "options": { "parser": "json" } }]
 }
