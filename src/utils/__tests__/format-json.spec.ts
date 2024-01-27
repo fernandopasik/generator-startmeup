@@ -25,7 +25,7 @@ describe('formatJson', () => {
 
     it('with options', async () => {
       await formatJson('{}', '', '');
-      expect(sortProps).toHaveBeenLastCalledWith({}, ['extends', 'files', 'error']);
+      expect(sortProps).toHaveBeenLastCalledWith({}, ['extends', 'files', 'plugins', 'error']);
     });
   });
 

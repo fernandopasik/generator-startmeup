@@ -6,7 +6,8 @@ const formatJson = async (content: string, filepath: string, root: string): Prom
   const JSON_SPACING = 2;
   let spaces = 0;
 
-  const jsonConfig = sortProps(JSON.parse(content) as JsonObject, ['extends', 'files', 'error']);
+  const sortFirst = ['extends', 'files', 'plugins', 'error'];
+  const jsonConfig = sortProps(JSON.parse(content) as JsonObject, sortFirst);
 
   if (Object.keys(jsonConfig).length <= JSON_SPACING) {
     spaces = JSON_SPACING;
