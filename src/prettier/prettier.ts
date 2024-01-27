@@ -35,7 +35,6 @@ export default class PrettierGenerator extends Generator {
       husky: this.hasDevDependency('husky'),
       jekyll: this.hasFiles('docs/_config.yml') || this.hasFiles('_config.yml'),
       test: this.hasDevDependency('jest'),
-      typescript: this.hasAnyDependency('typescript'),
       yarn: this.hasFiles('.yarn'),
     };
 
@@ -44,6 +43,7 @@ export default class PrettierGenerator extends Generator {
         .sort()
         .map((plugin) => `"${plugin}"`)
         .join(','),
+      typescript: this.hasAnyDependency('typescript'),
     };
 
     this.renderTpl('prettierrc.json', '.prettierrc.json', configOptions);
