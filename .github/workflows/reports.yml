@@ -1,0 +1,43 @@
+name: reports
+on:
+  workflow_run:
+    workflows: ['main']
+    types:
+      - completed
+
+permissions:
+  actions: read
+  contents: read
+  checks: write
+
+jobs:
+  report-lint:
+    name: Lint Report
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download report
+        uses: actions/download-artifact@v4
+        with:
+          name: lint-results
+          path: reports/lint-results.xml
+      - name: Publish Report
+        uses: dorny/test-reporter@v1
+        with:
+          name: Lint Report
+          path: reports/lint-results.xml
+          reporter: java-junit
+  report-unit-test:
+    name: Unit Tests Report
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download report
+        uses: actions/download-artifact@v4
+        with:
+          name: unit-test-results
+          path: reports/unit-test-results.xml
+      - name: Publish Report
+        uses: dorny/test-reporter@v1
+        with:
+          name: Unit Tests Report
+          path: reports/unit-test-results.xml
+          reporter: jest-junit

@@ -36,13 +36,12 @@ jobs:
         uses: fernandopasik/actions/setup-node@main
       - name: Lint
         run: npm run lint -- --format junit -o reports/lint-results.xml
-      - name: Publish Report
-        uses: dorny/test-reporter@v1
+      - name: Upload Report
+        uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: Lint Report
+          name: lint-results
           path: reports/lint-results.xml
-          reporter: java-junit
   check-types:
     name: Check Typescript Types
     runs-on: ubuntu-latest
@@ -70,13 +69,12 @@ jobs:
       - name: Upload Report to Codecov
         uses: codecov/codecov-action@v3
         if: always()
-      - name: Publish Report
-        uses: dorny/test-reporter@v1
+      - name: Upload Report
+        uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: Unit Tests Report
+          name: unit-test-results
           path: reports/unit-test-results.xml
-          reporter: jest-junit
   build:
     name: Build
     runs-on: ubuntu-latest
