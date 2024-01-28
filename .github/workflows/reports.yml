@@ -20,6 +20,7 @@ jobs:
         with:
           name: lint-results
           path: reports/lint-results.xml
+          run-id: ${{ github.event.workflow_run.id }}
       - name: Publish Report
         uses: dorny/test-reporter@v1
         with:
@@ -35,6 +36,7 @@ jobs:
         with:
           name: unit-test-results
           path: reports/unit-test-results.xml
+          run-id: ${{ github.event.workflow_run.id }}
       - name: Publish Report
         uses: dorny/test-reporter@v1
         with:
