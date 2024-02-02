@@ -13,11 +13,12 @@ export default class BadgesGenerator extends Generator {
     const { owner: githubOrg, repo: githubRepo } = (await this.getGitHub()) ?? {};
     const isPrivate = (this.packageJson.get('private') as PackageJson['private']) ?? false;
     const npmPackage = await this.getNpmName();
+    const version = (this.packageJson.get('version') as PackageJson['version']) ?? {};
     const mainBranch = gitMainBranch();
 
     const group1: string[] = [];
 
-    if (npmPackage !== null && !isPrivate) {
+    if (npmPackage !== null && !isPrivate && version) {
       group1.push(
         `[![Gzip Bundle Size](https://img.badgesize.io/https://unpkg.com/${npmPackage}/${npmPackage}.min.js?compression=gzip)](https://unpkg.com/${npmPackage}/${npmPackage}.min.js 'Gzip Bundle Size')`,
       );
