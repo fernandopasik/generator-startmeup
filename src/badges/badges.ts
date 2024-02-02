@@ -17,7 +17,7 @@ export default class BadgesGenerator extends Generator {
 
     const group1: string[] = [];
 
-    if (npmPackage !== null && this.hasDevDependency('bundlewatch')) {
+    if (npmPackage !== null && !isPrivate) {
       group1.push(
         `[![Gzip Bundle Size](https://img.badgesize.io/https://unpkg.com/${npmPackage}/${npmPackage}.min.js?compression=gzip)](https://unpkg.com/${npmPackage}/${npmPackage}.min.js 'Gzip Bundle Size')`,
       );
