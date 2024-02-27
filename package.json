@@ -53,8 +53,8 @@
     "yeoman-generator": "^7.1.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18.6.0",
-    "@commitlint/config-conventional": "^18.6.0",
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.0.0",
     "@jest/types": "^29.6.3",
     "@tsconfig/strictest": "^2.0.2",
     "@types/eslint": "^8.56.2",
