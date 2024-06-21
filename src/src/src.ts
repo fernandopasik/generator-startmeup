@@ -1,4 +1,4 @@
-import { type PackageJson } from 'type-fest';
+import type { PackageJson } from 'type-fest';
 import Generator from '../generator.js';
 import packageOptions from './package-options.js';
 

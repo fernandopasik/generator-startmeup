@@ -1,4 +1,4 @@
-import { type JsonObject, type JsonValue } from 'type-fest';
+import type { JsonObject, JsonValue } from 'type-fest';
 
 const compareSortingValues = (
   value1: JsonValue,

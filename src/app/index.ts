@@ -1,4 +1,4 @@
-import { type GetGeneratorOptions } from '@yeoman/types';
+import type { GetGeneratorOptions } from '@yeoman/types';
 import Generator from '../generator.js';
 
 export default class StartMeUpGenerator extends Generator {

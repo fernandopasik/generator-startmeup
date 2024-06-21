@@ -1,4 +1,4 @@
-import { type PackageJson } from 'type-fest';
+import type { PackageJson } from 'type-fest';
 import sortProps from '../utils/sort-props.js';
 
 const packageOptions = (

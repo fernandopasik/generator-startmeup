@@ -1,4 +1,4 @@
-import { type JsonObject } from 'type-fest';
+import type { JsonObject } from 'type-fest';
 import formatJson from '../format-json.js';
 import prettierFormat from '../prettier-format.js';
 import sortProps from '../sort-props.js';
