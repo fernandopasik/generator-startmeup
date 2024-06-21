@@ -1,7 +1,7 @@
 import Generator from '../generator.js';
 
 export default class EditorConfigGenerator extends Generator {
-  public writing(): void {
+  public async writing(): Promise<void> {
     const options = {
       gitconfig: this.hasFiles('.gitconfig'),
       html: this.hasFiles('**/*.html'),
@@ -11,6 +11,6 @@ export default class EditorConfigGenerator extends Generator {
       yaml: this.hasFiles('**/*.{yaml,yml}'),
     };
 
-    this.renderTpl('editorconfig', '.editorconfig', options);
+    await this.renderTpl('editorconfig', '.editorconfig', options);
   }
 }

@@ -26,7 +26,7 @@ export default class PrettierGenerator extends Generator {
     await this.addDevDependencies(['prettier', ...this.plugins]);
   }
 
-  public writing(): void {
+  public async writing(): Promise<void> {
     const packageFiles = (this.packageJson.get('files') as PackageJson['files']) ?? [];
 
     const ignoreOptions = {
@@ -47,7 +47,7 @@ export default class PrettierGenerator extends Generator {
       typescript: this.hasAnyDependency('typescript'),
     };
 
-    this.renderTpl('prettierrc.json', '.prettierrc.json', configOptions);
-    this.renderTpl('prettierignore', '.prettierignore', ignoreOptions);
+    await this.renderTpl('prettierrc.json', '.prettierrc.json', configOptions);
+    await this.renderTpl('prettierignore', '.prettierignore', ignoreOptions);
   }
 }

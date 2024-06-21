@@ -1,8 +1,8 @@
 import Generator from '../generator.js';
 
 export default class GitGenerator extends Generator {
-  public writing(): void {
-    this.renderTpl('gitattributes', '.gitattributes');
+  public async writing(): Promise<void> {
+    await this.renderTpl('gitattributes', '.gitattributes');
     const existingGitIgnore = this.fs.read('.gitignore');
     const restGitIgnore = existingGitIgnore
       ?.replace(/[\S\s]*# build and temp folders\n/mu, '')
@@ -18,6 +18,6 @@ export default class GitGenerator extends Generator {
         this.hasFiles('**/__tests__/**'),
     };
 
-    this.renderTpl('gitignore', '.gitignore', options);
+    await this.renderTpl('gitignore', '.gitignore', options);
   }
 }
