@@ -8,8 +8,8 @@ const packageOptions = (
   hasTypescript = false,
   hasYeoman = false,
 ): Pick<PackageJson, 'files' | 'main' | 'module' | 'type' | 'typings'> => {
-  const appFolder = !hasYeoman ? 'dist' : 'generators';
-  const appFile = !hasYeoman ? 'app' : 'app/index';
+  const appFolder = hasYeoman ? 'generators' : 'dist';
+  const appFile = hasYeoman ? 'app/index' : 'app';
   const main = isLibrary ? `${appName}.js` : `${appFolder}/${appFile}.js`;
   const files = isLibrary ? ['/lib', `/${appName}.*`] : [`/${appFolder}`];
 
