@@ -60,6 +60,7 @@ export default class StartMeUpGenerator extends Generator {
 
     await this.composeWith(subGenerators, {
       all: 'true',
+      // eslint-disable-next-line @typescript-eslint/naming-convention
       'skip-install': true,
     } as Partial<GetGeneratorOptions>);
   }

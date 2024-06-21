@@ -8,6 +8,7 @@ export default class TypescriptGenerator extends Generator {
     }`;
 
     this.packageJson.merge({
+      // eslint-disable-next-line @typescript-eslint/naming-convention
       scripts: { build, 'check-types': 'tsc --noEmit' },
     });
 

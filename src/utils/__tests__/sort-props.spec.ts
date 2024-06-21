@@ -1,4 +1,4 @@
-/* eslint-disable id-length, sort-keys */
+/* eslint-disable  @typescript-eslint/naming-convention, id-length, sort-keys */
 import sortProps from '../sort-props.js';
 
 describe('sort props', () => {
