@@ -19,6 +19,7 @@ const [DEFAULT_LICENSE] = LICENSES;
 export default class PackageJsonGenerator extends Generator {
   private answers!: Answers;
 
+  // eslint-disable-next-line max-lines-per-function
   public async prompting(): Promise<void> {
     const {
       name = path.basename(process.cwd()),
@@ -88,6 +89,7 @@ export default class PackageJsonGenerator extends Generator {
     ]);
   }
 
+  // eslint-disable-next-line max-lines-per-function
   public async configuring(): Promise<void> {
     const { authorName, authorEmail, authorUrl, ...mainProps } = this.answers;
 

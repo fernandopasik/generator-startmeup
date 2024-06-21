@@ -3,6 +3,7 @@ import Generator from '../generator.js';
 import gitMainBranch from '../utils/git-main-branch.js';
 
 export default class BadgesGenerator extends Generator {
+  // eslint-disable-next-line max-lines-per-function
   public async writing(): Promise<void> {
     if (!this.existsDestination('README.md')) {
       return;

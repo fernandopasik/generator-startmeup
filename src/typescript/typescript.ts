@@ -17,6 +17,7 @@ export default class TypescriptGenerator extends Generator {
     }
   }
 
+  // eslint-disable-next-line max-lines-per-function
   public async writing(): Promise<void> {
     const packageFiles = (this.packageJson.get('files') as PackageJson['files']) ?? [];
     const packageScripts = (this.packageJson.get('scripts') as PackageJson['scripts']) ?? {};

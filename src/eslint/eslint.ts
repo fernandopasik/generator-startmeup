@@ -18,6 +18,7 @@ export default class LintGenerator extends Generator {
     await this.addDevDependencies(['eslint']);
   }
 
+  // eslint-disable-next-line max-lines-per-function
   public async writing(): Promise<void> {
     if (!this.hasFiles('**/*.{js,jsx,ts,tsx}')) {
       return;

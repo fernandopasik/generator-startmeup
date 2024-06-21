@@ -20,6 +20,7 @@ export default class JestGenerator extends Generator {
     await this.addDevDependencies(['jest']);
   }
 
+  // eslint-disable-next-line max-lines-per-function
   public async writing(): Promise<void> {
     if (!this.hasFiles('**/*.{js,jsx,ts,tsx}')) {
       return;
