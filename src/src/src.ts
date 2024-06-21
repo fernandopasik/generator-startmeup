@@ -8,8 +8,7 @@ export default class SrcGenerator extends Generator {
   public async prompting(): Promise<void> {
     const files = this.packageJson.get('files') as PackageJson['files'];
 
-    const hasLibFolder =
-      this.hasFiles('src/lib') || (typeof files !== 'undefined' && files.includes('/lib'));
+    const hasLibFolder = (this.hasFiles('src/lib') || files?.includes('/lib')) ?? false;
 
     this.isLibrary = hasLibFolder;
 
