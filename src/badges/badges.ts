@@ -76,7 +76,7 @@ export default class BadgesGenerator extends Generator {
       );
     }
 
-    const badgesZone = /<!-- BADGES - START -->[\S\s]*?<!-- BADGES - END -->/;
+    const badgesZone = /<!-- BADGES - START -->[\S\s]*?<!-- BADGES - END -->/u;
     const group1str = group1.map((badge) => `${badge}\n`).join('');
     const group2str = group2.map((badge) => `${badge}\n`).join('');
 

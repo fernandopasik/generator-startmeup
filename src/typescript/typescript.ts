@@ -23,7 +23,7 @@ export default class TypescriptGenerator extends Generator {
     const hasTests = Boolean(packageScripts.test);
     const hasCoverage = JSON.stringify(packageScripts).includes('coverage');
 
-    const excludedFiles = packageFiles.map((packageFile) => packageFile.replace(/^\//, ''));
+    const excludedFiles = packageFiles.map((packageFile) => packageFile.replace(/^\//u, ''));
     const exclude = [...excludedFiles];
 
     if (this.hasDevDependency('flow-bin')) {

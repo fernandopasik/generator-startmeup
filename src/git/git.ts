@@ -5,7 +5,7 @@ export default class GitGenerator extends Generator {
     this.renderTpl('gitattributes', '.gitattributes');
     const existingGitIgnore = this.fs.read('.gitignore');
     const restGitIgnore = existingGitIgnore
-      ?.replace(/[\S\s]*# build and temp folders\n/m, '')
+      ?.replace(/[\S\s]*# build and temp folders\n/mu, '')
       .trim();
 
     const options = {

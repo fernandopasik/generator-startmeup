@@ -16,14 +16,14 @@ export const parseAuthor = (authorInfo?: PackageJson.Person): Person => {
   }
 
   const author: PackageJson.Person = {
-    name: authorInfo.replaceAll(/\s?[(<].*/g, ''),
+    name: authorInfo.replaceAll(/\s?[(<].*/gu, ''),
   };
-  const email = /<([^>]+)>/.exec(authorInfo)?.pop();
+  const email = /<([^>]+)>/u.exec(authorInfo)?.pop();
   if (email) {
     author.email = email;
   }
 
-  const url = /\(([^)]+)\)/.exec(authorInfo)?.pop();
+  const url = /\(([^)]+)\)/u.exec(authorInfo)?.pop();
   if (url) {
     author.url = url;
   }
