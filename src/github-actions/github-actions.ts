@@ -21,6 +21,7 @@ export default class GithubActionsGenerator extends Generator {
       lint: 'lint' in scripts,
       name,
       unitTests: 'test:coverage' in scripts,
+      // eslint-disable-next-line no-nested-ternary
       yarn: this.hasFiles('./yarn.lock') ? (this.hasFiles('./.yarn') ? 2 : 1) : 0,
     };
 
