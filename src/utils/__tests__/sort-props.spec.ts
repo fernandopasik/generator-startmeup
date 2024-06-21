@@ -1,3 +1,4 @@
+/* eslint-disable id-length, sort-keys */
 import sortProps from '../sort-props.js';
 
 describe('sort props', () => {
