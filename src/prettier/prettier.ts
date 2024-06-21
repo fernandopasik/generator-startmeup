@@ -2,7 +2,7 @@ import type { PackageJson } from 'type-fest';
 import Generator from '../generator.js';
 
 export default class PrettierGenerator extends Generator {
-  private plugins: string[] = [];
+  private readonly plugins: string[] = [];
 
   public async configuring(): Promise<void> {
     if (!this.isNpmPackage()) {
