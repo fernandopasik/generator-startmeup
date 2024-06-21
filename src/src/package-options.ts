@@ -7,6 +7,7 @@ const packageOptions = (
   isModule = true,
   hasTypescript = false,
   hasYeoman = false,
+  // eslint-disable-next-line @typescript-eslint/max-params
 ): Pick<PackageJson, 'files' | 'main' | 'module' | 'type' | 'typings'> => {
   const appFolder = hasYeoman ? 'generators' : 'dist';
   const appFile = hasYeoman ? 'app/index' : 'app';
