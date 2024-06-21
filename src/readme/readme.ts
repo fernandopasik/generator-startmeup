@@ -21,7 +21,7 @@ export default class ReadmeGenerator extends Generator {
       year = String(new Date(commit.date).getFullYear());
     }
 
-    const options = { name, description, authorName, authorUrl, license, year };
+    const options = { authorName, authorUrl, description, license, name, year };
 
     await this.renderTpl('README.md', 'README.md', options);
   }

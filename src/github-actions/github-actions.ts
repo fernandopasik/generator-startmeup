@@ -12,16 +12,16 @@ export default class GithubActionsGenerator extends Generator {
     const scripts = (this.packageJson.get('scripts') as PackageJson['scripts']) ?? {};
 
     const options = {
-      yarn: this.hasFiles('./yarn.lock') ? (this.hasFiles('./.yarn') ? 2 : 1) : 0,
+      build: 'build' in scripts,
       checkFormat: 'format:check' in scripts,
+      checkSize: 'size' in scripts,
+      checkTypes: 'check-types' in scripts,
+      e2eTests: 'test:e2e' in scripts,
       isPrivate,
       lint: 'lint' in scripts,
-      checkTypes: 'check-types' in scripts,
-      unitTests: 'test:coverage' in scripts,
-      e2eTests: 'test:e2e' in scripts,
-      build: 'build' in scripts,
-      checkSize: 'size' in scripts,
       name,
+      unitTests: 'test:coverage' in scripts,
+      yarn: this.hasFiles('./yarn.lock') ? (this.hasFiles('./.yarn') ? 2 : 1) : 0,
     };
 
     if (options.unitTests || options.e2eTests) {

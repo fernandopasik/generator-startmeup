@@ -47,43 +47,43 @@ export default class PackageJsonGenerator extends Generator {
 
     this.answers = await this.prompt<Answers>([
       {
+        default: (): string => name,
+        message: "What is your app's name?",
         name: 'name',
         type: 'input',
-        message: "What is your app's name?",
-        default: (): string => name,
       },
       {
+        default: description,
+        message: "What is your app's description?",
         name: 'description',
         type: 'input',
-        message: "What is your app's description?",
-        default: description,
       },
       {
+        default: async (): Promise<string> => authorName ?? (await this.git.name()) ?? '',
+        message: 'What is your name?',
         name: 'authorName',
         type: 'input',
-        message: 'What is your name?',
-        default: async (): Promise<string> => authorName ?? (await this.git.name()) ?? '',
       },
       {
+        default: async (): Promise<string> => authorEmail ?? (await this.git.email()) ?? '',
+        message: 'What is your email?',
         name: 'authorEmail',
         type: 'input',
-        message: 'What is your email?',
-        default: async (): Promise<string> => authorEmail ?? (await this.git.email()) ?? '',
         when: (props: Answers): boolean => Boolean(props.authorName),
       },
       {
+        default: authorUrl,
+        message: 'What is your url?',
         name: 'authorUrl',
         type: 'input',
-        message: 'What is your url?',
-        default: authorUrl,
         when: (props: Answers): boolean => Boolean(props.authorName),
       },
       {
-        name: 'license',
-        type: 'list',
-        message: 'What kind of license do you want?',
         choices: LICENSES,
         default: license ?? DEFAULT_LICENSE,
+        message: 'What kind of license do you want?',
+        name: 'license',
+        type: 'list',
       },
     ]);
   }

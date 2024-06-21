@@ -8,10 +8,7 @@ export default class TypescriptGenerator extends Generator {
     }`;
 
     this.packageJson.merge({
-      scripts: {
-        'check-types': 'tsc --noEmit',
-        build,
-      },
+      scripts: { build, 'check-types': 'tsc --noEmit' },
     });
 
     if (!this.hasAnyDependency('typescript') || !this.hasDevDependency('@tsconfig/strictest')) {

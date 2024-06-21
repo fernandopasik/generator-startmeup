@@ -13,11 +13,11 @@ export default class LibrariesGenerator extends Generator {
 
     const { framework } = await this.prompt<{ framework: string }>([
       {
-        type: 'list',
-        name: 'framework',
-        message: 'Which framework do you want to use?',
         choices: FRAMEWORKS,
         default: FRAMEWORKS.find((frameworkName) => this.hasAnyDependency(frameworkName)),
+        message: 'Which framework do you want to use?',
+        name: 'framework',
+        type: 'list',
       },
     ]);
 

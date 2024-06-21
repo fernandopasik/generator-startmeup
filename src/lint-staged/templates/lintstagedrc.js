@@ -29,6 +29,9 @@ export default {
   // <% if (prettier) { %>
   '*': ['prettier --check'],
   // <% } %>
+  // <% if (cssTarget && stylelint) { %>
+  '<%= cssTarget %>': ['stylelint<% if (scss) { %> --syntax=scss<% } %>'],
+  // <% } %>
   // <% if (jsTarget) { %>
   '<%= jsTarget %>': [
     // <% if (eslint) { %>
@@ -42,8 +45,5 @@ export default {
     'jest --bail --findRelatedTests',
     // <% } %>
   ],
-  // <% } %>
-  // <% if (cssTarget && stylelint) { %>
-  '<%= cssTarget %>': ['stylelint<% if (scss) { %> --syntax=scss<% } %>'],
   // <% } %>
 };

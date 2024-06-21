@@ -9,8 +9,8 @@ describe('Author Package', () => {
 
       it('with name and email', () => {
         expect(parseAuthor('John Doe <john@doe.com>')).toStrictEqual({
-          name: 'John Doe',
           email: 'john@doe.com',
+          name: 'John Doe',
         });
       });
 
@@ -23,8 +23,8 @@ describe('Author Package', () => {
 
       it('with name, email and url', () => {
         expect(parseAuthor('John Doe <john@doe.com> (https://johndoe.com)')).toStrictEqual({
-          name: 'John Doe',
           email: 'john@doe.com',
+          name: 'John Doe',
           url: 'https://johndoe.com',
         });
       });
@@ -32,8 +32,8 @@ describe('Author Package', () => {
 
     it('keeps if input is object format', () => {
       const author = {
-        name: 'John Doe',
         email: 'john@doe.com',
+        name: 'John Doe',
         url: 'https://johndoe.com',
       };
 
@@ -51,7 +51,7 @@ describe('Author Package', () => {
     });
 
     it('with name and email', () => {
-      expect(composeAuthor({ name: 'John Doe', email: 'john@doe.com' })).toBe(
+      expect(composeAuthor({ email: 'john@doe.com', name: 'John Doe' })).toBe(
         'John Doe <john@doe.com>',
       );
     });
@@ -64,7 +64,7 @@ describe('Author Package', () => {
 
     it('with name, email and url', () => {
       expect(
-        composeAuthor({ name: 'John Doe', email: 'john@doe.com', url: 'https://johndoe.com' }),
+        composeAuthor({ email: 'john@doe.com', name: 'John Doe', url: 'https://johndoe.com' }),
       ).toBe('John Doe <john@doe.com> (https://johndoe.com)');
     });
 

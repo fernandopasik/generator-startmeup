@@ -5,10 +5,10 @@ export default class EditorConfigGenerator extends Generator {
     const options = {
       gitconfig: this.hasFiles('.gitconfig'),
       html: this.hasFiles('**/*.html'),
-      php: this.hasFiles('**/*.php'),
       md: this.hasFiles('**/*.md'),
-      yaml: this.hasFiles('**/*.{yaml,yml}'),
       packageJson: this.isNpmPackage(),
+      php: this.hasFiles('**/*.php'),
+      yaml: this.hasFiles('**/*.{yaml,yml}'),
     };
 
     this.renderTpl('editorconfig', '.editorconfig', options);

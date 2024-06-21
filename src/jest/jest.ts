@@ -35,9 +35,9 @@ export default class JestGenerator extends Generator {
       storybook:
         this.hasDevDependency('@storybook/react') ||
         this.hasDevDependency('@storybook/web-components'),
+      transform: '',
       transformExtensions: 'js',
       typescript: this.hasAnyDependency('typescript'),
-      transform: '',
     };
 
     if (options.typescript) {

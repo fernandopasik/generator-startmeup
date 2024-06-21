@@ -30,10 +30,10 @@ export default class StartMeUpGenerator extends Generator {
 
     if (typeof this.packageJson.get('name') === 'undefined') {
       const { typescript } = await this.prompt<{ typescript: boolean }>({
-        type: 'confirm',
-        name: 'typescript',
-        message: 'Are you programming with TypeScript?',
         default: true,
+        message: 'Are you programming with TypeScript?',
+        name: 'typescript',
+        type: 'confirm',
       });
 
       if (!typescript) {
@@ -43,10 +43,10 @@ export default class StartMeUpGenerator extends Generator {
 
     if (!subGenerators.includes('typescript')) {
       const { babel } = await this.prompt<{ babel: boolean }>({
-        type: 'confirm',
-        name: 'babel',
-        message: 'Do you want to compile with Babel?',
         default: false,
+        message: 'Do you want to compile with Babel?',
+        name: 'babel',
+        type: 'confirm',
       });
 
       if (!babel) {
@@ -59,8 +59,8 @@ export default class StartMeUpGenerator extends Generator {
     subGenerators = subGenerators.map((subGenerator) => `startmeup:${subGenerator}`);
 
     await this.composeWith(subGenerators, {
-      'skip-install': true,
       all: 'true',
+      'skip-install': true,
     } as Partial<GetGeneratorOptions>);
   }
 }

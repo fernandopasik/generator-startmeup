@@ -14,8 +14,8 @@ const packageOptions = (
   const files = isLibrary ? ['/lib', `/${appName}.*`] : [`/${appFolder}`];
 
   const options: Pick<PackageJson, 'files' | 'main' | 'module' | 'type' | 'typings'> = {
-    main,
     files,
+    main,
   };
 
   if (isModule) {

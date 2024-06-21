@@ -21,9 +21,9 @@ const firstCommit = (): Commit | null => {
   const [line1, line2, line3] = lines as [string, string, string];
 
   return {
-    hash: line1.replace('commit ', ''),
-    author: line2.replace('Author:', '').replace(/<.*>/, '').trim(),
+    author: line2.replace('Author:', '').replace(/<.*>/u, '').trim(),
     date: line3.replace('Date:', '').trim(),
+    hash: line1.replace('commit ', ''),
   };
 };
 
