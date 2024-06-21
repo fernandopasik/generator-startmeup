@@ -38,6 +38,7 @@
     "canonical/import-specifier-newline": "off",
     "canonical/sort-keys": "off",
     "id-length": "off",
+    "import/consistent-type-specifier-style": "off",
     "import/extensions": "off",
     "import/order": "off",
     "jest/prefer-expect-assertions": "off",
