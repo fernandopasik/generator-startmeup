@@ -2,7 +2,7 @@ import Generator from '../generator.js';
 import firstCommit from '../utils/first-commit.js';
 
 export default class LicenseGenerator extends Generator {
-  public configuring(): void {
+  public async configuring(): Promise<void> {
     const commit = firstCommit();
 
     if (commit !== null) {
@@ -13,7 +13,7 @@ export default class LicenseGenerator extends Generator {
         year,
       };
 
-      this.renderTpl('LICENSE', 'LICENSE', options);
+      await this.renderTpl('LICENSE', 'LICENSE', options);
     }
   }
 }
