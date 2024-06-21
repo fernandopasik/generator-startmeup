@@ -15,10 +15,10 @@ export default class SrcGenerator extends Generator {
 
     if (typeof files === 'undefined') {
       const { library } = await this.prompt<{ library: boolean }>({
+        default: hasLibFolder,
+        message: 'Are you writing a library?',
         name: 'library',
         type: 'confirm',
-        message: 'Are you writing a library?',
-        default: hasLibFolder,
       });
 
       this.isLibrary = library;
