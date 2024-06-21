@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-template-expression */
 import cleanupTemplate from '../cleanup-template.js';
 
 describe('removeTemplateComments', () => {
