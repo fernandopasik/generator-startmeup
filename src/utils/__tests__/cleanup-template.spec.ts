@@ -37,7 +37,7 @@ foo: 'bar'
     expect(cleanupTemplate(content)).toBe(sanitized);
   });
 
-  it('removes tripple comments without new line', () => {
+  it('removes triple comments without new line', () => {
     const content = `
 {
 foo: [
