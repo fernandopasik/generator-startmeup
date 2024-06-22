@@ -42,7 +42,9 @@ export default class StartMeUpGenerator extends Generator {
       }
     }
 
-    if (!subGenerators.includes('typescript')) {
+    if (subGenerators.includes('typescript')) {
+      subGenerators = subGenerators.filter((subGenerator) => subGenerator !== 'babel');
+    } else {
       const { babel } = await this.prompt<{ babel: boolean }>({
         default: false,
         message: 'Do you want to compile with Babel?',
@@ -53,8 +55,6 @@ export default class StartMeUpGenerator extends Generator {
       if (!babel) {
         subGenerators = subGenerators.filter((subGenerator) => subGenerator !== 'babel');
       }
-    } else {
-      subGenerators = subGenerators.filter((subGenerator) => subGenerator !== 'babel');
     }
 
     subGenerators = subGenerators.map((subGenerator) => `startmeup:${subGenerator}`);
