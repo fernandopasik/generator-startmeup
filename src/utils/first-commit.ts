@@ -7,7 +7,6 @@ interface Commit {
 }
 
 export const logFirstCommit = (): string =>
-  // eslint-disable-next-line import/no-named-as-default-member
   shelljs.exec('git log --reverse | sed -n -e "1,3p"', { silent: true }).stdout.trim();
 
 const firstCommit = (): Commit | null => {

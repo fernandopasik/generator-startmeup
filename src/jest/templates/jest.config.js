@@ -1,6 +1,6 @@
 /// <% if (module) { %>
 // <% if (puppeteer) { %>
-// eslint-disable-next-line camelcase, n/no-process-env
+// eslint-disable-next-line camelcase
 const { npm_lifecycle_event } = process.env;
 
 // <% } %>
