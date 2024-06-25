@@ -44,7 +44,7 @@ export default class extends Generator {
   }
 
   public async getGitRemote(): Promise<string | null> {
-    let gitUrl = this.config.get('gitUrl') as string | null;
+    let gitUrl = this.config.get('gitUrl');
 
     if (typeof gitUrl === 'string') {
       return gitUrl;
