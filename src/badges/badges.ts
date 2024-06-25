@@ -14,12 +14,12 @@ export default class BadgesGenerator extends Generator {
     const { owner: githubOrg, repo: githubRepo } = (await this.getGitHub()) ?? {};
     const isPrivate = (this.packageJson.get('private') as PackageJson['private']) ?? false;
     const npmPackage = await this.getNpmName();
-    const version = (this.packageJson.get('version') as PackageJson['version']) ?? {};
+    const version = this.packageJson.get('version') as PackageJson['version'];
     const mainBranch = gitMainBranch();
 
     const group1: string[] = [];
 
-    if (npmPackage !== null && !isPrivate && version) {
+    if (npmPackage !== null && !isPrivate && typeof version !== 'undefined') {
       group1.push(
         `[![Gzip Bundle Size](https://img.badgesize.io/https://unpkg.com/${npmPackage}/${npmPackage}.min.js?compression=gzip)](https://unpkg.com/${npmPackage}/${npmPackage}.min.js 'Gzip Bundle Size')`,
       );
@@ -81,7 +81,7 @@ export default class BadgesGenerator extends Generator {
     const group1str = group1.map((badge) => `${badge}\n`).join('');
     const group2str = group2.map((badge) => `${badge}\n`).join('');
 
-    const withBadges = readme?.replace(
+    const withBadges = readme.replace(
       badgesZone,
       `<!-- BADGES - START -->\n${group1str}\n${group2str}\n<!-- BADGES - END -->`,
     );
