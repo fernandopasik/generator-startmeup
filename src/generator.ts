@@ -179,13 +179,12 @@ export default class extends Generator {
     dependencies: Record<string, string> | string[] | string,
   ): Promise<Record<string, string>> {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call, no-underscore-dangle
-    const resolved = (await super._resolvePackageJsonDependencies(dependencies)) as Record<
-      string,
-      string
-    >;
+    const resolved: Record<string, string> = await super._resolvePackageJsonDependencies(
+      dependencies,
+    );
 
     const last = Object.fromEntries(
-      Object.entries(resolved).map(([name, version]: string[]) =>
+      Object.entries(resolved).map(([name, version]: [string, string]) =>
         !version?.startsWith('^') ? [name, `^${version}`] : [name, version],
       ),
     );
