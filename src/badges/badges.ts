@@ -69,7 +69,7 @@ export default class BadgesGenerator extends Generator {
       );
     }
 
-    const gemName = this.packageJson.get('name');
+    const gemName = this.packageJson.get('name') as PackageJson['name'];
 
     if (this.hasFiles('*.gemspec')) {
       group2.push(

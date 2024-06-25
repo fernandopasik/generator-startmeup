@@ -42,7 +42,7 @@ export default class PackageJsonGenerator extends Generator {
           ['authorUrl', authorUrl],
           ['license', license],
         ].filter((option) => Boolean(option[1])),
-      );
+      ) as Answers;
       return;
     }
 
@@ -120,7 +120,7 @@ export default class PackageJsonGenerator extends Generator {
         ['email', authorEmail],
         ['url', authorUrl],
       ].filter((option) => Boolean(option[1])),
-    );
+    ) as Exclude<PackageJson.Person, string>;
 
     const packageJson = {
       ...mainProps,
