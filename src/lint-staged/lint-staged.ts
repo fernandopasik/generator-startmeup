@@ -7,11 +7,12 @@ export default class LintStagedGenerator extends Generator {
 
   public async writing(): Promise<void> {
     const getExtensionsTarget = (extensions: string[]): string | undefined =>
-      extensions.length !== 0
-        ? extensions.length > 1
+      // eslint-disable-next-line no-nested-ternary
+      extensions.length === 0
+        ? undefined
+        : extensions.length > 1
           ? `*.{${extensions.join(',')}}`
-          : `*.${extensions[0]}`
-        : undefined;
+          : `*.${extensions[0]}`;
 
     const options = {
       cssTarget: getExtensionsTarget(this.getExtensions('css')),
