@@ -18,11 +18,13 @@ export const parseAuthor = (authorInfo?: PackageJson.Person): Person => {
   const author: PackageJson.Person = {
     name: authorInfo.replaceAll(/\s?[(<].*/gu, ''),
   };
+  // eslint-disable-next-line prefer-named-capture-group
   const email = /<([^>]+)>/u.exec(authorInfo)?.pop();
   if (typeof email !== 'undefined') {
     author.email = email;
   }
 
+  // eslint-disable-next-line prefer-named-capture-group
   const url = /\(([^)]+)\)/u.exec(authorInfo)?.pop();
   if (typeof url !== 'undefined') {
     author.url = url;
