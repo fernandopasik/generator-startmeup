@@ -1,9 +1,11 @@
 /* eslint-disable max-lines */
 import axios from 'axios';
+// eslint-disable-next-line import/namespace, import/default
 import gitRemote from 'git-remote-origin-url';
 import { globbySync } from 'globby';
 import parseGithub from 'parse-github-url';
 import type { PackageJson } from 'type-fest';
+// eslint-disable-next-line import/no-unresolved
 import Generator from 'yeoman-generator';
 import format from './utils/format.js';
 
@@ -52,7 +54,7 @@ export default class extends Generator {
 
     try {
       gitUrl = await gitRemote();
-    } catch (e: unknown) {
+    } catch (error: unknown) {
       gitUrl = null;
     }
 
@@ -127,7 +129,6 @@ export default class extends Generator {
   }
 
   public fileIncludes(filepath: string, searchString: string): boolean {
-    // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (!this.fs.exists(filepath)) {
       return false;
     }
@@ -174,18 +175,17 @@ export default class extends Generator {
     return this.addAnyDependencies(dependencies, 'devDependencies');
   }
 
-  // eslint-disable-next-line no-underscore-dangle
   public override async _resolvePackageJsonDependencies(
     dependencies: Record<string, string> | string[] | string,
   ): Promise<Record<string, string>> {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, no-underscore-dangle
+    // eslint-disable-next-line no-underscore-dangle
     const resolved: Record<string, string> = await super._resolvePackageJsonDependencies(
       dependencies,
     );
 
     const last = Object.fromEntries(
       Object.entries(resolved).map(([name, version]: [string, string]) =>
-        !version?.startsWith('^') ? [name, `^${version}`] : [name, version],
+        version.startsWith('^') ? [name, version] : [name, `^${version}`],
       ),
     );
 
