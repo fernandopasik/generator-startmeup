@@ -90,7 +90,7 @@
     "typescript": "^5.5.2",
     "typescript-eslint": "^7.14.1",
     "yeoman-assert": "^3.1.1",
-    "yeoman-test": "^8.3.0"
+    "yeoman-test": "^9.0.0"
   },
   "overrides": {
     "eslint": "^9.5.0"
