@@ -54,6 +54,7 @@ export default class extends Generator {
 
     try {
       gitUrl = await gitRemote();
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error: unknown) {
       gitUrl = null;
     }
