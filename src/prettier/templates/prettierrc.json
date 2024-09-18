@@ -2,8 +2,5 @@
   "plugins": [
     ///<%- plugins -%>
   ],
-  // <% if (typescript) { %>
-  "overrides": [{ "files": ["tsconfig.json"], "options": { "parser": "json" } }],
-  // <% } %>
   "singleQuote": true
 }
