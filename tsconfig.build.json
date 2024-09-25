@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": { "noEmit": false, "outDir": "generators" },
-  "exclude": ["**/__mocks__/**", "**/__tests__/**", "**/*.spec.*"],
+  "exclude": ["**/__mocks__/**", "**/*.test.*"],
   "include": ["src/**/*"]
 }
