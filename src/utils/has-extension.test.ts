@@ -1,4 +1,4 @@
-import hasExtension from '../has-extension.js';
+import hasExtension from './has-extension.js';
 
 describe('hasExtension', () => {
   it('detects the right extension', () => {
@@ -11,6 +11,6 @@ describe('hasExtension', () => {
 
   it('only detects final extensions', () => {
     expect(hasExtension('asdf.js.json', 'js')).toBe(false);
-    expect(hasExtension('asdf.spec.js', 'js')).toBe(true);
+    expect(hasExtension('asdf.test.js', 'js')).toBe(true);
   });
 });

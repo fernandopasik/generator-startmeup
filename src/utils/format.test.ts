@@ -1,13 +1,13 @@
-import cleanupTemplate from '../cleanup-template.js';
-import formatJson from '../format-json.js';
-import format from '../format.js';
-import hasExtension from '../has-extension.js';
-import prettierFormat from '../prettier-format.js';
+import cleanupTemplate from './cleanup-template.js';
+import formatJson from './format-json.js';
+import format from './format.js';
+import hasExtension from './has-extension.js';
+import prettierFormat from './prettier-format.js';
 
-jest.mock('../cleanup-template.js', () => jest.fn());
-jest.mock('../format-json.js', () => jest.fn());
-jest.mock('../has-extension.js', () => jest.fn());
-jest.mock('../prettier-format.js', () => jest.fn());
+jest.mock('./cleanup-template.js', () => jest.fn());
+jest.mock('./format-json.js', () => jest.fn());
+jest.mock('./has-extension.js', () => jest.fn());
+jest.mock('./prettier-format.js', () => jest.fn());
 
 describe('format', () => {
   beforeEach(() => {

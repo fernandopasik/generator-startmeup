@@ -1,5 +1,5 @@
 import { format, resolveConfig, resolveConfigFile } from 'prettier';
-import prettierFormat from '../prettier-format.js';
+import prettierFormat from './prettier-format.js';
 
 jest.mock('prettier', () => ({
   format: jest.fn(),

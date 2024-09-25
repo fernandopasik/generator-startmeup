@@ -1,5 +1,5 @@
 /* eslint-disable  @typescript-eslint/naming-convention, id-length, sort-keys */
-import sortProps from '../sort-props.js';
+import sortProps from './sort-props.js';
 
 describe('sort props', () => {
   it('undefined config', () => {
