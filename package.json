@@ -55,7 +55,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
-    "@eslint/js": "^9.11.0",
+    "@eslint/js": "^9.11.1",
     "@jest/types": "^29.6.3",
     "@tsconfig/strictest": "^2.0.5",
     "@types/eslint": "^9.6.1",
@@ -73,7 +73,7 @@
     "conventional-changelog-conventionalcommits": "^8.0.0",
     "cpy-cli": "^5.0.0",
     "del-cli": "^5.1.0",
-    "eslint": "^9.11.0",
+    "eslint": "^9.11.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.3",
     "eslint-plugin-import": "^2.30.0",
@@ -88,11 +88,11 @@
     "ts-jest": "^29.2.5",
     "type-fest": "^4.26.1",
     "typescript": "^5.6.2",
-    "typescript-eslint": "^8.6.0",
+    "typescript-eslint": "^8.7.0",
     "yeoman-assert": "^3.1.1",
-    "yeoman-test": "^9.1.0"
+    "yeoman-test": "^9.2.0"
   },
   "overrides": {
-    "eslint": "^9.11.0"
+    "eslint": "^9.11.1"
   }
 }
