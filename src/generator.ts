@@ -1,11 +1,9 @@
 /* eslint-disable max-lines */
 import axios from 'axios';
-// eslint-disable-next-line import/namespace, import/default
 import gitRemote from 'git-remote-origin-url';
 import { globbySync } from 'globby';
 import parseGithub from 'parse-github-url';
 import type { PackageJson } from 'type-fest';
-// eslint-disable-next-line import/no-unresolved
 import Generator from 'yeoman-generator';
 import format from './utils/format.js';
 
