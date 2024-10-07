@@ -19,5 +19,5 @@ _site
 <% } -%>
 <% if (ansible) { -%>
 /galaxy
-/venv
+/.venv
 <% } -%>
