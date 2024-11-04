@@ -54,7 +54,7 @@ export default class PackageJsonGenerator extends Generator {
         type: 'input',
       },
       {
-        default: description,
+        default: description ?? '',
         message: "What is your app's description?",
         name: 'description',
         type: 'input',
@@ -70,14 +70,14 @@ export default class PackageJsonGenerator extends Generator {
         message: 'What is your email?',
         name: 'authorEmail',
         type: 'input',
-        when: (props: Answers): boolean => Boolean(props.authorName),
+        when: (props): boolean => Boolean(props.authorName),
       },
       {
-        default: authorUrl,
+        default: authorUrl ?? '',
         message: 'What is your url?',
         name: 'authorUrl',
         type: 'input',
-        when: (props: Answers): boolean => Boolean(props.authorName),
+        when: (props): boolean => Boolean(props.authorName),
       },
       {
         choices: LICENSES,
