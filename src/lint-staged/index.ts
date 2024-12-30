@@ -1,1 +1,1 @@
-export { default } from './lint-staged.js';
+export { default } from './lint-staged.ts';

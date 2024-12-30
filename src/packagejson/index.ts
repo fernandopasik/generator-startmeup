@@ -1,1 +1,1 @@
-export { default } from './packagejson.js';
+export { default } from './packagejson.ts';

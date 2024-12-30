@@ -1,1 +1,1 @@
-export { default } from './readme.js';
+export { default } from './readme.ts';

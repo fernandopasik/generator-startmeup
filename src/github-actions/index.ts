@@ -1,1 +1,1 @@
-export { default } from './github-actions.js';
+export { default } from './github-actions.ts';

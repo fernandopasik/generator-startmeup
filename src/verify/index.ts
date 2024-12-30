@@ -1,1 +1,1 @@
-export { default } from './verify.js';
+export { default } from './verify.ts';

@@ -1,1 +1,1 @@
-export { default } from './babel.js';
+export { default } from './babel.ts';

@@ -1,7 +1,7 @@
-import cleanupTemplate from './cleanup-template.js';
-import formatJson from './format-json.js';
-import hasExtension from './has-extension.js';
-import prettierFormat from './prettier-format.js';
+import cleanupTemplate from './cleanup-template.ts';
+import formatJson from './format-json.ts';
+import hasExtension from './has-extension.ts';
+import prettierFormat from './prettier-format.ts';
 
 const format = async (content: string, filepath: string, root: string): Promise<string> => {
   const sanitized = cleanupTemplate(content);

@@ -1,5 +1,5 @@
 import type { PackageJson } from 'type-fest';
-import Generator from '../generator.js';
+import Generator from '../generator.ts';
 
 export default class GithubActionsGenerator extends Generator {
   public async writing(): Promise<void> {

@@ -1,8 +1,8 @@
-import cleanupTemplate from './cleanup-template.js';
-import formatJson from './format-json.js';
-import format from './format.js';
-import hasExtension from './has-extension.js';
-import prettierFormat from './prettier-format.js';
+import cleanupTemplate from './cleanup-template.ts';
+import formatJson from './format-json.ts';
+import format from './format.ts';
+import hasExtension from './has-extension.ts';
+import prettierFormat from './prettier-format.ts';
 
 jest.mock('./cleanup-template.js', () => jest.fn());
 jest.mock('./format-json.js', () => jest.fn());
@@ -25,7 +25,7 @@ describe('format', () => {
   it('formats with prettier', async () => {
     const content1 = '{"foo": "bar",//"foo2":"bar2"}';
     const content2 = '{"foo": "bar","foo2":"bar2"}';
-    const filepath = 'example.js';
+    const filepath = 'example.ts';
     const root = '/';
     (cleanupTemplate as jest.MockedFunction<typeof cleanupTemplate>).mockReturnValueOnce(content1);
     (prettierFormat as jest.MockedFunction<typeof prettierFormat>).mockResolvedValueOnce(content2);

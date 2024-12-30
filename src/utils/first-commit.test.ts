@@ -1,5 +1,5 @@
 import shell from 'shelljs';
-import firstCommit from './first-commit.js';
+import firstCommit from './first-commit.ts';
 
 const example = `
 commit 1234

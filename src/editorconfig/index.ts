@@ -1,1 +1,1 @@
-export { default } from './editorconfig.js';
+export { default } from './editorconfig.ts';

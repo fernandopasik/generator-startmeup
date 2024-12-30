@@ -1,4 +1,4 @@
-import Generator from '../generator.js';
+import Generator from '../generator.ts';
 
 export default class GitGenerator extends Generator {
   public async writing(): Promise<void> {

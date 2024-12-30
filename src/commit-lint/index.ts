@@ -1,1 +1,1 @@
-export { default } from './commit-lint.js';
+export { default } from './commit-lint.ts';

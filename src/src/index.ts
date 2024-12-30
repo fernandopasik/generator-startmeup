@@ -1,1 +1,1 @@
-export { default } from './src.js';
+export { default } from './src.ts';

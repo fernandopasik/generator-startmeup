@@ -1,6 +1,6 @@
 import type { PackageJson } from 'type-fest';
-import Generator from '../generator.js';
-import gitMainBranch from '../utils/git-main-branch.js';
+import Generator from '../generator.ts';
+import gitMainBranch from '../utils/git-main-branch.ts';
 
 export default class BadgesGenerator extends Generator {
   // eslint-disable-next-line max-lines-per-function

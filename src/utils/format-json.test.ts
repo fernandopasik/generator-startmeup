@@ -1,7 +1,7 @@
 import type { JsonObject } from 'type-fest';
-import formatJson from './format-json.js';
-import prettierFormat from './prettier-format.js';
-import sortProps from './sort-props.js';
+import formatJson from './format-json.ts';
+import prettierFormat from './prettier-format.ts';
+import sortProps from './sort-props.ts';
 
 jest.mock('./prettier-format.js', () => jest.fn((content: string) => content));
 jest.mock('./sort-props.js', () => jest.fn((json: JsonObject): JsonObject => json));

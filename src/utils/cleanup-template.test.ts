@@ -1,4 +1,4 @@
-import cleanupTemplate from './cleanup-template.js';
+import cleanupTemplate from './cleanup-template.ts';
 
 describe('removeTemplateComments', () => {
   it('handle empty content', () => {

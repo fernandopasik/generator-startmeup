@@ -1,1 +1,1 @@
-export { default } from './docs.js';
+export { default } from './docs.ts';

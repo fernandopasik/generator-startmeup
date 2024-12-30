@@ -1,4 +1,4 @@
-import { composeAuthor, parseAuthor } from './author-package.js';
+import { composeAuthor, parseAuthor } from './author-package.ts';
 
 describe('Author Package', () => {
   describe('parse Author', () => {

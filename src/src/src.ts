@@ -1,6 +1,6 @@
 import type { PackageJson } from 'type-fest';
-import Generator from '../generator.js';
-import packageOptions from './package-options.js';
+import Generator from '../generator.ts';
+import packageOptions from './package-options.ts';
 
 export default class SrcGenerator extends Generator {
   private isLibrary = false;

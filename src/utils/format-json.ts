@@ -1,6 +1,6 @@
 import type { JsonObject } from 'type-fest';
-import prettierFormat from './prettier-format.js';
-import sortProps from './sort-props.js';
+import prettierFormat from './prettier-format.ts';
+import sortProps from './sort-props.ts';
 
 const formatJson = async (content: string, filepath: string, root: string): Promise<string> => {
   const JSON_SPACING = 2;

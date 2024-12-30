@@ -4,7 +4,7 @@ import { globbySync } from 'globby';
 import parseGithub from 'parse-github-url';
 import type { PackageJson } from 'type-fest';
 import Generator from 'yeoman-generator';
-import format from './utils/format.js';
+import format from './utils/format.ts';
 
 export type PackageManager = 'npm' | 'pnpm' | 'yarn';
 

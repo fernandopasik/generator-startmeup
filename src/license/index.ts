@@ -1,1 +1,1 @@
-export { default } from './license.js';
+export { default } from './license.ts';

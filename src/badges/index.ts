@@ -1,1 +1,1 @@
-export { default } from './badges.js';
+export { default } from './badges.ts';

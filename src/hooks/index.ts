@@ -1,1 +1,1 @@
-export { default } from './hooks.js';
+export { default } from './hooks.ts';

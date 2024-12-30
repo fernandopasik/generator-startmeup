@@ -1,1 +1,1 @@
-export { default } from './jest.js';
+export { default } from './jest.ts';

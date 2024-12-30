@@ -1,5 +1,5 @@
 import type { GetGeneratorOptions } from '@yeoman/types';
-import Generator from '../generator.js';
+import Generator from '../generator.ts';
 
 export default class StartMeUpGenerator extends Generator {
   // eslint-disable-next-line max-lines-per-function

@@ -1,1 +1,1 @@
-export { default } from './git.js';
+export { default } from './git.ts';
