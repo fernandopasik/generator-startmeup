@@ -39,7 +39,7 @@ export default class extends Generator {
     // eslint-disable-next-line security/detect-object-injection
     return Object.keys(extensions[group] ?? {}).filter(
       // eslint-disable-next-line security/detect-object-injection
-      (extension) => extensions[group]?.[extension],
+      (extension) => Boolean(extensions[group]?.[extension]),
     );
   }
 
