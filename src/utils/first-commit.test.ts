@@ -1,3 +1,5 @@
+import assert from 'node:assert';
+import { describe, it, mock } from 'node:test';
 import shell from 'shelljs';
 import firstCommit from './first-commit.ts';
 
@@ -9,56 +11,51 @@ Date: 1/1/1
 
 describe('first commit', () => {
   it('uses git log', () => {
-    // @ts-expect-error readable
-    const spy = jest.spyOn(shell, 'exec').mockReturnValueOnce({ stdout: '' });
+    const spy = mock.method(shell, 'exec', () => ({ stdout: '' }));
     firstCommit();
 
-    expect(spy).toHaveBeenCalledTimes(1);
-    expect(spy).toHaveBeenCalledWith(expect.stringContaining('git log'), expect.anything());
+    assert.equal(spy.mock.callCount(), 1);
+    assert(Boolean(spy.mock.calls[0]?.arguments[0]?.startsWith('git log')));
 
-    spy.mockRestore();
+    spy.mock.restore();
   });
 
   it('parses the hash', () => {
-    // @ts-expect-error readable
-    const spy = jest.spyOn(shell, 'exec').mockReturnValueOnce({ stdout: example });
+    const spy = mock.method(shell, 'exec', () => ({ stdout: example }));
     const commit = firstCommit();
 
-    expect(commit).not.toBeNull();
-    expect(commit?.hash).toBe('1234');
+    assert.notEqual(commit, null);
+    assert.equal(commit?.hash, '1234');
 
-    spy.mockRestore();
+    spy.mock.restore();
   });
 
   it('parses the author name', () => {
-    // @ts-expect-error readable
-    const spy = jest.spyOn(shell, 'exec').mockReturnValueOnce({ stdout: example });
+    const spy = mock.method(shell, 'exec', () => ({ stdout: example }));
     const commit = firstCommit();
 
-    expect(commit).not.toBeNull();
-    expect(commit?.author).toBe('Me');
+    assert.notEqual(commit, null);
+    assert.equal(commit?.author, 'Me');
 
-    spy.mockRestore();
+    spy.mock.restore();
   });
 
   it('parses the commit date', () => {
-    // @ts-expect-error readable
-    const spy = jest.spyOn(shell, 'exec').mockReturnValueOnce({ stdout: example });
+    const spy = mock.method(shell, 'exec', () => ({ stdout: example }));
     const commit = firstCommit();
 
-    expect(commit).not.toBeNull();
-    expect(commit?.date).toBe('1/1/1');
+    assert.notEqual(commit, null);
+    assert.equal(commit?.date, '1/1/1');
 
-    spy.mockRestore();
+    spy.mock.restore();
   });
 
   it('can be have no commits', () => {
-    // @ts-expect-error readable
-    const spy = jest.spyOn(shell, 'exec').mockReturnValueOnce({ stdout: '' });
+    const spy = mock.method(shell, 'exec', () => ({ stdout: '' }));
     const commit = firstCommit();
 
-    expect(commit).toBeNull();
+    assert.equal(commit, null);
 
-    spy.mockRestore();
+    spy.mock.restore();
   });
 });

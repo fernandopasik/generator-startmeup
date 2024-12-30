@@ -49,6 +49,7 @@ export default ts.config(
   {
     files: ['**/*.test.*'],
     rules: {
+      '@typescript-eslint/init-declarations': 'off',
       '@typescript-eslint/no-floating-promises': 'off',
       '@typescript-eslint/no-magic-numbers': 'off',
       'max-lines': 'off',

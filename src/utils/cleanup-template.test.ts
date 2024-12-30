@@ -1,9 +1,11 @@
+import assert from 'node:assert';
+import { describe, it } from 'node:test';
 import cleanupTemplate from './cleanup-template.ts';
 
 describe('removeTemplateComments', () => {
   it('handle empty content', () => {
-    expect(cleanupTemplate()).toBe('');
-    expect(cleanupTemplate('')).toBe('');
+    assert.equal(cleanupTemplate(), '');
+    assert.equal(cleanupTemplate(''), '');
   });
 
   it('removes the remaining empty comments', () => {
@@ -19,7 +21,7 @@ foo: 'bar'
 }
 `;
 
-    expect(cleanupTemplate(content)).toBe(sanitized);
+    assert.equal(cleanupTemplate(content), sanitized);
   });
 
   it('removes the empty comments with trailing spaces', () => {
@@ -34,7 +36,7 @@ foo: 'bar'
 foo: 'bar'
 }
 `;
-    expect(cleanupTemplate(content)).toBe(sanitized);
+    assert.equal(cleanupTemplate(content), sanitized);
   });
 
   it('removes triple comments without new line', () => {
@@ -55,7 +57,7 @@ foo: [
 }
 `;
 
-    expect(cleanupTemplate(content)).toBe(sanitized);
+    assert.equal(cleanupTemplate(content), sanitized);
   });
 
   it('does not remove non empty comments', () => {
@@ -72,7 +74,7 @@ foo: 'bar' // this should not stay
 }
 `;
 
-    expect(cleanupTemplate(content)).toBe(sanitized);
+    assert.equal(cleanupTemplate(content), sanitized);
   });
 
   it('removes the remaining sh empty comments', () => {
@@ -86,6 +88,6 @@ ls -la
 # valid comment
 ls -la
 `;
-    expect(cleanupTemplate(content)).toBe(sanitized);
+    assert.equal(cleanupTemplate(content), sanitized);
   });
 });

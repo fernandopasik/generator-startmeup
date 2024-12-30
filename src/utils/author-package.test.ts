@@ -1,28 +1,30 @@
+import assert from 'node:assert';
+import { describe, it } from 'node:test';
 import { composeAuthor, parseAuthor } from './author-package.ts';
 
 describe('Author Package', () => {
   describe('parse Author', () => {
     describe('with single line input and', () => {
       it('with only name', () => {
-        expect(parseAuthor('John Doe')).toStrictEqual({ name: 'John Doe' });
+        assert.deepStrictEqual(parseAuthor('John Doe'), { name: 'John Doe' });
       });
 
       it('with name and email', () => {
-        expect(parseAuthor('John Doe <john@doe.com>')).toStrictEqual({
+        assert.deepStrictEqual(parseAuthor('John Doe <john@doe.com>'), {
           email: 'john@doe.com',
           name: 'John Doe',
         });
       });
 
       it('with name and url', () => {
-        expect(parseAuthor('John Doe (https://johndoe.com)')).toStrictEqual({
+        assert.deepStrictEqual(parseAuthor('John Doe (https://johndoe.com)'), {
           name: 'John Doe',
           url: 'https://johndoe.com',
         });
       });
 
       it('with name, email and url', () => {
-        expect(parseAuthor('John Doe <john@doe.com> (https://johndoe.com)')).toStrictEqual({
+        assert.deepStrictEqual(parseAuthor('John Doe <john@doe.com> (https://johndoe.com)'), {
           email: 'john@doe.com',
           name: 'John Doe',
           url: 'https://johndoe.com',
@@ -37,40 +39,43 @@ describe('Author Package', () => {
         url: 'https://johndoe.com',
       };
 
-      expect(parseAuthor(author)).toStrictEqual(author);
+      assert.deepStrictEqual(parseAuthor(author), author);
     });
 
     it('with no input', () => {
-      expect(parseAuthor()).toStrictEqual({});
+      assert.deepStrictEqual(parseAuthor(), {});
     });
   });
 
   describe('to Author single line', () => {
     it('with only name', () => {
-      expect(composeAuthor({ name: 'John Doe' })).toBe('John Doe');
+      assert.equal(composeAuthor({ name: 'John Doe' }), 'John Doe');
     });
 
     it('with name and email', () => {
-      expect(composeAuthor({ email: 'john@doe.com', name: 'John Doe' })).toBe(
+      assert.equal(
+        composeAuthor({ email: 'john@doe.com', name: 'John Doe' }),
         'John Doe <john@doe.com>',
       );
     });
 
     it('with name and url', () => {
-      expect(composeAuthor({ name: 'John Doe', url: 'https://johndoe.com' })).toBe(
+      assert.equal(
+        composeAuthor({ name: 'John Doe', url: 'https://johndoe.com' }),
         'John Doe (https://johndoe.com)',
       );
     });
 
     it('with name, email and url', () => {
-      expect(
+      assert.equal(
         composeAuthor({ email: 'john@doe.com', name: 'John Doe', url: 'https://johndoe.com' }),
-      ).toBe('John Doe <john@doe.com> (https://johndoe.com)');
+        'John Doe <john@doe.com> (https://johndoe.com)',
+      );
     });
 
     it('with no input', () => {
-      expect(composeAuthor({})).toBe('');
-      expect(composeAuthor()).toBe('');
+      assert.equal(composeAuthor({}), '');
+      assert.equal(composeAuthor(), '');
     });
   });
 });

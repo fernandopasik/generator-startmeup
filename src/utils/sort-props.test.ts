@@ -1,13 +1,15 @@
 /* eslint-disable  @typescript-eslint/naming-convention, id-length, sort-keys */
+import assert from 'node:assert';
+import { describe, it } from 'node:test';
 import sortProps from './sort-props.ts';
 
 describe('sort props', () => {
   it('undefined config', () => {
-    expect(sortProps()).toStrictEqual({});
+    assert.deepStrictEqual(sortProps(), {});
   });
 
   it('empty config', () => {
-    expect(sortProps({})).toStrictEqual({});
+    assert.deepStrictEqual(sortProps({}), {});
   });
 
   it('primitive values', () => {
@@ -17,7 +19,8 @@ describe('sort props', () => {
       c: '',
     };
 
-    expect(JSON.stringify(sortProps(config))).toStrictEqual(
+    assert.deepStrictEqual(
+      JSON.stringify(sortProps(config)),
       JSON.stringify({
         a: 1,
         b: null,
@@ -33,7 +36,8 @@ describe('sort props', () => {
       c: '',
     };
 
-    expect(JSON.stringify(sortProps(config))).toStrictEqual(
+    assert.deepStrictEqual(
+      JSON.stringify(sortProps(config)),
       JSON.stringify({
         a: ['a', 'b', 'c'],
         b: null,
@@ -53,7 +57,8 @@ describe('sort props', () => {
       c: '',
     };
 
-    expect(JSON.stringify(sortProps(config))).toStrictEqual(
+    assert.deepStrictEqual(
+      JSON.stringify(sortProps(config)),
       JSON.stringify({
         a: {
           d: '',
@@ -80,7 +85,8 @@ describe('sort props', () => {
       c: '',
     };
 
-    expect(JSON.stringify(sortProps(config))).toStrictEqual(
+    assert.deepStrictEqual(
+      JSON.stringify(sortProps(config)),
       JSON.stringify({
         a: {
           d: '',
@@ -100,7 +106,7 @@ describe('sort props', () => {
     const config = { B: null, a: 1, b: '' };
     const sortedConfig = { a: 1, B: null, b: '' };
 
-    expect(JSON.stringify(sortProps(config))).toStrictEqual(JSON.stringify(sortedConfig));
+    assert.deepStrictEqual(JSON.stringify(sortProps(config)), JSON.stringify(sortedConfig));
   });
 
   it('extends goes always first', () => {
@@ -110,7 +116,8 @@ describe('sort props', () => {
       a: 1,
     };
 
-    expect(JSON.stringify(sortProps(config, ['extends']))).toStrictEqual(
+    assert.deepStrictEqual(
+      JSON.stringify(sortProps(config, ['extends'])),
       JSON.stringify({
         extends: '',
         a: 1,
@@ -126,7 +133,8 @@ describe('sort props', () => {
       a: 1,
     };
 
-    expect(JSON.stringify(sortProps(config))).toStrictEqual(
+    assert.deepStrictEqual(
+      JSON.stringify(sortProps(config)),
       JSON.stringify({
         a: 1,
         b: null,
@@ -150,7 +158,8 @@ describe('sort props', () => {
       a: 1,
     };
 
-    expect(JSON.stringify(sortProps(config))).toStrictEqual(
+    assert.deepStrictEqual(
+      JSON.stringify(sortProps(config)),
       JSON.stringify({
         a: 1,
         b: null,
@@ -176,7 +185,8 @@ describe('sort props', () => {
       ],
     };
 
-    expect(JSON.stringify(sortProps(config))).toStrictEqual(
+    assert.deepStrictEqual(
+      JSON.stringify(sortProps(config)),
       JSON.stringify({
         c: [
           { a: 1, b: 2 },

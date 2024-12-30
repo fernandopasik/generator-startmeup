@@ -1,21 +1,19 @@
+import assert from 'node:assert';
+import { describe, it, mock } from 'node:test';
 import shell from 'shelljs';
 import gitMainBranch from './git-main-branch.ts';
 
 describe('first commit', () => {
   it('uses git log', () => {
     const branchName = 'different';
-    // @ts-expect-error readable
-    const spy = jest.spyOn(shell, 'exec').mockReturnValueOnce({ stdout: branchName });
+    const spy = mock.method(shell, 'exec', () => ({ stdout: branchName }));
 
     const mainBranch = gitMainBranch();
 
-    expect(spy).toHaveBeenCalledTimes(1);
-    expect(spy).toHaveBeenCalledWith(
-      expect.stringContaining('git symbolic-ref'),
-      expect.anything(),
-    );
-    expect(mainBranch).toBe(branchName);
+    assert.equal(spy.mock.callCount(), 1);
+    assert(Boolean(spy.mock.calls[0]?.arguments[0]?.startsWith('git symbolic-ref')));
+    assert.equal(mainBranch, branchName);
 
-    spy.mockRestore();
+    spy.mock.restore();
   });
 });

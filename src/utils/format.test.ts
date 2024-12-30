@@ -1,60 +1,80 @@
-import cleanupTemplate from './cleanup-template.ts';
-import formatJson from './format-json.ts';
-import format from './format.ts';
-import hasExtension from './has-extension.ts';
-import prettierFormat from './prettier-format.ts';
-
-jest.mock('./cleanup-template.js', () => jest.fn());
-jest.mock('./format-json.js', () => jest.fn());
-jest.mock('./has-extension.js', () => jest.fn());
-jest.mock('./prettier-format.js', () => jest.fn());
+import assert from 'node:assert';
+import { after, beforeEach, describe, it, mock } from 'node:test';
+import type cleanupTemplate from './cleanup-template.ts';
+import type formatJson from './format-json.ts';
+import type hasExtension from './has-extension.ts';
+import type prettierFormat from './prettier-format.ts';
 
 describe('format', () => {
+  const cleanupTemplateMock = mock.fn<typeof cleanupTemplate>();
+  const formatJsonMock = mock.fn<typeof formatJson>();
+  const hasExtensionMock = mock.fn<typeof hasExtension>();
+  const prettierFormatMock = mock.fn<typeof prettierFormat>();
+  const module1 = mock.module('./cleanup-template.ts', { defaultExport: cleanupTemplateMock });
+  const module2 = mock.module('./format-json.ts', { defaultExport: formatJsonMock });
+  const module3 = mock.module('./has-extension.ts', { defaultExport: hasExtensionMock });
+  const module4 = mock.module('./prettier-format.ts', { defaultExport: prettierFormatMock });
+
   beforeEach(() => {
-    jest.clearAllMocks();
+    cleanupTemplateMock.mock.resetCalls();
+    formatJsonMock.mock.resetCalls();
+    hasExtensionMock.mock.resetCalls();
+    prettierFormatMock.mock.resetCalls();
+  });
+
+  after(() => {
+    module1.restore();
+    module2.restore();
+    module3.restore();
+    module4.restore();
   });
 
   it('cleans up to template code', async () => {
+    const { default: format } = await import('./format.ts');
     const content = '{"foo": "bar","foo2":"bar2"}';
     await format(content, '', '');
 
-    expect(cleanupTemplate).toHaveBeenCalledTimes(1);
-    expect(cleanupTemplate).toHaveBeenCalledWith(content);
+    assert.equal(cleanupTemplateMock.mock.callCount(), 1);
+    assert.equal(cleanupTemplateMock.mock.calls[0]?.arguments[0], content);
   });
 
   it('formats with prettier', async () => {
+    const { default: format } = await import('./format.ts');
     const content1 = '{"foo": "bar",//"foo2":"bar2"}';
     const content2 = '{"foo": "bar","foo2":"bar2"}';
     const filepath = 'example.ts';
     const root = '/';
-    (cleanupTemplate as jest.MockedFunction<typeof cleanupTemplate>).mockReturnValueOnce(content1);
-    (prettierFormat as jest.MockedFunction<typeof prettierFormat>).mockResolvedValueOnce(content2);
+    cleanupTemplateMock.mock.mockImplementationOnce(() => content1);
+    prettierFormatMock.mock.mockImplementationOnce(async () => Promise.resolve(content2));
+
     const result = await format(content1, filepath, root);
 
-    expect(prettierFormat).toHaveBeenCalledTimes(1);
-    expect(prettierFormat).toHaveBeenCalledWith(content1, filepath, root);
-    expect(result).toStrictEqual(content2);
+    assert.equal(prettierFormatMock.mock.callCount(), 1);
+    assert.deepStrictEqual(prettierFormatMock.mock.calls[0]?.arguments, [content1, filepath, root]);
+    assert.deepStrictEqual(result, content2);
   });
 
   it('returns formatted file', async () => {
+    const { default: format } = await import('./format.ts');
     const formatted = '{"foo": "bar"}';
-    (prettierFormat as jest.MockedFunction<typeof prettierFormat>).mockResolvedValueOnce(formatted);
+    prettierFormatMock.mock.mockImplementationOnce(async () => Promise.resolve(formatted));
     const result = await format('', '', '');
 
-    expect(result).toStrictEqual(formatted);
+    assert.deepStrictEqual(result, formatted);
   });
 
   it('runs extra format to json files', async () => {
-    (hasExtension as jest.MockedFunction<typeof hasExtension>).mockReturnValueOnce(false);
+    const { default: format } = await import('./format.ts');
+    hasExtensionMock.mock.mockImplementationOnce(() => false);
     await format('', '', '');
 
-    expect(hasExtension).toHaveBeenCalledTimes(1);
-    expect(formatJson).toHaveBeenCalledTimes(0);
+    assert.equal(hasExtensionMock.mock.callCount(), 1);
+    assert.equal(formatJsonMock.mock.callCount(), 0);
 
-    (hasExtension as jest.MockedFunction<typeof hasExtension>).mockReturnValueOnce(true);
+    hasExtensionMock.mock.mockImplementationOnce(() => true);
     await format('', '', '');
 
-    expect(hasExtension).toHaveBeenCalledTimes(2);
-    expect(formatJson).toHaveBeenCalledTimes(1);
+    assert.equal(hasExtensionMock.mock.callCount(), 2);
+    assert.equal(formatJsonMock.mock.callCount(), 1);
   });
 });

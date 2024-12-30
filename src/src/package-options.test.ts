@@ -1,3 +1,5 @@
+import assert from 'node:assert';
+import { describe, it } from 'node:test';
 import packageOptions from './package-options.ts';
 
 describe('packageOptions', () => {
@@ -5,8 +7,8 @@ describe('packageOptions', () => {
     const name = 'myapp';
     const { type, main, module } = packageOptions(name);
 
-    expect(type).toBe('module');
-    expect(main).toStrictEqual(module);
+    assert.equal(type, 'module');
+    assert.deepStrictEqual(main, module);
   });
 
   describe('when library', () => {
@@ -14,21 +16,21 @@ describe('packageOptions', () => {
       const name = 'myapp';
       const { main } = packageOptions(name);
 
-      expect(main).toBe(`${name}.js`);
+      assert.equal(main, `${name}.js`);
     });
 
     it('files include lib and app name main', () => {
       const name = 'myapp';
       const { files } = packageOptions(name);
 
-      expect(files).toStrictEqual(['/lib', `/${name}.*`]);
+      assert.deepStrictEqual(files, ['/lib', `/${name}.*`]);
     });
 
     it('can have typings', () => {
       const name = 'myapp';
       const { typings } = packageOptions(name, true, true, true);
 
-      expect(typings).toBe(`${name}.d.ts`);
+      assert.equal(typings, `${name}.d.ts`);
     });
   });
 
@@ -37,21 +39,21 @@ describe('packageOptions', () => {
       const name = 'myapp';
       const { main } = packageOptions(name, false);
 
-      expect(main).toBe('dist/app.js');
+      assert.equal(main, 'dist/app.js');
     });
 
     it('files include dist', () => {
       const name = 'myapp';
       const { files } = packageOptions(name, false);
 
-      expect(files).toStrictEqual(['/dist']);
+      assert.deepStrictEqual(files, ['/dist']);
     });
 
     it('can have typings', () => {
       const name = 'myapp';
       const { typings } = packageOptions(name, false, true, true);
 
-      expect(typings).toBe('dist/app.d.ts');
+      assert.equal(typings, 'dist/app.d.ts');
     });
   });
 
@@ -60,21 +62,21 @@ describe('packageOptions', () => {
       const name = 'myapp';
       const { main } = packageOptions(name, false, false, false, true);
 
-      expect(main).toBe('generators/app/index.js');
+      assert.equal(main, 'generators/app/index.js');
     });
 
     it('files include dist', () => {
       const name = 'myapp';
       const { files } = packageOptions(name, false, false, false, true);
 
-      expect(files).toStrictEqual(['/generators']);
+      assert.deepStrictEqual(files, ['/generators']);
     });
 
     it('can have typings', () => {
       const name = 'myapp';
       const { typings } = packageOptions(name, false, false, true, true);
 
-      expect(typings).toBe('generators/app/index.d.ts');
+      assert.equal(typings, 'generators/app/index.d.ts');
     });
   });
 });
