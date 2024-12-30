@@ -38,7 +38,6 @@
     "verify": "npm run format:check && npm run lint && npm run check-types && npm run test:coverage && npm run build"
   },
   "dependencies": {
-    "axios": "^1.7.9",
     "git-remote-origin-url": "^4.0.0",
     "github-username": "^8.0.0",
     "globby": "^14.0.2",

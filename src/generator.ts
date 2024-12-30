@@ -1,5 +1,4 @@
 /* eslint-disable max-lines */
-import axios from 'axios';
 import gitRemote from 'git-remote-origin-url';
 import { globbySync } from 'globby';
 import parseGithub from 'parse-github-url';
@@ -85,7 +84,7 @@ export default class extends Generator {
 
     if (typeof name !== 'undefined') {
       try {
-        await axios.get(`https://www.npmjs.com/package/${name}`);
+        await fetch(`https://www.npmjs.com/package/${name}`);
         npmName = name;
       } catch {
         npmName = null;
