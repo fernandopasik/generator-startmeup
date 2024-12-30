@@ -6,14 +6,14 @@
     "declarationMap": true,
     "experimentalDecorators": true,
     "inlineSources": true,
-    "lib": ["es2021"],
+    "lib": ["es2023"],
     "module": "ESNext",
     "moduleResolution": "node",
     "noEmit": true,
     "resolveJsonModule": true,
     "rootDirs": ["src"],
     "sourceMap": true,
-    "target": "es2019"
+    "target": "es2022"
   },
   "exclude": ["generators", "coverage", "eslint.config.js"],
   "include": [".**/**/*", "**/*"]
