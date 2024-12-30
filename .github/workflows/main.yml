@@ -61,6 +61,8 @@ jobs:
       - name: Upload Report to Codecov
         uses: codecov/codecov-action@v5
         if: always()
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
   build:
     name: Build
     runs-on: ubuntu-latest
