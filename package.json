@@ -58,7 +58,6 @@
     "@types/eslint": "^9.6.1",
     "@types/gitconfiglocal": "^2.0.3",
     "@types/inquirer": "^9.0.7",
-    "@types/mvdan-sh": "^0.10.9",
     "@types/parse-github-url": "^1.0.3",
     "@types/prettier": "^3.0.0",
     "@types/shelljs": "^0.8.15",
