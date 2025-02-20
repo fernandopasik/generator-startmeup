@@ -45,7 +45,7 @@
     "prettier": "^3.5.1",
     "prettier-plugin-organize-imports": "^4.1.0",
     "prettier-plugin-pkg": "^0.18.1",
-    "prettier-plugin-sh": "^0.14.0",
+    "prettier-plugin-sh": "^0.15.0",
     "shelljs": "^0.8.5",
     "sort-package-json": "^2.14.0",
     "yeoman-generator": "^7.4.0"
