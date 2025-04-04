@@ -1,3 +1,4 @@
+import githubUsername from 'github-username';
 import parseGithub from 'parse-github-url';
 import path from 'path';
 import type { PackageJson } from 'type-fest';
@@ -111,7 +112,10 @@ export default class PackageJsonGenerator extends Generator {
         repository = `${githubOrg}/${githubRepo}`;
       }
     } catch {
-      repository = `${await this.github.username()}/${name}`;
+      const email = await this.git.email();
+      if (typeof email !== 'undefined') {
+        repository = `${await githubUsername(email)}/${name}`;
+      }
     }
 
     const authorProps = Object.fromEntries(
