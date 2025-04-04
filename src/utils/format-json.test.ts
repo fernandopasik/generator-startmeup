@@ -40,7 +40,7 @@ describe('formatJson', () => {
       const { default: formatJson } = await import('./format-json.ts');
       await formatJson('{}', '', '');
       assert.deepStrictEqual(sortPropsMock.mock.calls[0]?.arguments[0], {});
-      assert.deepStrictEqual(sortPropsMock.mock.calls[0]?.arguments[1], [
+      assert.deepStrictEqual(sortPropsMock.mock.calls[0].arguments[1], [
         'extends',
         'files',
         'plugins',
