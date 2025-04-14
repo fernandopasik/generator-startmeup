@@ -15,6 +15,6 @@
     "sourceMap": true,
     "target": "es2022"
   },
-  "exclude": ["generators", "coverage", "eslint.config.js"],
+  "exclude": ["*.config.js", "coverage", "generators"],
   "include": [".**/**/*", "**/*"]
 }
