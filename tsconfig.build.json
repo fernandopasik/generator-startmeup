@@ -5,6 +5,6 @@
     "outDir": "generators",
     "rewriteRelativeImportExtensions": true
   },
-  "exclude": ["**/__mocks__/**", "**/*.test.*"],
+  "exclude": ["**/*.test.*"],
   "include": ["src/**/*"]
 }
