@@ -40,7 +40,7 @@
     "git-remote-origin-url": "^4.0.0",
     "github-username": "^9.0.0",
     "globby": "^15.0.0",
-    "inquirer": "^12.5.2",
+    "inquirer": "^13.0.1",
     "parse-github-url": "^1.0.3",
     "prettier": "^3.5.3",
     "prettier-plugin-organize-imports": "^4.1.0",
