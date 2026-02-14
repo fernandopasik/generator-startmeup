@@ -4,6 +4,7 @@ import Generator from '../generator.ts';
 export default class StartMeUpGenerator extends Generator {
   // eslint-disable-next-line max-lines-per-function
   public async initializing(): Promise<void> {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     this.log('Welcome to the marvelous StartMeUp generator!');
 
     let subGenerators = [
