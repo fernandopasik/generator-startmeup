@@ -86,7 +86,20 @@
     "yeoman-test": "^11.2.0"
   },
   "overrides": {
-    "@octokit/core": "6.1.4",
-    "@octokit/rest": "21.1.1"
+    "c8": {
+      "minimatch": "^10.2.2"
+    },
+    "eslint-plugin-import": {
+      "minimatch": "^10.2.2"
+    },
+    "typescript-eslint": {
+      "minimatch": "^10.2.2"
+    },
+    "yeoman-generator": {
+      "minimatch": "^10.2.2"
+    },
+    "yeoman-test": {
+      "minimatch": "^10.2.2"
+    }
   }
 }
